@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="人类今天也在绝赞衰退中！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从[SDOI2011]消耗战开始的虚树学习">
+<meta property="og:url" content="http://example.com/2020/07/15/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%BB%8E[SDOI2011]%E6%B6%88%E8%80%97%E6%88%98%E5%BC%80%E5%A7%8B%E7%9A%84%E8%99%9A%E6%A0%91%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="人类今天也在绝赞衰退中！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200714223634163.jpg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200714233216239.png">
+<meta property="article:published_time" content="2020-07-14T17:09:51.000Z">
+<meta property="article:modified_time" content="2023-10-19T12:53:52.625Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="虚树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200714223634163.jpg">
+
+
+<link rel="canonical" href="http://example.com/2020/07/15/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%BB%8E[SDOI2011]%E6%B6%88%E8%80%97%E6%88%98%E5%BC%80%E5%A7%8B%E7%9A%84%E8%99%9A%E6%A0%91%E5%AD%A6%E4%B9%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2020/07/15/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%BB%8E[SDOI2011]%E6%B6%88%E8%80%97%E6%88%98%E5%BC%80%E5%A7%8B%E7%9A%84%E8%99%9A%E6%A0%91%E5%AD%A6%E4%B9%A0/","path":"2020/07/15/程序设计竞赛相关/算法学习/从[SDOI2011]消耗战开始的虚树学习/","title":"从[SDOI2011]消耗战开始的虚树学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>从[SDOI2011]消耗战开始的虚树学习 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">虚树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E9%80%94"><span class="nav-number">1.1.</span> <span class="nav-text">用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%8A%80%E8%83%BD"><span class="nav-number">1.2.</span> <span class="nav-text">前置技能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFdfs%E5%BA%8F"><span class="nav-number">1.4.</span> <span class="nav-text">为什么是dfs序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.5.</span> <span class="nav-text">如何建立</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%96%9C%E9%97%BB%E4%B9%90%E8%A7%81%E7%9A%84%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3%E6%97%B6%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">喜闻乐见的代码讲解时间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">2.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-number">2.3.</span> <span class="nav-text">完整代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/15/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%BB%8E[SDOI2011]%E6%B6%88%E8%80%97%E6%88%98%E5%BC%80%E5%A7%8B%E7%9A%84%E8%99%9A%E6%A0%91%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="从[SDOI2011]消耗战开始的虚树学习 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从[SDOI2011]消耗战开始的虚树学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-15 01:09:51" itemprop="dateCreated datePublished" datetime="2020-07-15T01:09:51+08:00">2020-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-19 20:53:52" itemprop="dateModified" datetime="2023-10-19T20:53:52+08:00">2023-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>人类今天也在绝赞衰退中！</p>
+<p><img src="https://img-blog.csdnimg.cn/20200714223634163.jpg" alt="人类今天也在绝赞衰退中"></p>
+<span id="more"></span>
+
+<h3 id="虚树"><a href="#虚树" class="headerlink" title="虚树"></a>虚树</h3><p>浓缩信息，把一整颗大树浓缩成一颗小树 。——$\operatorname{OIwiki}$</p>
+<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><p>虚树是在树形$dp$中使用的一种特殊优化，适用于树中仅有<strong>少量关键节点</strong>且普通节点很多的情况。可以将关键点和他们的$\operatorname{LCA}$拿出来另建一棵树，并在这棵树上另外进行树形$dp$。</p>
+<h4 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h4><p>邻接表或链式前向星存图、任意一种求$\operatorname{LCA}$的算法、单调栈（这个不会也可以直接学）</p>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li>在原树上进行dfs，进行LCA预处理，同时得到原树上的dfs序，方便之后虚树构造，此外还可以进行一些dp预处理，便于进行虚树上的第二次dp。</li>
+<li>确定关键节点集合，并按照dfs序排序。</li>
+<li>通过单调栈及LCA算法构建出虚树。</li>
+<li>在虚树上进行树形dp求解。</li>
+</ol>
+<h4 id="为什么是dfs序"><a href="#为什么是dfs序" class="headerlink" title="为什么是dfs序"></a>为什么是dfs序</h4><p>完整问题：为什么将关键节点按$dfs$序排序后，将相邻关键节点的$\operatorname{LCA}$加入得到虚树上的所有结点？<br>首先任意关键节点都在虚树上，这些关键节点形成的所有$\operatorname{LCA}$也都在虚树上，虚树的叶子一定为关键节点。<br>不按$dfs$序而缺少$\operatorname{LCA}$的情况如下图所示：<br><img src="https://img-blog.csdnimg.cn/20200714233216239.png" alt="在这里插入图片描述"><br>如果按照字典序加入$lca(1,2)$，$lca(2,3)$，会缺少$lca(1,3)&#x3D;4$，可以发现因为没有考虑节点1,3和其最近公共祖先4构成的子树。<br>没有查到可信的证明：在这里立个猜想，按$dfs$序保证优先处理了所有<strong>最小</strong>子树的$\operatorname{LCA}$，并且加入了<strong>所有</strong>（关键节点及其$\operatorname{LCA}$构成的）相邻子树的$\operatorname{LCA}$。<br>emm，这个描述似乎很不清晰，建议画个草图感性理解下。</p>
+<h4 id="如何建立"><a href="#如何建立" class="headerlink" title="如何建立"></a>如何建立</h4><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/Rhodoks/solution-p2495">强推这篇博客，讲的很明白</a><br>始终用栈维护一条链，表示从虚树的根一直到栈顶元素这一条链，栈中所有元素即为此时虚树在这条链上的节点。<br>排序后的第一个关键节点无条件加入栈中，剩下的关键节点按$dfs$序依次考虑。设要加入的关键节点为$now$，栈顶节点为$top$，栈中第二个元素为$top-1$，$now$和$top$的最近公共祖先为$lca$，$dfs$序记录在$dfn$数组中。<br>$lca$不一定在栈中，但显然在$top$到根节点这条链上，所以$dfn[lca]\le dfn[top]$。<br>插入关键节点$now$时一共有四种情况：</p>
+<ol>
+<li>$dfn[lca]&#x3D;dfn[top]$。即$now$节点在$lca$的子树上，将$now$推入栈中，链端向下延伸即可。</li>
+<li>$dfn[lca]&gt;dfn[top-1]$且$dfn[lca]&lt;dfn[top]$。说明$lca$在$top$和$top-1$之间，将边$&lt;lca,top&gt;$加入虚树，$top$出栈，$lca$和$now$入栈。</li>
+<li>$dfn[lca]&#x3D;dfn[top-1]$。说明$lca$即$top-1$，和情况2大同小异。将边$&lt;lca,top&gt;$加入虚树，$top$出栈，$now$入栈。</li>
+<li>$dfn[lca]&lt;dfn[top-1]$。不断将边$&lt;top-1,top&gt;$加入虚树，$top$出栈，直至不符合情况4，转入上述三种中的一种进行处理。</li>
+</ol>
+<p>看不懂的话点进上面的链接，那个有配图，嘤嘤嘤。</p>
+<h3 id="喜闻乐见的代码讲解时间"><a href="#喜闻乐见的代码讲解时间" class="headerlink" title="喜闻乐见的代码讲解时间"></a>喜闻乐见的代码讲解时间</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给出一棵带有边权的$n\le 2.5\times 10^5$节点树和$m\le 5\times 10^5$个询问。<br>每次询问给出$k$个关键节点，你可以切断一些边，代价即为该边边权，求出节点$1$与所有关键节点都不连接的最小代价，$\sum k_i \le 5\times 10^5$。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>考虑直接树形$dp$做法，令$dp[x]$为节点$x$不与子树上$x$所有关键节点连接的最小代价，在$dfs$回溯过程中求解。<br>则对于$x$所有的子节点$v$，若$v$为关键节点，只能通过断掉连接的边来与$v$隔绝，则$$dp[x]+&#x3D;w(&lt;u,v&gt;)$$否则比较$x$断掉$v$的连接和$v$与子树上关键节点断掉连接的代价$$dp[x]+&#x3D;min(w(&lt;u,v&gt;),dp[v])$$<br>这样的复杂度为$O(mn)$，肯定超时。<br>所以要用虚树优化，若使用倍增算法求$\operatorname{LCA}$，则整体复杂度$O(n+mklogn)$。<br>菜鸡只会倍增和树剖，这里使用倍增求$\operatorname{LCA}$，同时在倍增预处理$dfs$中标记了$dfs$序，进行了第一遍的$dp$预处理。<br>这里的$dp[x]$含义为：根节点（这里为节点$1$）与节点$x$断掉联系的最小代价。<br>在构建出来的虚树上进行第二次树形$dp$，即可求解，同时在$dfs$回溯过程中取消标记和清空虚树。</p>
+<h4 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#pragma comment(linker, &quot;/STACK:102400000,102400000&quot;)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;pii;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">3e5</span>+<span class="number">10</span>,inf=<span class="number">0x3f3f3f3f</span>,mod=<span class="number">1000000007</span>;</span><br><span class="line"><span class="type">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span>... T2&gt;<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">read</span><span class="params">(T &amp;x,T2 &amp;... oth)</span> </span>&#123;</span><br><span class="line">    x=<span class="number">0</span>; <span class="type">int</span> ch=<span class="built_in">getchar</span>(),f=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>)&#123;<span class="keyword">if</span> (ch==<span class="string">&#x27;-&#x27;</span>) f=<span class="number">1</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span> (ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">if</span>(f)x=-x;</span><br><span class="line">    <span class="built_in">read</span>(oth...);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> v,nex;</span><br><span class="line">    ll w;</span><br><span class="line">    <span class="built_in">edge</span>(<span class="type">int</span> v=<span class="number">0</span>,ll w=<span class="number">0</span>,<span class="type">int</span> nex=<span class="number">0</span>):</span><br><span class="line">        <span class="built_in">v</span>(v),<span class="built_in">w</span>(w),<span class="built_in">nex</span>(nex)&#123;&#125;</span><br><span class="line">&#125; e[maxn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="type">int</span> head[maxn],cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> v,<span class="type">int</span> w=<span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[++cnt].v=v;</span><br><span class="line">    e[cnt].w=w;</span><br><span class="line">    e[cnt].nex=head[u];</span><br><span class="line">    head[u]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxl=<span class="number">30</span>;</span><br><span class="line"><span class="type">int</span> gene[maxn][maxl],depth[maxn],lg[maxn],dfn[maxn],tim=<span class="number">0</span>;</span><br><span class="line">ll dp[maxn];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[x])</span><br><span class="line">        dfn[x]=++tim;</span><br><span class="line">    depth[x]=depth[fa]+<span class="number">1</span>;</span><br><span class="line">    gene[x][<span class="number">0</span>]=fa;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;(<span class="number">1</span>&lt;&lt;i)&lt;=depth[x];i++)<span class="comment">//倍增</span></span><br><span class="line">        gene[x][i]=gene[gene[x][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=head[x];~i;i=e[i].nex)</span><br><span class="line">        <span class="keyword">if</span>(e[i].v!=fa)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[e[i].v]=<span class="built_in">min</span>(dp[x],e[i].w);</span><br><span class="line">            <span class="built_in">dfs</span>(e[i].v,x);<span class="comment">//在dfs前后加语句可以求出许多有趣的东西</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lca</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(depth[x]&lt;depth[y])<span class="comment">//保证x深度≥y</span></span><br><span class="line">        <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(depth[x]&gt;depth[y])<span class="comment">//将x提到同一高度</span></span><br><span class="line">        x=gene[x][lg[depth[x]-depth[y]<span class="number">-1</span>]];</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="comment">//是同一个节点</span></span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=lg[depth[x]];i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        <span class="keyword">if</span>(gene[x][i]!=gene[y][i])</span><br><span class="line">        &#123;<span class="comment">//二分思想,直到跳到LCA的下面一层</span></span><br><span class="line">            x=gene[x][i];</span><br><span class="line">            y=gene[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> gene[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> s,<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    depth[s]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//预处理出log2(i)+1的值</span></span><br><span class="line">        lg[i]=lg[i<span class="number">-1</span>]+((<span class="number">1</span>&lt;&lt;(lg[i<span class="number">-1</span>]+<span class="number">1</span>))==i);<span class="comment">//不要写错</span></span><br><span class="line">    <span class="built_in">dfs</span>(s,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//#define ff first</span></span><br><span class="line"><span class="comment">//#define ss second</span></span><br><span class="line"><span class="type">int</span> h[maxn],stk[maxn],top=<span class="number">0</span>;</span><br><span class="line"><span class="type">bool</span> key[maxn];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> v,nex;</span><br><span class="line">    <span class="built_in">edge2</span>(<span class="type">int</span> v=<span class="number">0</span>,<span class="type">int</span> nex=<span class="number">-1</span>):</span><br><span class="line">        <span class="built_in">v</span>(v),<span class="built_in">nex</span>(nex)&#123;&#125;;</span><br><span class="line">&#125; G[maxn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="type">int</span> head2[maxn],cnt2=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">adde</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    G[++cnt2].v=v;</span><br><span class="line">    G[cnt2].nex=head2[u];</span><br><span class="line">    head2[u]=cnt2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">dfs2</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//和x子树上所有关键点断掉联系的代价</span></span><br><span class="line"><span class="comment">//    printf(&quot;!%d!&quot;,x);</span></span><br><span class="line">    ll sum=<span class="number">0</span>,ret=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=head2[x];~i;i=G[i].nex)</span><br><span class="line">    &#123;<span class="comment">//与字数上所有关键节点断掉联系的代价和</span></span><br><span class="line">        <span class="type">int</span> v=G[i].v;</span><br><span class="line">        sum+=<span class="built_in">dfs2</span>(v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(key[x])<span class="comment">//dp[x]表示节点1与x断掉的最小代价</span></span><br><span class="line">        ret=dp[x];</span><br><span class="line">    <span class="keyword">else</span><span class="comment">//可以选择直接和x断掉联系,或者x与子树关键点断掉联系</span></span><br><span class="line">        ret=<span class="built_in">min</span>(dp[x],sum);</span><br><span class="line">    key[x]=<span class="number">0</span>;</span><br><span class="line">    head2[x]=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="built_in">sizeof</span>(head));</span><br><span class="line">    <span class="built_in">memset</span>(head2,<span class="number">-1</span>,<span class="built_in">sizeof</span>(head2));</span><br><span class="line">    <span class="type">int</span> n,u,v,w,m,k;</span><br><span class="line">    <span class="built_in">read</span>(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">read</span>(u,v,w);</span><br><span class="line">        <span class="built_in">add</span>(u,v,w);</span><br><span class="line">        <span class="built_in">add</span>(v,u,w);</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">1</span>]=INF;</span><br><span class="line">    <span class="built_in">init</span>(<span class="number">1</span>,n);</span><br><span class="line">    <span class="built_in">read</span>(m);</span><br><span class="line">    <span class="keyword">while</span>(m--)</span><br><span class="line">    &#123;<span class="comment">//m轮,k个资源丰富的点</span></span><br><span class="line">        <span class="built_in">read</span>(k);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">read</span>(h[i]);</span><br><span class="line">            key[h[i]]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(h+<span class="number">1</span>,h+k+<span class="number">1</span>,[](<span class="type">const</span> <span class="type">int</span> &amp;x,<span class="type">const</span> <span class="type">int</span> &amp;y)&#123;</span><br><span class="line">                <span class="keyword">return</span> dfn[x]&lt;dfn[y];<span class="comment">//按dfs序排序</span></span><br><span class="line">            &#125;);</span><br><span class="line">        stk[top=<span class="number">1</span>]=h[<span class="number">1</span>];</span><br><span class="line">        cnt2=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=k;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> now=h[i];</span><br><span class="line">            <span class="type">int</span> lc=<span class="built_in">lca</span>(now,stk[top]);</span><br><span class="line">            <span class="keyword">while</span>(top&gt;<span class="number">1</span>&amp;&amp;dfn[lc]&lt;=dfn[stk[top<span class="number">-1</span>]])<span class="comment">//情况4,=是情况3</span></span><br><span class="line">            &#123;<span class="comment">//不断将top送入虚树</span></span><br><span class="line">                <span class="built_in">adde</span>(stk[top<span class="number">-1</span>],stk[top]);</span><br><span class="line">                top--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(dfn[lc]&lt;dfn[stk[top]])<span class="comment">//情况2</span></span><br><span class="line">            &#123;<span class="comment">//加边,top出栈,lc和now入栈</span></span><br><span class="line">                <span class="built_in">adde</span>(lc,stk[top]);</span><br><span class="line">                stk[top]=lc;</span><br><span class="line">            &#125;<span class="comment">//否则为情况1</span></span><br><span class="line">            stk[++top]=now;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(--top)</span><br><span class="line">            <span class="built_in">adde</span>(stk[top],stk[top+<span class="number">1</span>]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">dfs2</span>(stk[<span class="number">1</span>]));<span class="comment">//最后还会剩一个虚根节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+              <a href="/tags/ACM/" rel="tag"># ACM</a>
+              <a href="/tags/%E8%99%9A%E6%A0%91/" rel="tag"># 虚树</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/07/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/2020%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A5%EF%BC%88%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/" rel="prev" title="2020牛客暑期多校训练营（第一场）">
+                  <i class="fa fa-angle-left"></i> 2020牛客暑期多校训练营（第一场）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/15/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-682-Div-2-%E8%A1%A5%E9%A2%98/" rel="next" title="Codeforces Round #682 (Div. 2)补题">
+                  Codeforces Round #682 (Div. 2)补题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

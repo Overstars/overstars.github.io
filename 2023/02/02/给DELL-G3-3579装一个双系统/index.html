@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="之前装机拆下来一块金百达KP230 512G NVME M.2接口 NVMe协议，想装到上大学前买的G3上当作系统盘。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给DELL G3 3579装一个双系统">
+<meta property="og:url" content="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="之前装机拆下来一块金百达KP230 512G NVME M.2接口 NVMe协议，想装到上大学前买的G3上当作系统盘。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/image-20230204234107250.jpg">
+<meta property="og:image" content="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/image-20230205013012679.jpg">
+<meta property="og:image" content="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/image-20230205013007059.jpg">
+<meta property="og:image" content="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/image-20230205112201555.jpg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200414121358193.png">
+<meta property="article:published_time" content="2023-02-02T13:16:46.000Z">
+<meta property="article:modified_time" content="2023-09-28T15:48:12.739Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="DELL">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/image-20230204234107250.jpg">
+
+
+<link rel="canonical" href="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/","path":"2023/02/02/给DELL-G3-3579装一个双系统/","title":"给DELL G3 3579装一个双系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>给DELL G3 3579装一个双系统 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">名词解释和基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%B0%83%E7%A0%94"><span class="nav-number">1.2.</span> <span class="nav-text">可行性调研</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iso%E9%95%9C%E5%83%8F%E6%A0%A1%E9%AA%8C"><span class="nav-number">1.3.</span> <span class="nav-text">iso镜像校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87SSD%E5%92%8C%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8"><span class="nav-number">1.4.</span> <span class="nav-text">准备SSD和安装介质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SSD%E6%B8%85%E7%A9%BA"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">SSD清空</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MediaCreationTool%EF%BC%9FDELL-OS-Recovery-Tool%EF%BC%9F"><span class="nav-number">1.4.1.</span> <span class="nav-text">MediaCreationTool？DELL OS Recovery Tool？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E5%AF%BC%E5%88%86%E5%8C%BA-boot%E5%88%86%E5%8C%BA-%E5%92%8C%E7%B3%BB%E7%BB%9F%E4%B8%8D%E5%9C%A8%E5%90%8C%E4%B8%80%E5%9D%97%E7%A1%AC%E7%9B%98%E4%B8%8A"><span class="nav-number">2.1.</span> <span class="nav-text">引导分区(boot分区)和系统不在同一块硬盘上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Windows-10"><span class="nav-number">2.2.</span> <span class="nav-text">安装Windows 10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86U%E7%9B%98%E5%88%86%E5%8C%BA%E6%95%B0%E6%8D%AE%E6%8D%9F%E5%9D%8F%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.1.</span> <span class="nav-text">处理U盘分区数据损坏问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8EFI%E7%B3%BB%E7%BB%9F%E4%B8%8A%EF%BC%8CWindows%E5%8F%AA%E8%83%BD%E5%AE%89%E8%A3%85%E5%88%B0GPT%E7%A3%81%E7%9B%98"><span class="nav-number">2.2.2.</span> <span class="nav-text">在EFI系统上，Windows只能安装到GPT磁盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BIOS%E4%B8%AD%E7%9A%84Windows-boot-manager%E4%B8%A2%E5%A4%B1"><span class="nav-number">2.2.3.</span> <span class="nav-text">BIOS中的Windows boot manager丢失</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Ubuntu-22-04-1"><span class="nav-number">2.3.</span> <span class="nav-text">安装Ubuntu 22.04.1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/02/%E7%BB%99DELL-G3-3579%E8%A3%85%E4%B8%80%E4%B8%AA%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="给DELL G3 3579装一个双系统 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          给DELL G3 3579装一个双系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-02 21:16:46" itemprop="dateCreated datePublished" datetime="2023-02-02T21:16:46+08:00">2023-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-28 23:48:12" itemprop="dateModified" datetime="2023-09-28T23:48:12+08:00">2023-09-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>之前装机拆下来一块金百达KP230 512G NVME M.2接口 NVMe协议，想装到上大学前买的G3上当作系统盘。</p>
+<span id="more"></span>
+
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="名词解释和基本概念"><a href="#名词解释和基本概念" class="headerlink" title="名词解释和基本概念"></a>名词解释和基本概念</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/91643438">https://zhuanlan.zhihu.com/p/91643438</a></p>
+<h3 id="可行性调研"><a href="#可行性调研" class="headerlink" title="可行性调研"></a>可行性调研</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>是否可行</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G3是否支持NVME硬盘</td>
+<td>✔</td>
+<td>B站有人换过，不过要改BIOS</td>
+</tr>
+<tr>
+<td>G3是否支持ubuntu</td>
+<td>✔❓</td>
+<td>Ubuntu Certification查不到，不过DELL的Linux支持一向都很好</td>
+</tr>
+<tr>
+<td>重装DELL出厂系统</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>在已有windows系统基础上安装ubuntu系统</td>
+<td>✔</td>
+<td><a target="_blank" rel="noopener" href="https://www.dell.com/support/kbdoc/zh-cn/000131253/%E5%A6%82%E4%BD%95-%E5%9C%A8-%E6%88%B4%E5%B0%94-pc-%E4%B8%8A-%E4%BD%9C%E4%B8%BA-%E5%8F%8C-%E5%90%AF%E5%8A%A8-%E5%AE%89%E8%A3%85-ubuntu-%E5%92%8C-windows-8-%E6%88%96-10">戴尔计算机双启动安装 Ubuntu</a>。</td>
+</tr>
+<tr>
+<td>同时有SSD和机械硬盘安装系统时是否会出问题</td>
+<td>💭</td>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GY411M7cY">直接把机械盘拆掉</a>。</td>
+</tr>
+</tbody></table>
+<h3 id="iso镜像校验"><a href="#iso镜像校验" class="headerlink" title="iso镜像校验"></a>iso镜像校验</h3><p>可以使用Windows下使用自带<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6384e7f42175">certutil工具校验</a>文件MD5、SHA1、SHA256。</p>
+<h3 id="准备SSD和安装介质"><a href="#准备SSD和安装介质" class="headerlink" title="准备SSD和安装介质"></a>准备SSD和安装介质</h3><h5 id="SSD清空"><a href="#SSD清空" class="headerlink" title="SSD清空"></a>SSD清空</h5><p>这块固态是要完全清空的，原有的操作系统以及数据担心会引起不必要的麻烦。分区删不掉的EFI分区和备份分区，可以通过diskgenius直接删除并保存。使用Diskpart直接删删不掉，我也懒得找用Diskpart删的方法了。</p>
+<h4 id="MediaCreationTool？DELL-OS-Recovery-Tool？"><a href="#MediaCreationTool？DELL-OS-Recovery-Tool？" class="headerlink" title="MediaCreationTool？DELL OS Recovery Tool？"></a>MediaCreationTool？DELL OS Recovery Tool？</h4><p><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows10">下载 Windows 10</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.dell.com/support/kbdoc/zh-cn/000144727/%e4%bd%bf%e7%94%a8dell-os-recovery-tool%e5%88%b6%e4%bd%9cwindows%e6%81%a2%e5%a4%8du%e7%9b%98">使用Dell OS Recovery Tool制作Windows恢复U盘</a>。</p>
+<p>两个都是安装Windows的安装介质制作工具工具，我比较倾向于使用厂商提供的，这样应该可以直接安装激活自带的版本，同时也会自带DELL的支持软件。输入产品的服务编号，使用DELL OS Recovery Tool一路无脑制作，还会良心的给U盘剩余空间自动分区出来。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>因为DELL提供的安装系统不提供镜像文件（应该也下载到本地了，我比较懒没找），所以采用先安装windows 10，在这基础上安装Ubuntu 22.04.1的方法。</p>
+<h3 id="引导分区-boot分区-和系统不在同一块硬盘上"><a href="#引导分区-boot分区-和系统不在同一块硬盘上" class="headerlink" title="引导分区(boot分区)和系统不在同一块硬盘上"></a>引导分区(boot分区)和系统不在同一块硬盘上</h3><p>参考 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/323044035/answer/675143452">把机械硬盘拆下来，就只剩下固态硬盘，为什么就启动不了？ - fy939的回答 - 知乎</a>，这个是非常的坑的，而且不知道如何避免，所以打算将两个系统安装完毕后再将机械键盘装上。</p>
+<p>重启机器，在DELL LOGO处 F2 进入BIOS 设置中.</p>
+<ol>
+<li>找到 System Configuration -&gt; SATA Operation 将 RAID On 更改为 <strong>AHCI</strong> 按 APPLY 后会弹出提示框 全选 YES 。（因为我换了个NVME M2的盘）</li>
+<li>General-&gt;Boot Sequence设为 <strong>UEFI</strong>。（<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/560753564">现在基本都是UEFI了</a>）</li>
+<li>General-&gt;Advance Boot Operations取消选中<strong>Enable Legacy option ROMS</strong>。（感觉不禁用也没啥问题）</li>
+<li>Security -&gt; PPT Security -&gt; <strong>PTT On</strong>取消选中</li>
+<li>Secure Boot -&gt; Secure Boot Enable取消选中（linux是开源的无数字签名，开了可能不让安）</li>
+</ol>
+<h3 id="安装Windows-10"><a href="#安装Windows-10" class="headerlink" title="安装Windows 10"></a>安装Windows 10</h3><p>应该没啥好说的，SSD安装上，插上U盘直接启动，就会自动安装好。</p>
+<h4 id="处理U盘分区数据损坏问题"><a href="#处理U盘分区数据损坏问题" class="headerlink" title="处理U盘分区数据损坏问题"></a>处理U盘分区数据损坏问题</h4><p>理论上是这样，但是出现了<a target="_blank" rel="noopener" href="https://www.dell.com/community/Latitude/how-I-SOLVED-quot-selected-boot-device-failed-quot-message/td-p/7693333">这个问题</a>，于是转而使用微软官方的工具……下载是真的慢……</p>
+<p><img src="image-20230204234107250.jpg" alt="image-20230204234107250"></p>
+<p>还因为U盘格式化坏了没下成，又要解决U盘无法成功读取的问题</p>
+<p><img src="image-20230205013012679.jpg" alt="image-20230205013012679"></p>
+<p>无法使用diskpart clean，使用diskgenius进行清楚扇区，再使用windows自带的格式化，之后便可以成功读取到U盘。</p>
+<p><img src="image-20230205013007059.jpg" alt="image-20230205013007059"></p>
+<h4 id="在EFI系统上，Windows只能安装到GPT磁盘"><a href="#在EFI系统上，Windows只能安装到GPT磁盘" class="headerlink" title="在EFI系统上，Windows只能安装到GPT磁盘"></a>在EFI系统上，Windows只能安装到GPT磁盘</h4><p>换了个32G的U盘来作为安装介质，就是纳闷为啥有两个盘符。</p>
+<p>好了这次正常F12从U盘启动安装程序，安装win10，但是提示“在EFI系统上，Windows只能安装到GPT磁盘”。因为U盘启动时，系统默认使用EFI引导启动，而不是常见的MBR引导。但是微软官方制作的启动盘，哪给你整这些花里胡哨的选择。</p>
+<ol>
+<li>猜想方法一：使用rufus选择UEFI分区类型重新制作。</li>
+<li>猜想方法二：进入BIOS-选择BOOT界面-将BOOT模式由UEFI引导改为Legacy，参考<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/a3761b2be566911576f9aaca.html">戴尔电脑新BIOS关闭UEFI，开启legacy</a>。</li>
+</ol>
+<p>之后就是分区-&gt;自动安装的步骤了。</p>
+<h4 id="BIOS中的Windows-boot-manager丢失"><a href="#BIOS中的Windows-boot-manager丢失" class="headerlink" title="BIOS中的Windows boot manager丢失"></a>BIOS中的Windows boot manager丢失</h4><p>不知道哪根筋抽风了，安装程序无限重启，进BOOT一看没有Windows boot manager。可能是Legacy模式下安装的win10就是没有引导的？那么就重新制作一个GPT分区的安装介质。</p>
+<p><img src="image-20230205112201555.jpg" alt="image-20230205112201555"></p>
+<p>参考这个<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/36de1cd7f125">误删了 windows boot manager 的解决办法</a>，使用命令提示符配置启动文件，该命令细节参考<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di?view=windows-10">BCDBoot 命令行选项</a>。</p>
+<p>把SSD拆下来再装上（玄学），就能进入系统了，猜测可能之前未检测到硬盘。</p>
+<p>之后登陆账户，因为我的笔记本是OEM安装，联网自动激活。</p>
+<h3 id="安装Ubuntu-22-04-1"><a href="#安装Ubuntu-22-04-1" class="headerlink" title="安装Ubuntu 22.04.1"></a>安装Ubuntu 22.04.1</h3><p>将原来的U盘清空，使用rufus-3.21制作驱动。</p>
+<p>参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/903d563e3888">单硬盘安装 UEFI 启动 Win10 和 Ubuntu 双系统</a>。</p>
+<p>检查一下<strong>Secure Boot Enable</strong>是否关闭，按F12，没看到USB启动项，可能是bug，把<strong>Enable Legacy option ROMS</strong>开启看一下（但仍然选择下面的UEFI引导），如果还不行就rufus换DD模式。</p>
+<p>参考<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/38479858">为什么在安装ubuntu和win双系统时没人推荐安装时选择ubuntu与windows共存那个选项？</a>，所以我们还是选择“其他选项”来自己创建调整分区。</p>
+<p>并参考<a target="_blank" rel="noopener" href="https://www.dell.com/support/kbdoc/zh-cn/000131391/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%88%B4%E5%B0%94pc%E4%B8%8A%E5%AE%89%E8%A3%85%E5%85%B7%E6%9C%89%E5%A4%9A%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA%E7%9A%84ubuntu">如何在戴尔PC上安装具有多个自定义分区的Ubuntu</a>，具体的分区细节和大小可以按照自己硬盘容量搜索，然后将下面的<strong>安装启动引导其的设备</strong>选择为刚才分出来的efi分区的设备号。可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/268620595">Ubuntu20.04操作系统安装及重中之重：系统分区</a>。</p>
+<p>之后设置好用户名和密码，等待安装完成即可。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>windows可以不讲。</p>
+<p>安装完毕后点击现在重启，发现又进入了安装界面。将U盘拔下来，并关闭系统。重新启动，发现进入GNU GRUB，类似下图这样：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200414121358193.png" alt="图1"></p>
+<p>需要手动来选择，如果ubuntu不常用，可以进入BIOS，将Windows Boot manager</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DELL/" rel="tag"># DELL</a>
+              <a href="/tags/OS/" rel="tag"># OS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/12/08/%E5%8A%9E%E5%85%AC%E6%A1%8C%E7%BB%BF%E6%A4%8D%E8%B0%83%E7%A0%94%E4%B8%8E%E5%AE%9E%E8%B7%B5/" rel="prev" title="办公桌绿植调研与实践">
+                  <i class="fa fa-angle-left"></i> 办公桌绿植调研与实践
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/React-Hook%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/" rel="next" title="React Hook踩坑指南">
+                  React Hook踩坑指南 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

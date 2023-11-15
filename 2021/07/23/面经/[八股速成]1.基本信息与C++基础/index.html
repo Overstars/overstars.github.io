@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="基本信息好烦，感觉要拿一个基础薄弱、需要系统学习的面评。现在不知道是背面经还是啃书，目前感觉还是要背面经了解个大概。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[八股速成]1.基本信息与C++基础">
+<meta property="og:url" content="http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]1.%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8EC++%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="基本信息好烦，感觉要拿一个基础薄弱、需要系统学习的面评。现在不知道是背面经还是啃书，目前感觉还是要背面经了解个大概。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-23T07:21:23.000Z">
+<meta property="article:modified_time" content="2023-01-27T13:21:17.186Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="面经">
+<meta property="article:tag" content="八股">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]1.%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8EC++%E5%9F%BA%E7%A1%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]1.%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8EC++%E5%9F%BA%E7%A1%80/","path":"2021/07/23/面经/[八股速成]1.基本信息与C++基础/","title":"[八股速成]1.基本信息与C++基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[八股速成]1.基本信息与C++基础 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E6%99%AE"><span class="nav-number">2.</span> <span class="nav-text">科普</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E3%80%81%E5%90%8E%E7%AB%AF%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91"><span class="nav-number">2.1.</span> <span class="nav-text">前端、后端、服务器开发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">3.</span> <span class="nav-text">一、基础知识.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E8%A8%80"><span class="nav-number">3.1.</span> <span class="nav-text">1、基本语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E4%B8%8BC-%E5%92%8CC%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.1.</span> <span class="nav-text">说一下C++和C的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E4%B8%8BC-%E4%B8%ADstatic%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">3.1.2.</span> <span class="nav-text">说一下C++中static关键字的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-C-%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%85%B3%E4%BA%8Econst%E7%94%A8%E6%B3%95%EF%BC%9F"><span class="nav-number">3.1.3.</span> <span class="nav-text">C&#x2F;C++语言中关于const用法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E8%AF%B4%E9%87%8D%E8%BD%BD%E5%92%8C%E8%A6%86%E7%9B%96"><span class="nav-number">3.1.4.</span> <span class="nav-text">请你来说一说重载和覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E8%AF%B4%E4%B8%80%E4%B8%8BC-C-%E4%B8%AD%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">3.1.5.</span> <span class="nav-text">请说一下C&#x2F;C++ 中指针和引用的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E5%AE%9A%E4%B8%89%E8%A7%92%E5%BD%A2ABC%E5%92%8C%E4%B8%80%E7%82%B9P-x-y-z-%EF%BC%8C%E5%88%A4%E6%96%AD%E7%82%B9P%E6%98%AF%E5%90%A6%E5%9C%A8ABC%E5%86%85%EF%BC%8C%E7%BB%99%E5%87%BA%E6%80%9D%E8%B7%AF%E5%B9%B6%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.6.</span> <span class="nav-text">给定三角形ABC和一点P(x,y,z)，判断点P是否在ABC内，给出思路并手写代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E4%BA%8C%E7%9A%84%E5%80%8D%E6%95%B0%EF%BC%8C%E6%80%8E%E4%B9%88%E6%B1%82%E4%B8%80%E4%B8%AA%E6%95%B0%E4%B8%AD%E6%9C%89%E5%87%A0%E4%B8%AA1%EF%BC%8C%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BD%A0%E7%9A%84%E6%80%9D%E8%B7%AF%E5%B9%B6%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.7.</span> <span class="nav-text">怎么判断一个数是二的倍数，怎么求一个数中有几个1，说一下你的思路并手写代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4strcpy%E5%92%8Cstrlen"><span class="nav-number">3.1.8.</span> <span class="nav-text">请你说一说strcpy和strlen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E7%B1%BB%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%EF%BC%88%E9%BB%98%E8%AE%A4%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-number">3.1.9.</span> <span class="nav-text">空类包含什么（默认成员函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-%E7%B1%BB%E5%86%85%E5%8F%AF%E4%BB%A5%E5%AE%9A%E4%B9%89%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E5%90%97%EF%BC%9F"><span class="nav-number">3.1.10.</span> <span class="nav-text">C++类内可以定义引用数据成员吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4%E4%BD%A0%E4%BA%86%E8%A7%A3%E7%9A%84RTTI%E3%80%82"><span class="nav-number">3.1.11.</span> <span class="nav-text">请你说说你了解的RTTI。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8BC-%E4%B8%AD%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0%E7%9A%84%E5%BD%A2%E5%8F%82%E8%83%BD%E5%90%A6%E8%BF%9B%E8%A1%8C%E5%80%BC%E4%BC%A0%E9%80%92%EF%BC%9F"><span class="nav-number">3.1.12.</span> <span class="nav-text">请你回答一下C++中拷贝赋值函数的形参能否进行值传递？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%BD%A2%E5%8F%82%E8%83%BD%E5%90%A6%E8%BF%9B%E8%A1%8C%E5%80%BC%E4%BC%A0%E9%80%92%EF%BC%9F"><span class="nav-number">3.1.13.</span> <span class="nav-text">拷贝构造函数的形参能否进行值传递？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E8%AF%B4%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.1.14.</span> <span class="nav-text">请你来说一说隐式类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E4%BA%86%E8%A7%A3%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.1.15.</span> <span class="nav-text">说说你了解的类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E8%AF%B4c-%E4%B8%AD%E5%9B%9B%E7%A7%8Dcast%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.1.16.</span> <span class="nav-text">说一说c++中四种cast转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4C%E8%AF%AD%E8%A8%80%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="nav-number">3.1.17.</span> <span class="nav-text">请你说说C语言是怎么进行函数调用的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4C%E8%AF%AD%E8%A8%80%E5%8F%82%E6%95%B0%E5%8E%8B%E6%A0%88%E9%A1%BA%E5%BA%8F%EF%BC%9F"><span class="nav-number">3.1.18.</span> <span class="nav-text">请你说说C语言参数压栈顺序？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8BC-%E9%87%8C%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F%E7%9A%84%EF%BC%9F%E5%B8%B8%E9%87%8F%E5%AD%98%E6%94%BE%E5%9C%A8%E5%86%85%E5%AD%98%E7%9A%84%E5%93%AA%E4%B8%AA%E4%BD%8D%E7%BD%AE%EF%BC%9F"><span class="nav-number">3.1.19.</span> <span class="nav-text">请你来说一下C++里是怎么定义常量的？常量存放在内存的哪个位置？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8B%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.20.</span> <span class="nav-text">请回答一下数组和指针的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8B%E9%87%8E%E6%8C%87%E9%92%88%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.21.</span> <span class="nav-text">请你回答一下野指针是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">3.1.22.</span> <span class="nav-text">请你来说一下函数指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BC-%E4%B8%AD%E7%9A%84%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">3.1.23.</span> <span class="nav-text">请你介绍一下C++中的智能指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BD%A0%E7%90%86%E8%A7%A3%E7%9A%84c-%E4%B8%AD%E7%9A%84smart-pointer%E5%9B%9B%E4%B8%AA%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%EF%BC%9A"><span class="nav-number">3.1.24.</span> <span class="nav-text">请你说一下你理解的c++中的smart pointer四个智能指针：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">3.1.25.</span> <span class="nav-text">为什么要用智能指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8B%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">3.1.26.</span> <span class="nav-text">请你回答一下智能指针有没有内存泄露的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"><span class="nav-number">3.1.27.</span> <span class="nav-text">请你来说一下智能指针的内存泄漏如何解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88shared-ptr%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.1.28.</span> <span class="nav-text">请你来说一下智能指针shared_ptr的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8BC-%E4%B8%AD%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">3.1.29.</span> <span class="nav-text">请你来说一下C++中析构函数的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E5%BF%85%E9%A1%BB%E6%98%AF%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88C-%E9%BB%98%E8%AE%A4%E7%9A%84%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E4%B8%8D%E6%98%AF%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.30.</span> <span class="nav-text">请你回答一下为什么析构函数必须是虚函数？为什么C++默认的析构函数不是虚函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E9%9D%99%E6%80%81%E5%87%BD%E6%95%B0%E5%92%8C%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.31.</span> <span class="nav-text">请你来说一下静态函数和虚函数的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E7%90%86%E8%A7%A3%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E5%A4%9A%E6%80%81"><span class="nav-number">3.1.32.</span> <span class="nav-text">请你说一说你理解的虚函数和多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E5%85%B7%E4%BD%93%E6%98%AF%E6%80%8E%E6%A0%B7%E5%AE%9E%E7%8E%B0%E8%BF%90%E8%A1%8C%E6%97%B6%E5%A4%9A%E6%80%81%E7%9A%84"><span class="nav-number">3.1.33.</span> <span class="nav-text">请你说说虚函数表具体是怎样实现运行时多态的?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8B-i%E5%92%8Ci-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.34.</span> <span class="nav-text">请你来回答一下++i和i++的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E5%86%99%E4%B8%AA%E5%87%BD%E6%95%B0%E5%9C%A8main%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%85%88%E8%BF%90%E8%A1%8C"><span class="nav-number">3.1.35.</span> <span class="nav-text">请你来写个函数在main函数执行前先运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8Bconst%E4%BF%AE%E9%A5%B0%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.36.</span> <span class="nav-text">请你来回答一下const修饰成员函数的目的是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%90%8C%E6%97%B6%E5%AE%9A%E4%B9%89%E4%BA%86%E4%B8%A4%E4%B8%AA%E5%87%BD%E6%95%B0%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%B8%A6const%EF%BC%8C%E4%B8%80%E4%B8%AA%E4%B8%8D%E5%B8%A6%EF%BC%8C%E4%BC%9A%E6%9C%89%E9%97%AE%E9%A2%98%E5%90%97%EF%BC%9F"><span class="nav-number">3.1.37.</span> <span class="nav-text">如果同时定义了两个函数，一个带const，一个不带，会有问题吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E8%AF%B4C-%E5%87%BD%E6%95%B0%E6%A0%88%E7%A9%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="nav-number">3.1.38.</span> <span class="nav-text">请你来说一说C++函数栈空间的最大值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E8%AF%B4extern%E2%80%9CC%E2%80%9D"><span class="nav-number">3.1.39.</span> <span class="nav-text">请你来说一说extern“C”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8Bnew-delete%E4%B8%8Emalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">3.1.40.</span> <span class="nav-text">请你回答一下new&#x2F;delete与malloc&#x2F;free的区别是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4C-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E8%BF%94%E5%9B%9E%E5%80%BC%EF%BC%9F"><span class="nav-number">3.1.41.</span> <span class="nav-text">请你说说C++如何处理返回值？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4select"><span class="nav-number">3.1.42.</span> <span class="nav-text">请你说一说select</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4fork-wait-exec%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-number">3.1.43.</span> <span class="nav-text">请你说说fork,wait,exec函数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8Bfork%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.44.</span> <span class="nav-text">请你来说一下fork函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%BC%96%E8%AF%91%E4%B8%8E%E5%BA%95%E5%B1%82"><span class="nav-number">3.2.</span> <span class="nav-text">2.编译与底层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AAC-%E6%BA%90%E6%96%87%E4%BB%B6%E4%BB%8E%E6%96%87%E6%9C%AC%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%BB%8F%E5%8E%86%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="nav-number">3.2.1.</span> <span class="nav-text">请你来说一下一个C++源文件从文本到可执行文件经历的过程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8Binclude%E5%A4%B4%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%BC%95%E5%8F%B7%E2%80%9D%E2%80%9D%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">3.2.2.</span> <span class="nav-text">请你来回答一下include头文件的顺序以及双引号””和尖括号的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8Bmalloc%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%8C%E5%8F%A6%E5%A4%96brk%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8Cmmap%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E4%BD%9C%E7%94%A8%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.2.3.</span> <span class="nav-text">请你回答一下malloc的原理，另外brk系统调用和mmap系统调用的作用分别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4C-%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="nav-number">3.2.4.</span> <span class="nav-text">请你说一说C++的内存管理是怎样的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8BC-C%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">3.2.5.</span> <span class="nav-text">请你来说一下C++&#x2F;C的内存分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8B%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%EF%BC%9F"><span class="nav-number">3.2.6.</span> <span class="nav-text">请你回答一下如何判断内存泄漏？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E5%8F%91%E7%94%9F%E6%AE%B5%E9%94%99%E8%AF%AF"><span class="nav-number">3.2.7.</span> <span class="nav-text">请你来说一下什么时候会发生段错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AFmemory-leak%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="nav-number">3.2.8.</span> <span class="nav-text">请你来回答一下什么是memory leak，也就是内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9B%B8%E5%85%B3api"><span class="nav-number">3.2.9.</span> <span class="nav-text">请你来说一下共享内存相关api</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8Breactor%E6%A8%A1%E5%9E%8B%E7%BB%84%E6%88%90%E3%80%82"><span class="nav-number">3.2.10.</span> <span class="nav-text">请你来说一下reactor模型组成。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E8%87%AA%E5%B7%B1%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%8B%E5%A6%82%E4%BD%95%E9%87%87%E7%94%A8%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91"><span class="nav-number">3.2.11.</span> <span class="nav-text">请自己设计一下如何采用单线程的方式处理高并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4C-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%EF%BC%9F"><span class="nav-number">3.2.12.</span> <span class="nav-text">请你说说C++如何处理内存泄漏？</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]1.%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8EC++%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[八股速成]1.基本信息与C++基础 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [八股速成]1.基本信息与C++基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-23 15:21:23" itemprop="dateCreated datePublished" datetime="2021-07-23T15:21:23+08:00">2021-07-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E4%BD%9C/%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">面经</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>好烦，感觉要拿一个基础薄弱、需要系统学习的面评。现在不知道是背面经还是啃书，目前感觉还是要背面经了解个大概。</p>
+<span id="more"></span>
+
+<h2 id="科普"><a href="#科普" class="headerlink" title="科普"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/lingshengxueyuan/article/details/109204253">科普</a></h2><h3 id="前端、后端、服务器开发"><a href="#前端、后端、服务器开发" class="headerlink" title="前端、后端、服务器开发"></a>前端、后端、服务器开发</h3><p>前端：和用户打交道的，负责用良好的视觉效果将数据呈现给用户，广义的前端包括客户端（安卓、IOS）、Web前端、小程序等。</p>
+<p>后端、后台：负责业务逻辑处理。</p>
+<p>服务器开发：包含了后台开发，而且也包括支撑整个后台应用的基础开发，比如搜索引擎、微服务、RPC 框架、KV、存储、MQ 等。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81692931">正确认识内推</a></p>
+<h2 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识."></a>一、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101136373">基础知识</a>.</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/270660157">C++中this指针与const的纠缠关系</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38410730/article/details/112003512">【C++】空指针调用成员函数及访问成员变量</a></p>
+<h3 id="1、基本语言"><a href="#1、基本语言" class="headerlink" title="1、基本语言"></a>1、基本语言</h3><h4 id="说一下C-和C的区别"><a href="#说一下C-和C的区别" class="headerlink" title="说一下C++和C的区别"></a>说一下C++和C的区别</h4><p>C++实现面向对象和泛型编程，C面向过程。</p>
+<p>面向对象：把事物抽象成对象的概念，再让对象执行方法。</p>
+<p>面向过程：解决问题时会把问题拆成一个个步骤（函数），然后一步步执行。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Iiverson2000/article/details/118075674">泛型编程</a>：函数模板和类模板。重载函数仅仅是类型不同，代码复用率低。</p>
+<h4 id="说一下C-中static关键字的作用"><a href="#说一下C-中static关键字的作用" class="headerlink" title="说一下C++中static关键字的作用"></a>说一下C++中static关键字的作用</h4><ul>
+<li>修饰变量变为静态变量，静态存储区，在整个程序运行期间一直存在。</li>
+<li>修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用（函数默认为extern的）。</li>
+<li>修饰成员变量，静态数据成员只分配一次内存，供所有对象共用。</li>
+<li>修饰成员函数，为静态成员函数，不能调用非静态成员函数和非静态成员数据。</li>
+</ul>
+<h4 id="C-C-语言中关于const用法？"><a href="#C-C-语言中关于const用法？" class="headerlink" title="C&#x2F;C++语言中关于const用法？"></a>C&#x2F;C++语言中关于<a target="_blank" rel="noopener" href="https://blog.csdn.net/liyuefeilong/article/details/48900121">const用法</a>？</h4><h4 id="请你来说一说重载和覆盖"><a href="#请你来说一说重载和覆盖" class="headerlink" title="请你来说一说重载和覆盖"></a>请你来说一说重载和覆盖</h4><p>重载：两个函数名相同，但是参数列表不同（个数，类型），返回值类型没有要求，在同一作用域中。<br>覆盖：子类继承了父类，父类中的函数是虚函数，在子类中重新定义了这个虚函数，这种情况是重写。<br>隐藏：隐藏就是子类会隐藏父类中同名的标识符(不一定是函数)，而且如果父类中有同名的标识符，编译通过且不构成覆盖，则一定是构成隐藏关系。</p>
+<h4 id="请说一下C-C-中指针和引用的区别？"><a href="#请说一下C-C-中指针和引用的区别？" class="headerlink" title="请说一下C&#x2F;C++ 中指针和引用的区别？"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/140966943">请说一下C&#x2F;C++ 中指针和引用的区别？</a></h4><ol>
+<li>指针是一个变量，存储着一个地址，指向内存的一个存储单元。引用是原变量的一个别名。</li>
+<li>可以有多级指针，但不能有多级引用。</li>
+<li>指针可以不初始化，引用必须初始化。</li>
+<li>引用的值不可更改。</li>
+</ol>
+<h4 id="给定三角形ABC和一点P-x-y-z-，判断点P是否在ABC内，给出思路并手写代码"><a href="#给定三角形ABC和一点P-x-y-z-，判断点P是否在ABC内，给出思路并手写代码" class="headerlink" title="给定三角形ABC和一点P(x,y,z)，判断点P是否在ABC内，给出思路并手写代码"></a>给定三角形ABC和一点P(x,y,z)，判断点P是否在ABC内，给出思路并手写代码</h4><p>P到ABC构成的三个角之和是否为180°，$\cos A &#x3D; \dfrac{b^2+c^2-a^2}{2bc}$。</p>
+<h4 id="怎么判断一个数是二的倍数，怎么求一个数中有几个1，说一下你的思路并手写代码"><a href="#怎么判断一个数是二的倍数，怎么求一个数中有几个1，说一下你的思路并手写代码" class="headerlink" title="怎么判断一个数是二的倍数，怎么求一个数中有几个1，说一下你的思路并手写代码"></a>怎么判断一个数是二的倍数，怎么求一个数中有几个1，说一下你的思路并手写代码</h4><ol>
+<li>2的倍数，<code>x&amp;(x-1)==0</code> 即为2的倍数。</li>
+<li>用for进行迭代，<code>i&amp;=(i-1)</code> ，相当于每一轮消去最后一个1，看执行多少轮，lowbit x&amp;(-x)也可以。</li>
+</ol>
+<h4 id="请你说一说strcpy和strlen"><a href="#请你说一说strcpy和strlen" class="headerlink" title="请你说一说strcpy和strlen"></a>请你说一说strcpy和strlen</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/astrotycoon/article/details/8114786">glibc–strcpy源码分析</a>，利用了进程平坦的内存模型，两个指针的差就是两者之间的距离。得到地址间的相对距离，直接将s的每一个字符存入目标数组。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/astrotycoon/article/details/8124359">glibc – strlen源码分析</a>，先将char指针地址与int进行字节对齐，然后将char指针强制转为int指针，一次取出4字节的元素，并通过magic_number来判断里面是否有一个字节全部为0，有的话直接用指针地址做差并返回答案。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/astrotycoon/article/details/8109899">glibc–memcpy源码分析</a>，内存对齐</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> *<span class="title">Memcpy</span><span class="params">(<span class="type">void</span> *dst, <span class="type">const</span> <span class="type">void</span> *src, <span class="type">size_t</span> size)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//炮姐的</span></span><br><span class="line">    <span class="keyword">if</span> (dst == <span class="literal">NULL</span> || src == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">char</span> *psrc;</span><br><span class="line">    <span class="type">char</span> *pdst;</span><br><span class="line">    <span class="comment">//地址重叠的情况</span></span><br><span class="line">    <span class="keyword">if</span> ((src &lt; dst) &amp;&amp; (<span class="type">char</span>*)src + size &gt; (<span class="type">char</span> *)dst)</span><br><span class="line">    &#123;</span><br><span class="line">        psrc = (<span class="type">char</span>*)src + size - <span class="number">1</span>;</span><br><span class="line">        pdst = (<span class="type">char</span>*)dst + size - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(size--)</span><br><span class="line">        &#123;</span><br><span class="line">            *pdst-- = *pdst--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        psrc = (<span class="type">char</span>*)src;</span><br><span class="line">        pdst = (<span class="type">char</span>*)dst;</span><br><span class="line">        <span class="keyword">while</span>(size--)</span><br><span class="line">        &#123;</span><br><span class="line">            *pdst++ = *psrc++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="空类包含什么（默认成员函数）"><a href="#空类包含什么（默认成员函数）" class="headerlink" title="空类包含什么（默认成员函数）"></a>空类包含什么（默认成员函数）</h4><p>默认构造函数、析构函数、拷贝构造函数、拷贝赋值运算符、取址运算符、const取址运算符、移动构造函数（C++11）</p>
+<h4 id="C-类内可以定义引用数据成员吗？"><a href="#C-类内可以定义引用数据成员吗？" class="headerlink" title="C++类内可以定义引用数据成员吗？"></a>C++类内可以定义引用数据成员吗？</h4><p>可以，必须通过成员函数初始化列表初始化。</p>
+<h4 id="请你说说你了解的RTTI。"><a href="#请你说说你了解的RTTI。" class="headerlink" title="请你说说你了解的RTTI。"></a>请你说说你了解的<a target="_blank" rel="noopener" href="https://blog.csdn.net/three_bird/article/details/51479175">RTTI</a>。</h4><p>Run-Time Type Identification，即运行时类型识别。它可以在程序运行时检查父类型的引用是否可以指向子类型的对象，即确保类型向上转换安全。</p>
+<h4 id="请你回答一下C-中拷贝赋值函数的形参能否进行值传递？"><a href="#请你回答一下C-中拷贝赋值函数的形参能否进行值传递？" class="headerlink" title="请你回答一下C++中拷贝赋值函数的形参能否进行值传递？"></a>请你回答一下C++中拷贝赋值函数的形参能否进行值传递？</h4><p>可以。但是调用拷贝赋值函数的时候，首先要将实参传递给形参，此时会多调用一次拷贝构造，并不会无限递归。</p>
+<h4 id="拷贝构造函数的形参能否进行值传递？"><a href="#拷贝构造函数的形参能否进行值传递？" class="headerlink" title="拷贝构造函数的形参能否进行值传递？"></a>拷贝构造函数的形参能否进行值传递？</h4><p>不能。如果是这种情况下,调用拷贝构造函数的时候,首先要将实参传递给形参,这个传递的时候又要调用拷贝构造函数。</p>
+<h4 id="请你来说一说隐式类型转换"><a href="#请你来说一说隐式类型转换" class="headerlink" title="请你来说一说隐式类型转换"></a>请你来说一说隐式类型转换</h4><p>感觉用来写计算几何模板会很有意思，避免的话要在构造函数前加explicit</p>
+<ol>
+<li>使用单参数的构造函数或N个参数中有N-1个是默认参数的构造函数</li>
+<li><code>operator目标类型() const</code></li>
+</ol>
+<h4 id="说说你了解的类型转换"><a href="#说说你了解的类型转换" class="headerlink" title="说说你了解的类型转换"></a>说说你了解的类型转换</h4><h4 id="说一说c-中四种cast转换"><a href="#说一说c-中四种cast转换" class="headerlink" title="说一说c++中四种cast转换"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/wlx990074575/article/details/108005854">说一说c++中四种cast转换</a></h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27966225">https://zhuanlan.zhihu.com/p/27966225</a></p>
+<ol>
+<li><code>static_cast</code> :用于代替各种隐式转换，比如非const转const，void*转指针等, static_cast能用于多态向上转化（子类向父类）。</li>
+<li><code>dynamic_cast</code> :用于<strong>动态类型转换</strong>，上行转换（子类向基类）和static_cast没有区别，都是安全的；下行转换时，dynamic_cast会检查转换的类型。</li>
+<li><code>const_cast</code> :用于将const变量转为非const（例如地址转指针）。</li>
+<li><code>reinterpret_cast</code> :什么都可以转，一般不用。</li>
+</ol>
+<h4 id="请你说说C语言是怎么进行函数调用的？"><a href="#请你说说C语言是怎么进行函数调用的？" class="headerlink" title="请你说说C语言是怎么进行函数调用的？"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/201049952">请你说说C语言是怎么进行函数调用的？</a></h4><p>C++内存模型：堆，栈，静态全局变量区，常量区，自由存储区。</p>
+<h4 id="请你说说C语言参数压栈顺序？"><a href="#请你说说C语言参数压栈顺序？" class="headerlink" title="请你说说C语言参数压栈顺序？"></a>请你说说C语言参数压栈顺序？</h4><p>C语言函数参数采用<strong>自右向左</strong>的入栈顺序，主要原因是为了支持可变长参数形式。</p>
+<h4 id="请你来说一下C-里是怎么定义常量的？常量存放在内存的哪个位置？"><a href="#请你来说一下C-里是怎么定义常量的？常量存放在内存的哪个位置？" class="headerlink" title="请你来说一下C++里是怎么定义常量的？常量存放在内存的哪个位置？"></a>请你来说一下C++里是怎么定义常量的？常量存放在内存的哪个位置？</h4><p>静态内存区。const变量位于栈区（函数内）和静态存储区（全局）。</p>
+<h4 id="请回答一下数组和指针的区别"><a href="#请回答一下数组和指针的区别" class="headerlink" title="请回答一下数组和指针的区别"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/asdfsadfasdfsa/article/details/87896436">请回答一下数组和指针的区别</a></h4><ul>
+<li>把数组作为参数传递的时候，会退化为指针</li>
+<li>数组名可作为指针常量</li>
+<li>数组是开辟一块连续的内存空间,数组本身的标示符代表整个数组,可以用sizeof取得真实的大小。</li>
+</ul>
+<h4 id="请你回答一下野指针是什么？"><a href="#请你回答一下野指针是什么？" class="headerlink" title="请你回答一下野指针是什么？"></a>请你回答一下野指针是什么？</h4><p>指向被弃用内存的指针。</p>
+<h4 id="请你来说一下函数指针"><a href="#请你来说一下函数指针" class="headerlink" title="请你来说一下函数指针"></a>请你来说一下函数指针</h4><p>函数指针是指向函数的指针变量。C在编译时，每一个函数都有一个入口地址，该<strong>入口地址就是函数指针所指向的地址</strong>。有了指向函数的指针变量后，可用该指针变量调用函数，就如同用指针变量可引用其他类型变量一样，在这些概念上是大体一致的。</p>
+<h4 id="请你介绍一下C-中的智能指针"><a href="#请你介绍一下C-中的智能指针" class="headerlink" title="请你介绍一下C++中的智能指针"></a>请你介绍一下C++中的智能指针</h4><p>智能指针主要用于管理在堆上分配的内存，它将普通的指针封装为一个栈对象。当栈对象的生存周期结束后，会在析构函数中释放掉申请的内存，从而防止内存泄漏。C++ 11中最常用的智能指针类型为shared_ptr,它采用引用计数的方法，记录当前内存资源被多少个智能指针引用。该引用计数的内存在堆上分配。当新增一个时引用计数加1，当过期时引用计数减一。只有引用计数为0时，智能指针才会自动释放引用的内存资源。对shared_ptr进行初始化时不能将一个普通指针直接赋值给智能指针，因为一个是指针，一个是类。可以通过make_shared函数或者通过构造函数传入普通指针。并可以通过get函数获得普通指针。</p>
+<h4 id="请你说一下你理解的c-中的smart-pointer四个智能指针："><a href="#请你说一下你理解的c-中的smart-pointer四个智能指针：" class="headerlink" title="请你说一下你理解的c++中的smart pointer四个智能指针："></a>请你说一下你理解的c++中的smart pointer四个智能指针：</h4><ul>
+<li><code>auto_ptr</code> ：C++11已弃用</li>
+<li><code>shared_ptr</code> ：std::shared_ptr使用引用计数，每一个shared_ptr的拷贝都指向相同的内存。在最后一个shared_ptr析构的时候，内存才会被释放。</li>
+<li><code>weak_ptr</code> ： 解决<code>shared_ptr</code>循环引用问题</li>
+<li><code>unique_ptr</code> ：unique_ptr是一个独占的智能指针，他不允许其他的智能指针共享其内部的指针，不允许通过赋值将一个unique_ptr赋值给另外一个unique_ptr。</li>
+</ul>
+<h4 id="为什么要用智能指针"><a href="#为什么要用智能指针" class="headerlink" title="为什么要用智能指针"></a>为什么要用智能指针</h4><p>为什么要使用智能指针：防止内存泄漏。<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011475134/article/details/76714243">https://blog.csdn.net/u011475134/article/details/76714243</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/cpp/standard-library/memory-functions?view=msvc-160&redirectedfrom=MSDN#make_unique">https://docs.microsoft.com/en-us/cpp/standard-library/memory-functions?view=msvc-160&amp;redirectedfrom=MSDN#make_unique</a></p>
+<p>智能指针的作用是管理一个指针，因为存在以下这种情况：申请的空间在函数结束时忘记释放，造成内存泄漏。使用智能指针可以很大程度上的避免这个问题，因为智能指针就是一个类，当超出了类的作用域时，类会自动调用析构函数，析构函数会自动释放资源。所以智能指针的作用原理就是在函数结束时自动释放内存空间，不需要手动释放内存空间。</p>
+<h4 id="请你回答一下智能指针有没有内存泄露的情况"><a href="#请你回答一下智能指针有没有内存泄露的情况" class="headerlink" title="请你回答一下智能指针有没有内存泄露的情况"></a>请你回答一下智能指针有没有内存泄露的情况</h4><p>当两个对象相互使用一个shared_ptr成员变量指向对方，会造成循环引用，使引用计数失效，从而导致内存泄漏。</p>
+<h4 id="请你来说一下智能指针的内存泄漏如何解决"><a href="#请你来说一下智能指针的内存泄漏如何解决" class="headerlink" title="请你来说一下智能指针的内存泄漏如何解决"></a>请你来说一下<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/355812360">智能指针的内存泄漏</a>如何解决</h4><p>为了解决循环引用导致的内存泄漏，引入了weak_ptr弱指针，weak_ptr的构造函数不会修改引用计数的值，从而不会对对象的内存进行管理，其类似一个普通指针，但不指向引用计数的共享内存，但是其可以检测到所管理的对象是否已经被释放，从而避免非法访问。</p>
+<p>就我理解感觉像是图论里的树，将平级关系转为父子关系，父节点用shared_ptr指向儿子节点，儿子节点用weak_ptr指向父节点，将图变为DAG。</p>
+<h4 id="请你来说一下智能指针shared-ptr的实现"><a href="#请你来说一下智能指针shared-ptr的实现" class="headerlink" title="请你来说一下智能指针shared_ptr的实现"></a>请你来说一下智能指针shared_ptr的实现</h4><p>两个成员：裸指针，引用计数器。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/355812360">循环引用中的shared_ptr和weak_ptr</a>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharedPtr</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span>* counter;  <span class="comment">// 引用计数，用指针表示，多个SharedPtr之间可以同步修改</span></span><br><span class="line">    T* resource;  <span class="comment">// 裸指针</span></span><br><span class="line">    <span class="built_in">SharedPtr</span>(T* resc = <span class="literal">nullptr</span>) &#123;  <span class="comment">// 构造函数</span></span><br><span class="line">        cout &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; endl;</span><br><span class="line">        counter = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">1</span>);</span><br><span class="line">        resource = resc;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">SharedPtr</span>(<span class="type">const</span> SharedPtr&amp; rhs) &#123;  <span class="comment">// 拷贝构造函数</span></span><br><span class="line">        cout &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; endl;</span><br><span class="line">        resource = rhs.resource;</span><br><span class="line">        counter = rhs.counter;</span><br><span class="line">        ++*counter;</span><br><span class="line">    &#125;</span><br><span class="line">    SharedPtr&amp; <span class="keyword">operator</span>=(<span class="type">const</span> SharedPtr&amp; rhs) &#123;  <span class="comment">// 拷贝赋值函数</span></span><br><span class="line">        cout &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; endl;</span><br><span class="line">        --*counter;  <span class="comment">// 原来指向的资源的引用计数减1</span></span><br><span class="line">        <span class="keyword">if</span> (*counter == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">delete</span> counter;</span><br><span class="line">            <span class="keyword">delete</span> resource;</span><br><span class="line">        &#125;</span><br><span class="line">        resource = rhs.resource;</span><br><span class="line">        counter = rhs.counter;</span><br><span class="line">        ++*counter;  <span class="comment">// 新指向的资源的引用计数加1</span></span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">SharedPtr</span>() &#123;  <span class="comment">// 析构函数</span></span><br><span class="line">        cout &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; endl;</span><br><span class="line">        --*counter;</span><br><span class="line">        <span class="keyword">if</span> (*counter == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">delete</span> counter;</span><br><span class="line">            <span class="keyword">delete</span> resource;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">use_count</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> *counter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="请你来说一下C-中析构函数的作用"><a href="#请你来说一下C-中析构函数的作用" class="headerlink" title="请你来说一下C++中析构函数的作用"></a>请你来说一下C++中析构函数的作用</h4><p>当对象结束其生命周期时，系统自动执行析构函数，释放资源，避免内存泄漏。</p>
+<h4 id="请你回答一下为什么析构函数必须是虚函数？为什么C-默认的析构函数不是虚函数"><a href="#请你回答一下为什么析构函数必须是虚函数？为什么C-默认的析构函数不是虚函数" class="headerlink" title="请你回答一下为什么析构函数必须是虚函数？为什么C++默认的析构函数不是虚函数"></a>请你回答一下为什么析构函数必须是虚函数？为什么C++默认的析构函数不是虚函数</h4><p>性能问题，有些类被设计为不能被继承，析构函数不是虚函数能减少开销，例如string。</p>
+<h4 id="请你来说一下静态函数和虚函数的区别"><a href="#请你来说一下静态函数和虚函数的区别" class="headerlink" title="请你来说一下静态函数和虚函数的区别"></a>请你来说一下静态函数和虚函数的区别</h4><p>静态函数在编译的时候就已经确定运行时机，虚函数在运行的时候动态绑定。虚函数因为用了虚函数表机制，调用的时候会增加一次内存开销。</p>
+<h4 id="请你说一说你理解的虚函数和多态"><a href="#请你说一说你理解的虚函数和多态" class="headerlink" title="请你说一说你理解的虚函数和多态"></a>请你说一说你理解的虚函数和多态</h4><h4 id="请你说说虚函数表具体是怎样实现运行时多态的"><a href="#请你说说虚函数表具体是怎样实现运行时多态的" class="headerlink" title="请你说说虚函数表具体是怎样实现运行时多态的?"></a>请你说说虚函数表具体是怎样实现运行时多态的?</h4><h4 id="请你来回答一下-i和i-的区别"><a href="#请你来回答一下-i和i-的区别" class="headerlink" title="请你来回答一下++i和i++的区别"></a>请你来回答一下++i和i++的区别</h4><h4 id="请你来写个函数在main函数执行前先运行"><a href="#请你来写个函数在main函数执行前先运行" class="headerlink" title="请你来写个函数在main函数执行前先运行"></a>请你来写个函数在main函数执行前先运行</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">before</span><span class="params">()</span> __<span class="title">attribute__</span><span class="params">((constructor))</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">after</span><span class="params">()</span> __<span class="title">attribute__</span><span class="params">((destructor))</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="请你来回答一下const修饰成员函数的目的是什么？"><a href="#请你来回答一下const修饰成员函数的目的是什么？" class="headerlink" title="请你来回答一下const修饰成员函数的目的是什么？"></a>请你来回答一下const修饰成员函数的目的是什么？</h4><p>表明这个函数不会对这个类对象的数据成员(非静态数据成员)作任何改变。</p>
+<h4 id="如果同时定义了两个函数，一个带const，一个不带，会有问题吗？"><a href="#如果同时定义了两个函数，一个带const，一个不带，会有问题吗？" class="headerlink" title="如果同时定义了两个函数，一个带const，一个不带，会有问题吗？"></a>如果同时定义了<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/4aa43c2b588a473aab9a2c80eb5f3db8">两个函数，一个带const，一个不带</a>，会有问题吗？</h4><p>能够构成重载。如果定义的对象是常对象，则调用的是const成员函数，如果定义的对象是非常对象，则调用重载的非const成员函数。</p>
+<h4 id="请你来说一说C-函数栈空间的最大值"><a href="#请你来说一说C-函数栈空间的最大值" class="headerlink" title="请你来说一说C++函数栈空间的最大值"></a>请你来说一说C++函数栈空间的最大值</h4><p>默认是1M，不过可以调整。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> comment(linker, <span class="string">&quot;/STACK:102400000,102400000&quot;</span>) <span class="comment">//手动扩栈</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="请你来说一说extern“C”"><a href="#请你来说一说extern“C”" class="headerlink" title="请你来说一说extern“C”"></a>请你来说一说<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/extern%20%22C%22/15267013">extern“C”</a></h4><p>C++调用C函数需要extern C，因为C语言没有函数重载。</p>
+<h4 id="请你回答一下new-delete与malloc-free的区别是什么"><a href="#请你回答一下new-delete与malloc-free的区别是什么" class="headerlink" title="请你回答一下new&#x2F;delete与malloc&#x2F;free的区别是什么"></a>请你回答一下new&#x2F;delete与malloc&#x2F;free的区别是什么</h4><p>new&#x2F;delete是C++的关键字，而malloc&#x2F;free是C语言的库函数，后者使用必须指明申请内存空间的大小，对于类类型的对象，后者不会调用构造函数和析构函数。</p>
+<h4 id="请你说说C-如何处理返回值？"><a href="#请你说说C-如何处理返回值？" class="headerlink" title="请你说说C++如何处理返回值？"></a>请你说说<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/0c1c91b56b2942b2a7f16749bb8cb655">C++如何处理返回值</a>？</h4><p>没听懂在问什么</p>
+<h4 id="请你说一说select"><a href="#请你说一说select" class="headerlink" title="请你说一说select"></a>请你说一说select</h4><p>select在使用前，先将需要监控的描述符对应的bit位置1，然后将其传给select,当有任何一个事件发生时，select将会返回所有的描述符，需要在应用程序自己遍历去检查哪个描述符上有事件发生，效率很低，并且其不断在内核态和用户态进行描述符的拷贝，开销很大</p>
+<h4 id="请你说说fork-wait-exec函数？"><a href="#请你说说fork-wait-exec函数？" class="headerlink" title="请你说说fork,wait,exec函数？"></a>请你说说<a target="_blank" rel="noopener" href="https://www.nowcoder.com/ta/review-c/review?page=182">fork,wait,exec函数</a>？</h4><p>父进程产生子进程使用fork拷贝出来一个父进程的副本，此时只拷贝了父进程的页表，两个进程都读同一块内存，当有进程写的时候使用写实拷贝机制分配内存，exec函数可以加载一个elf文件去替换父进程，从此父进程和子进程就可以运行不同的程序了。fork从父进程返回子进程的pid，从子进程返回0.调用了wait的父进程将会发生阻塞，直到有子进程状态改变,执行成功返回0，错误返回-1。exec执行成功则子进程从新的程序开始运行，无返回值，执行失败返回-1</p>
+<h4 id="请你来说一下fork函数"><a href="#请你来说一下fork函数" class="headerlink" title="请你来说一下fork函数"></a>请你来说一下fork函数</h4><p>Fork：创建一个和当前进程映像一样的进程可以通过fork( )系统调用：</p>
+<h3 id="2-编译与底层"><a href="#2-编译与底层" class="headerlink" title="2.编译与底层"></a>2.编译与底层</h3><h4 id="请你来说一下一个C-源文件从文本到可执行文件经历的过程？"><a href="#请你来说一下一个C-源文件从文本到可执行文件经历的过程？" class="headerlink" title="请你来说一下一个C++源文件从文本到可执行文件经历的过程？"></a>请你来说一下一个C++源文件从文本到可执行文件经历的过程？</h4><p>预处理阶段：对源代码文件中文件包含关系（头文件）、预编译语句（宏定义）进行分析和替换，生成预编译文件。<br>编译阶段：将经过预处理后的预编译文件转换成特定汇编代码，生成汇编文件<br>汇编阶段：将编译阶段生成的汇编文件转化成机器码，生成可重定位目标文件<br>链接阶段：将多个目标文件及所需要的库连接成最终的可执行目标文件</p>
+<h4 id="请你来回答一下include头文件的顺序以及双引号””和尖括号的区别？"><a href="#请你来回答一下include头文件的顺序以及双引号””和尖括号的区别？" class="headerlink" title="请你来回答一下include头文件的顺序以及双引号””和尖括号的区别？"></a>请你来回答一下include头文件的顺序以及双引号””和尖括号的区别？</h4><p>当前头文件目录，编译器设置的头文件路径（编译器可使用-I显式指定搜索路径），系统变量CPLUS_INCLUDE_PATH&#x2F;C_INCLUDE_PATH指定的头文件路径</p>
+<h4 id="请你回答一下malloc的原理，另外brk系统调用和mmap系统调用的作用分别是什么？"><a href="#请你回答一下malloc的原理，另外brk系统调用和mmap系统调用的作用分别是什么？" class="headerlink" title="请你回答一下malloc的原理，另外brk系统调用和mmap系统调用的作用分别是什么？"></a>请你回答一下<a target="_blank" rel="noopener" href="https://www.nowcoder.com/ta/review-c/review?tpId=22&tqId=31368&query=malloc%E7%9A%84%E5%8E%9F%E7%90%86&asc=true&order=&page=1">malloc的原理</a>，另外brk系统调用和mmap系统调用的作用分别是什么？</h4><p>malloc其采用内存池的方式，先申请大块内存作为堆区，然后将堆区分为多个内存块，以块作为内存管理的基本单位。当用户申请内存时，直接从堆区分配一块合适的空闲块。Malloc采用隐式链表结构将堆区分成连续的、大小不一的块，包含已分配块和未分配块；同时malloc采用显示链表结构来管理所有的空闲块，即使<strong>用一个双向链表将空闲块连接起来，每一个空闲块记录了一个连续的、未分配的地址</strong>。<br>当进行内存分配时，Malloc会通过隐式链表遍历所有的空闲块，选择满足要求的块进行分配；当进行内存合并时，malloc采用边界标记法，根据每个块的前后块是否已经分配来决定是否进行块合并。</p>
+<p>Malloc在申请内存时，一般会通过brk或者mmap系统调用进行申请。其中当申请内存小于128K时，会使用系统函数brk在<strong>堆区</strong>中分配；而当申请内存大于128K时，会使用系统函数mmap在<strong>文件映射区</strong>分配。</p>
+<h4 id="请你说一说C-的内存管理是怎样的？"><a href="#请你说一说C-的内存管理是怎样的？" class="headerlink" title="请你说一说C++的内存管理是怎样的？"></a>请你说一说C++的内存管理是怎样的？</h4><p>代码段，只读存储，和文本存储<br>数据段，存放初始化的全区变量<br>bss段，存放为初始化的全局变量和局部变量，以及初始化全为0的变量<br>栈区，存放局部变量，返回值，返回地址，参数值<br>堆区，动态内存的存放<br>映射区，mmap的文件映射</p>
+<h4 id="请你来说一下C-C的内存分配"><a href="#请你来说一下C-C的内存分配" class="headerlink" title="请你来说一下C++&#x2F;C的内存分配"></a>请你来说一下C++&#x2F;C的内存分配</h4><h4 id="请你回答一下如何判断内存泄漏？"><a href="#请你回答一下如何判断内存泄漏？" class="headerlink" title="请你回答一下如何判断内存泄漏？"></a>请你回答一下如何判断内存泄漏？</h4><p>为了判断内存是否泄露，我们一方面可以使用linux环境下的内存泄漏检查工具Valgrind,另一方面我们在写代码时可以添加内存申请和释放的统计功能，统计当前申请和释放的内存是否一致，以此来判断内存是否泄露。</p>
+<h4 id="请你来说一下什么时候会发生段错误"><a href="#请你来说一下什么时候会发生段错误" class="headerlink" title="请你来说一下什么时候会发生段错误"></a>请你来说一下什么时候会发生段错误</h4><p>段错误通常发生在访问非法内存地址的时候，具体来说分为以下几种情况：使用野指针、试图修改字符串常量的内容。</p>
+<h4 id="请你来回答一下什么是memory-leak，也就是内存泄漏"><a href="#请你来回答一下什么是memory-leak，也就是内存泄漏" class="headerlink" title="请你来回答一下什么是memory leak，也就是内存泄漏"></a>请你来回答一下什么是memory leak，也就是内存泄漏</h4><p>内存泄漏(memory leak)是指由于疏忽或错误造成了程序未能释放掉不再使用的内存的情况。内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，失去了对该段内存的控制，因而造成了内存的浪费。</p>
+<p>内存泄漏的分类：</p>
+<ol>
+<li>堆内存泄漏 （Heap leak）。对内存指的是程序运行中根据需要分配通过malloc,realloc new等从堆中分配的一块内存，再是完成后必须通过调用对应的 free或者delete 删掉。如果程序的设计的错误导致这部分内存没有被释放，那么此后这块内存将不会被使用，就会产生Heap Leak.</li>
+<li>系统资源泄露（Resource Leak）。主要指程序使用系统分配的资源比如 Bitmap,handle ,SOCKET等没有使用相应的函数释放掉，导致系统资源的浪费，严重可<strong>导致系统效能降低</strong>，系统运行不稳定。</li>
+<li>没有将基类的析构函数定义为虚函数。当基类指针指向子类对象时，如果基类的析构函数不是virtual，那么子类的析构函数将不会被调用，子类的资源没有正确是释放，因此造成内存泄露。</li>
+</ol>
+<h4 id="请你来说一下共享内存相关api"><a href="#请你来说一下共享内存相关api" class="headerlink" title="请你来说一下共享内存相关api"></a>请你来说一下共享内存相关api</h4><p>Linux允许不同进程访问同一个逻辑内存，提供了一组API，头文件在sys&#x2F;shm.h中。</p>
+<h4 id="请你来说一下reactor模型组成。"><a href="#请你来说一下reactor模型组成。" class="headerlink" title="请你来说一下reactor模型组成。"></a>请你来说一下<a target="_blank" rel="noopener" href="http://www.mianshigee.com/question/10253opn/">reactor模型组成</a>。</h4><h4 id="请自己设计一下如何采用单线程的方式处理高并发"><a href="#请自己设计一下如何采用单线程的方式处理高并发" class="headerlink" title="请自己设计一下如何采用单线程的方式处理高并发"></a>请自己设计一下如何采用单线程的方式处理高并发</h4><p>在单线程模型中，可以采用I&#x2F;O复用来提高单线程处理多个请求的能力，然后再采用事件驱动模型，基于异步回调来处理事件来。</p>
+<h4 id="请你说说C-如何处理内存泄漏？"><a href="#请你说说C-如何处理内存泄漏？" class="headerlink" title="请你说说C++如何处理内存泄漏？"></a>请你说说C++如何处理内存泄漏？</h4><p>请你说说select，epoll的区别，原理，性能，限制都说一说<br>请你说一说C++ STL 的内存优化</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag"># 面经</a>
+              <a href="/tags/%E5%85%AB%E8%82%A1/" rel="tag"># 八股</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/06/24/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E7%8E%B0%E5%9C%A8%E7%BB%B4%E6%8A%A4%E7%9A%84%E6%A8%A1%E6%9D%BF/%E5%9B%BE%E8%AE%BA/" rel="prev" title="图论代码模板">
+                  <i class="fa fa-angle-left"></i> 图论代码模板
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/23/%E9%9D%A2%E7%BB%8F/%5B%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90%5D2.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="next" title="[八股速成]2.操作系统">
+                  [八股速成]2.操作系统 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

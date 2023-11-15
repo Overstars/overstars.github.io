@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="因为某个der比赛只支持Java和JS参赛，临时速成Java，这里是赶鸭子上架的ACMJava模板。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java相关的竞赛模板">
+<meta property="og:url" content="http://example.com/2022/10/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/Java%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AB%9E%E8%B5%9B%E6%A8%A1%E6%9D%BF/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="因为某个der比赛只支持Java和JS参赛，临时速成Java，这里是赶鸭子上架的ACMJava模板。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-11T10:09:50.000Z">
+<meta property="article:modified_time" content="2023-01-27T13:21:17.124Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/10/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/Java%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AB%9E%E8%B5%9B%E6%A8%A1%E6%9D%BF/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/Java%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AB%9E%E8%B5%9B%E6%A8%A1%E6%9D%BF/","path":"2022/10/11/程序设计竞赛相关/Java相关的竞赛模板/","title":"Java相关的竞赛模板"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java相关的竞赛模板 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9C%E5%A4%A7%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.</span> <span class="nav-text">东大模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kattio"><span class="nav-number">2.</span> <span class="nav-text">Kattio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%82%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BBSTL"><span class="nav-number"></span> <span class="nav-text">类STL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97PriorityQueue"><span class="nav-number">1.</span> <span class="nav-text">优先队列PriorityQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E6%A0%B9%E5%A0%86"><span class="nav-number">1.1.</span> <span class="nav-text">大根堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">操作</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/Java%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AB%9E%E8%B5%9B%E6%A8%A1%E6%9D%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java相关的竞赛模板 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java相关的竞赛模板
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-11 18:09:50" itemprop="dateCreated datePublished" datetime="2022-10-11T18:09:50+08:00">2022-10-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>因为某个der比赛只支持Java和JS参赛，临时速成Java，这里是赶鸭子上架的ACMJava模板。</p>
+<span id="more"></span>
+<h3 id="东大模板"><a href="#东大模板" class="headerlink" title="东大模板"></a>东大模板</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.util.Arrays.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">boolean</span> <span class="variable">LOCAL</span> <span class="operator">=</span> System.getSecurityManager() == <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">boolean</span> <span class="variable">TO_FILE</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">debug</span><span class="params">(Object... os)</span> &#123;</span><br><span class="line">        System.err.println(deepToString(os));</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (LOCAL) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.setIn(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;./bin/in.txt&quot;</span>));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">                LOCAL = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (TO_FILE) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.setOut(<span class="keyword">new</span> <span class="title class_">PrintStream</span>(<span class="string">&quot;./src/output.txt&quot;</span>));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Main</span>().run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Kattio"><a href="#Kattio" class="headerlink" title="Kattio"></a>Kattio</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Kattio</span> <span class="keyword">extends</span> <span class="title class_">PrintWriter</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BufferedReader r;</span><br><span class="line">    <span class="keyword">private</span> StringTokenizer st;</span><br><span class="line">    <span class="comment">// 标准 IO</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Kattio</span><span class="params">()</span> &#123; <span class="built_in">this</span>(System.in, System.out); &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Kattio</span><span class="params">(InputStream i, OutputStream o)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(o);</span><br><span class="line">        r = <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(i));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 文件 IO</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Kattio</span><span class="params">(String intput, String output)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="built_in">super</span>(output);</span><br><span class="line">        r = <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(intput));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 在没有其他输入时返回 null</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">next</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (st == <span class="literal">null</span> || !st.hasMoreTokens())</span><br><span class="line">                st = <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(r.readLine());</span><br><span class="line">            <span class="keyword">return</span> st.nextToken();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">nextInt</span><span class="params">()</span> &#123; <span class="keyword">return</span> Integer.parseInt(next()); &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">nextDouble</span><span class="params">()</span> &#123; <span class="keyword">return</span> Double.parseDouble(next()); &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">long</span> <span class="title function_">nextLong</span><span class="params">()</span> &#123; <span class="keyword">return</span> Long.parseLong(next()); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//import java.util.Scanner;//相当于输入输出头文件</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;<span class="comment">//啥都有头文件</span></span><br><span class="line"><span class="comment">//import java.math.BigInteger;//大数类</span></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;<span class="comment">//大浮点数</span></span><br><span class="line"><span class="keyword">import</span> java.math.*;<span class="comment">//关于数学的头文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       BigInteger[] sum=<span class="keyword">new</span> <span class="title class_">BigInteger</span>[<span class="number">105</span>];<span class="comment">//开一个数组</span></span><br><span class="line">       <span class="type">Scanner</span> <span class="variable">cin</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);<span class="comment">//必须要写这句话（输入）</span></span><br><span class="line">       <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> cin.nextInt();<span class="comment">//输入整数T nextInt() 下一个int型数据</span></span><br><span class="line"><span class="comment">//        while(cin.hasNext()) &#123;//循环输入，hasNext()</span></span><br><span class="line"><span class="comment">//             int n = cin.nextInt();</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">       <span class="keyword">while</span> (t--!=<span class="number">0</span>) &#123;<span class="comment">//java里不能直接写while(t--)，必须是只有真假的表达式</span></span><br><span class="line">           <span class="type">BigInteger</span> <span class="variable">a</span> <span class="operator">=</span> cin.nextBigInteger();<span class="comment">//输入下一个大数</span></span><br><span class="line">           <span class="type">BigInteger</span> <span class="variable">b</span> <span class="operator">=</span> cin.nextBigInteger();<span class="comment">//输入下一个大数</span></span><br><span class="line">           BigInteger c;</span><br><span class="line">           c = a.add(b);<span class="comment">//c=a+b</span></span><br><span class="line">           c = a.subtract(b);<span class="comment">//c=a-b</span></span><br><span class="line">           c = a.multiply(b);<span class="comment">//c=a*b</span></span><br><span class="line">           c = a.divide(b);<span class="comment">//c=a/b(整数除法)</span></span><br><span class="line">           c = a.remainder(b);<span class="comment">//c=a%b</span></span><br><span class="line">           c = a.mod(b);<span class="comment">//c=a%b(结果为正数)</span></span><br><span class="line">           c = BigInteger.ZERO;<span class="comment">//c=0</span></span><br><span class="line">           c = BigInteger.ONE;<span class="comment">//c=1</span></span><br><span class="line">           c = BigInteger.TEN;<span class="comment">//c=10 java大数中只有0,1,10</span></span><br><span class="line">           c = BigInteger.valueOf(<span class="number">7</span>);<span class="comment">//c=7</span></span><br><span class="line">           <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">7</span>;</span><br><span class="line">           c = BigInteger.valueOf(n);<span class="comment">//c=n</span></span><br><span class="line">           c = a.pow(n);<span class="comment">//幂运算 c=pow(a,n)</span></span><br><span class="line">           c = a.gcd(b);<span class="comment">//最大公约数 c=gcd(a,b)</span></span><br><span class="line">           c = a.abs();<span class="comment">//</span></span><br><span class="line">           c = a.max(b);<span class="comment">//c=max(a,b)</span></span><br><span class="line">           c = a.min(b);<span class="comment">//c=min(a,b)</span></span><br><span class="line">           n = a.compareTo(b);<span class="comment">//a&lt;b n=-1;a=b n=0;a&gt;b n=1</span></span><br><span class="line">           a.equals(b);<span class="comment">//a==b</span></span><br><span class="line">           a.isProbablePrime(<span class="number">2</span>);<span class="comment">//判断素数，有一定几率错误，最好手写</span></span><br><span class="line">           System.out.println(c);<span class="comment">//输出c并换行</span></span><br><span class="line">           System.out.print(c);<span class="comment">//输出c</span></span><br><span class="line">           System.out.println(a+<span class="string">&quot; &quot;</span>+b);<span class="comment">//输出a空格b</span></span><br><span class="line">           <span class="type">BigDecimal</span> <span class="variable">d</span> <span class="operator">=</span> cin.nextBigDecimal();<span class="comment">//输入下一个高精度浮点数</span></span><br><span class="line">           <span class="type">BigDecimal</span> <span class="variable">e</span> <span class="operator">=</span> cin.nextBigDecimal();<span class="comment">//输入下一个高精度浮点数</span></span><br><span class="line">           <span class="type">BigDecimal</span> <span class="variable">f</span> <span class="operator">=</span> d.add(e);<span class="comment">//f=d+e</span></span><br><span class="line">           <span class="comment">//...其他和大数类似</span></span><br><span class="line">           f = d.setScale(<span class="number">2</span>);<span class="comment">//保留2位小数，默认四舍五入</span></span><br><span class="line">           f = d.setScale(<span class="number">2</span>,BigDecimal.ROUND_DOWN);<span class="comment">//保留2位小数，向下取整</span></span><br><span class="line">           f = d.setScale(<span class="number">2</span>,BigDecimal.ROUND_UP);<span class="comment">//保留2位小数，向上取整</span></span><br><span class="line">           f = d.setScale(<span class="number">2</span>,BigDecimal.ROUND_HALF_DOWN);<span class="comment">//保留2位小数，四舍五入，正好.5舍去</span></span><br><span class="line">           f = d.setScale(<span class="number">2</span>,BigDecimal.ROUND_HALF_UP);<span class="comment">//保留2位小数，四舍五入，正好.5进位</span></span><br><span class="line">           </span><br><span class="line">           Dog[]dogs = <span class="keyword">new</span> <span class="title class_">Dog</span>[] &#123;d1,d2,d3,d4,d5&#125;;</span><br><span class="line">           Arrays.sort(dogs,<span class="keyword">new</span> <span class="title class_">ByWeightComparator</span>());</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="comment">//定义一个“狗类”</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> weight;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">(String name, <span class="type">int</span> weight)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">this</span>.setName(name);</span><br><span class="line">        <span class="built_in">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getWeight</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> weight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setWeight</span><span class="params">(<span class="type">int</span> weight)</span></span><br><span class="line">    &#123;<span class="built_in">this</span>.weight = weight;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(Stringname)</span></span><br><span class="line">    &#123;<span class="built_in">this</span>.name = name;&#125;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span></span><br><span class="line">    &#123;<span class="keyword">return</span> name;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ByWeightComparator</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Object pFirst, Object pSecond)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">aFirstWeight</span> <span class="operator">=</span> ((Dog)pFirst).getWeight();</span><br><span class="line">        <span class="type">int</span> <span class="variable">aSecondWeight</span> <span class="operator">=</span> ((Dog)pSecond).getWeight();</span><br><span class="line">        <span class="type">int</span> <span class="variable">diff</span> <span class="operator">=</span> aFirstWeight - aSecondWeight;</span><br><span class="line">        <span class="keyword">if</span>(diff &gt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(diff &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类STL"><a href="#类STL" class="headerlink" title="类STL"></a>类STL</h2><h3 id="优先队列PriorityQueue"><a href="#优先队列PriorityQueue" class="headerlink" title="优先队列PriorityQueue"></a>优先队列PriorityQueue</h3><p>类及其迭代器实现Collection和Iterator接口的所有可选方法，PriorityQueue是非线程安全的，所以Java提供了PriorityBlockingQueue（实现BlockingQueue接口）用于Java多线程环境。默认是小根堆。PriorityQueue的iterator（）不保证以任何特定顺序遍历队列元素。若想按特定顺序遍历，先将队列转成数组，然后排序遍历。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PriorityQueue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<h4 id="大根堆"><a href="#大根堆" class="headerlink" title="大根堆"></a>大根堆</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PriorityQueue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Integer&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Integer o1, Integer o2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> o2.compareTo(o1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">PriorityQueue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;((o1, o2)-&gt;o2.compareTo(o1));</span><br><span class="line">PriorityQueue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;((o1, o2)-&gt;o2.compareTo(o1));</span><br></pre></td></tr></table></figure>
+
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">queue.add(E e);<span class="comment">// 插入元素e</span></span><br><span class="line">queue.clear();<span class="comment">// 清空</span></span><br><span class="line">queue.offer(<span class="number">12</span>);<span class="comment">// 插入</span></span><br><span class="line">queue.offer(<span class="number">15</span>);</span><br><span class="line">queue.offer(<span class="number">10</span>);</span><br><span class="line">queue.peek(); <span class="comment">// 检索但不删除此队列的头，如果此队列为空，则返回 null </span></span><br><span class="line">queue.poll(); <span class="comment">// 检索并删除此队列的头，如果此队列为空，则返回 null</span></span><br><span class="line">queue.size(); <span class="comment">// 返回此集合中的元素数</span></span><br><span class="line">queue.toArray(); <span class="comment">// 返回一个包含此队列中所有元素的数组</span></span><br><span class="line"><span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">    System.out.println(t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/04/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/makefile%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/" rel="prev" title="makefile常用模板">
+                  <i class="fa fa-angle-left"></i> makefile常用模板
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/27/%E4%BA%8C%E6%AC%A1%E5%85%83%EF%BC%81/%E7%9C%8B%E7%95%AA%E5%90%90%E6%A7%BD/" rel="next" title="看番吐槽">
+                  看番吐槽 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

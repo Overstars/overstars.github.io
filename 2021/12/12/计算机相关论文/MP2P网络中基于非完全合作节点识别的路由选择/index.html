@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="简介P2P模式中资源稀缺性加剧了移动对等网络（MP2P）节点的自私，使节点表达非完全合作（NCC）态度。因此，在本文中提出了非完全合作节点的识别并针对 MP2P 提出了相应的信任路由方案。 从直接信任、内部状态、推荐信任三个维度组成的卦限来评估。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MP2P网络中基于非完全合作节点识别的路由选择">
+<meta property="og:url" content="http://example.com/2021/12/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/MP2P%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%9F%BA%E4%BA%8E%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="简介P2P模式中资源稀缺性加剧了移动对等网络（MP2P）节点的自私，使节点表达非完全合作（NCC）态度。因此，在本文中提出了非完全合作节点的识别并针对 MP2P 提出了相应的信任路由方案。 从直接信任、内部状态、推荐信任三个维度组成的卦限来评估。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-12T13:40:53.000Z">
+<meta property="article:modified_time" content="2023-01-27T13:21:17.145Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="边缘计算">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/12/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/MP2P%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%9F%BA%E4%BA%8E%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/MP2P%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%9F%BA%E4%BA%8E%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/","path":"2021/12/12/计算机相关论文/MP2P网络中基于非完全合作节点识别的路由选择/","title":"MP2P网络中基于非完全合作节点识别的路由选择"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MP2P网络中基于非完全合作节点识别的路由选择 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%86%E5%88%ABNCC%E8%8A%82%E7%82%B9%E7%9A%84%E9%9A%BE%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">识别NCC节点的难点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%88%B0%E7%9A%84%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">目前可以做到的工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">攻击方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E4%BF%A1%E4%BB%BB"><span class="nav-number">5.1.</span> <span class="nav-text">直接信任</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E4%BF%A1%E4%BB%BB"><span class="nav-number">5.2.</span> <span class="nav-text">推荐信任</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E4%BB%BB%E5%BA%A6reliability"><span class="nav-number">5.3.</span> <span class="nav-text">信任度reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%B4%E6%8E%A5%E4%BF%A1%E4%BB%BB"><span class="nav-number">5.4.</span> <span class="nav-text">间接信任</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E4%BF%A1%E4%BB%BB"><span class="nav-number">5.5.</span> <span class="nav-text">综合信任</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%8A%B6%E6%80%81"><span class="nav-number">5.6.</span> <span class="nav-text">内部状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E4%BF%A1%E4%BB%BB"><span class="nav-number">5.7.</span> <span class="nav-text">路径信任</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%96%B9%E9%9D%A2%E6%80%BB%E4%BD%93%E6%9D%A5%E8%AF%B4"><span class="nav-number">6.</span> <span class="nav-text">公式方面总体来说</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#INCC%E7%9A%84%E6%A3%80%E6%B5%8B"><span class="nav-number">7.</span> <span class="nav-text">INCC的检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">7.1.</span> <span class="nav-text">算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNCC%E7%9A%84%E6%A3%80%E6%B5%8B"><span class="nav-number">8.</span> <span class="nav-text">CNCC的检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95-1"><span class="nav-number">8.1.</span> <span class="nav-text">算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E4%BB%BB%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%9E%8B"><span class="nav-number">9.</span> <span class="nav-text">信任路由模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">10.</span> <span class="nav-text">模拟实验环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E6%A8%A1%E6%8B%9F%E7%8A%B6%E6%80%81%E5%A6%82%E4%B8%8B"><span class="nav-number">11.</span> <span class="nav-text">非完全合作节点模拟状态如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-number">12.</span> <span class="nav-text">评估指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E7%90%86%E8%A7%A3%E7%9A%84%E9%83%A8%E5%88%86"><span class="nav-number">13.</span> <span class="nav-text">不理解的部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E8%A6%81%E5%B9%B2%E7%9A%84"><span class="nav-number">13.1.</span> <span class="nav-text">接下来要干的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%EF%BC%88%E7%9B%B4%E6%8E%A5copy%E8%BF%87%E6%9D%A5%E7%9A%84%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">工作进度（直接copy过来的）</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/MP2P%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%9F%BA%E4%BA%8E%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MP2P网络中基于非完全合作节点识别的路由选择 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MP2P网络中基于非完全合作节点识别的路由选择
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-12 21:40:53" itemprop="dateCreated datePublished" datetime="2021-12-12T21:40:53+08:00">2021-12-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>P2P模式中资源稀缺性加剧了移动对等网络（MP2P）节点的自私，使节点表达非完全合作（NCC）态度。因此，在本文中提出了<strong>非完全合作节点的识别</strong>并针对 MP2P 提出了相应的<strong>信任路由方案</strong>。</p>
+<p>从<strong>直接信任</strong>、<strong>内部状态</strong>、<strong>推荐信任</strong>三个维度组成的卦限来评估。</p>
+<span id="more"></span>
+
+<h3 id="识别NCC节点的难点"><a href="#识别NCC节点的难点" class="headerlink" title="识别NCC节点的难点"></a>识别NCC节点的难点</h3><ul>
+<li>难点1：节点只能直接得知相邻节点状态，全局信息只能通过推荐。</li>
+<li>难点2：如何区分善意节点因为资源不足而拒绝服务。</li>
+<li>共谋恶意节点（CNCC），更难发现且危害更大。</li>
+</ul>
+<h3 id="目前可以做到的工作"><a href="#目前可以做到的工作" class="headerlink" title="目前可以做到的工作"></a>目前可以做到的工作</h3><ol>
+<li><p>通过三个评估标准构成卦限来建立信任模型。</p>
+</li>
+<li><p>INCC可以通过模型准确识别，CNCC可以基于INCC的识别结果通过余弦相似度进行识别。</p>
+</li>
+<li><p>对MP2P网络基于NCC识别构建一条信任路由。</p>
+</li>
+</ol>
+<h3 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h3><ol>
+<li>灰洞攻击：以一定概率不转发收到的数据包。</li>
+<li>黑洞攻击：不转发收到的数据包。</li>
+<li>bad mouthing：说好节点坏话。</li>
+<li>ballot stuffing：说坏节点好话。</li>
+<li>self-promoting attacks：吹自己。</li>
+<li>Collusive Attack：共谋攻击，同时协作攻击相同对象。</li>
+</ol>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><h4 id="直接信任"><a href="#直接信任" class="headerlink" title="直接信任"></a>直接信任</h4><p>一种直接监控，根据被监控节点正确转发的数据包和收到的数据包进行评估。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_j$ 的直接信任值为 $T^d_{i,j}(t)$  。</p>
+<h4 id="推荐信任"><a href="#推荐信任" class="headerlink" title="推荐信任"></a>推荐信任</h4><p>一些节点超出了传输范围因而不能获取直接信任，需要通过共同相邻节点进行对被监控节点的信息获取。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_j$ 提供关于 $v_k$ 的推荐为 $T^r_{i,j,k}(t)$ 。</p>
+<p>好节点直接发送综合信任，坏节点会有波动。</p>
+<h4 id="信任度reliability"><a href="#信任度reliability" class="headerlink" title="信任度reliability"></a>信任度reliability</h4><p>是间接信任的可靠性的评估</p>
+<p>表示一个节点对另一个节点的综合信任度。</p>
+<p>节点 $v_i$ 对 $v_j$ 在时间 $t$ 的信任度为：<br>$$<br>\begin{array}{r}<br>T_{i, j}^{c}(t)&#x3D;w_{s} \times\left(1-\left|T_{j, i, i}^{r}(t)-T_{i, i}^{d}(t)\right|\right)<br>+<br>w_{b}<br>\times<br>\frac<br>{\sum\limits_{v_{k} \in\left(N\left(v_{i}\right) \cap N\left(v_{j}\right)\right)} {\left(1-\left|T_{j, i, k}^{r}(t)-T_{i, k}^{d}\right|\right) }}<br>{\left|N\left(v_{i}\right) \cap N\left(v_{j}\right)\right|} </p>
+<ul>
+<li>\<br>w_{r} \times<br>\frac<br>{\sum\limits_{\left(v_{j}, v_{k} \in N\left(v_{i}\right) \cap v_{j} \neq v_{k}\right), v_{l} \notin N\left(v_{i}\right), v_{l} \neq v i}{\left(1-\left|T_{j, i, l}^{r}(t)-T_{k, i, l}^{r}\right|\right) }}<br>{N-\left|N\left(v_{i}\right)\right|-1}</li>
+</ul>
+<p>\end{array}<br>$$</p>
+<p>$w_s, w_b, w_r$ 是三个加权系数，分别代表节点对自己的评价差异，节点对相邻结点的评价差异，节点对不相邻结点的评价差异。</p>
+<h4 id="间接信任"><a href="#间接信任" class="headerlink" title="间接信任"></a>间接信任</h4><p>间接信任：根据可信邻节点所提供的推荐信任建立的信任关系。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_k$ 的间接信任值 $T^i_{i, k}(t) &#x3D; T^r_{i, j, k}(t) \times T^c_{i,j}(t)$。</p>
+<h4 id="综合信任"><a href="#综合信任" class="headerlink" title="综合信任"></a>综合信任</h4><p>基于直接信任和间接信任的最终信任。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_j$ 的综合信任 $T_{i, j}(t) &#x3D; w_d \times T^d_{i, j}(t) + (1 - w_d) \times T^i_{i, j}(t)$ ，其中 $w_d$ 是权重因子，用于   调整重视程度。</p>
+<h4 id="内部状态"><a href="#内部状态" class="headerlink" title="内部状态"></a>内部状态</h4><p>表示一个节点的内部资源，即使主观合作节点仍会因为内部状态而表现不佳。</p>
+<h4 id="路径信任"><a href="#路径信任" class="headerlink" title="路径信任"></a>路径信任</h4><p>从 $v_i$ 到 $v_j$ 的路径信任记为 $T^p_{i, j}$ 。</p>
+<p>MP2P是动态变化的，我们可以监听的只有<strong>直接信任</strong>和<strong>推荐信任</strong>，并根据这两个来更新信任度、间接信任、综合信任、路径信任。并将时间划分为时间间隔 $\Delta t$ ，更新方案为 $T^d_{i,j}(t+\Delta t)&#x3D;\beta \times T^d_{i,j}(t)+(1-\beta)\times \Delta T^d_{i,j}(t+\Delta t)$ ， $\Delta T^d_{i,j}(t+\Delta t)$是节点 $v_i$ 对 $v_j$ 在时间 $t+\Delta t$ 的直接信任。</p>
+<h3 id="公式方面总体来说"><a href="#公式方面总体来说" class="headerlink" title="公式方面总体来说"></a>公式方面总体来说</h3><p>直接信任（direct trust），推荐信任（reliability），内部状态（internal state）三个维度。</p>
+<p>通过计算<strong>直接信任</strong>（direct trust） $T^d_{i,j}(t)&#x3D;\dfrac{正确转发的数据包}{收到的包}$。</p>
+<p><strong>信任度</strong>（reliability）即为：<br>$$<br>\begin{array}{r}<br>T_{i, j}^{c}(t)&#x3D;w_{s} \times\left(1-\left|T_{j, i, i}^{r}(t)-T_{i, i}^{d}(t)\right|\right)<br>+<br>w_{b}<br>\times<br>\frac<br>{\sum\limits_{v_{k} \in\left(N\left(v_{i}\right) \cap N\left(v_{j}\right)\right)} {\left(1-\left|T_{j, i, k}^{r}(t)-T_{i, k}^{d}\right|\right) }}<br>{\left|N\left(v_{i}\right) \cap N\left(v_{j}\right)\right|} </p>
+<ul>
+<li>\<br>w_{r} \times<br>\frac<br>{\sum\limits_{\left(v_{j}, v_{k} \in N\left(v_{i}\right) \cap v_{j} \neq v_{k}\right), v_{l} \notin N\left(v_{i}\right), v_{l} \neq v i}{\left(1-\left|T_{j, i, l}^{r}(t)-T_{k, i, l}^{r}\right|\right) }}<br>{N-\left|N\left(v_{i}\right)\right|-1}</li>
+</ul>
+<p>\end{array}<br>$$<br><strong>间接信任</strong>由推荐信任和信任度得到：$T^i_{i, k}(t) &#x3D; T^r_{i, j, k}(t) \times T^c_{i,j}(t)$。</p>
+<p><strong>综合信任</strong>由直接信任和间接信任得到：$T_{i, j}(t) &#x3D; w_d \times T^d_{i, j}(t) + (1 - w_d) \times T^i_{i, j}(t)$。</p>
+<h3 id="INCC的检测"><a href="#INCC的检测" class="headerlink" title="INCC的检测"></a>INCC的检测</h3><p>根据<strong>直接信任</strong>、<strong>内部状态</strong>、<strong>推荐信任</strong>三个维度组成的卦限来评估。<br>状态（Good&#x2F;Bad）、直接信任（High&#x2F;Low）和可靠性（True&#x2F;False），由于内部状态差的时候不可能有较好的转发率，BHX是不存在的，GHF可能会发动诽谤攻击，GLT可能发动灰洞攻击，BLT和BLF需要再进一步确定。</p>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ol>
+<li><p>对于每个时间片都进行如下操作</p>
+<ol>
+<li><p>通过监控邻居节点获得直接信任</p>
+</li>
+<li><p>从邻居节点获取推荐信任</p>
+</li>
+<li><p>计算信任度</p>
+</li>
+<li><p>根据检测结果检测内部状态</p>
+</li>
+<li><p>基于当前时间片的新的信任值进行更新</p>
+</li>
+<li><p>基于卦限确定INCC</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="CNCC的检测"><a href="#CNCC的检测" class="headerlink" title="CNCC的检测"></a>CNCC的检测</h3><p>假设共谋节点来自相同类型，忽略合作节点GTH节点、恶意节点GLF、BLF。直接关注GHF、GLT、BLT三种节点，并通过余弦相似度。</p>
+<h4 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h4><ol>
+<li>对于每个时间片都进行如下操作<ol>
+<li>对于每个在GTL（综合可靠、直接信任度低）象限的点进行如下操作<ol>
+<li>计算每两个节点在直接信任和信任度的相似度</li>
+<li>若大于阈值，则识别为<strong>黑洞攻击</strong>的共谋节点</li>
+</ol>
+</li>
+<li>对于每个在GFH（综合不可靠、直接信任度高）象限的点进行如下操作<ol>
+<li>计算每两个节点在直接信任和信任度的相似度</li>
+<li>若大于阈值，则识别为<strong>假情报攻击</strong>的共谋节点</li>
+</ol>
+</li>
+<li>对于每个在GFL（综合不可靠、直接信任度低）象限的点进行如下操作<ol>
+<li>计算每两个节点在直接信任和信任度的相似度</li>
+<li>若大于阈值，则识别为<strong>黑洞攻击</strong>和<strong>假情报攻击</strong>的共谋节点</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="信任路由模型"><a href="#信任路由模型" class="headerlink" title="信任路由模型"></a>信任路由模型</h3><p>我们基于<strong>无线自组网按需平面距离向量路由协议</strong>和NCC识别提出了 NCCTR 信任路由模型，描述如下：</p>
+<ol>
+<li><p>当一个源节点 $v_s$ 有数据包要发给目的节点 $v_d$ ， $v_s$ 首先检测是否存在可用路由，如果存在则随机选择一条并转到7，否则转到2。</p>
+</li>
+<li><p>$v_S$ 向其直接信任值大于门限 $\gamma$ 的相邻节点进行广播路由请求包RREQ。</p>
+</li>
+<li><p>中间节点第一次收到RREQ时会判断当前路径是否合适，如果合适则继续向向其直接信任值大于门限 $\gamma$ 的相邻节点进行广播，否则直接cut。</p>
+</li>
+<li><p>若任何一个节点有一个可用路径到达 $v_d$ ，则生成路由回复包 RREP 回溯发送给 $v_s$ 。否则重复步骤3。</p>
+</li>
+<li><p>目的节点 $v_d$ 收到几个 RREQ包时，会选择最大信任路径回复给 $v_s$ 。</p>
+</li>
+<li><p>$v_s$ 收到RREP时，会建立一个或多个信任路由路径。</p>
+</li>
+<li><p>$v_S$ 按照信任路由路径发送数据包。</p>
+</li>
+<li><p>一条路径失效，可以使用其余的。若没有其他剩下的，转到步骤2。</p>
+</li>
+</ol>
+<h3 id="模拟实验环境"><a href="#模拟实验环境" class="headerlink" title="模拟实验环境"></a>模拟实验环境</h3><p>1000m*1000m的矩形场，50 个移动节点，节点覆盖半径250m，每个节点移动<br>以随机速度从一个随机的起点到一个随机的目的地，一旦到达目标节点，暂停一段时间后随机选择另一个目的地。</p>
+<p>使用UDP作为协议，Constant Bit Rate作为编码的码率控制的10个数据包？数据包生成频率1个&#x2F;s，大小为512字节，起点终点随机。</p>
+<ul>
+<li>服务器初始没有数据，位置固定</li>
+<li>暂时不考虑恶意服务器</li>
+<li>内部状态由发出数据报&#x2F;转发数据报评估，只有好&#x2F;坏两个状态</li>
+<li>服务器定期广播请求所有数据</li>
+<li>物层节点初始数据，每个都有，正态分布。假数据落在范围外</li>
+</ul>
+<h3 id="非完全合作节点模拟状态如下"><a href="#非完全合作节点模拟状态如下" class="headerlink" title="非完全合作节点模拟状态如下"></a>非完全合作节点模拟状态如下</h3><ul>
+<li><p>Black Hole Attack：节点会拒绝转发所有数据包。</p>
+</li>
+<li><p>Bad-mouthing Attack：针对行为良好的节点的信息打差评，破坏他们的信任价值。</p>
+</li>
+<li><p>Ballot Stuffing Attack：为行为不良的节点提供良好的推荐信息以提高他们的信任价值。</p>
+</li>
+<li><p>Collusive Attack：这些节点同时协作发起攻击。他们有相同的攻击对象。</p>
+</li>
+</ul>
+<h3 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h3><ul>
+<li>物层召回率True Positive Ratio (TPR)：positives节点识别的正确率，识别出的恶意节点&#x2F;恶意节点总数。</li>
+<li>物层误检率False Positive Ratio (FPR)： negative events误识为positive数目与实际上 negative events数目的比率。</li>
+<li>物层精度Precision Ratio (PR)：true positive correct results数目与positive events数目的比率。</li>
+<li>Packet Delivery Ratio (PDR)：数据包成功接收比率。</li>
+<li>Average End-to-end Delay (AED)：数据包平均发送时间。</li>
+<li>Average Overhead(AOH)：控制包数和数据包数比率的平均值。</li>
+</ul>
+<p>前三个可以评估非完全合作节点检测方法的有效性，后三个可以评估MP2P中路由选择方案的能力。</p>
+<h3 id="不理解的部分"><a href="#不理解的部分" class="headerlink" title="不理解的部分"></a>不理解的部分</h3><ul>
+<li>评估标准里actual positives、negative events、true positive correct results指的都是什么</li>
+<li>10个Constant Bit Rate是以恒定比特率方式进行编码？不太理解。</li>
+<li>论文里没说脏数据、恶意服务器的事，要自己加fake data、fake service。</li>
+<li>连服务器的事都没说（可能我没看仔细</li>
+<li>实现的具体细节要去看代码</li>
+<li>为什么聚类实现在Node里，每个节点都自行识别吗</li>
+<li>边缘服务器的分布好奇怪，位置是固定的吗。物层节点位置是随机的，但好像并没有在移动。</li>
+<li>可靠服务器获取资源时也会有±1的误差，恶意服务器获取资源会有±10的误差，但资源都是全的。</li>
+<li>节点只有一部分资源，误差同上（模拟假数据？）。</li>
+<li>Node里面的包含数据为什么要弄成映射而不是集合，是资源有精度误差而给资源编号吗。</li>
+<li>精度好像不太行？为什么全是0</li>
+<li>对于不相邻结点的评估是否纳入考量</li>
+<li>在哪里using namespace std;了……</li>
+<li>邻接表adjacencyList好像炸了</li>
+<li>服务器的计算量会更大，然后它的资源也更多，但是我们其实没有在模型里面体体体现这个</li>
+<li>聚类函数在node.cpp第361行</li>
+<li>服务器判断识别恶意节点的方法和物层节点不同</li>
+<li>Node第328行，this只记录了来自source的数据place的最近记录…</li>
+<li>服务器的聚类似乎没有运行过，可能是测试规模太小了</li>
+</ul>
+<h4 id="接下来要干的"><a href="#接下来要干的" class="headerlink" title="接下来要干的"></a>接下来要干的</h4><ul>
+<li>看一下网上RIP路由怎么模拟实现的</li>
+<li>弄清楚一些细节概念，评估函数具体含义</li>
+<li>弄清楚各个矩阵计算方法</li>
+<li>是否对物层节点加入移动，调一下邻接表。</li>
+<li>对校一下信任矩阵和评估函数的实现，看一下是否要拆出来写。</li>
+</ul>
+<h2 id="工作进度（直接copy过来的）"><a href="#工作进度（直接copy过来的）" class="headerlink" title="工作进度（直接copy过来的）"></a>工作进度（直接copy过来的）</h2><p>目前处于编码测试阶段。</p>
+<p>代码中已经实现的部分有：</p>
+<ol>
+<li>网络的构建（构建网络拓扑，构建结点的rip表，模拟结点发包转包）</li>
+<li>实现了TRUSTCOM这篇论文里计算信任的方法（即信任模型）</li>
+<li>写了一个边缘服务器的聚类模型，但这个模型还在调试中</li>
+<li>实现了灰洞攻击和虚假数据的攻击</li>
+<li>计算了三个测试指标</li>
+</ol>
+<p>待完善的部分：</p>
+<ol>
+<li>聚类算法的调试（聚类算法，即边缘服务器对物层恶意结点的识别这里做得一直不是很理想）</li>
+<li>加入更多的攻击模型（共谋攻击，诽谤攻击）</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/" rel="tag"># 边缘计算</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/07/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A3%85%E6%9C%BA%E5%A4%87%E5%BF%98%E5%BD%95/" rel="prev" title="ubuntu虚拟机装机备忘录">
+                  <i class="fa fa-angle-left"></i> ubuntu虚拟机装机备忘录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/09/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E7%8E%B0%E5%9C%A8%E7%BB%B4%E6%8A%A4%E7%9A%84%E6%A8%A1%E6%9D%BF/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="next" title="计算几何代码模板">
+                  计算几何代码模板 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

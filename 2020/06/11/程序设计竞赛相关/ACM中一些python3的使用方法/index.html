@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这里收录一些OJ平台可能用到的Pyhton3使用技巧以及模板">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM中一些python3的使用方法">
+<meta property="og:url" content="http://example.com/2020/06/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/ACM%E4%B8%AD%E4%B8%80%E4%BA%9Bpython3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="这里收录一些OJ平台可能用到的Pyhton3使用技巧以及模板">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-11T09:09:17.000Z">
+<meta property="article:modified_time" content="2023-01-27T13:21:17.124Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="Python3">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/06/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/ACM%E4%B8%AD%E4%B8%80%E4%BA%9Bpython3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2020/06/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/ACM%E4%B8%AD%E4%B8%80%E4%BA%9Bpython3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/","path":"2020/06/11/程序设计竞赛相关/ACM中一些python3的使用方法/","title":"ACM中一些python3的使用方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ACM中一些python3的使用方法 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">输入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">一些基本数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#math%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">math库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B0%81%E8%A3%85%E7%9A%84%E6%A8%A1%E6%9D%BF"><span class="nav-number"></span> <span class="nav-text">一些封装的模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="nav-number">1.</span> <span class="nav-text">快速幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%8C%BA%E9%97%B4%E5%8A%A0-%E5%8C%BA%E9%97%B4%E5%92%8C"><span class="nav-number">3.</span> <span class="nav-text">线段树区间加+区间和</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/06/11/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/ACM%E4%B8%AD%E4%B8%80%E4%BA%9Bpython3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ACM中一些python3的使用方法 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ACM中一些python3的使用方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-11 17:09:17" itemprop="dateCreated datePublished" datetime="2020-06-11T17:09:17+08:00">2020-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这里收录一些OJ平台可能用到的Pyhton3使用技巧以及模板</p>
+<span id="more"></span>
+
+<h3 id="输入方式"><a href="#输入方式" class="headerlink" title="输入方式"></a>输入方式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">def main():</span><br><span class="line">    Do somthing</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    t = int(input())</span><br><span class="line">    for i in range(t):</span><br><span class="line">        main()</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">for T in range(0,int(input())): #T组数据</span><br><span class="line">    N=int(input())</span><br><span class="line">    n,m=map(int,input().split())</span><br><span class="line">    s=input()</span><br><span class="line">    s=[int(x) for x in input().split()] #一行输入的数组</span><br><span class="line">    a[1:]=[int(x) for x in input().split()] #从下标1开始读入一行</span><br><span class="line">    for i in range(0,len(s)):</span><br><span class="line">        a,b=map(int,input().split())</span><br><span class="line"></span><br><span class="line">while True: #未知多组数据</span><br><span class="line">    try:</span><br><span class="line">        #n,m=map(int,input().split())</span><br><span class="line">        #print(n+m,end=&quot;\n&quot;)</span><br><span class="line">    except EOFError: #捕获到异常</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<h3 id="一些基本数据结构"><a href="#一些基本数据结构" class="headerlink" title="一些基本数据结构"></a>一些基本数据结构</h3><p>python中的栈和队列可以使用列表来模拟，或者<code>import deque</code><br>匿名函数使用lambda关键字来定义<code>lambda 参数: 表达式</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#使用中括号[]定义一个列表</span><br><span class="line"># l=[23,&#x27;wtf&#x27;,3.14]</span><br><span class="line">list.append(obj)#将obj添加到list末尾,O(1)</span><br><span class="line">list.insert(index,obj)#将obj插入列表index位置,O(n)</span><br><span class="line">list.pop([index=-1])#移除元素并返回该元素</span><br><span class="line">list.sort(key=None,reverse=False)#默认升序排序,O(nlogn)</span><br><span class="line">list.reverse()#反转列表元素</span><br><span class="line">list.clear()</span><br><span class="line">len(list)#列表元素个数,O(1)</span><br><span class="line">max(list)#返回列表元素最大值,O(n)</span><br><span class="line">del list[2]#删除list中第三个元素</span><br><span class="line"></span><br><span class="line">#用小括号定义一个元组,可以当作不能修改的list</span><br><span class="line"># t=(23,&#x27;wtf&#x27;,3.14)</span><br><span class="line"></span><br><span class="line">#用花括号&#123;&#125;定义一个字典</span><br><span class="line">d=&#123;key1:value1,key2:value2&#125;#通过key访问value</span><br><span class="line">print(d[key1])#输出value1</span><br><span class="line">if key in dict : #key不存在会报错,要先询问</span><br><span class="line">    do somthing #或者使用</span><br><span class="line">d.get(key)</span><br><span class="line">for key in d: #遍历字典d</span><br><span class="line">    print(key,&#x27;:&#x27;,d.get(key))</span><br><span class="line">dMerge=dict(d1,**d2)#将d1和d2合并为dMerge</span><br><span class="line"></span><br><span class="line">#调用set()方法创建集合</span><br><span class="line">s=set([1,2,3])#定义</span><br><span class="line">s.add(4)#添加</span><br><span class="line">s.remove(4)#删除</span><br></pre></td></tr></table></figure>
+
+<h3 id="math库"><a href="#math库" class="headerlink" title="math库"></a>math库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">math.e #常量e,2.718281828459045</span><br><span class="line">math.pi #常量pi,3.141592653589793</span><br><span class="line">math.factorial(x) #x的阶乘</span><br><span class="line">math.gcd(x,y) #x,y的gcd</span><br><span class="line">math.sqrt(x) #x的平方根</span><br><span class="line">x=math.log(n,a) #以a为底n的对数x,a^x=n,默认底数为e</span><br><span class="line">math.log(32,2) #5.0</span><br><span class="line">math.degrees(math.pi/4) #将Π/4转为角度</span><br><span class="line">math.radians(45) #将45度转为弧度</span><br><span class="line">math.cos(math.pi/4) #参数都为弧度</span><br></pre></td></tr></table></figure>
+<h2 id="一些封装的模板"><a href="#一些封装的模板" class="headerlink" title="一些封装的模板"></a>一些封装的模板</h2><h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def qmod(a,b,mod):</span><br><span class="line">    a=a%mod</span><br><span class="line">    ans=1</span><br><span class="line">    while b!=0:</span><br><span class="line">        if b&amp;1:</span><br><span class="line">            ans=(ans*a)%mod</span><br><span class="line">        b&gt;&gt;=1</span><br><span class="line">        a=(a*a)%mod</span><br><span class="line">    return ans</span><br></pre></td></tr></table></figure>
+<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">N,m=map(int,input().split())</span><br><span class="line">fa=[int(i) for i in range(N+1)]</span><br><span class="line">siz=[1]*(N+1)</span><br><span class="line">def findfa(x):</span><br><span class="line">    if fa[x]!=x:</span><br><span class="line">        fa[x]=findfa(fa[x])</span><br><span class="line">    return fa[x]</span><br><span class="line">def Merge(x,y):</span><br><span class="line">    xx,yy=findfa(x),findfa(y)</span><br><span class="line">    if xx == yy:</span><br><span class="line">        return False</span><br><span class="line">    if siz[xx] &gt; siz[yy]: #按秩合并</span><br><span class="line">        fa[yy]=xx</span><br><span class="line">        siz[xx]+=siz[yy]</span><br><span class="line">    else:</span><br><span class="line">        fa[xx]=yy</span><br><span class="line">        siz[yy]+=siz[xx]</span><br><span class="line">    return True</span><br><span class="line">for i in range(m):</span><br><span class="line">    z,x,y=map(int,input().split())</span><br><span class="line">    if z==1:</span><br><span class="line">        Merge(x,y)</span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;Y&#x27; if findfa(x)==findfa(y)else &#x27;N&#x27;)</span><br></pre></td></tr></table></figure>
+<h3 id="线段树区间加-区间和"><a href="#线段树区间加-区间和" class="headerlink" title="线段树区间加+区间和"></a>线段树区间加+区间和</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">class SegTreeNode(): #python3中所有类默认都是新式类</span><br><span class="line">    def __init__(self): #类似构造函数,类方法必须包含参数self</span><br><span class="line">        self.value=0</span><br><span class="line">        self.lazytag=0</span><br><span class="line"></span><br><span class="line">Data=[0 for i in range(0,100010)]</span><br><span class="line"></span><br><span class="line">class SegTree():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.SegTree=[SegTreeNode() for i in range(0,400010)]</span><br><span class="line"></span><br><span class="line">    def Build_SegTree(self,Root,L,R):</span><br><span class="line">        if L==R:</span><br><span class="line">            self.SegTree[Root].value=Data[L]</span><br><span class="line">            return</span><br><span class="line">        mid=(L+R)&gt;&gt;1</span><br><span class="line">        self.Build_SegTree(Root&lt;&lt;1,L,mid)</span><br><span class="line">        self.Build_SegTree(Root&lt;&lt;1|1,mid+1,R)</span><br><span class="line">        self.SegTree[Root].value=self.SegTree[Root&lt;&lt;1].value+self.SegTree[Root&lt;&lt;1|1].value</span><br><span class="line">        return</span><br><span class="line"></span><br><span class="line">    def Push_Down(self,Root,L,R):</span><br><span class="line">        if self.SegTree[Root].lazytag==0:</span><br><span class="line">            return</span><br><span class="line">        Add=self.SegTree[Root].lazytag</span><br><span class="line">        self.SegTree[Root].lazytag=0</span><br><span class="line">        mid=(L+R)&gt;&gt;1</span><br><span class="line">        self.SegTree[Root&lt;&lt;1].value+=(mid-L+1)*Add</span><br><span class="line">        self.SegTree[Root&lt;&lt;1|1].value+=(R-mid)*Add</span><br><span class="line">        self.SegTree[Root&lt;&lt;1].lazytag+=Add</span><br><span class="line">        self.SegTree[Root&lt;&lt;1|1].lazytag+=Add</span><br><span class="line">        return</span><br><span class="line"></span><br><span class="line">    def Update(self,Root,L,R,QL,QR,Add):</span><br><span class="line">        if R&lt;QL or QR&lt;L:</span><br><span class="line">            return</span><br><span class="line">        if QL&lt;=L and R&lt;=QR:</span><br><span class="line">            self.SegTree[Root].value+=(R-L+1)*Add</span><br><span class="line">            self.SegTree[Root].lazytag+=Add</span><br><span class="line">            return</span><br><span class="line">        mid=(L+R)&gt;&gt;1</span><br><span class="line">        self.Push_Down(Root,L,R)</span><br><span class="line">        self.Update(Root&lt;&lt;1,L,mid,QL,QR,Add)</span><br><span class="line">        self.Update(Root&lt;&lt;1|1,mid+1,R,QL,QR,Add)</span><br><span class="line">        self.SegTree[Root].value=self.SegTree[Root&lt;&lt;1].value+self.SegTree[Root&lt;&lt;1|1].value</span><br><span class="line">        return</span><br><span class="line"></span><br><span class="line">    def Query(self,Root,L,R,QL,QR):</span><br><span class="line">        if R&lt;QL or QR&lt;L:</span><br><span class="line">            return 0</span><br><span class="line">        if QL&lt;=L and R&lt;=QR:</span><br><span class="line">            return self.SegTree[Root].value</span><br><span class="line">        mid=(L+R)&gt;&gt;1</span><br><span class="line">        self.Push_Down(Root,L,R)</span><br><span class="line">        return self.Query(Root&lt;&lt;1,L,mid,QL,QR)+self.Query(Root&lt;&lt;1|1,mid+1,R,QL,QR)</span><br><span class="line"></span><br><span class="line">Tree=SegTree()</span><br><span class="line">N,M=map(int,input().split())</span><br><span class="line">a=input().split() #初始值</span><br><span class="line"></span><br><span class="line">for i in range(1,N+1):</span><br><span class="line">    Data[i]=int(a[i-1])</span><br><span class="line"></span><br><span class="line">Tree.Build_SegTree(1,1,N)</span><br><span class="line"></span><br><span class="line">while M:</span><br><span class="line">    opt,L,R=map(int,input().split())</span><br><span class="line">    if opt==1:</span><br><span class="line">        Tree.Update(1,1,N,L,R,int(a[3]))</span><br><span class="line">    else:</span><br><span class="line">        print(str(Tree.Query(1,1,N,L,R)))</span><br><span class="line">    M-=1</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python3/" rel="tag"># Python3</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/27/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-645-Div-2-%E8%A1%A5%E9%A2%98/" rel="prev" title="Codeforces Round #645 (Div. 2)补题">
+                  <i class="fa fa-angle-left"></i> Codeforces Round #645 (Div. 2)补题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/07/09/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces%20Global%20Round%209A~F%E8%A1%A5%E9%A2%98/" rel="next" title="Codeforces Global Round 9 A~F补题">
+                  Codeforces Global Round 9 A~F补题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

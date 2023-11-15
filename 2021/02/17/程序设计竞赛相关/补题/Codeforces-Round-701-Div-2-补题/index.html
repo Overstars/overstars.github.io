@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Codeforces Round #701 (Div. 2)民间题解 Heltion题解 补完把这个看看https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;268630329 还有这个https:&#x2F;&#x2F;codeforces.com&#x2F;contest&#x2F;842&#x2F;problem&#x2F;D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces Round #701 (Div. 2)补题">
+<meta property="og:url" content="http://example.com/2021/02/17/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-701-Div-2-%E8%A1%A5%E9%A2%98/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="Codeforces Round #701 (Div. 2)民间题解 Heltion题解 补完把这个看看https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;268630329 还有这个https:&#x2F;&#x2F;codeforces.com&#x2F;contest&#x2F;842&#x2F;problem&#x2F;D">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-17T13:57:30.000Z">
+<meta property="article:modified_time" content="2023-01-27T13:21:17.130Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="codeforces">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/02/17/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-701-Div-2-%E8%A1%A5%E9%A2%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/02/17/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-701-Div-2-%E8%A1%A5%E9%A2%98/","path":"2021/02/17/程序设计竞赛相关/补题/Codeforces-Round-701-Div-2-补题/","title":"Codeforces Round #701 (Div. 2)补题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Codeforces Round #701 (Div. 2)补题 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Floor-and-Mod"><span class="nav-number">1.</span> <span class="nav-text">C.Floor and Mod</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Multiples-and-Power-Differences"><span class="nav-number">2.</span> <span class="nav-text">D.Multiples and Power Differences</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="nav-number">2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Move-and-Swap"><span class="nav-number">3.</span> <span class="nav-text">E.Move and Swap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">3.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">3.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Copy-or-Prefix-Sum"><span class="nav-number">4.</span> <span class="nav-text">F.Copy or Prefix Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="nav-number">4.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-number">4.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/17/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-701-Div-2-%E8%A1%A5%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Codeforces Round #701 (Div. 2)补题 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Codeforces Round #701 (Div. 2)补题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-17 21:57:30" itemprop="dateCreated datePublished" datetime="2021-02-17T21:57:30+08:00">2021-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/codeforces/" itemprop="url" rel="index"><span itemprop="name">codeforces</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onglublog/p/14399678.html">Codeforces Round #701 (Div. 2)民间题解</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Heltion/p/14399670.html">Heltion题解</a></p>
+<p>补完把这个看看<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/268630329">https://zhuanlan.zhihu.com/p/268630329</a></p>
+<p>还有这个<a target="_blank" rel="noopener" href="https://codeforces.com/contest/842/problem/D">https://codeforces.com/contest/842/problem/D</a></p>
+<span id="more"></span>
+
+<h2 id="C-Floor-and-Mod"><a href="#C-Floor-and-Mod" class="headerlink" title="C.Floor and Mod"></a><a target="_blank" rel="noopener" href="https://codeforces.ml/contest/1485/problem/C">C.Floor and Mod</a></h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定两个整数$x$与$y$，求解对于$1\le i \le x$与$1\le j\le y$之间有多少对$(i,j)$满足$\left\lfloor\dfrac{i}{j}\right\rfloor&#x3D;i %j$。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>考虑枚举余数$k$，即$\left\lfloor\dfrac{i}{j}\right\rfloor&#x3D;i %j &#x3D;k$，那么此时$i&#x3D;k\times j +k$。</p>
+<p>因为$k&lt;j$，我们可以得到$k^2 &lt; k \times j+k&#x3D;i \le x$，所以$k \le \sqrt{x}$，即为枚举范围。</p>
+<p>对于一个固定的余数$k$，考虑如何$O(1)$计算此时$(i,j)$的对数。</p>
+<p>因为$j&gt;k,1\le j\le y,i&#x3D;k\times j+k$，所以$j \in [k+1,y]$，对于该区间内的每个$j$，都有一个固定的$i$，只要判断这个$i$值是否合法即$i\le x$即可。</p>
+<p>第一种情况是$x$相当大而$y$比较小，此时$j \in [k+1,y]$区间都合法，对于此时的$k$有$y-k$对。</p>
+<p>第二种情况是$[k+1,y]$后段存在超出$x$的$i$值，我们需要计算出对于上限$x$合法的最大$j$值，可以通过$\left\lfloor\dfrac{x-k}{k}\right\rfloor$计算得到，之后计算有效对数同样可以通过右端点减左端点得到。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>,lim=<span class="built_in">sqrt</span>(x);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=lim&amp;&amp;k&lt;y;k++)</span><br><span class="line">        ans+=<span class="built_in">max</span>(<span class="number">0ll</span>,<span class="built_in">min</span>(y,x/k<span class="number">-1</span>)-k);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="D-Multiples-and-Power-Differences"><a href="#D-Multiples-and-Power-Differences" class="headerlink" title="D.Multiples and Power Differences"></a><a target="_blank" rel="noopener" href="https://codeforces.ml/contest/1485/problem/D">D.Multiples and Power Differences</a></h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>构造题，很邪门的一道题。</p>
+<p>$a$的范围只有$16$，计算$lcm(1,2,\dots 16)&#x3D;720720 &lt; 10^6$。</p>
+<p>所以$b$中每个格子都可以填$720720$，但是因为相邻两个格子的差不能为$0$，猜测减去一个整数$x$的$4$次幂仍合法，枚举发现对于$[1,16]$全部合法，于是可以黑白格子染色来构造。</p>
+<p>通过打表验证可以知道，是一个小范围的特殊结论……</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,g=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">    g=g*i/__gcd(g,i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)</span><br><span class="line">        <span class="keyword">if</span>((g-i*i*i*i)%i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;NO:i=%d,j=%d\n&quot;</span>,i,j);</span><br><span class="line">            <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">int</span> a[maxn][maxn],b[maxn][maxn];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">(<span class="type">signed</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    <span class="built_in">fill</span>(a[<span class="number">0</span>],a[<span class="number">0</span>]+maxn*maxn,<span class="number">1</span>);</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)</span><br><span class="line">            cin&gt;&gt;a[i][j];<span class="comment">//b[i][j]是a[i][j]的倍数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">16</span>;i++)<span class="comment">//验证</span></span><br><span class="line">        <span class="keyword">if</span>((<span class="number">720720</span>-i*i*i*i)%i)</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;NO&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((i&amp;<span class="number">1</span>)==(j&amp;<span class="number">1</span>))</span><br><span class="line">                b[i][j]=<span class="number">720720</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                b[i][j]=<span class="number">720720</span>-a[i][j]*a[i][j]*a[i][j]*a[i][j];</span><br><span class="line">            cout&lt;&lt;b[i][j]&lt;&lt;(j==m?<span class="string">&#x27;\n&#x27;</span>:<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="E-Move-and-Swap"><a href="#E-Move-and-Swap" class="headerlink" title="E.Move and Swap"></a><a target="_blank" rel="noopener" href="https://codeforces.ml/contest/1485/problem/E">E.Move and Swap</a></h2><p>一个节点数目为$n$的无向有根树，根节点为$1$，每个叶子到根节点的距离为$d$。</p>
+<p>第$2,3,\dots n$个节点都有权值$a_2,a_3,\dots n$。</p>
+<p>有两个硬币$r$与$b$，初始在根节点。按如下步骤进行$d$次操作：</p>
+<ul>
+<li>将硬币$r$移至其任意一子节点。</li>
+<li>将硬币$b$移至某一节点$b’$，$b’$到节点$1$的距离等于$b$到节点$1$的距离$+1$。</li>
+<li>你可以选择交换$r$与$b$。</li>
+</ul>
+<p>每一轮结束后你都会获得$|a_r-b_b|$的分数，求出$d$次操作后最大可获得分数。</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>树形$dp$，每一轮相当于如下两个操作选一个</p>
+<ul>
+<li>$r$向其子节点移动，$b$任意向下移动。</li>
+<li>$b$移动到$r$的任一子节点，$r$任意向下移动。</li>
+</ul>
+<p>可以发现硬币$b$的位置无关紧要，对下一步并无影响，因此$dp$时只记录硬币$r$的位置即可。</p>
+<p>$dp[x]$表示$x$作为$r$所在点时<strong>向下面行走</strong>可以得到的最大价值，即所在那一层权值并未计入。</p>
+<p>转移方程$dp[v]&#x3D;dp[x]+|a_v-a_{next_b}|$，$a_{next_b}$是$b$向下移动一格的节点的权值。</p>
+<p>可以在每一层预处理极值来进行$O(1)$转移。<br>$$<br>u是v的父节点,x是与v同一深度的任一节点 \<br>\begin{cases}<br>dp[u]&#x3D;max(dp[v]+a[v]-a[x],dp[v]-a[v]+a[x])  &amp;,r与b不交换 \<br>dp[u]&#x3D;max(dp[x]+a[x]-a[v],dp[x]-a[v]+a[v])  &amp;,r与b交换<br>\end{cases}<br>$$<br>按深度进行树形$dp$，学到很多。</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; G[maxn],g[maxn];</span><br><span class="line">ll a[maxn],dp[maxn];<span class="comment">//dp[i]表示r在节点i得到的最大权值</span></span><br><span class="line"><span class="type">int</span> maxd=<span class="number">0</span>,fa[maxn],depth[maxn];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//</span></span><br><span class="line">    depth[x]=depth[f]+<span class="number">1</span>;</span><br><span class="line">    fa[x]=f;</span><br><span class="line">    maxd=<span class="built_in">max</span>(maxd,depth[x]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;v:G[x])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(v==f)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(v,x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">(<span class="type">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//dp[x]表示x作为r所在点时向下面行走可以得到的最大价值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=d;i&gt;<span class="number">1</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        ll MIN=INF,MAX=-INF;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;v:g[i])</span><br><span class="line">        &#123;<span class="comment">//当前深度最大最小权值</span></span><br><span class="line">            MIN=<span class="built_in">min</span>(MIN,a[v]);</span><br><span class="line">            MAX=<span class="built_in">max</span>(MAX,a[v]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;v:g[i])<span class="comment">//不交换</span></span><br><span class="line">        &#123;<span class="comment">//r从v-&gt;u,找到这层最大/最小的点即为b最优点</span></span><br><span class="line">            <span class="type">int</span> u=fa[v];</span><br><span class="line">            dp[u]=<span class="built_in">max</span>(dp[u],dp[v]+<span class="built_in">max</span>(a[v]-MIN,MAX-a[v]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//dp[u]=dp[v]+max(a[v]-a[b],a[b]-a[v])</span></span><br><span class="line">        <span class="comment">//交换节点,r从v跳到上一层,而b则为r的父节点</span></span><br><span class="line">        ll p1=-INF,p2=-INF;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;j:g[i])</span><br><span class="line">        &#123;<span class="comment">//预处理</span></span><br><span class="line">            p1=<span class="built_in">max</span>(p1,dp[j]+a[j]);</span><br><span class="line">            p2=<span class="built_in">max</span>(p2,dp[j]-a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;v:g[i])</span><br><span class="line">        &#123;<span class="comment">//r从j跳到了v的父节点u,这里的v是b原来所在点</span></span><br><span class="line">            <span class="type">int</span> u=fa[v];</span><br><span class="line">            dp[u]=<span class="built_in">max</span>(dp[u],p1-a[v]);</span><br><span class="line">            dp[u]=<span class="built_in">max</span>(dp[u],p2+a[v]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">(<span class="type">signed</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t,n,x;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            G[i].<span class="built_in">clear</span>();</span><br><span class="line">            g[i].<span class="built_in">clear</span>();</span><br><span class="line">            dp[i]=depth[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        maxd=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;x;</span><br><span class="line">            G[x].<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">            cin&gt;&gt;a[i];</span><br><span class="line">        <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">0</span>);<span class="comment">//预处理父子关系和深度</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//按深度对节点分组</span></span><br><span class="line">            g[depth[i]].<span class="built_in">push_back</span>(i);</span><br><span class="line">        <span class="built_in">bfs</span>(maxd);</span><br><span class="line">        cout&lt;&lt;dp[<span class="number">1</span>]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *https://blog.csdn.net/Fighting_Peter/article/details/113799925</span></span><br><span class="line"><span class="comment"> *似乎要记录球所在位置</span></span><br><span class="line"><span class="comment"> *如果把过程逆过来看</span></span><br><span class="line"><span class="comment"> *计算权值-&gt;r走到父节点-&gt;b跳到一个距离更短的节点 -&gt;是否交换</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="F-Copy-or-Prefix-Sum"><a href="#F-Copy-or-Prefix-Sum" class="headerlink" title="F.Copy or Prefix Sum"></a><a target="_blank" rel="noopener" href="https://codeforces.ml/contest/1485/problem/F">F.Copy or Prefix Sum</a></h2><p>给定一个长度为$n$的数组$b_1,b_2,\dots b_n$，你要构造长度为$n$的序列$a$，使得对于每一个$i(1\le i\le n)$，满足以下条件其一</p>
+<ul>
+<li>$b_i&#x3D;a_i$.</li>
+<li>$b_i&#x3D;\sum\limits_{j&#x3D;1}^ia_j$.</li>
+</ul>
+<p>求出符合条件的序列$a$的数目并对$10^9+7$取模。</p>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>计数dp，请无视下面的胡言乱语从正难则反开始看。</p>
+<p>因为负数是可以的，不会因为前缀和过大使第二个条件无法满足。所以如果两个条件都可满足的话，那么答案为$2^{n-1}$，但是因为可能会有数值相同（$\sum\limits_{j&#x3D;1}^{i-1}a_j&#x3D;0$），会有重复计算。</p>
+<p>令$s[i]$为$a$数组下标为$[1,i]$的前缀和，那么有两种方案</p>
+<p>$$<br>\begin{cases}<br>s[i]&#x3D;b[i] &amp;,b_i&#x3D;\sum\limits_{j&#x3D;1}^ia_j\<br>s[i]&#x3D;s[i-1]+b[i] &amp;,a_i&#x3D;b_i<br>\end{cases}<br>$$</p>
+<p>令$dp[i][j]$表示前$i$个数前缀和$s[i]$为$j$的方案数，$dp[0][0]&#x3D;1$。</p>
+<p>为了避免重复计算，我们在统计$i$的影响时</p>
+<p>因为第二维数值范围会很大，使用map来节省空间，我为人人转移。</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dp<span class="comment">[0]</span><span class="comment">[0]</span>=1;</span><br><span class="line">for(int i=0;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    for(int j)</span><br><span class="line">    &#123;//j=sum(a_1 ~ a_i)</span><br><span class="line">        if(j!=0)//b_i=a_i</span><br><span class="line">            dp<span class="comment">[i+1]</span><span class="comment">[j+b_i]</span> = dp<span class="comment">[i]</span><span class="comment">[j]</span>;</span><br><span class="line">        dp<span class="comment">[i+1]</span><span class="comment">[b_i]</span> = dp<span class="comment">[i]</span><span class="comment">[j]</span>;//b_i = sum(a_1 ~ a_i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正难则反，尝试对需要排除的情况进行计数$dp$。</p>
+<p>第一维可以用滚动数组优化掉，即$dp[i]$表示当前状态下前缀和为$i$的<strong>被排除</strong>的情况数目，而第二种情况只会在$s&#x3D;0$时被更新。</p>
+<p>当前情况数&#x3D;上一步情况数$\times2-s_{i-1}&#x3D;0$的情况数。</p>
+<p>若我们尝试填$a_i$时，记之前的$\sum\limits_{j&#x3D;1}^{i-1}a_j&#x3D;s$，则$a_i&#x3D;\begin{cases}b_i \ b_i-s &amp;,s\ne 0\end{cases}$.</p>
+<p>状态转移的方式一是一个区间平移，则我们维护一个<strong>全局位移</strong>$level$，$dp[level]$表示对于此时$s&#x3D;0$的状态数目，这部分的贡献是一次而不是两次，乘$2$后要减去。</p>
+<p>有点类似威尼斯集合的思想。</p>
+<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> b[maxn];</span><br><span class="line">map&lt;ll,ll&gt;dp;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">(<span class="type">signed</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t,n;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">            cin&gt;&gt;b[i];</span><br><span class="line">        dp.<span class="built_in">clear</span>();</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">1</span>,level=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> pre=ans;</span><br><span class="line">            ans=(ans*<span class="number">2</span>%mod-dp[level])%mod;</span><br><span class="line">            dp[level]=pre%mod;</span><br><span class="line">            level+=b[i];<span class="comment">//维护水位</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;(ans+mod)%mod&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ACM/" rel="tag"># ACM</a>
+              <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/31/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/%E7%AC%AC-45-%E5%B1%8A%E5%9B%BD%E9%99%85%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%EF%BC%88ICPC%EF%BC%89%E4%BA%9A%E6%B4%B2%E5%8C%BA%E5%9F%9F%E8%B5%9B%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%E8%A1%A5%E9%A2%98/" rel="prev" title="第 45 届国际大学生程序设计竞赛（ICPC）亚洲区域赛（上海）补题">
+                  <i class="fa fa-angle-left"></i> 第 45 届国际大学生程序设计竞赛（ICPC）亚洲区域赛（上海）补题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/20/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/CF771C-Bear-and-Tree-Jumps-%E9%A2%98%E8%A7%A3/" rel="next" title="CF771C Bear and Tree Jumps题解">
+                  CF771C Bear and Tree Jumps题解 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

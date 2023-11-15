@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="因为经常时隔几年回归赛尔号，有些关卡忘了怎么打。这里会记录脚本的使用方法和关卡特性，没难度的部分不写了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="赛尔号关卡通关方法记录">
+<meta property="og:url" content="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="因为经常时隔几年回归赛尔号，有些关卡忘了怎么打。这里会记录脚本的使用方法和关卡特性，没难度的部分不写了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/image-20230501031816905.png">
+<meta property="og:image" content="https://imgsa.baidu.com/forum/w%3D580/sign=3f9f4fd67d094b36db921be593cc7c00/2e3868540923dd54587c1661da09b3de9c824853.jpg">
+<meta property="og:image" content="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/image-20230812233958968.png">
+<meta property="og:image" content="https://i0.hdslb.com/bfs/note/ef2e458c663f91305ba07ab4317e58cfa24659bc.jpg@640w_!web-note.webp">
+<meta property="og:image" content="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/Users/Public/Pictures/Typora/typora-user-images/image-20231012222920210.png">
+<meta property="og:image" content="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/image-20230502175937646.png">
+<meta property="article:published_time" content="2023-04-29T11:29:06.000Z">
+<meta property="article:modified_time" content="2023-11-01T02:08:44.052Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="游戏">
+<meta property="article:tag" content="赛尔号">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/image-20230501031816905.png">
+
+
+<link rel="canonical" href="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/","path":"2023/04/29/游戏相关/赛尔号关卡通关方法记录/","title":"赛尔号关卡通关方法记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>赛尔号关卡通关方法记录 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B9%E5%85%BB"><span class="nav-number">1.</span> <span class="nav-text">培养</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%B9%E5%85%BB%E8%B5%84%E6%BA%90%E8%8E%B7%E5%8F%96"><span class="nav-number">1.1.</span> <span class="nav-text">培养资源获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%81%93%E5%85%B7%E8%8E%B7%E5%8F%96"><span class="nav-number">1.2.</span> <span class="nav-text">常见道具获取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%B0%E5%9D%A6%E4%B9%8B%E7%81%B5%E4%B8%8E%E6%B3%B0%E5%9D%A6%E5%88%BB%E5%8D%B0%E2%80%94%E2%80%94%E6%B3%B0%E5%9D%A6%E6%BA%90%E8%84%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">泰坦之灵与泰坦刻印——泰坦源脉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%B0%E5%9D%A6%E7%9F%BF%E6%B4%9E%EF%BC%88%E5%9B%B0%E9%9A%BE%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">泰坦矿洞（困难）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E5%8A%9B%E2%80%94%E2%80%94%E5%AD%A6%E4%B9%A0%E5%8A%9B%E8%AE%AD%E7%BB%83%E5%9C%BA%EF%BC%88%E6%8C%82%E8%84%9A%E6%9C%AC%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">学习力——学习力训练场（挂脚本）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E2%80%94%E2%80%94%E7%BB%8F%E9%AA%8C%E8%AE%AD%E7%BB%83%E5%9C%BA%EF%BC%88%E6%8C%82%E8%84%9A%E6%9C%AC%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">经验——经验训练场（挂脚本）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%B9%E5%85%BB%E6%96%B9%E6%A1%88"><span class="nav-number">1.5.</span> <span class="nav-text">培养方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%BE%E7%81%B5%E8%8E%B7%E5%8F%96%EF%BC%88%E6%89%8B%E6%89%93%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">精灵获取（手打）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%89%E9%AD%87%E9%AD%94%E7%8E%8B%C2%B7%E5%92%A4%E5%85%8B%E6%96%AF"><span class="nav-number">2.1.</span> <span class="nav-text">厉魇魔王·咤克斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E5%85%8B%E5%B8%8C%E6%96%AF"><span class="nav-number">2.2.</span> <span class="nav-text">拉克希斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%8C%E5%B0%94%E5%85%8B%E5%BE%B7"><span class="nav-number">2.3.</span> <span class="nav-text">希尔克德</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%89%E7%9D%A1%E4%B9%8B%E7%9C%BC"><span class="nav-number">2.4.</span> <span class="nav-text">沉睡之眼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%8D%E7%A9%B9%E4%B9%8B%E6%9C%9B%C2%B7%E8%89%BE%E5%B8%8C%E4%B8%9D"><span class="nav-number">2.5.</span> <span class="nav-text">苍穹之望·艾希丝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%B2%9C%E8%A1%80%E5%A5%B3%E7%8E%8B%C2%B7%E8%94%BB%E7%BC%87%E5%A8%85"><span class="nav-number">2.6.</span> <span class="nav-text">鲜血女王·蔻缇娅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A3%E7%81%B5%E8%B0%B1%E5%B0%BC"><span class="nav-number">2.7.</span> <span class="nav-text">圣灵谱尼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%89%E4%B9%8B%E6%83%A9%E6%88%92%C2%B7%E8%8B%B1%E5%8D%A1%E6%B4%9B%E6%96%AF"><span class="nav-number">2.8.</span> <span class="nav-text">光之惩戒·英卡洛斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A3%E7%8E%8B%C2%B7%E8%90%A8%E6%A0%BC%E7%BD%97%E6%96%AF"><span class="nav-number">2.9.</span> <span class="nav-text">圣王·萨格罗斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AD%94%E5%89%AA%C2%B7%E5%A1%9E%E6%B3%BD%E4%B8%9D"><span class="nav-number">2.10.</span> <span class="nav-text">魔剪·塞泽丝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%A2%E7%81%B5%C2%B7%E8%88%9E"><span class="nav-number">2.11.</span> <span class="nav-text">锢灵·舞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8B%82%E6%B2%99%E4%B9%8B%E4%B8%BB%C2%B7%E8%90%A8%E7%89%B9"><span class="nav-number">2.12.</span> <span class="nav-text">狂沙之主·萨特</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%89%E5%BD%A9"><span class="nav-number">2.13.</span> <span class="nav-text">琉彩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E6%B2%8C%E9%AD%94%E5%90%9B%E7%B4%A2%E4%BC%A6%E6%A3%AE"><span class="nav-number">2.14.</span> <span class="nav-text">混沌魔君索伦森</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%81%B5%E9%AD%82%E6%94%B6%E5%89%B2%E8%80%85%C2%B7%E9%BB%9B"><span class="nav-number">2.15.</span> <span class="nav-text">灵魂收割者·黛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E9%AD%82%C2%B7%E4%BD%A9%E7%89%B9%E8%8F%B2%E5%BE%B7"><span class="nav-number">2.16.</span> <span class="nav-text">逆魂·佩特菲德</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%AA%E5%A9%AA%E6%B4%9E%E7%AA%9F"><span class="nav-number">2.16.1.</span> <span class="nav-text">贪婪洞窟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E6%B4%9B%E6%89%98"><span class="nav-number">2.17.</span> <span class="nav-text">克洛托</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%98%E4%BA%89%E7%8C%8E%E9%AD%94"><span class="nav-number">2.18.</span> <span class="nav-text">战争猎魔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E7%81%AD%E5%9C%B0%E5%A8%81%C2%B7%E8%90%A8%E7%91%9E%E5%8D%A1"><span class="nav-number">2.19.</span> <span class="nav-text">不灭地威·萨瑞卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8E%E7%A9%BA%C2%B7%E5%87%A1%E5%B0%94%E6%96%AF"><span class="nav-number">2.20.</span> <span class="nav-text">擎空·凡尔斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E5%88%A4%E4%B9%8B%E9%AD%82"><span class="nav-number">2.21.</span> <span class="nav-text">审判之魂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF-%E9%9B%B6"><span class="nav-number">2.22.</span> <span class="nav-text">环.零</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%AB%E7%9C%A0"><span class="nav-number">2.23.</span> <span class="nav-text">枫眠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%BD%E9%A9%AC-%E5%8D%83%E8%8A%B1"><span class="nav-number">2.24.</span> <span class="nav-text">伽马.千花</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A2%E8%8E%B2%E4%B9%8B%E8%AA%93%C2%B7%E5%AE%89%E5%8D%A1"><span class="nav-number">2.25.</span> <span class="nav-text">红莲之誓·安卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%B3%E9%A6%A8%C2%B7%E8%8C%89%E8%95%8A%E5%84%BF"><span class="nav-number">2.26.</span> <span class="nav-text">芳馨·茉蕊儿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%99%E6%82%9F%E7%A9%BA"><span class="nav-number">2.27.</span> <span class="nav-text">孙悟空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%83%E8%A3%B3"><span class="nav-number">2.28.</span> <span class="nav-text">千裳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%89%BE%E5%A4%8F%E6%8B%89"><span class="nav-number">2.29.</span> <span class="nav-text">艾夏拉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BA%92%E9%BA%9F%E5%A4%A9%E5%A5%B3%C2%B7%E6%B3%A2%E8%A5%BF%E5%88%A9%E4%BA%9A"><span class="nav-number">2.30.</span> <span class="nav-text">麒麟天女·波西利亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%92%E6%B6%9B%C2%B7%E6%B2%A7%E6%BE%9C"><span class="nav-number">2.31.</span> <span class="nav-text">怒涛·沧澜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E7%95%8C%E5%B8%9D%E7%A5%9E"><span class="nav-number">2.32.</span> <span class="nav-text">六界帝神</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E8%95%BE%E9%87%8C%E5%85%8B"><span class="nav-number">2.33.</span> <span class="nav-text">布蕾里克</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AD%82%E7%8E%8B%C2%B7%E6%97%A0%E7%83%AC%E6%A2%A6"><span class="nav-number">2.34.</span> <span class="nav-text">魂王·无烬梦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AD%82%E7%8E%8B-%E6%9A%97%E7%BF%BC%E5%BD%B1"><span class="nav-number">2.35.</span> <span class="nav-text">魂王.暗翼影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AD%82%E5%B8%9D%C2%B7%E5%A4%A9%E5%BE%AA%E9%81%93"><span class="nav-number">2.36.</span> <span class="nav-text">魂帝·天循道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%88%E7%81%B5%C2%B7%E5%85%8B%E4%B8%BD%E5%A8%85"><span class="nav-number">2.37.</span> <span class="nav-text">愈灵·克丽娅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%88%E7%85%A7%E6%98%9F%E9%AD%82"><span class="nav-number">2.38.</span> <span class="nav-text">月照星魂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%A8%E5%BD%B1%E6%98%9F%E9%AD%82"><span class="nav-number">2.39.</span> <span class="nav-text">墨影星魂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%B9%E9%9B%A8%C2%B7%E8%8C%9C%E5%B0%94"><span class="nav-number">2.40.</span> <span class="nav-text">虹雨·茜尔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%91%AC%E7%94%9F%E4%B9%8B%E8%8E%B2"><span class="nav-number">2.41.</span> <span class="nav-text">葬生之莲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%91%AC%E7%94%9F%E9%AD%94%E8%8E%B2"><span class="nav-number">2.42.</span> <span class="nav-text">葬生魔莲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%80%E4%BC%A4%E5%85%AC%E7%88%B5"><span class="nav-number">2.43.</span> <span class="nav-text">哀伤公爵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BF%E8%8E%B1%E5%85%8B%E6%89%98"><span class="nav-number">2.44.</span> <span class="nav-text">阿莱克托</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BB%E5%B0%98%C2%B7%E8%9C%9C%E9%9B%AA%E5%84%BF"><span class="nav-number">2.45.</span> <span class="nav-text">幻尘·蜜雪儿</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%BE%E7%81%B5%E5%9B%A0%E5%AD%90%E8%8E%B7%E5%8F%96-%E8%84%9A%E6%9C%AC%E5%8F%AF%E6%8C%82"><span class="nav-number">3.</span> <span class="nav-text">精灵因子获取(脚本可挂)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99"><span class="nav-number">3.1.</span> <span class="nav-text">脚本编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E8%84%9A%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">常规脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E7%B2%BE%E7%81%B5%E8%B5%8C%E8%89%BE%E6%AC%A7%E4%BA%94%E5%80%8D"><span class="nav-number">3.3.</span> <span class="nav-text">单精灵赌艾欧五倍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%89%BE%E6%AC%A7%E4%BA%94%E5%80%8D-%E5%9B%9B%E4%B9%9D%E8%A1%A5%E5%88%80"><span class="nav-number">3.4.</span> <span class="nav-text">艾欧五倍+四九补刀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%89%BE%E6%AC%A7%E5%8D%95%E6%8C%91%EF%BC%88%E4%B8%8D%E5%B0%81%E5%B1%9E%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">艾欧单挑（不封属）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BB%E5%A2%83%E5%8D%95%E6%8C%91%EF%BC%88%E5%BC%B1%E5%8C%96%EF%BC%8C%E4%B8%8D%E5%B0%81%E5%B1%9E%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">幻境单挑（弱化，不封属）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E4%B9%9D%E5%8D%95%E6%8C%91%EF%BC%88%E5%8F%97%E5%87%BB%E7%96%B2%E6%83%AB%EF%BC%8C%E4%B8%8D%E5%B0%81%E5%B1%9E%EF%BC%89"><span class="nav-number">3.7.</span> <span class="nav-text">四九单挑（受击疲惫，不封属）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E7%95%8C%E5%B8%9D%E7%A5%9E-1"><span class="nav-number">3.8.</span> <span class="nav-text">六界帝神</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%AB%E4%BC%8A%E8%8E%B1%EF%BC%88%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%EF%BC%8C%E5%8F%AF%E6%8C%82%E5%9B%A0%E5%AD%90%E8%84%9A%E6%9C%AC%EF%BC%89"><span class="nav-number">3.9.</span> <span class="nav-text">莫伊莱（简单难度，可挂因子脚本）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E8%BF%90%E4%B9%8B%E8%BD%AE-%E8%8E%AB%E4%BC%8A%E8%8E%B1%EF%BC%88%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-number">3.10.</span> <span class="nav-text">命运之轮.莫伊莱（简单难度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%AD%E7%A9%BA%E5%A2%9F%E7%A5%96%EF%BC%88%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-number">3.11.</span> <span class="nav-text">祭空墟祖（简单难度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%BE%E5%88%A9%E5%B0%94"><span class="nav-number">3.12.</span> <span class="nav-text">派利尔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%A4%E8%8E%89%E7%B1%B3%E7%89%B9%EF%BC%88%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-number">3.13.</span> <span class="nav-text">尤莉米特（简单难度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E6%89%98%E5%A8%9C"><span class="nav-number">3.14.</span> <span class="nav-text">卡托娜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E6%A3%A0%E6%95%99%E7%9A%87-%E6%9C%AA%E6%98%8E"><span class="nav-number">3.15.</span> <span class="nav-text">海棠教皇.未明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%81%E7%BD%AA%E9%AD%94%E5%89%AA%C2%B7%E5%A1%9E%E6%B3%BD%E4%B8%9D"><span class="nav-number">3.16.</span> <span class="nav-text">裁罪魔剪·塞泽丝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A9%E5%A5%94%E6%B5%81-%E4%B8%9C%E8%BE%89%EF%BC%88%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%EF%BC%89%E5%85%88%E4%B8%8D%E6%89%93"><span class="nav-number">3.17.</span> <span class="nav-text">天奔流.东辉（简单难度）先不打</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%A6%E6%99%AE%E7%91%9E%EF%BC%88%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-number">3.18.</span> <span class="nav-text">坦普瑞（简单难度）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%85%E5%B3%B0"><span class="nav-number">4.</span> <span class="nav-text">巅峰</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%92%A8%E8%AF%A2%E8%B4%B4%E5%90%A7"><span class="nav-number">4.1.</span> <span class="nav-text">咨询贴吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%8F%91%E7%B2%BE%E7%81%B5"><span class="nav-number">4.2.</span> <span class="nav-text">首发精灵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BF%E5%B0%94%E8%92%82%E5%85%8B"><span class="nav-number">4.2.1.</span> <span class="nav-text">阿尔蒂克</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AA%E6%98%8E"><span class="nav-number">4.2.2.</span> <span class="nav-text">未明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A2%E5%A1%9E%E5%86%AC"><span class="nav-number">4.2.3.</span> <span class="nav-text">波塞冬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%A2%E7%81%B5%E8%88%9E"><span class="nav-number">4.2.4.</span> <span class="nav-text">锢灵舞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8C%8E%E7%9A%87"><span class="nav-number">4.2.5.</span> <span class="nav-text">猎皇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%87%E9%AD%94%E5%A4%A9%E5%B0%8A"><span class="nav-number">4.2.6.</span> <span class="nav-text">万魔天尊</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B4%E8%B4%B9%E5%9B%A2"><span class="nav-number">4.3.</span> <span class="nav-text">年费团</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%88%B6%E7%89%B9%E6%AE%8A%E7%9A%84"><span class="nav-number">4.4.</span> <span class="nav-text">某些机制特殊的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%88%E6%9C%AB%E5%A4%A7%E5%A4%A9%E4%BD%BF"><span class="nav-number">4.4.1.</span> <span class="nav-text">终末大天使</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E5%BF%83"><span class="nav-number">4.4.2.</span> <span class="nav-text">剑心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%9C%E8%BE%89"><span class="nav-number">4.4.3.</span> <span class="nav-text">东辉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BE%99%E4%BB%AA"><span class="nav-number">4.4.4.</span> <span class="nav-text">龙仪</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="赛尔号关卡通关方法记录 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          赛尔号关卡通关方法记录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-04-29 19:29:06" itemprop="dateCreated datePublished" datetime="2023-04-29T19:29:06+08:00">2023-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-01 10:08:44" itemprop="dateModified" datetime="2023-11-01T10:08:44+08:00">2023-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">游戏</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F/%E8%B5%9B%E5%B0%94%E5%8F%B7/" itemprop="url" rel="index"><span itemprop="name">赛尔号</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>因为经常时隔几年回归赛尔号，有些关卡忘了怎么打。这里会记录脚本的使用方法和关卡特性，没难度的部分不写了。</p>
+<span id="more"></span>
+
+<h2 id="培养"><a href="#培养" class="headerlink" title="培养"></a>培养</h2><h3 id="培养资源获取"><a href="#培养资源获取" class="headerlink" title="培养资源获取"></a>培养资源获取</h3><p>不要用摆烂版，那个只打简单难度</p>
+<table>
+<thead>
+<tr>
+<th>资源获取类型</th>
+<th>设备</th>
+<th></th>
+<th>收获</th>
+<th>耗费时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>泰坦之灵、刻印</td>
+<td>泰坦矿洞（困难）</td>
+<td>PVE阵容挂脚本</td>
+<td>2次：300w泰坦之灵，4$\times$6+2$\times$2个lv3宝石，2个2角，2个3角，2个泰坦刻印</td>
+<td>大概三分钟</td>
+</tr>
+<tr>
+<td>泰坦之灵、刻印</td>
+<td>泰坦源脉（一般）</td>
+<td>第一关带绿火，送索比斯消强，带爆物防莱茵150打三下；第一关打完四九挂脚本</td>
+<td>一次：1个泰坦刻印（概率），30w泰坦之灵</td>
+<td>大概1分钟</td>
+</tr>
+<tr>
+<td>学习力</td>
+<td>学习力训练场（第六关）</td>
+<td>带三巨头，挂脚本</td>
+<td>600学习力，3.6万赛尔豆，200功勋，2激励+2记忆模组</td>
+<td>大概2分钟</td>
+</tr>
+<tr>
+<td>经验</td>
+<td>经验训练场（第六关）</td>
+<td>带三巨头，挂脚本</td>
+<td>360万经验，3.6万赛尔豆，200功勋，2激励+2记忆模组</td>
+<td>大概4分钟</td>
+</tr>
+<tr>
+<td>抗性宝石</td>
+<td>六界神王殿（简单难度）</td>
+<td>挂一键脚本，建议H5开激励一键扫荡困难</td>
+<td>50宝石&#x2F;0.3轮回神石。困难开激励扫荡&#x3D;250个宝石</td>
+<td>大概五分钟</td>
+</tr>
+<tr>
+<td>赛尔豆</td>
+<td>战队派遣</td>
+<td></td>
+<td>18w赛尔豆</td>
+<td></td>
+</tr>
+<tr>
+<td>特性原石</td>
+<td>勇者之塔</td>
+<td></td>
+<td>3万赛尔豆，3万泰坦之灵，15初级梦幻宝石，200功勋，2激励+2记忆模组</td>
+<td></td>
+</tr>
+<tr>
+<td>精灵王刻印</td>
+<td>精灵王试炼</td>
+<td>挂一键脚本</td>
+<td></td>
+<td>大概一分钟</td>
+</tr>
+<tr>
+<td></td>
+<td>X密室</td>
+<td>有女戳两次托鲁克，X神迹碟子自爆有女戳</td>
+<td>20功勋，C级技能石<br>每周：S技能石$\times 7$，A技能石$\times 10$，B技能石$\times 14$，C技能石$\times 20$</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>SPT</td>
+<td>h5日常spt简单模式支线关，一次30旗帜，一天9次&#x3D;270，提亚斯：圣谱第五<br>困难模式一次10个勋章，一天4次&#x3D;80，随便打<br>一天350个，25天能出</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>忍法研习社</td>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv18440518/">赛尔号忍法研习室攻略</a></td>
+<td>一次：性格转化药剂$\times 1$，基础体力药剂$\times 1$</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>星际迷航</td>
+<td></td>
+<td>100红、100绿、3轮回、4宽恕、4护佑、6泰坦</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>作战实验室</td>
+<td></td>
+<td>根据选择关卡不定，一天：360功勋，第二关第六个给一个个体提升药剂</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="常见道具获取"><a href="#常见道具获取" class="headerlink" title="常见道具获取"></a>常见道具获取</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全能性格转化剂</td>
+<td>功勋点数</td>
+<td></td>
+</tr>
+<tr>
+<td>性格转换剂</td>
+<td>忍法修习室</td>
+<td></td>
+</tr>
+<tr>
+<td>精灵还原药剂</td>
+<td>功勋点数，作战实验室第二关，作战实验室第四关</td>
+<td></td>
+</tr>
+<tr>
+<td>性格重塑胶囊</td>
+<td>战队每日任务，功勋点数</td>
+<td></td>
+</tr>
+<tr>
+<td>天赋改造药剂</td>
+<td>功勋点数，作战实验室第二关，作战实验室第四关</td>
+<td></td>
+</tr>
+<tr>
+<td>个体提升药剂</td>
+<td>作战实验室第二关，X密室周奖励</td>
+<td></td>
+</tr>
+<tr>
+<td>特性开启晶片</td>
+<td>功勋点数</td>
+<td></td>
+</tr>
+<tr>
+<td>特性重组剂</td>
+<td>超NO福利点数、许愿每周限兑、功勋点数</td>
+<td></td>
+</tr>
+<tr>
+<td>体力上限提升</td>
+<td>许愿每周限兑（5点），作战实验室第四关（1点）</td>
+<td></td>
+</tr>
+<tr>
+<td>全能学习力遗忘剂</td>
+<td>许愿每周限兑，作战实验室第四关</td>
+<td></td>
+</tr>
+<tr>
+<td>水晶</td>
+<td>不定期活动</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="泰坦之灵与泰坦刻印——泰坦源脉"><a href="#泰坦之灵与泰坦刻印——泰坦源脉" class="headerlink" title="泰坦之灵与泰坦刻印——泰坦源脉"></a>泰坦之灵与泰坦刻印——泰坦源脉</h4><p>第一关带绿火，送索比斯消强，带爆物防莱茵150打三下。</p>
+<p>第一关打完可以直接挂脚本。</p>
+<p><img src="image-20230501031816905.png" alt="image-20230501031816905"></p>
+<p>第二关四九强化打打打。</p>
+<p>第三关点点点五分钟。</p>
+<p>第四关带绿火，送索比斯消强，四九引爆+第五+先手。</p>
+<h4 id="泰坦矿洞（困难）"><a href="#泰坦矿洞（困难）" class="headerlink" title="泰坦矿洞（困难）"></a>泰坦矿洞（困难）</h4><p>没什么好说的，塔克林消强恢复体力。</p>
+<p>可以直接挂脚本</p>
+<h3 id="学习力——学习力训练场（挂脚本）"><a href="#学习力——学习力训练场（挂脚本）" class="headerlink" title="学习力——学习力训练场（挂脚本）"></a>学习力——学习力训练场（挂脚本）</h3><p>艾欧强化先手戳戳戳</p>
+<h3 id="经验——经验训练场（挂脚本）"><a href="#经验——经验训练场（挂脚本）" class="headerlink" title="经验——经验训练场（挂脚本）"></a>经验——经验训练场（挂脚本）</h3><p>艾欧强化先手戳戳戳</p>
+<h3 id="培养方案"><a href="#培养方案" class="headerlink" title="培养方案"></a>培养方案</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/5348672210">【170930】254还是255？如何刷学习力才能物尽其用？</a></p>
+</blockquote>
+<p>31个体精灵如果种族值是2或者7结尾且受性格加成，那么该项需要刷255才能达到最大值。</p>
+<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=3f9f4fd67d094b36db921be593cc7c00/2e3868540923dd54587c1661da09b3de9c824853.jpg" alt="img"></p>
+<h2 id="精灵获取（手打）"><a href="#精灵获取（手打）" class="headerlink" title="精灵获取（手打）"></a>精灵获取（手打）</h2><h3 id="厉魇魔王·咤克斯"><a href="#厉魇魔王·咤克斯" class="headerlink" title="厉魇魔王·咤克斯"></a>厉魇魔王·咤克斯</h3><h3 id="拉克希斯"><a href="#拉克希斯" class="headerlink" title="拉克希斯"></a>拉克希斯</h3><p>第一关艾欧先手杀穿</p>
+<p>第二关84弹：</p>
+<p>左：圣萨先三磨死。月照150。</p>
+<p>中：84弹+补刀。</p>
+<p>右：承伤&lt;50，肉装王哈磨死&#x2F;爆攻索伦森两发第五。</p>
+<p>第三关脚本刷刷。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1o24y1673e">https://www.bilibili.com/video/BV1o24y1673e</a>)</p>
+<h3 id="希尔克德"><a href="#希尔克德" class="headerlink" title="希尔克德"></a>希尔克德</h3><h3 id="沉睡之眼"><a href="#沉睡之眼" class="headerlink" title="沉睡之眼"></a>沉睡之眼</h3><h3 id="苍穹之望·艾希丝"><a href="#苍穹之望·艾希丝" class="headerlink" title="苍穹之望·艾希丝"></a>苍穹之望·艾希丝</h3><h3 id="鲜血女王·蔻缇娅"><a href="#鲜血女王·蔻缇娅" class="headerlink" title="鲜血女王·蔻缇娅"></a>鲜血女王·蔻缇娅</h3><details>
+
+<h3 id="圣灵谱尼"><a href="#圣灵谱尼" class="headerlink" title="圣灵谱尼"></a><del>圣灵谱尼</del></h3><p>第五关奥斯卡不能带绿火，迈尔斯带绿火。<br>迈尔斯概率秒杀，王哈强化打。</p>
+<p>奥斯卡吃月亮，不带绿火，银翼套装首发幻境先三切索比斯，猎皇打150+先三。</p>
+<p>第六关要表姐，或者幻境引爆+苍星低体130。</p>
+<p>三件套表姐+眠降，或者草王+眠降赌圣谱开属性，或者表姐+苍星+毁灭机甲。</p>
+<h3 id="光之惩戒·英卡洛斯"><a href="#光之惩戒·英卡洛斯" class="headerlink" title="光之惩戒·英卡洛斯"></a><del>光之惩戒·英卡洛斯</del></h3><p>搜索艾莫莉萨，需签到获得达尔。英卡洛斯挂着一键日常插件即可。</p>
+<p>第三关分阶段点灯，项羽：星礼消强+嗑药+圣灵石。</p>
+<p>飞镰应该四九随便打。</p>
+<p>三件套全程84公式，可挂chika魔法。</p>
+<h3 id="圣王·萨格罗斯"><a href="#圣王·萨格罗斯" class="headerlink" title="圣王·萨格罗斯"></a><del>圣王·萨格罗斯</del></h3><p>第二关精灵王们艾欧戳，抽取材料火螳螂&#x2F;王哈&#x2F;幻境打。</p>
+<p>第三关幻境随便打。</p>
+<p>三件套概率秒杀，要表姐84，要么就签到一个月。</p>
+<h3 id="魔剪·塞泽丝"><a href="#魔剪·塞泽丝" class="headerlink" title="魔剪·塞泽丝"></a><del>魔剪·塞泽丝</del></h3><p>第二关碟子+龙妈弹</p>
+<p>第三关，14331错，22332，33442，必定是这三者之一</p>
+<p>第三关不封属，带幻境、四九、王哈，龙妈弹应该也可以。</p>
+<p>进阶有点狗的，封属，进阶4、真身圣萨一直先手，先去H5弄个吸血芯片。</p>
+<p>进阶2：幻境引爆，王哈引爆凑三次，表姐死切六界弹+随便一个必中补刀。</p>
+<p>进阶3：要求全部先出手击败。带天启帝君，84公式，记得把称号下了。BOSS大招有先一所以实际上是先4，可以天启+圣萨先手+老150.</p>
+<p>进阶4：三命单精灵。吸血圣萨狂点先手，固伤、致命抗性点满。可用时空套圣谱第五磨死。</p>
+<h3 id="锢灵·舞"><a href="#锢灵·舞" class="headerlink" title="锢灵·舞"></a><del>锢灵·舞</del></h3><p>全程84公式。</p>
+<p>第四关可能要打挺久，凯兮弹不死有点难搞。</p>
+<h3 id="狂沙之主·萨特"><a href="#狂沙之主·萨特" class="headerlink" title="狂沙之主·萨特"></a><del>狂沙之主·萨特</del></h3><p>全程84公式。据说真身需要送一只天尊，否则会miss。</p>
+<h3 id="琉彩"><a href="#琉彩" class="headerlink" title="琉彩"></a><del>琉彩</del></h3><p>可以用科技，84去弹</p>
+<h3 id="混沌魔君索伦森"><a href="#混沌魔君索伦森" class="headerlink" title="混沌魔君索伦森"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ka4y1E7Dq/?spm_id_from=333.788.recommend_more_video.0&vd_source=50941c654c3b8d1f64e0418e6bfe16aa"><del>混沌魔君索伦森</del></a></h3><p>第四关必定秒杀，无法弹伤。</p>
+<p>只说第四关中间的，两边的小兵带上两个自爆强攻。可以送火潘。</p>
+<p>周一玄武：免疫物攻，</p>
+<p>周二青龙：免疫物攻，表姐自爆+猎皇第五+伊芙丽150。已通关。</p>
+<p>周三白虎：免疫物攻，火潘+表姐+幻境第五+伊芙丽150。已通关。</p>
+<p>周四朱雀：免疫物攻，火潘+表姐+伊芙丽150。已通关。</p>
+<p>周五麒麟：免疫物攻，表姐自爆+猎皇第五+伊芙丽150。已通关。</p>
+<p>周六泰坦：表姐自爆，爆攻阿克希亚第五&#x2F;爆攻满血蓝露冰石s。已通关。</p>
+<p>周日艾丽娅：已通关。</p>
+<h3 id="灵魂收割者·黛"><a href="#灵魂收割者·黛" class="headerlink" title="灵魂收割者·黛"></a><del>灵魂收割者·黛</del></h3><p>团长羁绊工具人，和锢灵舞同款关卡。</p>
+<p>第三关挂探索格子脚本。</p>
+<p>三件套84弹，幻境补刀</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000001</span>D310000B2C806076F13000002850000006100000<span class="number">00700000001</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="逆魂·佩特菲德"><a href="#逆魂·佩特菲德" class="headerlink" title="逆魂·佩特菲德"></a><del>逆魂·佩特菲德</del></h3><p>六界出货了再打，考虑一键第五关。</p>
+<p>第三关可以挂脚本，大概6天。</p>
+<p>第四关和布蕾里克同款关卡，带绿火。</p>
+<h4 id="贪婪洞窟"><a href="#贪婪洞窟" class="headerlink" title="贪婪洞窟"></a>贪婪洞窟</h4><p>氪了算了，打八百年都不一定有一次成功。</p>
+<p>三件套</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000001</span>D310000B2BF06076F13000002A60000004300000<span class="number">00600000000</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="克洛托"><a href="#克洛托" class="headerlink" title="克洛托"></a><del>克洛托</del></h3><p>第一关表姐自爆+同生共死</p>
+<p>第二关84</p>
+<p>第三关[月华单刷](</p>
+<h3 id="战争猎魔"><a href="#战争猎魔" class="headerlink" title="战争猎魔"></a><del>战争猎魔</del></h3><p>有行动力和体力、三件套脚本。</p>
+<h3 id="不灭地威·萨瑞卡"><a href="#不灭地威·萨瑞卡" class="headerlink" title="不灭地威·萨瑞卡"></a><del>不灭地威·萨瑞卡</del></h3><p>左上：150随便打。</p>
+<p>右上：斯嘉丽，必定MISS，火潘+表姐+伊芙丽第五+圣谱第五。要打2天。</p>
+<p>左下：肉装+绿火+元神+星皇，王雷单挑，拉防差，战斗中打一次特攻，其余时间打先手回血，有强吸强。</p>
+<p>右下：吉光+银翼+绿火，火潘+表姐自爆+草王送掉（不要出手）+艾欧先三增伤+第五。BOSS血量8k可能打不满。</p>
+<p>大概十天。</p>
+<p>三件套：84弹。</p>
+<h3 id="擎空·凡尔斯"><a href="#擎空·凡尔斯" class="headerlink" title="擎空·凡尔斯"></a><del>擎空·凡尔斯</del></h3><p>我才发现我很久之前打过凡尔斯的关卡。</p>
+<p>给王哈拉特防防差，防止赛伯斯特麻痹控，使用艾欧王哈脚本刷。</p>
+<p>每天没事84公式刷刷灵石。</p>
+<p>三件套挂脚本84.</p>
+<h3 id="审判之魂"><a href="#审判之魂" class="headerlink" title="审判之魂"></a><del>审判之魂</del></h3><p>第二关就是费时间，大概要四天，84弹弹弹。</p>
+<p>第三关是有保底的点灯（95次必出，19天），挂脚本。</p>
+<p>三件套84弹4天。</p>
+<h3 id="环-零"><a href="#环-零" class="headerlink" title="环.零"></a><del>环.零</del></h3><p>记得买升级</p>
+<h3 id="枫眠"><a href="#枫眠" class="headerlink" title="枫眠"></a><del>枫眠</del></h3><p>强化+第五，银翼+帝君+元神</p>
+<h3 id="伽马-千花"><a href="#伽马-千花" class="headerlink" title="伽马.千花"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TJ411m7hN/"><del>伽马.千花</del></a></h3><table>
+<thead>
+<tr>
+<th></th>
+<th>两回合</th>
+<th>最后一击后手</th>
+<th>致命一击次数＜2</th>
+<th>虚空击败</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>希瓦</td>
+<td>表姐自爆+圣雷150</td>
+<td>王哈引爆+第五</td>
+<td>王哈第五</td>
+<td>84+神罗</td>
+</tr>
+<tr>
+<td>月照</td>
+<td>表姐自爆+伊芙丽150</td>
+<td>火潘+伊芙丽150</td>
+<td>表姐自爆+伊芙丽150</td>
+<td>84+神罗</td>
+</tr>
+<tr>
+<td>卡迪亚</td>
+<td>表姐自爆+猎皇第五</td>
+<td>火潘+索比斯+猎皇第五</td>
+<td>表姐自爆+猎皇第五</td>
+<td>84+神罗</td>
+</tr>
+<tr>
+<td>零</td>
+<td>时空第五</td>
+<td>火潘+索比斯+时空第五</td>
+<td>火潘+表姐自爆+时空第五</td>
+<td>84（弹不死）+神罗</td>
+</tr>
+</tbody></table>
+<p>攒13技能点点三次精灵成员，然后等待失败。</p>
+<h3 id="红莲之誓·安卡"><a href="#红莲之誓·安卡" class="headerlink" title="红莲之誓·安卡"></a><del>红莲之誓·安卡</del></h3><p>第一、二关全程84弹+固伤补刀。</p>
+<p>第三关可用84弹+强攻，不过有可能会miss，大概要三天。</p>
+<p>第四关削弱两次需要超级久，不要带绿火。70%难度送火潘84弹一命，艾欧拼五倍。</p>
+<p>三件套84弹伤，刻印不要了。</p>
+<h3 id="芳馨·茉蕊儿"><a href="#芳馨·茉蕊儿" class="headerlink" title="芳馨·茉蕊儿"></a><del>芳馨·茉蕊儿</del></h3><p>带肉套装，带塞尔小劳模，艾欧，挂脚本N久。</p>
+<p>三件套全程84.</p>
+<h3 id="孙悟空"><a href="#孙悟空" class="headerlink" title="孙悟空"></a><del>孙悟空</del></h3><p>鹰：送天尊接84<br>鱼：84，王哈第五收尾<br>鹤：圣谱带元素补刀或者带个1级精灵补刀，暂时没想到二郎弹不死的话这条件咋打<br>虎：王哈抗10回合<br>兔，鹿：84，用对应攻击收尾<br>蛇：压血84<br>蜂：84<br>以上条件遇到二郎神弹不死的就拿高倍克制强攻（轮回系）;打孙悟空尽量压血，boss属性技能有盔</p>
+<h3 id="千裳"><a href="#千裳" class="headerlink" title="千裳"></a><del><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BA411A7Lz">千裳</a></del></h3><p>最后一关除了真身可84，火潘+84，注意弹之前让boss打一下（开属性就断回合送一只再弹），会弹到1血。</p>
+<p>过路费：84弹。</p>
+<p>真身：火潘+索比斯+草王+神罗恶念初现，不要用表姐引爆。</p>
+<p>三件套自爆神罗随便打。</p>
+<h3 id="艾夏拉"><a href="#艾夏拉" class="headerlink" title="艾夏拉"></a><del>艾夏拉</del></h3><p>第二关除了耀影绝煞都可以84，耀影绝煞索比斯+堕落绝语。</p>
+<p>第三关：银翼绿火+星皇+元神，2生机+1泰坦之光α，圣谱：璨灵圣光+次元S致命+光荣之梦。</p>
+<p>第四关：威斯克要带绿火，要不然机盖顶不住。</p>
+<h3 id="麒麟天女·波西利亚"><a href="#麒麟天女·波西利亚" class="headerlink" title="麒麟天女·波西利亚"></a><del>麒麟天女·波西利亚</del></h3><p>麒麟天女·波西利亚、波西利亚、圣光麒麟要同时打。</p>
+<p>波西利亚第二关84打7天，第三关84，海瑟薇不带绿火。</p>
+<p>麒麟第一关：84.第二关：84，打灵神带索比斯，麒麟免疫物理攻击伤害。H5神兽之威打满4天。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17V41167Kp">麒麟天女·波西利亚</a>，84弹，不带绿火。三件套84弹。</p>
+<h3 id="怒涛·沧澜"><a href="#怒涛·沧澜" class="headerlink" title="怒涛·沧澜"></a><del>怒涛·沧澜</del></h3><p>需要一只圣雷，最好带表姐先去打圣雷三件套（好像也不用）。</p>
+<p>00000015310000A0A906076F130000020800002773</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Pb411F75o?p=2">【玲珑酱】赛尔号 震惊！新手2天获得巅峰神宠！怒涛·沧岚 新手平民&amp;小康非平民打法！</a>。</p>
+<p>黑葱太恶心了，弄只圣光莫妮卡&#x2F;圣谕之风岚回来配表姐吧。</p>
+<p>ROUND1：侵蚀+浩瀚+无垠+汹涌，银翼吊面，圣雷凑够数值（吉光凤羽），一直打狮盔。</p>
+<p>ROUND2：侵蚀+浩瀚+无垠+汹涌，8回合击败，圣雷在上述条件下要上700攻（奇效能量珠），不要暴击。</p>
+<p>ROUND3：侵蚀+浩瀚+无垠+汹涌，最后一击低于500，圣雷同上，带圣光击&#x2F;圣光耀目补刀即可。</p>
+<p>ROUND3：侵蚀+浩瀚+无垠+汹涌，体力低于300时击败，同ROUND1。</p>
+<p>三件套全程84，有插件。</p>
+<h3 id="六界帝神"><a href="#六界帝神" class="headerlink" title="六界帝神"></a><del>六界帝神</del></h3><p>表姐自爆强攻。</p>
+<p>三件套表姐自爆强攻，大概十天，可挂脚本。</p>
+<h3 id="布蕾里克"><a href="#布蕾里克" class="headerlink" title="布蕾里克"></a><del>布蕾里克</del></h3><p>第二关至少打六天，可能要先完成战斗任务，可挂脚本，优先战斗任务，战斗任务打满改为补给箱。</p>
+<p><del>第三关脚本只带幻境，不要带其他精灵。</del></p>
+<p>第三关可以打中阶，播种可94，收获84+补刀注意规则。高阶：火潘+84+索比斯+烈火净世击。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#T#<span class="number">1</span></span><br><span class="line">#取消对战界面</span><br><span class="line">#B#<span class="number">00000021310000</span>B2CA08A4CF800000024400000066000000030000001800000003</span><br><span class="line">#冰妹<span class="number">3</span>星难度艾希丝</span><br><span class="line">#<span class="number">3512</span>|<span class="number">3045</span>|<span class="number">3118</span>|<span class="number">3414</span>|<span class="number">4344</span></span><br><span class="line">#表姐|六神神王|索比斯|索伦森|火潘</span><br><span class="line">#自行穿戴强攻套装</span><br><span class="line">#需自行设置火潘为首发并带齐精灵，魔法无法准确携带精灵</span><br><span class="line">#Y#<span class="number">1000</span></span><br><span class="line">#延迟一秒</span><br><span class="line">#B#<span class="number">0000001131000009640000000000000000</span></span><br><span class="line">#进入对战</span><br><span class="line"></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A000001CF00008B9F</span><br><span class="line">#火潘第五自爆</span><br><span class="line">#Q#<span class="number">3512</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000021F00007B11</span><br><span class="line">#表姐自爆</span><br><span class="line">#Q#<span class="number">3045</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000020000004B72</span><br><span class="line">#六神弹伤</span><br><span class="line">#切黑葱再切索比斯</span><br><span class="line">#Q#<span class="number">3414</span></span><br><span class="line">#Q#<span class="number">3118</span></span><br><span class="line">#Q#<span class="number">3414</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000020000007912</span><br><span class="line">#烈火净世击</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000020000007912</span><br><span class="line"></span><br><span class="line">#B#<span class="number">00000011310000096</span>A0000000000000000</span><br><span class="line">#逃跑</span><br><span class="line">#T#<span class="number">0</span></span><br><span class="line">#恢复对战界面</span><br><span class="line">#Y#<span class="number">3000</span></span><br><span class="line">#延迟<span class="number">3</span>s</span><br></pre></td></tr></table></figure>
+
+<p>三件套魔法，一天循环16次</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#T#<span class="number">1</span></span><br><span class="line">#取消对战界面</span><br><span class="line">#Y#<span class="number">1000</span></span><br><span class="line">#延迟一秒</span><br><span class="line">#B#<span class="number">0000001</span>D310000B2C806076F130000031B000000660000000700000001</span><br><span class="line">#对战码</span><br><span class="line">#B#<span class="number">0000001131000009640000000000000000</span></span><br><span class="line">#进入对战</span><br><span class="line"></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000021F00007B11</span><br><span class="line">#表姐自爆</span><br><span class="line">#Q#<span class="number">3045</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000020000004B72</span><br><span class="line">#六神弹伤</span><br><span class="line">#Q#<span class="number">5000</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#圣谱第五补刀</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line"></span><br><span class="line">#B#<span class="number">00000011310000096</span>A0000000000000000</span><br><span class="line">#逃跑</span><br><span class="line">#T#<span class="number">0</span></span><br><span class="line">#恢复对战界面</span><br><span class="line">#Y#<span class="number">3000</span></span><br><span class="line">#延迟<span class="number">3</span>s</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="魂王·无烬梦"><a href="#魂王·无烬梦" class="headerlink" title="魂王·无烬梦"></a><del>魂王·无烬梦</del></h3><p>全程插件</p>
+<h3 id="魂王-暗翼影"><a href="#魂王-暗翼影" class="headerlink" title="魂王.暗翼影"></a><del>魂王.暗翼影</del></h3><p>844+圣谱，第三关有点耗时，打完最上面那个就可以挂脚本了</p>
+<h3 id="魂帝·天循道"><a href="#魂帝·天循道" class="headerlink" title="魂帝·天循道"></a><del>魂帝·天循道</del></h3><p>使用对战助手PLUS插件</p>
+<p>防：绿火防体圣谱狂点落芳天华</p>
+<p>体：同上</p>
+<p>速：苍星套+绿火+49+防御珠+狂嗑药，BOSS概率复活很恶心。</p>
+<p>攻：银翼元神先手+真神，BOSS吸强带紫火。</p>
+<h3 id="愈灵·克丽娅"><a href="#愈灵·克丽娅" class="headerlink" title="愈灵·克丽娅"></a><del>愈灵·克丽娅</del></h3><p>00000021310000B2C406076F13000002F50000003A000000020000001500000001</p>
+<p>全程84.</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#T#<span class="number">1</span></span><br><span class="line">#取消对战界面</span><br><span class="line">#Y#<span class="number">1000</span></span><br><span class="line">#延迟一秒</span><br><span class="line">#B#<span class="number">00000021310000</span>B2C406076F13000002F50000003A000000020000001500000001</span><br><span class="line">#对战码</span><br><span class="line">#B#<span class="number">0000001131000009640000000000000000</span></span><br><span class="line">#进入对战</span><br><span class="line"></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000021F00007B11</span><br><span class="line">#表姐自爆</span><br><span class="line">#Q#<span class="number">3045</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000020000004B72</span><br><span class="line">#六神弹伤</span><br><span class="line">#Q#<span class="number">5000</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#圣谱第五补刀</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line"></span><br><span class="line">#B#<span class="number">00000011310000096</span>A0000000000000000</span><br><span class="line">#逃跑</span><br><span class="line">#T#<span class="number">0</span></span><br><span class="line">#恢复对战界面</span><br><span class="line">#Y#<span class="number">3000</span></span><br><span class="line">#延迟<span class="number">3</span>s</span><br></pre></td></tr></table></figure>
+
+<p>第三关挂探索格子插件</p>
+<p>三件套</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#T#<span class="number">1</span></span><br><span class="line">#取消对战界面</span><br><span class="line">#Y#<span class="number">1000</span></span><br><span class="line">#延迟一秒</span><br><span class="line">#B#<span class="number">0000001</span>D310000B2BF06076F13000002A00000003A0000000600000000</span><br><span class="line">#对战码</span><br><span class="line">#B#<span class="number">0000001131000009640000000000000000</span></span><br><span class="line">#进入对战</span><br><span class="line"></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000021F00007B11</span><br><span class="line">#表姐自爆</span><br><span class="line">#Q#<span class="number">3045</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000020000004B72</span><br><span class="line">#六神弹伤</span><br><span class="line">#Q#<span class="number">5000</span></span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#圣谱第五补刀</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line"></span><br><span class="line">#B#<span class="number">00000011310000096</span>A0000000000000000</span><br><span class="line">#逃跑</span><br><span class="line">#T#<span class="number">0</span></span><br><span class="line">#恢复对战界面</span><br><span class="line">#Y#<span class="number">3000</span></span><br><span class="line">#延迟<span class="number">3</span>s</span><br></pre></td></tr></table></figure>
+
+<h3 id="月照星魂"><a href="#月照星魂" class="headerlink" title="月照星魂"></a><del>月照星魂</del></h3><p>可挂一键脚本，不要带绿火。</p>
+<p>第二关聘用第2、3、5个</p>
+<p><img src="image-20230812233958968.png" alt="image-20230812233958968"></p>
+<p>第三关84弹，精修片1号、2号、剪修片1号各一张。</p>
+<p>真身挂月华脚本。</p>
+<h3 id="墨影星魂"><a href="#墨影星魂" class="headerlink" title="墨影星魂"></a><del>墨影星魂</del></h3><p>第二关：潘表+强攻</p>
+<p>第三关：21112，要打到头</p>
+<p>第四关：挂插件，无畏-&gt;坚忍（肉套装）-&gt;狂猛（圣谱拉双防，肉装）-&gt;精准</p>
+<p>狂猛还是自己写个插件吧，网上那个不带星皇元神容易翻车。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#圣谱首发带星皇表姐，肉装带绿火</span><br><span class="line">#T#<span class="number">1</span></span><br><span class="line">#取消对战界面</span><br><span class="line">#Y#<span class="number">1000</span></span><br><span class="line">#延迟一秒</span><br><span class="line">#B#<span class="number">00000015310000</span>A0A906076F13000002B4000041D3</span><br><span class="line">#对战码</span><br><span class="line">#B#<span class="number">0000001131000009640000000000000000</span></span><br><span class="line">#进入对战</span><br><span class="line"></span><br><span class="line">#先消个强</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000028C000045F8</span><br><span class="line">#圣谱疯狂第五</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line">#B#<span class="number">0000001531000009650</span>B8ED99A0000036F000079A7</span><br><span class="line"></span><br><span class="line">#B#<span class="number">00000011310000096</span>A0000000000000000</span><br><span class="line">#逃跑</span><br><span class="line">#T#<span class="number">0</span></span><br><span class="line">#恢复对战界面</span><br><span class="line">#Y#<span class="number">3000</span></span><br><span class="line">#延迟<span class="number">3</span>s</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="虹雨·茜尔"><a href="#虹雨·茜尔" class="headerlink" title="虹雨·茜尔"></a><del>虹雨·茜尔</del></h3><p>第二关：集拼图84弹。</p>
+<p>第三关：84弹，某个狗需要强攻。</p>
+<p>第四关：给六界帝神一个特防刻印，挂兜兜转转脚本。不要带六界神王，会打不死。</p>
+<p>核天使需要给六神拉防差。建议手打，插件翻车率高。</p>
+<p>三件套困难：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000001</span>D310000B2BF06076F13000001FB0000004700000<span class="number">00600000000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="葬生之莲"><a href="#葬生之莲" class="headerlink" title="葬生之莲"></a><del>葬生之莲</del></h3><p>第三关有透视插件。</p>
+<h3 id="葬生魔莲"><a href="#葬生魔莲" class="headerlink" title="葬生魔莲"></a><del>葬生魔莲</del></h3><p>有一键插件，可以挂一下试试.</p>
+<p>三件套可挂魔法。</p>
+<h3 id="哀伤公爵"><a href="#哀伤公爵" class="headerlink" title="哀伤公爵"></a><del>哀伤公爵</del></h3><p>第三关：苍星战甲四九防御珠开瞬，吸强+归魂手×2</p>
+<p>考验四：银翼爆攻魔芋，绑威力宝石，战队加成点满，暴击珠子称号，赌暴击</p>
+<p>考验五：多精灵，潘表+赛伯斯特+王哈</p>
+<p>考验六：84+补刀.</p>
+<p>第四关：寒凌、霜焱用王哈先手+第五，其他圣普第五。</p>
+<h3 id="阿莱克托"><a href="#阿莱克托" class="headerlink" title="阿莱克托"></a><del>阿莱克托</del></h3><p>第四关</p>
+<p><img src="https://i0.hdslb.com/bfs/note/ef2e458c663f91305ba07ab4317e58cfa24659bc.jpg@640w_!web-note.webp" alt="img"></p>
+<p>进阶3：携带天启帝君，84弹</p>
+<p>进阶4：火潘+表姐+力蒲150强攻1命，第2、3命索比斯+幻境</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000001</span>D310000B2BF06076F13000002260000005000000<span class="number">00600000000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="幻尘·蜜雪儿"><a href="#幻尘·蜜雪儿" class="headerlink" title="幻尘·蜜雪儿"></a>幻尘·蜜雪儿</h3><p>挂插件，进阶也是，前置要手打。</p>
+<p>前置：</p>
+<p><img src="Users\Public\Pictures\Typora\typora-user-images\image-20231012222920210.png" alt="image-20231012222920210"></p>
+<p>普王：幻境叠强化</p>
+<p>希瓦、千裳、虫老、岗颜巨兽：84</p>
+<p>魂帝：上buff，王哈先手+第五，低于1k回满。</p>
+</details>
+
+
+
+<h2 id="精灵因子获取-脚本可挂"><a href="#精灵因子获取-脚本可挂" class="headerlink" title="精灵因子获取(脚本可挂)"></a>精灵因子获取(脚本可挂)</h2><p>全部为银翼+绿火,似乎脚本会将靠后参加战斗的精灵出场顺序靠后。</p>
+<p>表格里有的这些挂完大概要两个多小时。</p>
+<table>
+<thead>
+<tr>
+<th>精灵</th>
+<th>难度</th>
+<th>是否有稳定方法</th>
+<th>打法</th>
+<th>脚本可自动化？</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>未明</td>
+<td></td>
+<td>有</td>
+<td></td>
+<td>是</td>
+</tr>
+<tr>
+<td>海棠教皇.未明</td>
+<td>简单，要前置</td>
+<td>有</td>
+<td>全程幻境首发</td>
+<td>是</td>
+</tr>
+<tr>
+<td>派利尔</td>
+<td>简单</td>
+<td>有</td>
+<td>艾欧挂机<Br>派利尔：莫名其妙</Br></td>
+<td>是</td>
+</tr>
+<tr>
+<td>古温婆婆</td>
+<td>简单</td>
+<td>已获得</td>
+<td>全程幻境首发；全程首发艾欧+四九补刀</td>
+<td>是</td>
+</tr>
+<tr>
+<td>眠降.玛缇娜</td>
+<td>简单</td>
+<td>已获得</td>
+<td>全程幻境首发；全程首发艾欧+四九补刀</td>
+<td>是</td>
+</tr>
+<tr>
+<td>祭空墟祖</td>
+<td>简单</td>
+<td>有</td>
+<td>全程首发艾欧赌五倍+四九补刀</td>
+<td>是</td>
+</tr>
+<tr>
+<td>尤莉米特</td>
+<td>简单</td>
+<td>有</td>
+<td>杰特洛要换幻境，其他全程首发艾欧赌五倍+四九补刀</td>
+<td>是</td>
+</tr>
+<tr>
+<td>卡托娜</td>
+<td>简单</td>
+<td>有</td>
+<td>艾欧首发；<Br>绿棘巨魔需换人（四九？艾欧五倍？）；<br>古索迪尔（80%疲惫控）、卡托娜（每回合弱化）：草王首发+有女五倍</Br></td>
+<td>是</td>
+</tr>
+<tr>
+<td>圣心女皇.</td>
+<td>简单</td>
+<td></td>
+<td>第三关古索迪尔（单挑）：四九</td>
+<td>是</td>
+</tr>
+<tr>
+<td>坦普瑞</td>
+<td>简单</td>
+<td>有，第五关需手打</td>
+<td>艾欧首发。<br>第五关受击断回合疲惫需手打：幻境引爆送索比斯，艾欧强化满+引爆+有女，四九补刀</td>
+<td>是</td>
+</tr>
+<tr>
+<td>天奔流·东辉</td>
+<td>简单</td>
+<td>有，第四关需手打</td>
+<td>前两关+坦普瑞：挂艾欧；<Br>库塔莫西（伤害高，先手失效，无法断回合&#x2F;消强，月亮）：索比斯首发+四九强化+九九归心斩；<br>天奔流.东辉（免疫瞬杀，必定MISS）：王哈站撸，记得把四九下了，脚本只会点先手。</Br></td>
+<td>是</td>
+</tr>
+<tr>
+<td>杰特洛</td>
+<td>简单</td>
+<td>有，第三关需手打</td>
+<td>首发艾欧挂机。<br><strong>布蕾里克</strong>（将能力提升视为下降且有高额固伤，伤害翻倍，每回合吸血200+弱化，有月亮）：幻境开续航强化叠满+第五手打，不要消强。<BR>杰特洛（免疫瞬杀，每回合弱化，有月亮）：草王首发+有女五倍。</BR></td>
+<td>是</td>
+</tr>
+<tr>
+<td>命运之轮.莫伊莱</td>
+<td>简单，要前置</td>
+<td>有，第三关需手打</td>
+<td>艾欧首发<br>墨纪拉（每回合吸血200，高粉）：四九开续航手打<br>提西弗涅：可能要带个圣谱。索比斯+艾欧有女拼五倍<br>命运之轮·莫伊莱：索比斯+有女拼五倍</td>
+<td>是</td>
+</tr>
+<tr>
+<td>恶鬼图伽</td>
+<td>简单</td>
+<td>有</td>
+<td></td>
+<td>是</td>
+</tr>
+<tr>
+<td>德拉莫斯</td>
+<td>简单</td>
+<td>有</td>
+<td></td>
+<td>是，要一点运气</td>
+</tr>
+<tr>
+<td>爵刻黑沃德</td>
+<td>简单</td>
+<td>有</td>
+<td></td>
+<td>是</td>
+</tr>
+<tr>
+<td>裁罪魔剪·塞泽丝</td>
+<td>简单，要前置</td>
+<td>目前无，待研究</td>
+<td>首发艾欧挂机即可。<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/7764038314">愈灵.克丽</a>概率复活，带鸭子，赌有女五倍。<a href>裁罪魔剪·塞泽丝</a>大招疲惫控场有点难打，可能要弄个圣王萨。<Br>前置第三关14331，22332，33442，必定是这三者之一</Br></td>
+<td>是，要一点运气（配置不够）</td>
+</tr>
+<tr>
+<td>时钟诛机</td>
+<td>简单</td>
+<td></td>
+<td></td>
+<td>是</td>
+</tr>
+<tr>
+<td>希可洛</td>
+<td>简单</td>
+<td></td>
+<td>第五关要王哈主力+四九补刀</td>
+<td>是</td>
+</tr>
+<tr>
+<td>彼尔德</td>
+<td>简单</td>
+<td></td>
+<td></td>
+<td>是</td>
+</tr>
+<tr>
+<td>冥契格斯塔丝</td>
+<td>简单</td>
+<td></td>
+<td></td>
+<td>是</td>
+</tr>
+<tr>
+<td>追光兰可</td>
+<td>简单</td>
+<td></td>
+<td></td>
+<td>是</td>
+</tr>
+<tr>
+<td>圣谕之风岚</td>
+<td>简单</td>
+<td>无</td>
+<td>第五关BOSS附带高额固伤，不要带绿火，拿碟子+龙妈弹</td>
+<td></td>
+</tr>
+<tr>
+<td>混灵·莱茵哈特</td>
+<td>简单，要前置</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>嫉妒·哲利斯</td>
+<td>简单，要前置</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="脚本编写"><a href="#脚本编写" class="headerlink" title="脚本编写"></a>脚本编写</h3><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">[关卡信息]</span><br><span class="line">昵称=命运之轮莫伊莱</span><br><span class="line">难度=简单模式</span><br><span class="line">进度=第三关</span><br><span class="line"><span class="comment"># 3118索比斯=游魂弑生决 阴魂不散 暗夜迷踪 亡灵追击 鬼影千重阵</span></span><br><span class="line"><span class="comment"># 3221四九圣尊=九转归魂手 九武圣尊 战灵冲锋 九九归心斩 战神破天杀</span></span><br><span class="line"><span class="comment"># 索比斯=快攻 念动力 影球 极速 鬼影千重阵</span></span><br><span class="line"><span class="comment"># 3437艾欧丽娅=有女初长成 冰魄风暴 疾击之刺 光荣骑士 侍君奉此生</span></span><br><span class="line"><span class="comment"># 3022王之哈莫=龙腾寰宇 龙子诞生 狂龙击杀 千秋龙威 王·龙子盛威决</span></span><br><span class="line"><span class="comment"># 3460幻境界皇=幻灵灭杀阵 技能石 精神幻灭 幻境之尘 异域封魂曲</span></span><br><span class="line"><span class="comment"># 3322茉蕊儿=叩击 加速 冲击 互动 王·万物枯荣</span></span><br><span class="line"><span class="comment"># 3561邪灵主宰·摩哥斯=真·堕落绝语 妖灵天性 噬魂幽芒 邪灵主宰 王·恶魔赦令</span></span><br><span class="line"><span class="comment"># 4338星礼=技能石 星霞之缎 星之梦 宁静星渊 礼·咫尺光年</span></span><br><span class="line"><span class="comment"># 3036乔特鲁德=龙威驰骋 洪荒万龙破 浴火之战 百战龙神 王·龙卷残云</span></span><br><span class="line"><span class="comment"># 2724幻影蝶=竭血残蝶 风翼蝶舞祭 蝶舞飞扬 命舛齐天 【空过】</span></span><br><span class="line">[设置]</span><br><span class="line">精灵=3437.100|1</span><br><span class="line">逃跑回合=50</span><br><span class="line">借火=6</span><br><span class="line">待命西游=0</span><br><span class="line">谱尼测试=0</span><br><span class="line">压血=0</span><br><span class="line">切换精灵保留出招记录=0</span><br><span class="line"><span class="comment"># 银翼</span></span><br><span class="line">套装=1300838<span class="number"> 1300673 </span>1300671<span class="number"> 1300670 </span>1300672</span><br><span class="line"><span class="comment">#未来+鹰目 1300773 1300839 1300840 1300841 1300842</span></span><br><span class="line">称号=300</span><br><span class="line">[精灵出招]</span><br><span class="line">四九圣尊=九武圣尊 战神破天杀 战灵冲锋 战神破天杀 战灵冲锋 战神破天杀 战灵冲锋</span><br><span class="line">星礼=星霞之缎 礼·咫尺光年 礼·咫尺光年</span><br><span class="line">[死亡切换]</span><br><span class="line">邪灵主宰·摩哥斯=索比斯</span><br><span class="line">索比斯=幻境界皇</span><br><span class="line">幻境界皇=茉蕊儿</span><br><span class="line">茉蕊儿=艾欧丽娅</span><br><span class="line">艾欧丽娅=四九圣尊</span><br><span class="line">[主动切换]</span><br></pre></td></tr></table></figure>
+
+<h3 id="常规脚本"><a href="#常规脚本" class="headerlink" title="常规脚本"></a>常规脚本</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">[关卡信息]</span><br><span class="line">昵称=</span><br><span class="line">难度=</span><br><span class="line">进度=</span><br><span class="line">[设置]</span><br><span class="line"># 四九,草王,王哈,幻境,艾欧,索比斯</span><br><span class="line"># <span class="number">3221</span>四九圣尊，<span class="number">3118</span>索比斯，<span class="number">3437</span>艾欧丽娅，<span class="number">3460</span>幻境界皇，<span class="number">3022</span>王之哈莫，<span class="number">3322</span>茉蕊儿</span><br><span class="line">精灵=<span class="number">3118.100|1</span> <span class="number">3221.100|1</span> <span class="number">3437.100|1</span> <span class="number">3460.100|1</span> <span class="number">3022.100|1</span> <span class="number">3322</span>|<span class="number">1</span></span><br><span class="line">逃跑回合=<span class="number">50</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">索比斯=鬼影千重阵</span><br><span class="line">艾欧丽娅=冰魄风暴 有女初长成 有女初长成 有女初长成 有女初长成</span><br><span class="line">幻境界皇=幻境之尘 异域封魂曲 精神幻灭</span><br><span class="line">茉蕊儿=王·万物枯荣</span><br><span class="line">王之哈莫=龙子诞生 狂龙击杀 王·龙子盛威决 王·龙子盛威决</span><br><span class="line">四九圣尊=战灵冲锋</span><br><span class="line">[死亡切换]</span><br><span class="line">索比斯=艾欧丽娅</span><br><span class="line">艾欧丽娅=幻境界皇</span><br><span class="line">幻境界皇=茉蕊儿</span><br><span class="line">茉蕊儿=王之哈莫</span><br><span class="line">王之哈莫=四九圣尊</span><br><span class="line">[主动切换]</span><br></pre></td></tr></table></figure>
+
+<h3 id="单精灵赌艾欧五倍"><a href="#单精灵赌艾欧五倍" class="headerlink" title="单精灵赌艾欧五倍"></a>单精灵赌艾欧五倍</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[设置]</span><br><span class="line"># 四九,草王,王哈,幻境,艾欧,索比斯</span><br><span class="line"># <span class="number">3221</span>四九圣尊，<span class="number">3118</span>索比斯，<span class="number">3437</span>艾欧丽娅，<span class="number">3460</span>幻境界皇，<span class="number">3022</span>王之哈莫，<span class="number">3322</span>茉蕊儿</span><br><span class="line">精灵=<span class="number">3437.100|1</span></span><br><span class="line">逃跑回合=<span class="number">5</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">艾欧丽娅=有女初长成</span><br><span class="line">[死亡切换]</span><br><span class="line">[主动切换]</span><br></pre></td></tr></table></figure>
+
+<h3 id="艾欧五倍-四九补刀"><a href="#艾欧五倍-四九补刀" class="headerlink" title="艾欧五倍+四九补刀"></a>艾欧五倍+四九补刀</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[设置]</span><br><span class="line"># 四九,草王,王哈,幻境,艾欧,索比斯</span><br><span class="line"># <span class="number">3221</span>四九圣尊，<span class="number">3118</span>索比斯，<span class="number">3437</span>艾欧丽娅，<span class="number">3460</span>幻境界皇，<span class="number">3022</span>王之哈莫，<span class="number">3322</span>茉蕊儿</span><br><span class="line">精灵=<span class="number">3460.100|1</span> <span class="number">3322</span>|<span class="number">1 3437.100</span>|<span class="number">1 3221.100</span>|<span class="number">1</span></span><br><span class="line">逃跑回合=<span class="number">10</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">幻境界皇=精神幻灭 切走</span><br><span class="line">茉蕊儿=王·万物枯荣</span><br><span class="line">艾欧丽娅=有女初长成</span><br><span class="line">四九圣尊=战灵冲锋</span><br><span class="line">[死亡切换]</span><br><span class="line">茉蕊儿=艾欧丽娅</span><br><span class="line">艾欧丽娅=四九圣尊</span><br><span class="line">[主动切换]</span><br><span class="line">幻境界皇=茉蕊儿</span><br></pre></td></tr></table></figure>
+
+<h3 id="艾欧单挑（不封属）"><a href="#艾欧单挑（不封属）" class="headerlink" title="艾欧单挑（不封属）"></a>艾欧单挑（不封属）</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[设置]</span><br><span class="line"># 四九,草王,王哈,幻境,艾欧,索比斯</span><br><span class="line"># <span class="number">3221</span>四九圣尊，<span class="number">3118</span>索比斯，<span class="number">3437</span>艾欧丽娅，<span class="number">3460</span>幻境界皇，<span class="number">3022</span>王之哈莫，<span class="number">3322</span>茉蕊儿</span><br><span class="line">精灵=<span class="number">3437.100|1</span></span><br><span class="line">逃跑回合=<span class="number">15</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">艾欧丽娅=冰魄风暴 有女初长成 有女初长成 有女初长成 有女初长成</span><br><span class="line">[死亡切换]</span><br><span class="line">[主动切换]</span><br></pre></td></tr></table></figure>
+
+<h3 id="幻境单挑（弱化，不封属）"><a href="#幻境单挑（弱化，不封属）" class="headerlink" title="幻境单挑（弱化，不封属）"></a>幻境单挑（弱化，不封属）</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[设置]</span><br><span class="line"># 四九,草王,王哈,幻境,艾欧,索比斯</span><br><span class="line"># <span class="number">3221</span>四九圣尊，<span class="number">3118</span>索比斯，<span class="number">3437</span>艾欧丽娅，<span class="number">3460</span>幻境界皇，<span class="number">3022</span>王之哈莫，<span class="number">3322</span>茉蕊儿</span><br><span class="line">精灵=<span class="number">3437.100|1</span></span><br><span class="line">逃跑回合=<span class="number">15</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">艾欧丽娅=冰魄风暴 有女初长成 有女初长成 有女初长成 有女初长成</span><br><span class="line">[死亡切换]</span><br><span class="line">[主动切换]</span><br></pre></td></tr></table></figure>
+
+<h3 id="四九单挑（受击疲惫，不封属）"><a href="#四九单挑（受击疲惫，不封属）" class="headerlink" title="四九单挑（受击疲惫，不封属）"></a>四九单挑（受击疲惫，不封属）</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[设置]</span><br><span class="line"># 四九,草王,王哈,幻境,艾欧,索比斯</span><br><span class="line"># <span class="number">3221</span>四九圣尊，<span class="number">3118</span>索比斯，<span class="number">3437</span>艾欧丽娅，<span class="number">3460</span>幻境界皇，<span class="number">3022</span>王之哈莫，<span class="number">3322</span>茉蕊儿</span><br><span class="line"># 四九圣尊=九转归魂手 九武圣尊 战灵冲锋 九九归心斩 战神破天杀</span><br><span class="line">精灵=<span class="number">3221.100|1</span></span><br><span class="line">逃跑回合=<span class="number">15</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">四九圣尊=九武圣尊 九武圣尊 战神破天杀 战灵冲锋 九武圣尊 战神破天杀 战神破天杀 战神破天杀 战神破天杀 战灵冲锋 战灵冲锋</span><br><span class="line">[死亡切换]</span><br><span class="line">[主动切换]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="六界帝神-1"><a href="#六界帝神-1" class="headerlink" title="六界帝神"></a>六界帝神</h3><p>只有第三关难，堕落绝语带走，看脸。剩下的挂脚本堕落绝语。</p>
+<h3 id="莫伊莱（简单难度，可挂因子脚本）"><a href="#莫伊莱（简单难度，可挂因子脚本）" class="headerlink" title="莫伊莱（简单难度，可挂因子脚本）"></a>莫伊莱（简单难度，可挂因子脚本）</h3><p>注意三关精灵不可重复上场</p>
+<p>第一只：时空界皇150</p>
+<p>第二只：堕落绝语</p>
+<p>第三只：环境先手+第五轮着点</p>
+<h3 id="命运之轮-莫伊莱（简单难度）"><a href="#命运之轮-莫伊莱（简单难度）" class="headerlink" title="命运之轮.莫伊莱（简单难度）"></a>命运之轮.莫伊莱（简单难度）</h3><p>银翼绿火</p>
+<p>第一关：艾欧先三</p>
+<p>第二关：环境先三</p>
+<p>第三、四、五关：送索比斯，王哈；龙威强化对点，先三+第五</p>
+<p>第五关大概索比斯+艾欧也能打</p>
+<p><img src="image-20230502175937646.png" alt="image-20230502175937646"></p>
+<p>这套会让艾欧在四九前出场。</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">2023年5月2日18时1分55秒</span><br><span class="line">我方:索比斯<span class="comment">[3118]</span> 登场。</span><br><span class="line">对方:提西弗涅<span class="comment">[4270]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:提西弗涅<span class="comment">[4270]</span> 使用了 暗蛇獠牙<span class="comment">[35350]</span> 威力:140</span><br><span class="line">造成伤害：876 累计损失：0</span><br><span class="line">我方:索比斯<span class="comment">[3118]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 登场。</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:提西弗涅<span class="comment">[4270]</span> 使用了 夜临神惧<span class="comment">[27712]</span> 威力:0</span><br><span class="line">造成伤害：0 累计损失：7881</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：7681 恢复：1767 状态：884/884</span><br><span class="line">--------------【当前回合：3】--------------</span><br><span class="line">对方:提西弗涅<span class="comment">[4270]</span> 使用了 夜临神惧<span class="comment">[27712]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：736 恢复：193 状态：827/884</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：3</span><br></pre></td></tr></table></figure>
+
+<p>打命运之轮的记录如下</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">2023年5月2日18时9分15秒</span><br><span class="line">我方:索比斯<span class="comment">[3118]</span> 登场。</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 九转轮回天<span class="comment">[35377]</span> 威力:150</span><br><span class="line">造成伤害：3512 累计损失：0</span><br><span class="line">我方:索比斯<span class="comment">[3118]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 登场。</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 九转轮回天<span class="comment">[35377]</span> 威力:150</span><br><span class="line">造成伤害：108 累计损失：2994</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：2794 恢复：1072 状态：884/884</span><br><span class="line">--------------【当前回合：3】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 日月安属<span class="comment">[27723]</span> 威力:0</span><br><span class="line">造成伤害：0 累计损失：4762</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：1818 恢复：698 状态：884/884</span><br><span class="line">--------------【当前回合：4】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 九转轮回天<span class="comment">[35377]</span> 威力:150</span><br><span class="line">造成伤害：488 累计损失：4512</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：146/884</span><br><span class="line">--------------【当前回合：5】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 九转轮回天<span class="comment">[35377]</span> 威力:150</span><br><span class="line">造成伤害：500 累计损失：4262</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:索比斯<span class="comment">[3118]</span> 登场。</span><br><span class="line">--------------【当前回合：6】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 九转轮回天<span class="comment">[35377]</span> 威力:150</span><br><span class="line">造成伤害：1136 累计损失：4012</span><br><span class="line">我方:索比斯<span class="comment">[3118]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 登场。</span><br><span class="line">--------------【当前回合：7】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 九转轮回天<span class="comment">[35377]</span> 威力:150</span><br><span class="line">造成伤害：91 累计损失：5081</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：101 状态：617/868</span><br><span class="line">--------------【当前回合：8】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 九转轮回天<span class="comment">[35377]</span> 威力:150</span><br><span class="line">造成伤害：130 累计损失：6527</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：67 状态：417/868</span><br><span class="line">--------------【当前回合：9】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 列星安陈<span class="comment">[27724]</span> 威力:0</span><br><span class="line">造成伤害：0 累计损失：8463</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：33 状态：437/868</span><br><span class="line">--------------【当前回合：10】--------------</span><br><span class="line">对方:命运之轮·莫伊莱<span class="comment">[4275]</span> 使用了 日月安属<span class="comment">[27723]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：42 状态：457/868</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：10</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="祭空墟祖（简单难度）"><a href="#祭空墟祖（简单难度）" class="headerlink" title="祭空墟祖（简单难度）"></a>祭空墟祖（简单难度）</h3><p>前三只挂脚本有女随便打，第二只艾欧单挑，第三只（苍穹之望）首发索比斯还挺难刮，第四只待研究（好像看运气，有女要翻倍），第五只随便打</p>
+<p>单挑脚本如下，建议都首发艾欧赌翻倍</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[关卡信息]</span></span><br><span class="line">昵称=祭空墟祖</span><br><span class="line">难度=简单模式</span><br><span class="line">进度=第三关</span><br><span class="line"><span class="string">[设置]</span></span><br><span class="line">精灵=<span class="number">3437.100</span>|<span class="number">1</span></span><br><span class="line">逃跑回合=<span class="number">50</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line"><span class="string">[精灵出招]</span></span><br><span class="line">艾欧丽娅=疾击之刺</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="派利尔"><a href="#派利尔" class="headerlink" title="派利尔"></a>派利尔</h3><p>记录如下</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">2023年5月2日17时45分39秒</span><br><span class="line">我方:艾</span><br><span class="line">对方:派利尔<span class="comment">[4408]</span> 登场。欧丽娅<span class="comment">[3437]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:派利尔<span class="comment">[4408]</span> 使用了 启明之辰<span class="comment">[28051]</span> 威力:0</span><br><span class="line">造成伤害：0 累计损失：225</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：225 恢复：288 状态：884/884</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:派利尔<span class="comment">[4408]</span> 使用了 启明之辰<span class="comment">[28051]</span> 威力:0</span><br><span class="line">造成伤害：0 累计损失：5494</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：3646 恢复：1863 状态：884/884</span><br><span class="line">--------------【当前回合：3】--------------</span><br><span class="line">对方:派利尔<span class="comment">[4408]</span> 使用了 穿云入梦<span class="comment">[36058]</span> 威力:150</span><br><span class="line">造成伤害：668 累计损失：5494</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 登场。</span><br><span class="line">--------------【当前回合：4】--------------</span><br><span class="line">对方:派利尔<span class="comment">[4408]</span> 使用了 启明之辰<span class="comment">[28051]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：0 状态：815/868</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：4</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="尤莉米特（简单难度）"><a href="#尤莉米特（简单难度）" class="headerlink" title="尤莉米特（简单难度）"></a>尤莉米特（简单难度）</h3><p>杰特洛，要换幻境首发</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[关卡信息]</span><br><span class="line">昵称<span class="operator">=</span>尤莉米特</span><br><span class="line">难度<span class="operator">=</span>简单模式</span><br><span class="line">进度<span class="operator">=</span>第三关</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>狂沙之主，需要首发有女翻倍。或者幻境</p>
+<p>尤莉米特，艾欧首发赌翻倍+四九补刀</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[关卡信息]</span><br><span class="line">昵称=尤莉米特</span><br><span class="line">难度=简单模式</span><br><span class="line">进度=第五关</span><br><span class="line">[设置]</span><br><span class="line">精灵=<span class="number">3437.100|1</span> <span class="number">3118.100|1</span> <span class="number">3460.100|1</span> <span class="number">3221.100|1</span> <span class="number">3561.100|1</span> <span class="number">3322</span>|<span class="number">1</span></span><br><span class="line">逃跑回合=<span class="number">50</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">邪灵主宰·摩哥斯=真·堕落绝语</span><br><span class="line">茉蕊儿=王·万物枯荣</span><br><span class="line">索比斯=游魂弑生决 阴魂不散 暗夜迷踪 亡灵追击 鬼影千重阵</span><br><span class="line">幻境界皇=极影破魔咒 技能石 精神幻灭 群星逆转 异域封魂曲</span><br><span class="line">艾欧丽娅=有女初长成 冰魄风暴 疾击之刺 魂魄缠绕 侍君奉此生</span><br><span class="line">四九圣尊=九转归魂手 九武圣尊 战灵冲锋 九九归心斩 战神破天杀</span><br><span class="line">[死亡切换]</span><br><span class="line">邪灵主宰·摩哥斯=索比斯</span><br><span class="line">索比斯=幻境界皇</span><br><span class="line">幻境界皇=茉蕊儿</span><br><span class="line">茉蕊儿=艾欧丽娅</span><br><span class="line">艾欧丽娅=四九圣尊</span><br><span class="line">[主动切换]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>获胜记录如下</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">2023年5月2日12时13分55秒</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 登场。</span><br><span class="line">对方:尤莉米特<span class="comment">[4364]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:尤莉米特<span class="comment">[4364]</span> 使用了 芳缀山河<span class="comment">[27949]</span> 威力:0</span><br><span class="line">造成伤害：0 累计损失：6614</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：4276 恢复：1640 状态：884/884</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:尤莉米特<span class="comment">[4364]</span> 使用了 繁星赞美诗<span class="comment">[35846]</span> 威力:150</span><br><span class="line">造成伤害：784 累计损失：6314</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 登场。</span><br><span class="line">--------------【当前回合：3】--------------</span><br><span class="line">对方:尤莉米特<span class="comment">[4364]</span> 使用了 繁星赞美诗<span class="comment">[35846]</span> 威力:150</span><br><span class="line">造成伤害：221 累计损失：8223</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：315 状态：435/866</span><br><span class="line">--------------【当前回合：4】--------------</span><br><span class="line">对方:尤莉米特<span class="comment">[4364]</span> 使用了 芳缀山河<span class="comment">[27949]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：453 状态：315/866</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：4</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="卡托娜"><a href="#卡托娜" class="headerlink" title="卡托娜"></a>卡托娜</h3><p>打古索迪尔如下</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">2023年5月1日17时11分34秒</span><br><span class="line">我方:茉蕊儿<span class="comment">[3322]</span> 登场。</span><br><span class="line">对方:古索迪尔<span class="comment">[4268]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:古索迪尔<span class="comment">[4268]</span> 使用了 妖兽搬山术<span class="comment">[35340]</span> 威力:150</span><br><span class="line">造成伤害：3903 累计损失：0</span><br><span class="line">我方:茉蕊儿<span class="comment">[3322]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 登场。</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:古索迪尔<span class="comment">[4268]</span> 使用了 妖灵漂泊<span class="comment">[27707]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：9157 恢复：2107 状态：884/884</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：2</span><br></pre></td></tr></table></figure>
+
+<p>打卡托娜如下</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">2023年5月1日17时11分56秒</span><br><span class="line">我方:茉蕊儿<span class="comment">[3322]</span> 登场。</span><br><span class="line">对方:卡托娜<span class="comment">[4324]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:卡托娜<span class="comment">[4324]</span> 使用了 岩裂荒古诀<span class="comment">[35636]</span> 威力:150</span><br><span class="line">造成伤害：4280 累计损失：0</span><br><span class="line">我方:茉蕊儿<span class="comment">[3322]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 登场。</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:卡托娜<span class="comment">[4324]</span> 使用了 岩裂荒古诀<span class="comment">[35636]</span> 威力:150</span><br><span class="line">造成伤害：428 状态：死亡</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：14200 恢复：3267 状态：884/884</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="海棠教皇-未明"><a href="#海棠教皇-未明" class="headerlink" title="海棠教皇.未明"></a>海棠教皇.未明</h3><p>幻境首发挂机即可。</p>
+<h3 id="裁罪魔剪·塞泽丝"><a href="#裁罪魔剪·塞泽丝" class="headerlink" title="裁罪魔剪·塞泽丝"></a>裁罪魔剪·塞泽丝</h3><p>首发艾欧挂机即可。<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/7764038314">愈灵.克丽</a>概率复活，带鸭子，赌有女五倍。<a href>裁罪魔剪·塞泽丝</a>大招疲惫控场有点难打，可能要弄个圣王萨。</p>
+<p>唯一一次打过的记录留下来研究一下。</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">2023年5月1日16时21分51秒</span><br><span class="line">我方:茉蕊儿<span class="comment">[3322]</span> 登场。</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：3696 累计损失：0</span><br><span class="line">我方:茉蕊儿<span class="comment">[3322]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 登场。</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 虹雨·魂凝<span class="comment">[27906]</span> 威力:0</span><br><span class="line">造成伤害：0 累计损失：292</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：202 状态：706/866</span><br><span class="line">--------------【当前回合：3】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：0 累计损失：1365</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：1131 状态：636/866</span><br><span class="line">--------------【当前回合：4】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：0 累计损失：2413</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：694 状态：656/866</span><br><span class="line">--------------【当前回合：5】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：88 累计损失：3710</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：629 状态：588/866</span><br><span class="line">--------------【当前回合：6】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：88 累计损失：3730</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：0 状态：520/866</span><br><span class="line">--------------【当前回合：7】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：139 累计损失：5258</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：464 状态：401/866</span><br><span class="line">--------------【当前回合：8】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：80 累计损失：7493</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：713 状态：341/866</span><br><span class="line">--------------【当前回合：9】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 孤身绝念刺<span class="comment">[35754]</span> 威力:150</span><br><span class="line">造成伤害：80 累计损失：7513</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：0 状态：281/866</span><br><span class="line">--------------【当前回合：10】--------------</span><br><span class="line">对方:裁罪魔剪·塞泽丝<span class="comment">[4347]</span> 使用了 虹雨·魂凝<span class="comment">[27906]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:四九圣尊<span class="comment">[3221]</span> 使用了 战灵冲锋<span class="comment">[19587]</span> 威力:85</span><br><span class="line">造成伤害：525 状态：301/866</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：10</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="天奔流-东辉（简单难度）先不打"><a href="#天奔流-东辉（简单难度）先不打" class="headerlink" title="天奔流.东辉（简单难度）先不打"></a>天奔流.东辉（简单难度）先不打</h3><p>杰特洛，四九单挑</p>
+<p>坦普瑞需要挂艾欧里亚</p>
+<p>库塔摩西，要求在6回合内击败，有点难顶</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">2023年5月16日8时5分25秒</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 登场。</span><br><span class="line">对方:库塔莫西<span class="comment">[3821]</span> 登场。</span><br><span class="line">--------------【当前回合：1】--------------</span><br><span class="line">对方:库塔莫西<span class="comment">[3821]</span> 使用了 异空黑洞灭<span class="comment">[33081]</span> 威力:160</span><br><span class="line">造成伤害：807 累计损失：1715</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 使用了 有女初长成<span class="comment">[31116]</span> 威力:150</span><br><span class="line">造成伤害：1010 恢复：233 状态：466/840</span><br><span class="line">--------------【当前回合：2】--------------</span><br><span class="line">对方:库塔莫西<span class="comment">[3821]</span> 使用了 异空黑洞灭<span class="comment">[33081]</span> 威力:160</span><br><span class="line">造成伤害：888 累计损失：1715</span><br><span class="line">我方:艾欧丽娅<span class="comment">[3437]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:幻影蝶<span class="comment">[2724]</span> 登场。</span><br><span class="line">--------------【当前回合：3】--------------</span><br><span class="line">对方:库塔莫西<span class="comment">[3821]</span> 使用了 异空黑洞灭<span class="comment">[33081]</span> 威力:160</span><br><span class="line">造成伤害：540 累计损失：1715</span><br><span class="line">我方:幻影蝶<span class="comment">[2724]</span> 使用了 竭血残蝶<span class="comment">[23976]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">我方:乔特鲁德<span class="comment">[3036]</span> 登场。</span><br><span class="line">--------------【当前回合：4】--------------</span><br><span class="line">我方:乔特鲁德<span class="comment">[3036]</span> 使用了 龙威驰骋<span class="comment">[24740]</span> 威力:0</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">对方:库塔莫西<span class="comment">[3821]</span> 使用了 异空黑洞灭<span class="comment">[33081]</span> 威力:160</span><br><span class="line">造成伤害：6468 恢复：1 累计损失：7999</span><br><span class="line">我方:时空界皇<span class="comment">[3463]</span> 登场。</span><br><span class="line">--------------【当前回合：5】--------------</span><br><span class="line">我方:时空界皇<span class="comment">[3463]</span> 使用了 诸界混一击<span class="comment">[31252]</span> 威力:150</span><br><span class="line">造成伤害：788 状态：735/735</span><br><span class="line">对方:库塔莫西<span class="comment">[3821]</span> 没有出招 。</span><br><span class="line">造成伤害：0 状态：死亡</span><br><span class="line">--------------【对战结束】--------------</span><br><span class="line">结束原因：0</span><br><span class="line">胜利者：101150483</span><br><span class="line">对战回合：5</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="坦普瑞（简单难度）"><a href="#坦普瑞（简单难度）" class="headerlink" title="坦普瑞（简单难度）"></a>坦普瑞（简单难度）</h3><p>有女戳戳戳，坦普瑞倒是很怪，每回合受击疲惫，并且属性技能有月亮。</p>
+<p>第五关打法就是艾欧强化满再有女。</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">[关卡信息]</span><br><span class="line">昵称=坦普瑞</span><br><span class="line">难度=简单模式</span><br><span class="line">进度=第五关</span><br><span class="line">[设置]</span><br><span class="line">精灵=<span class="number">3437.100|1</span> <span class="number">3118.100|1</span> <span class="number">3460.100|1</span> <span class="number">3221.100|1</span> <span class="number">3561.100|1</span> <span class="number">3322</span>|<span class="number">1</span></span><br><span class="line">逃跑回合=<span class="number">50</span></span><br><span class="line">借火=<span class="number">6</span></span><br><span class="line">待命西游=<span class="number">0</span></span><br><span class="line">谱尼测试=<span class="number">0</span></span><br><span class="line">压血=<span class="number">0</span></span><br><span class="line">切换精灵保留出招记录=<span class="number">0</span></span><br><span class="line">套装=<span class="number">1300838</span> <span class="number">1300673</span> <span class="number">1300671</span> <span class="number">1300670</span> <span class="number">1300672</span></span><br><span class="line">称号=<span class="number">300</span></span><br><span class="line">[精灵出招]</span><br><span class="line">邪灵主宰·摩哥斯=真·堕落绝语</span><br><span class="line">索比斯=鬼影千重阵</span><br><span class="line">幻境界皇=幻境之尘 异域封魂曲 精神幻灭 极影破魔咒</span><br><span class="line">茉蕊儿=王·万物枯荣</span><br><span class="line">艾欧丽娅=有女初长成</span><br><span class="line">索比斯=鬼影千重阵</span><br><span class="line">四九圣尊=九五圣尊 战神破天杀 战灵冲锋</span><br><span class="line">[死亡切换]</span><br><span class="line">邪灵主宰·摩哥斯=索比斯</span><br><span class="line">索比斯=幻境界皇</span><br><span class="line">幻境界皇=茉蕊儿</span><br><span class="line">茉蕊儿=艾欧丽娅</span><br><span class="line">艾欧丽娅=四九圣尊</span><br><span class="line">[主动切换]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="巅峰"><a href="#巅峰" class="headerlink" title="巅峰"></a>巅峰</h2><h3 id="咨询贴吧"><a href="#咨询贴吧" class="headerlink" title="咨询贴吧"></a>咨询贴吧</h3><p>五一回归的17年玩家，</p>
+<h3 id="首发精灵"><a href="#首发精灵" class="headerlink" title="首发精灵"></a>首发精灵</h3><h4 id="阿尔蒂克"><a href="#阿尔蒂克" class="headerlink" title="阿尔蒂克"></a>阿尔蒂克</h4><h4 id="未明"><a href="#未明" class="headerlink" title="未明"></a>未明</h4><p>如果没星皇，星礼首发控</p>
+<h4 id="波塞冬"><a href="#波塞冬" class="headerlink" title="波塞冬"></a>波塞冬</h4><p>第五两回合封属，吸强次免，吸血1&#x2F;3。大招100%冰封未触发随机控，先手断回合增伤，先出手增伤50%。强化+月亮+穿盔+先至加二。弹控+受击吸血+1次狮盔。</p>
+<p>建议带冰封抗古温+星皇buff，先手打第五，对面没星皇就先手勇。</p>
+<h4 id="锢灵舞"><a href="#锢灵舞" class="headerlink" title="锢灵舞"></a>锢灵舞</h4><h4 id="猎皇"><a href="#猎皇" class="headerlink" title="猎皇"></a>猎皇</h4><h4 id="万魔天尊"><a href="#万魔天尊" class="headerlink" title="万魔天尊"></a>万魔天尊</h4><h3 id="年费团"><a href="#年费团" class="headerlink" title="年费团"></a>年费团</h3><h3 id="某些机制特殊的"><a href="#某些机制特殊的" class="headerlink" title="某些机制特殊的"></a>某些机制特殊的</h3><h4 id="终末大天使"><a href="#终末大天使" class="headerlink" title="终末大天使"></a>终末大天使</h4><h4 id="剑心"><a href="#剑心" class="headerlink" title="剑心"></a>剑心</h4><p>注意先手消强两回合狮盔</p>
+<h4 id="东辉"><a href="#东辉" class="headerlink" title="东辉"></a>东辉</h4><h4 id="龙仪"><a href="#龙仪" class="headerlink" title="龙仪"></a>龙仪</h4><p>腐蚀猎皇</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
+              <a href="/tags/%E8%B5%9B%E5%B0%94%E5%8F%B7/" rel="tag"># 赛尔号</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/" rel="prev" title="CMU数据库15-445/645">
+                  <i class="fa fa-angle-left"></i> CMU数据库15-445/645
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/24/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E5%8D%A1%E6%8B%89%E5%BD%BC%E4%B8%98%E8%B6%85%E5%BC%A6%E6%B5%8B%E8%AF%95%E6%B8%B8%E7%8E%A9%E6%8A%A5%E5%91%8A/" rel="next" title="卡拉彼丘超弦测试游玩报告">
+                  卡拉彼丘超弦测试游玩报告 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

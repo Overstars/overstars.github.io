@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言美团倒没怎么问操作系统。 https:&#x2F;&#x2F;blog.csdn.net&#x2F;wzl1217333452&#x2F;article&#x2F;details&#x2F;108669824">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[八股速成]2.操作系统">
+<meta property="og:url" content="http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]2.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="前言美团倒没怎么问操作系统。 https:&#x2F;&#x2F;blog.csdn.net&#x2F;wzl1217333452&#x2F;article&#x2F;details&#x2F;108669824">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200531221156288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE2ODk1OA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200729212644903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pNVzE0MDc=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-23T07:21:27.000Z">
+<meta property="article:modified_time" content="2023-01-27T13:21:17.186Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="面经">
+<meta property="article:tag" content="八股">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200531221156288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE2ODk1OA==,size_16,color_FFFFFF,t_70">
+
+
+<link rel="canonical" href="http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]2.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]2.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/","path":"2021/07/23/面经/[八股速成]2.操作系统/","title":"[八股速成]2.操作系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[八股速成]2.操作系统 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">进程与线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%EF%BC%8C%E5%85%B6%E4%B8%AD%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BB%96%E4%BB%AC%E5%90%84%E8%87%AA%E5%8F%88%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%8C%E6%AD%A5%E7%9A%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">说一下进程与线程的概念，以及为什么要有进程线程，其中有什么区别，他们各自又是怎么同步的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BD%A0%E9%83%BD%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="nav-number">2.1.2.</span> <span class="nav-text">进程和线程的区别，你都使用什么线程模型？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%EF%BC%89%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">1）进程和线程区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%EF%BC%89%E5%B8%B8%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">2）常用线程模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E6%9C%89%E4%BA%86%E8%BF%9B%E7%A8%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E6%9C%89%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">2.1.3.</span> <span class="nav-text">请你说一说有了进程，为什么还要有线程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.1.4.</span> <span class="nav-text">请你说一下多进程和多线程的使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.5.</span> <span class="nav-text">请你说一说什么是线程和进程，多线程和多进程通信方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.6.</span> <span class="nav-text">常见的进程调度算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E9%97%AE%E5%8D%95%E6%A0%B8%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%86%99%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%A8%8B%E5%BA%8F%EF%BC%8C%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E5%8A%A0%E9%94%81%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.1.7.</span> <span class="nav-text">请问单核机器上写多线程程序，是否需要考虑加锁，为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%8C%E6%AD%A5%EF%BC%8C%E9%94%81%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-number">2.1.8.</span> <span class="nav-text">请你说一说多线程的同步，锁的机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E7%BA%BF%E7%A8%8B%E9%97%B4%E7%9A%84%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%9C%80%E5%A5%BD%E8%AF%B4%E5%87%BA%E5%85%B7%E4%BD%93%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">2.1.9.</span> <span class="nav-text">请你说一说线程间的同步方式，最好说出具体的系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E5%BE%AA%E7%8E%AF-%E6%9D%A5%E8%BF%9E%E6%8E%A5%E6%97%B6%E6%96%B0%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E6%95%88%E7%8E%87%E6%9C%89%E7%82%B9%E4%BD%8E%EF%BC%8C%E6%80%8E%E4%B9%88%E6%94%B9%E8%BF%9B%EF%BC%9F"><span class="nav-number">2.1.10.</span> <span class="nav-text">死循环+来连接时新建线程的方法效率有点低，怎么改进？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E9%97%AE%E6%80%8E%E4%B9%88%E5%94%A4%E9%86%92%E8%A2%AB%E9%98%BB%E5%A1%9E%E7%9A%84socket%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">2.1.11.</span> <span class="nav-text">请问怎么唤醒被阻塞的socket线程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E9%97%AE%E6%80%8E%E6%A0%B7%E7%A1%AE%E5%AE%9A%E5%BD%93%E5%89%8D%E7%BA%BF%E7%A8%8B%E6%98%AF%E7%B9%81%E5%BF%99%E8%BF%98%E6%98%AF%E9%98%BB%E5%A1%9E%EF%BC%9F"><span class="nav-number">2.1.12.</span> <span class="nav-text">请问怎样确定当前线程是繁忙还是阻塞？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E9%97%B2%E7%9A%84%E8%BF%9B%E7%A8%8B%E5%92%8C%E9%98%BB%E5%A1%9E%E7%9A%84%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E4%BC%9A%E4%B8%8D%E4%BC%9A%E5%9C%A8%E5%94%A4%E9%86%92%E7%9A%84%E6%97%B6%E5%80%99%E8%AF%AF%E5%88%A4%EF%BC%9F"><span class="nav-number">2.1.13.</span> <span class="nav-text">空闲的进程和阻塞的进程状态会不会在唤醒的时候误判？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E9%97%AE%E5%B0%B1%E7%BB%AA%E7%8A%B6%E6%80%81%E7%9A%84%E8%BF%9B%E7%A8%8B%E5%9C%A8%E7%AD%89%E5%BE%85%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.1.14.</span> <span class="nav-text">请问就绪状态的进程在等待什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E9%97%AE%E7%BA%BF%E7%A8%8B%E9%9C%80%E8%A6%81%E4%BF%9D%E5%AD%98%E5%93%AA%E4%BA%9B%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%8CSP%E3%80%81PC%E3%80%81EAX%E8%BF%99%E4%BA%9B%E5%AF%84%E5%AD%98%E5%99%A8%E6%98%AF%E5%B9%B2%E5%98%9B%E7%94%A8%E7%9A%84"><span class="nav-number">2.1.15.</span> <span class="nav-text">请问线程需要保存哪些上下文，SP、PC、EAX这些寄存器是干嘛用的</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">2.2.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E6%AD%BB%E9%94%81%E5%8F%91%E7%94%9F%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81"><span class="nav-number">2.2.1.</span> <span class="nav-text">请你说一说死锁发生的条件以及如何解决死锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AE%B2%E8%BF%B0%E4%B8%80%E4%B8%8B%E4%BA%92%E6%96%A5%E9%94%81%EF%BC%88mutex%EF%BC%89%E6%9C%BA%E5%88%B6%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%BA%92%E6%96%A5%E9%94%81%E5%92%8C%E8%AF%BB%E5%86%99%E9%94%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.2.2.</span> <span class="nav-text">请你讲述一下互斥锁（mutex）机制，以及互斥锁和读写锁的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E8%AF%B4Linux%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4-%E8%AF%B7%E9%97%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E6%80%8E%E4%B9%88%E5%AF%B9%E5%BA%94"><span class="nav-number">2.3.1.</span> <span class="nav-text">说一说Linux虚拟地址空间&#x2F;请问虚拟内存和物理内存怎么对应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.2.</span> <span class="nav-text">你说一说操作系统中的程序的内存结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">2.3.3.</span> <span class="nav-text">程序编译过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD"><span class="nav-number">2.3.4.</span> <span class="nav-text">你说一说操作系统中的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E4%B8%8B%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%BD%AE%E6%8D%A2%E7%9A%84%E6%96%B9%E5%BC%8F-%E7%BC%BA%E9%A1%B5%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.3.5.</span> <span class="nav-text">请你说一下虚拟内存置换的方式&#x2F;缺页置换算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%A0%E8%AF%B4%E4%B8%80%E8%AF%B4%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%A1%B5%E8%A1%A8%E5%AF%BB%E5%9D%80"><span class="nav-number">2.3.6.</span> <span class="nav-text">你说一说操作系统中的页表寻址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%A0%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8Bfork%E5%92%8Cvfork%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.3.7.</span> <span class="nav-text">你回答一下fork和vfork的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AEMySQL%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E8%BF%99%E4%B8%AA%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-number">2.3.8.</span> <span class="nav-text">问MySQL的端口号是多少，如何修改这个端口号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%AE%8F%E5%86%85%E6%A0%B8%E4%B8%8E%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="nav-number">2.3.9.</span> <span class="nav-text">请你来说一下宏内核与微内核</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E6%9D%A5%E8%AF%B4%E4%B8%80%E8%AF%B4%E7%94%A8%E6%88%B7%E6%80%81%E5%88%B0%E5%86%85%E6%A0%B8%E6%80%81%E7%9A%84%E8%BD%AC%E5%8C%96%E5%8E%9F%E7%90%86"><span class="nav-number">2.3.10.</span> <span class="nav-text">请你来说一说用户态到内核态的转化原理</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/23/%E9%9D%A2%E7%BB%8F/[%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90]2.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[八股速成]2.操作系统 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [八股速成]2.操作系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-23 15:21:27" itemprop="dateCreated datePublished" datetime="2021-07-23T15:21:27+08:00">2021-07-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E4%BD%9C/%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">面经</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>美团倒没怎么问操作系统。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wzl1217333452/article/details/108669824">https://blog.csdn.net/wzl1217333452/article/details/108669824</a></p>
+<span id="more"></span>
+
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h3 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h3><h4 id="说一下进程与线程的概念，以及为什么要有进程线程，其中有什么区别，他们各自又是怎么同步的"><a href="#说一下进程与线程的概念，以及为什么要有进程线程，其中有什么区别，他们各自又是怎么同步的" class="headerlink" title="说一下进程与线程的概念，以及为什么要有进程线程，其中有什么区别，他们各自又是怎么同步的"></a>说一下<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/125716637">进程与线程的概念</a>，以及为什么要有进程线程，其中有什么区别，他们各自又是怎么同步的</h4><p><strong>进程</strong>是资源（CPU、内存等）分配的基本单位，具有一定<strong>独立</strong>功能的程序关于某个数据集合上的一次运行活动，进程是系统进行<strong>资源分配和调度</strong>的一个独立单位。<br><strong>线程</strong>是进程的一个实体，是<strong>独立运行和独立调度</strong>的基本单位（CPU上真正运行的是线程）。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈)，但是它可与同属一个进程的其他的<strong>线程共享</strong>进程所拥有的全部资源。</p>
+<h4 id="进程和线程的区别，你都使用什么线程模型？"><a href="#进程和线程的区别，你都使用什么线程模型？" class="headerlink" title="进程和线程的区别，你都使用什么线程模型？"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/ta/review-c/review?page=214">进程和线程的区别</a>，你都使用什么线程模型？</h4><h5 id="1）进程和线程区别"><a href="#1）进程和线程区别" class="headerlink" title="1）进程和线程区别"></a>1）进程和线程区别</h5><p>1、一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程。线程依赖于进程而存在。<br>2、进程在执行过程中<strong>拥有独立的内存单元</strong>，而<strong>多个线程共享进程的内存</strong>。（资源分配给进程，同一进程的所有线程共享该进程的所有资源。同一进程中的多个线程共享代码段（代码和常量），数据段（全局变量和静态变量），扩展段（堆存储）。但是每个线程拥有自己的栈段，栈段又叫运行时段，用来存放所有局部变量和临时变量。）<br>3、进程是<strong>资源分配</strong>的最小单位，线程是<strong>CPU调度</strong>的最小单位。<br>4、系统开销： 由于在创建或撤消进程时，系统都要为之分配或回收资源，如内存空间、I／o设备等。因此，操作系统所付出的开销将显著地大于在创建或撤消线程时的开销。类似地，在进行进程切换时，涉及到整个当前进程CPU环境的保存以及新被调度运行的进程的CPU环境的设置。而线程切换只须保存和设置少量寄存器的内容，并不涉及存储器管理方面的操作。可见，进程切换的开销也远大于线程切换的开销。<br>5、通信：由于同一进程中的多个线程具有相同的地址空间，致使它们之间的同步和通信的实现，也变得比较容易。进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致性。在有的系统中，线程的切换、同步和通信都无须操作系统内核的干预 。<br>6、进程编程调试简单可靠性高，但是创建销毁开销大；线程正相反，开销小，切换速度快，但是编程调试相对复杂。<br>7、进程间不会相互影响；线程一个线程挂掉将导致整个进程挂掉。<br>8、进程适应于多核、多机分布；线程适用于多核。</p>
+<h5 id="2）常用线程模型"><a href="#2）常用线程模型" class="headerlink" title="2）常用线程模型"></a>2）常用线程模型</h5><p>1、Future模型<br>该模型通常在使用的时候需要结合Callable接口配合使用。<br>Future是把结果放在将来获取，当前主线程并不急于获取处理结果。允许子线程先进行处理一段时间，处理结束之后就把结果保存下来，当主线程需要使用的时候再向子线程索取。<br>Callable是类似于Runnable的接口，其中call方法类似于run方法，所不同的是run方法不能抛出受检异常没有返回值，而call方法则可以抛出受检异常并可设置返回值。两者的方法体都是线程执行体。</p>
+<p>2、fork&amp;join模型<br>该模型包含递归思想和回溯思想，递归用来拆分任务，回溯用合并结果。可以用来处理一些可以进行拆分的大任务。其主要是把一个大任务逐级拆分为多个子任务，然后分别在子线程中执行，当每个子线程执行结束之后逐级回溯，返回结果进行汇总合并，最终得出想要的结果。</p>
+<p>这里模拟一个摘苹果的场景：有100棵苹果树，每棵苹果树有10个苹果，现在要把他们摘下来。为了节约时间，规定每个线程最多只能摘10棵苹树以便于节约时间。各个线程摘完之后汇总计算总苹果树。</p>
+<p>3、actor模型<br>actor模型属于一种基于消息传递机制并行任务处理思想，它以消息的形式来进行线程间数据传输，避免了全局变量的使用，进而避免了数据同步错误的隐患。actor在接受到消息之后可以自己进行处理，也可以继续传递（分发）给其它actor进行处理。在使用actor模型的时候需要使用第三方Akka提供的框架。</p>
+<p>4、生产者消费者模型<br>生产者消费者模型都比较熟悉，其核心是<strong>使用一个缓存来保存任务</strong>。开启一个&#x2F;多个线程来<strong>生产任务</strong>，然后再开启一个&#x2F;多个来<strong>从缓存中取出任务进行处理</strong>。这样的好处是任务的生成和处理分隔开，生产者不需要处理任务，只负责向生成任务然后保存到缓存。而消费者只需要从缓存中取出任务进行处理。使用的时候可以根据任务的生成情况和处理情况开启不同的线程来处理。比如，生成的任务速度较快，那么就可以灵活的多开启几个消费者线程进行处理，这样就可以避免任务的处理响应缓慢的问题。</p>
+<p>5、master-worker模型<br>master-worker模型类似于任务分发策略，开启一个master线程接收任务，然后在master中根据任务的具体情况进行分发给其它worker子线程，然后由子线程处理任务。如需返回结果，则worker处理结束之后把处理结果返回给master。</p>
+<h4 id="请你说一说有了进程，为什么还要有线程？"><a href="#请你说一说有了进程，为什么还要有线程？" class="headerlink" title="请你说一说有了进程，为什么还要有线程？"></a>请你说一说<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/125716637">有了进程，为什么还要有线程</a>？</h4><p>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（Inter Process Communication，IPC)进行。不过如何处理好<strong>同步与互斥</strong>是编写多线程程序的难点。线程的调度与切换比进程快很多，同时创建一个线程的开销也比进程要小很多。<br>但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了(资源不释放会导致其他线程死锁)，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</p>
+<h4 id="请你说一下多进程和多线程的使用场景"><a href="#请你说一下多进程和多线程的使用场景" class="headerlink" title="请你说一下多进程和多线程的使用场景"></a>请你说一下<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/fcd1ddb413a64b6eb66d4195dfc1e525">多进程和多线程的使用场景</a></h4><p>多线程模型适用于I&#x2F;O密集型场景，多进程模型适用于需要频繁的计算场景。</p>
+<h4 id="请你说一说什么是线程和进程，多线程和多进程通信方式"><a href="#请你说一说什么是线程和进程，多线程和多进程通信方式" class="headerlink" title="请你说一说什么是线程和进程，多线程和多进程通信方式"></a>请你说一说什么是线程和进程，多线程和多进程通信方式</h4><p>同一进程下的线程共享全局变量、静态变量等数据。</p>
+<p>进程可以通过管道、套接字、系统IPC（包括消息队列、信号交互、共享内存等）等等进行通信。</p>
+<h4 id="常见的进程调度算法"><a href="#常见的进程调度算法" class="headerlink" title="常见的进程调度算法"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/qingjiaowoxiaoxioashou/p/6279804.html">常见的进程调度算法</a></h4><p>　1.先来先服务<br>　2.时间片轮转法<br>　3.最短进程优先<br>　4.最高响应比优先<br>　5.最短剩余时间优先<br>　6.多级反馈队列算法</p>
+<h4 id="请问单核机器上写多线程程序，是否需要考虑加锁，为什么？"><a href="#请问单核机器上写多线程程序，是否需要考虑加锁，为什么？" class="headerlink" title="请问单核机器上写多线程程序，是否需要考虑加锁，为什么？"></a>请问单核机器上写多线程程序，是否需要考虑加锁，为什么？</h4><p>在单核机器上写多线程程序，仍然需要线程锁。因为线<strong>程锁通常用来实现线程的同步和通信</strong>。<br>在单核机器上的多线程程序，仍然存在线程同步的问题。因为在<strong>抢占式操作系统</strong>中，通常为每个线程分配一个时间片，当某个线程时间片耗尽时，操作系统会将其挂起，然后运行另一个线程。如果这两个线程共享某些数据，不使用线程锁的前提下，可能会导致共享数据修改引起冲突。</p>
+<h4 id="请你说一说多线程的同步，锁的机制"><a href="#请你说一说多线程的同步，锁的机制" class="headerlink" title="请你说一说多线程的同步，锁的机制"></a>请你说一说多线程的同步，锁的机制</h4><h4 id="请你说一说线程间的同步方式，最好说出具体的系统调用"><a href="#请你说一说线程间的同步方式，最好说出具体的系统调用" class="headerlink" title="请你说一说线程间的同步方式，最好说出具体的系统调用"></a>请你说一说<a target="_blank" rel="noopener" href="https://www.nowcoder.com/ta/review-c/review?page=69">线程间的同步方式</a>，最好说出具体的系统调用</h4><p>信号量、互斥量、条件变量</p>
+<h4 id="死循环-来连接时新建线程的方法效率有点低，怎么改进？"><a href="#死循环-来连接时新建线程的方法效率有点低，怎么改进？" class="headerlink" title="死循环+来连接时新建线程的方法效率有点低，怎么改进？"></a>死循环+来连接时新建线程的方法效率有点低，怎么改进？</h4><p>提前创建好一个线程池，用生产者消费者模型，创建一个任务队列，队列作为临界资源，有了新连接，就挂在到任务队列上，队列为空所有线程睡眠。</p>
+<p>改进死循环：使用select epoll这样的技术。</p>
+<h4 id="请问怎么唤醒被阻塞的socket线程？"><a href="#请问怎么唤醒被阻塞的socket线程？" class="headerlink" title="请问怎么唤醒被阻塞的socket线程？"></a>请问怎么唤醒被阻塞的socket线程？</h4><p>给阻塞时候缺少的资源</p>
+<h4 id="请问怎样确定当前线程是繁忙还是阻塞？"><a href="#请问怎样确定当前线程是繁忙还是阻塞？" class="headerlink" title="请问怎样确定当前线程是繁忙还是阻塞？"></a>请问怎样确定当前线程是繁忙还是阻塞？</h4><p>使用ps命令查看，是Process Status的缩写，列出的是当前那些进程的快照。如果想要动态的显示进程信息，可以使用top命令。</p>
+<h4 id="空闲的进程和阻塞的进程状态会不会在唤醒的时候误判？"><a href="#空闲的进程和阻塞的进程状态会不会在唤醒的时候误判？" class="headerlink" title="空闲的进程和阻塞的进程状态会不会在唤醒的时候误判？"></a>空闲的进程和阻塞的进程状态会不会在唤醒的时候误判？</h4><h4 id="请问就绪状态的进程在等待什么？"><a href="#请问就绪状态的进程在等待什么？" class="headerlink" title="请问就绪状态的进程在等待什么？"></a>请问就绪状态的进程在等待什么？</h4><p>被调度使用cpu的运行权</p>
+<h4 id="请问线程需要保存哪些上下文，SP、PC、EAX这些寄存器是干嘛用的"><a href="#请问线程需要保存哪些上下文，SP、PC、EAX这些寄存器是干嘛用的" class="headerlink" title="请问线程需要保存哪些上下文，SP、PC、EAX这些寄存器是干嘛用的"></a>请问线程需要保存哪些上下文，SP、PC、EAX这些寄存器是干嘛用的</h4><p>线程在切换的过程中需要保存当前线程Id、线程状态、堆栈、寄存器状态等信息。<br>其中寄存器主要包括SP PC EAX等寄存器，其主要功能如下：<br>SP:堆栈指针，指向当前栈的栈顶地址<br>PC:程序计数器，存储下一条将要执行的指令<br>EAX:累加寄存器，用于加法乘法的缺省寄存器</p>
+<p>两个进程访问临界区资源，会不会出现都获得自旋锁的情况？<br>假设临界区资源释放，如何保证只让一个线程获得临界区资源而不是都获得？</p>
+<p>你说一下僵尸进程<br>请问怎么实现线程池</p>
+<p>请你说一下多线程，线程同步的几种方式游戏服务器应该为每个用户开辟一个线程还是一个进程，为什么？</p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><h4 id="请你说一说死锁发生的条件以及如何解决死锁"><a href="#请你说一说死锁发生的条件以及如何解决死锁" class="headerlink" title="请你说一说死锁发生的条件以及如何解决死锁"></a>请你说一说死锁发生的条件以及如何解决死锁</h4><h4 id="请你讲述一下互斥锁（mutex）机制，以及互斥锁和读写锁的区别"><a href="#请你讲述一下互斥锁（mutex）机制，以及互斥锁和读写锁的区别" class="headerlink" title="请你讲述一下互斥锁（mutex）机制，以及互斥锁和读写锁的区别"></a>请你讲述一下互斥锁（mutex）机制，以及互斥锁和读写锁的区别</h4><p>互斥锁：一次只能一个线程拥有互斥锁，其他线程只有等待。<br>读写锁：可以多个读者同时进行，写者必须互斥。</p>
+<p>C++的锁你知道几种?<br>说一说你用到的锁<br>请你说一说死锁产生的必要条件？</p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><h4 id="说一说Linux虚拟地址空间-请问虚拟内存和物理内存怎么对应"><a href="#说一说Linux虚拟地址空间-请问虚拟内存和物理内存怎么对应" class="headerlink" title="说一说Linux虚拟地址空间&#x2F;请问虚拟内存和物理内存怎么对应"></a>说一说<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/290504400/answer/1964845950">Linux虚拟地址空间</a>&#x2F;请问虚拟内存和物理内存怎么对应</h4><p>进程不直接使用物理内存地址，而使用虚拟内存地址，即线性地址，实现进程隔离。操作系统负责将虚拟内存映射到物理内存，由内存管理单元MMU负责。</p>
+<h4 id="你说一说操作系统中的程序的内存结构"><a href="#你说一说操作系统中的程序的内存结构" class="headerlink" title="你说一说操作系统中的程序的内存结构"></a>你说一说操作系统中的程序的内存结构</h4><p><img src="https://img-blog.csdnimg.cn/20200531221156288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE2ODk1OA==,size_16,color_FFFFFF,t_70" alt="图是引用其他博客的"></p>
+<p>代码段、数据段、BSS段、堆、栈。</p>
+<h4 id="程序编译过程"><a href="#程序编译过程" class="headerlink" title="程序编译过程"></a>程序编译过程</h4><p><img src="https://img-blog.csdnimg.cn/20200729212644903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pNVzE0MDc=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p>源代码（source coprede）→预处理器（processor）→编译器（compiler）→汇编程序（assembler）→目标程序（object code）→链接器（Linker）→可执行程序（executables）。</p>
+<p>分配程序执行所需的栈空间、代码段、静态存储区、映射堆空间地址等，操作系统会创建一个进程结构体来管理进程，然后将进程放入就绪队列，等待CPU调度运行。</p>
+<h4 id="你说一说操作系统中的缺页中断"><a href="#你说一说操作系统中的缺页中断" class="headerlink" title="你说一说操作系统中的缺页中断"></a>你说一说操作系统中的缺页中断</h4><p>要访问的页不在主存，需要将其调入主存再访问。</p>
+<h4 id="请你说一下虚拟内存置换的方式-缺页置换算法"><a href="#请你说一下虚拟内存置换的方式-缺页置换算法" class="headerlink" title="请你说一下虚拟内存置换的方式&#x2F;缺页置换算法"></a>请你说一下<a target="_blank" rel="noopener" href="https://www.nowcoder.com/ta/review-c/review?page=80">虚拟内存置换的方式</a>&#x2F;缺页置换算法</h4><p>页面置换算法：FIFO先进先出淘汰算法，LRU最近最少使用替换算法，OPT最佳置换算法。</p>
+<h4 id="你说一说操作系统中的页表寻址"><a href="#你说一说操作系统中的页表寻址" class="headerlink" title="你说一说操作系统中的页表寻址"></a>你说一说操作系统中的页表寻址</h4><p>页表的内容就是该进程的虚拟地址到物理地址的一个映射。页表中的每一项都记录了这个页的基地址。通过页表，由逻辑地址的高位部分先找到逻辑地址对应的<strong>页基地址</strong>，再由页基地址<strong>偏移一定长度</strong>就得到最后的物理地址。</p>
+<h4 id="你回答一下fork和vfork的区别"><a href="#你回答一下fork和vfork的区别" class="headerlink" title="你回答一下fork和vfork的区别"></a>你回答一下fork和vfork的区别</h4><p>vfork()会产生一个新的子进程，但是vfork创建的<strong>子进程与父进程共享数据段</strong> ，而且由vfork创建的<strong>子进程将先父进程运行</strong>。</p>
+<p>fork ()子进程拷贝父进程的数据段，代码段父子进程的执行次序不确定。</p>
+<p>问如何修改文件最大句柄数？<br>你说一说并发(concurrency)和并行(parallelism)</p>
+<h4 id="问MySQL的端口号是多少，如何修改这个端口号"><a href="#问MySQL的端口号是多少，如何修改这个端口号" class="headerlink" title="问MySQL的端口号是多少，如何修改这个端口号"></a>问MySQL的端口号是多少，如何修改这个端口号</h4><p>mysql的默认端口是3306,可以编辑用户目录下的 .my.cnf 文件进行修改。<br>请你说一说操作系统中的结构体对齐，字节对齐<br>请你说一说进程状态转换图，动态就绪，静态就绪，动态阻塞，静态阻塞<br>A a &#x3D; new A; a-&gt;i &#x3D; 10;在内核中的内存分配上发生了什么？<br>给你一个类，里面有static，virtual，之类的，来说一说这个类的内存分布<br>请你回答一下软链接和硬链接区别<br>请问什么是大端小端以及如何判断大端小端<br>请你回答一下静态变量什么时候初始化<br>请你说一说用户态和内核态区别<br>请问如何设计server，使得能够接收多个客户端的请求<br>windows消息机制知道吗，请说一说</p>
+<p>请你说一说内存溢出和内存泄漏<br>请你来说一说协程<br>系统调用是什么，你用过哪些系统调用<br>请你来手写一下fork调用示例</p>
+<h4 id="请你来说一下宏内核与微内核"><a href="#请你来说一下宏内核与微内核" class="headerlink" title="请你来说一下宏内核与微内核"></a>请你来说一下宏内核与微内核</h4><p>宏内核（不稳定、效率高）：除了最基本的进程、线程管理、内存管理外，将文件系统，驱动，网络协议等等都集成在内核里面，例如linux内核。</p>
+<p>微内核（稳定、效率低）：内核中只有最基本的调度、内存管理。驱动、文件系统等都是用户态的守护进程去实现的。</p>
+<h4 id="请你来说一说用户态到内核态的转化原理"><a href="#请你来说一说用户态到内核态的转化原理" class="headerlink" title="请你来说一说用户态到内核态的转化原理"></a>请你来说一说<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34170700/article/details/106996450">用户态到内核态的转化原理</a></h4><ul>
+<li><strong>用户态和内核态</strong>是操作系统的两种运行级别，两者最大的区别就是<strong>特权级</strong>不同。<strong>用户态拥有最低的特权级，内核态拥有较高的特权级。</strong> 运行在<strong>用户态的程序不能直接访问操作系统内核数据结构和程序</strong>。</li>
+<li>内核态和用户态之间的转换方式主要包括：<strong>系统调用，异常和中断。</strong></li>
+</ul>
+<p>请你说一下源码到可执行文件的过程</p>
+<p>请问GDB调试用过吗，什么是条件断点<br>请你来介绍一下5种IO模型<br>请你说一说异步编程的事件循环<br>请你回答一下操作系统为什么要分内核态和用户态<br>请你回答一下为什么要有page \，操作系统怎么设计的page <br>server端监听端口，但还没有客户端连接进来，此时进程处于什么状态？<br>请问如何设计server，使得能够接收多个客户端的请求<br>Linux下怎么得到一个文件的100到200行<br>请你来说一下awk的使用<br>请你来说一下linux内核中的Timer 定时器机制</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag"># 面经</a>
+              <a href="/tags/%E5%85%AB%E8%82%A1/" rel="tag"># 八股</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/23/%E9%9D%A2%E7%BB%8F/%5B%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90%5D1.%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%B8%8EC++%E5%9F%BA%E7%A1%80/" rel="prev" title="[八股速成]1.基本信息与C++基础">
+                  <i class="fa fa-angle-left"></i> [八股速成]1.基本信息与C++基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/23/%E9%9D%A2%E7%BB%8F/%5B%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90%5D3.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="next" title="[八股速成]3.计算机网络">
+                  [八股速成]3.计算机网络 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

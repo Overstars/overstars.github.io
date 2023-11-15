@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="简介不知道简介啥，鼠标坏了想用个不用鼠标的编辑器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gvim常见操作使用手册">
+<meta property="og:url" content="http://example.com/2021/08/08/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/gvim%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="简介不知道简介啥，鼠标坏了想用个不用鼠标的编辑器。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-08T06:04:24.000Z">
+<meta property="article:modified_time" content="2023-09-14T13:04:52.481Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="gvim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/08/08/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/gvim%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/08/08/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/gvim%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/","path":"2021/08/08/工具软件使用手册/gvim常见操作使用手册/","title":"gvim常见操作使用手册"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>gvim常见操作使用手册 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">vim的四种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%88%A0%E9%99%A4"><span class="nav-number">5.</span> <span class="nav-text">文本删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="nav-number">6.</span> <span class="nav-text">复制粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC"><span class="nav-number">7.</span> <span class="nav-text">跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-number">8.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GVim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">9.</span> <span class="nav-text">GVim配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vimrc"><span class="nav-number">9.1.</span> <span class="nav-text">_vimrc</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/08/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/gvim%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="gvim常见操作使用手册 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          gvim常见操作使用手册
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-08 14:04:24" itemprop="dateCreated datePublished" datetime="2021-08-08T14:04:24+08:00">2021-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-14 21:04:52" itemprop="dateModified" datetime="2023-09-14T21:04:52+08:00">2023-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/%E7%BC%96%E8%BE%91%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">编辑器</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105653539">简介</a></h3><p>不知道简介啥，鼠标坏了想用个不用鼠标的编辑器。</p>
+<span id="more"></span>
+
+<h3 id="vim的四种模式"><a href="#vim的四种模式" class="headerlink" title="vim的四种模式"></a>vim的四种模式</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正常模式</td>
+<td>默认，按 esc 进入，可复制粘贴、撤销重做</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td>正常模式下输入:或&#x2F;进入，可进行保存、退出、搜索、运行</td>
+</tr>
+<tr>
+<td>插入模式</td>
+<td>按 i 进入，可进行输入编辑</td>
+</tr>
+<tr>
+<td>可视模式</td>
+<td>选中一块区域进行操作，按 v 进入</td>
+</tr>
+</tbody></table>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:wq</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>:w 文件名</td>
+<td>在当前路径下保存为指定文件</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出</td>
+</tr>
+<tr>
+<td>:Ex &#x2F; :Ve</td>
+<td>打开当前文件所在的目录</td>
+</tr>
+<tr>
+<td>:set ff</td>
+<td>dos和unix两种</td>
+</tr>
+</tbody></table>
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xw</td>
+<td>光标向下移动x个单词</td>
+</tr>
+<tr>
+<td>xb</td>
+<td>光标向上移动x个单词</td>
+</tr>
+<tr>
+<td>0</td>
+<td>移动到行首</td>
+</tr>
+</tbody></table>
+<h3 id="文本删除"><a href="#文本删除" class="headerlink" title="文本删除"></a>文本删除</h3><table>
+<thead>
+<tr>
+<th>命令（普通模式）</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dd</td>
+<td>删除一行</td>
+</tr>
+<tr>
+<td>de</td>
+<td>从光标开始删除一个单词</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>从光标开始删除一个单词（包括末尾空白）</td>
+</tr>
+<tr>
+<td>dxw</td>
+<td>删除x个单词</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>删除到行末</td>
+</tr>
+<tr>
+<td>dxd</td>
+<td>删除x行</td>
+</tr>
+</tbody></table>
+<h3 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h3><p>按v进入可视模式，通过hjkl选择区域后，按下:y即可复制，在普通模式按p即可粘贴。</p>
+<h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gg</td>
+<td>跳转到第一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td>跳转到最后一行</td>
+</tr>
+<tr>
+<td>xG</td>
+<td>跳转到第x行</td>
+</tr>
+<tr>
+<td>[[</td>
+<td>跳转到上一函数</td>
+</tr>
+<tr>
+<td>%</td>
+<td>跳转到匹配括号</td>
+</tr>
+</tbody></table>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cpp test.cpp &gt; test.i</td>
+<td>将编译预处理结果（文本替换、宏展开以及删除注释）输入到test.i文件</td>
+</tr>
+<tr>
+<td>g++ % -e %</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>g++ -S %</td>
+<td>使用指令编译成汇编代码</td>
+</tr>
+<tr>
+<td>g++ tmp.cpp -o tmp -std&#x3D;c++14 -static-libgcc -Wall -g3</td>
+<td>编译</td>
+</tr>
+</tbody></table>
+<h3 id="GVim配置文件"><a href="#GVim配置文件" class="headerlink" title="GVim配置文件"></a>GVim配置文件</h3><h4 id="vimrc"><a href="#vimrc" class="headerlink" title="_vimrc"></a>_vimrc</h4><p>存放于安装目录的根目录下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible</span><br><span class="line">source $VIMRUNTIME/vimrc_example.<span class="property">vim</span></span><br><span class="line">source $VIMRUNTIME/mswin.<span class="property">vim</span></span><br><span class="line">behave mswin</span><br><span class="line"></span><br><span class="line">set encoding=utf-<span class="number">8</span> fileencodings=utf-<span class="number">8</span> termencoding=utf-<span class="number">8</span> <span class="string">&quot;自动识别utf8</span></span><br><span class="line"><span class="string">source $VIMRUNTIME/delmenu.vim &quot;</span>解决右键乱码</span><br><span class="line">source $VIMRUNTIME/menu.<span class="property">vim</span></span><br><span class="line"><span class="string">&quot;解决consle输出乱码</span></span><br><span class="line"><span class="string">language messages zh_CN.utf-8</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span>设置默认保存位置</span><br><span class="line">exec <span class="string">&#x27;cd &#x27;</span> . <span class="title function_">fnameescape</span>(<span class="string">&quot;C:\\Users\\Public\\Desktop&quot;</span>)  </span><br><span class="line">set autochdir <span class="string">&quot;自动识别当前打开文件路径</span></span><br><span class="line"><span class="string">set autoread &quot;</span> 开启文件监视，外部修改会提示</span><br><span class="line">set pythonthreedll=<span class="string">&quot;C:\Program Files\Python38\python38.dll &quot;</span>改成自己的版本</span><br><span class="line"><span class="string">&quot;set pythonthreehome=&quot;</span><span class="attr">C</span>:\<span class="title class_">Program</span> <span class="title class_">Files</span>\<span class="title class_">Python38</span><span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set diffexpr=MyDiff()</span></span><br><span class="line"><span class="string">function MyDiff()</span></span><br><span class="line"><span class="string">  let opt = &#x27;-a --binary &#x27;</span></span><br><span class="line"><span class="string">  if &amp;diffopt =~ &#x27;icase&#x27; | let opt = opt . &#x27;-i &#x27; | endif</span></span><br><span class="line"><span class="string">  if &amp;diffopt =~ &#x27;iwhite&#x27; | let opt = opt . &#x27;-b &#x27; | endif</span></span><br><span class="line"><span class="string">  let arg1 = v:fname_in</span></span><br><span class="line"><span class="string">  if arg1 =~ &#x27; &#x27; | let arg1 = &#x27;&quot;</span><span class="string">&#x27; . arg1 . &#x27;</span><span class="string">&quot;&#x27; | endif</span></span><br><span class="line"><span class="string">  let arg2 = v:fname_new</span></span><br><span class="line"><span class="string">  if arg2 =~ &#x27; &#x27; | let arg2 = &#x27;&quot;</span><span class="string">&#x27; . arg2 . &#x27;</span><span class="string">&quot;&#x27; | endif</span></span><br><span class="line"><span class="string">  let arg3 = v:fname_out</span></span><br><span class="line"><span class="string">  if arg3 =~ &#x27; &#x27; | let arg3 = &#x27;&quot;</span><span class="string">&#x27; . arg3 . &#x27;</span><span class="string">&quot;&#x27; | endif</span></span><br><span class="line"><span class="string">  let eq = &#x27;&#x27;</span></span><br><span class="line"><span class="string">  if $VIMRUNTIME =~ &#x27; &#x27;</span></span><br><span class="line"><span class="string">    if &amp;sh =~ &#x27;\&lt;cmd&#x27;</span></span><br><span class="line"><span class="string">      let cmd = &#x27;&quot;</span><span class="string">&quot;&#x27; . $VIMRUNTIME . &#x27;\diff&quot;</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">      let eq = &#x27;</span><span class="string">&quot;&#x27;</span></span><br><span class="line"><span class="string">    else</span></span><br><span class="line"><span class="string">      let cmd = substitute($VIMRUNTIME, &#x27; &#x27;, &#x27;&quot;</span> <span class="string">&#x27;, &#x27;</span><span class="string">&#x27;) . &#x27;</span>\diff<span class="string">&quot;&#x27;</span></span><br><span class="line"><span class="string">    endif</span></span><br><span class="line"><span class="string">  else</span></span><br><span class="line"><span class="string">    let cmd = $VIMRUNTIME . &#x27;\diff&#x27;</span></span><br><span class="line"><span class="string">  endif</span></span><br><span class="line"><span class="string">  silent execute &#x27;!&#x27; . cmd . &#x27; &#x27; . opt . arg1 . &#x27; &#x27; . arg2 . &#x27; &gt; &#x27; . arg3 . eq</span></span><br><span class="line"><span class="string">endfunction</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">filetype on &quot;</span> 打开文件类型检测功能,通过$vimRUNTIME/filetype.<span class="property">vim</span>和$vimRUNTIME/scripts.<span class="property">vim</span>来判断</span><br><span class="line">filetype plugin on <span class="string">&quot; 允许vim加载文件类型插件</span></span><br><span class="line"><span class="string">filetype indent on &quot;</span> 为不同类型的文件定义不同的缩进格式</span><br><span class="line">syntax on <span class="string">&quot; 高亮</span></span><br><span class="line"><span class="string">set cindent &quot;</span> C代码里需要的缩排</span><br><span class="line">set smartindent</span><br><span class="line">set autoindent <span class="string">&quot; 自动缩进</span></span><br><span class="line"><span class="string">set tabstop=4 &quot;</span> 修改 tab 字符的显示宽度</span><br><span class="line">set shiftwidth=<span class="number">4</span> <span class="string">&quot; 自动缩进所使用的空白长度</span></span><br><span class="line"><span class="string">set softtabstop=4 &quot;</span> tab转换为多少个空格</span><br><span class="line"><span class="string">&quot;set expandtab &quot;</span> tab转换为空格</span><br><span class="line"><span class="string">&quot;set ts=4</span></span><br><span class="line"><span class="string">&quot;</span>set sw=<span class="number">4</span></span><br><span class="line"><span class="string">&quot;set sts=4</span></span><br><span class="line"><span class="string">&quot;</span>缩进</span><br><span class="line"><span class="keyword">if</span> $OS == <span class="string">&#x27;Windows_NT&#x27;</span></span><br><span class="line">    set mouse=a</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    set mouse-=a <span class="string">&quot; Linux鼠标使用</span></span><br><span class="line"><span class="string">endif</span></span><br><span class="line"><span class="string">color molokai</span></span><br><span class="line"><span class="string">&quot;</span>colo desert</span><br><span class="line"><span class="string">&quot;主题</span></span><br><span class="line"><span class="string">set number &quot;</span> 行号</span><br><span class="line">set cursorline <span class="string">&quot;所在行高亮</span></span><br><span class="line"><span class="string">set guifont=Consolas:h15</span></span><br><span class="line"><span class="string">&quot;</span><span class="title class_">Linux</span>: set guifont=<span class="title class_">Consolas</span>\ h16</span><br><span class="line">set backspace=<span class="number">2</span></span><br><span class="line">set ruler <span class="string">&quot; 显示标尺(光标位置)</span></span><br><span class="line"><span class="string">&quot;</span>set bs=<span class="number">2</span></span><br><span class="line">set clipboard=unnamed <span class="string">&quot; 共享剪切板</span></span><br><span class="line"><span class="string">set go= &quot;</span> 不要图形按钮</span><br><span class="line">set nobackup <span class="string">&quot; 不创建备份文件</span></span><br><span class="line"><span class="string">set noswapfile &quot;</span> 不创建交换文件</span><br><span class="line">set undofile <span class="string">&quot; 保留历史撤销记录</span></span><br><span class="line"><span class="string">&quot;</span> 保存 undo 历史，生成文件到该目录</span><br><span class="line">set undodir=<span class="attr">D</span>:<span class="regexp">/ProgramData/</span><span class="title class_">Vim</span>/.<span class="property">undo_history</span></span><br><span class="line"><span class="string">&quot;set backupdir=~/.vim/.backup//  </span></span><br><span class="line"><span class="string">&quot;</span>set directory=~<span class="regexp">/.vim/</span>.<span class="property">swp</span><span class="comment">//</span></span><br><span class="line"><span class="string">&quot;set undodir=~/.vim/.undo/</span></span><br><span class="line"><span class="string">set spell spelllang=en_us &quot;</span> 拼写检查</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; 括号补全</span></span><br><span class="line"><span class="string">inoremap ( ()&lt;esc&gt;i</span></span><br><span class="line"><span class="string">inoremap [ []&lt;esc&gt;i</span></span><br><span class="line"><span class="string">inoremap &#123; &#123;&#125;&lt;esc&gt;i</span></span><br><span class="line"><span class="string">inoremap &#x27; &#x27;&#x27;&lt;esc&gt;i</span></span><br><span class="line"><span class="string">inoremap &quot;</span> <span class="string">&quot;&quot;</span>&lt;esc&gt;i</span><br><span class="line"><span class="string">&quot; 插入模式按住ctrl的光标移动</span></span><br><span class="line"><span class="string">inoremap &lt;C-h&gt; &lt;Left&gt;</span></span><br><span class="line"><span class="string">inoremap &lt;C-j&gt; &lt;Down&gt;</span></span><br><span class="line"><span class="string">inoremap &lt;C-k&gt; &lt;Up&gt;</span></span><br><span class="line"><span class="string">inoremap &lt;C-l&gt; &lt;Right&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function! Compile()</span></span><br><span class="line"><span class="string">    exec &quot;</span>w<span class="string">&quot;</span></span><br><span class="line"><span class="string">    if &amp;filetype == &#x27;python&#x27;</span></span><br><span class="line"><span class="string">        exec &quot;</span>!python %<span class="string">&quot;</span></span><br><span class="line"><span class="string">    elseif &amp;filetype == &#x27;cpp&#x27;</span></span><br><span class="line"><span class="string">        exec &quot;</span>!g++ % -o %&lt; -std=c++<span class="number">11</span> -<span class="keyword">static</span>-libgcc -<span class="title class_">Wall</span> -g3 -<span class="variable constant_">DDEBUG</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        &quot;</span>exec <span class="string">&quot;!g++ % -o %&lt; -std=c++17 -static-libgcc -Wall -g3 -fexec-charset=GBK -finput-charset=UTF-8&quot;</span></span><br><span class="line">    elseif &amp;filetype == <span class="string">&#x27;c&#x27;</span></span><br><span class="line">        exec <span class="string">&quot;!g++ % -o %&lt;&quot;</span></span><br><span class="line">    elseif &amp;filetype == <span class="string">&#x27;kotlin&#x27;</span></span><br><span class="line">        exec <span class="string">&quot;!kotlinc -d . %&quot;</span></span><br><span class="line">    elseif &amp;filetype == <span class="string">&#x27;java&#x27;</span></span><br><span class="line">        exec <span class="string">&quot;!javac -source 14 %&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        exec <span class="string">&quot;!start %&quot;</span></span><br><span class="line">    endif</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>! <span class="title class_">Run</span>()</span><br><span class="line">    <span class="keyword">if</span> &amp;filetype == <span class="string">&#x27;kotlin&#x27;</span></span><br><span class="line">        exec <span class="string">&quot;!kotlin %&lt;Kt&quot;</span></span><br><span class="line">    elseif &amp;filetype == <span class="string">&#x27;java&#x27;</span></span><br><span class="line">        exec <span class="string">&quot;!java %&lt;&quot;</span></span><br><span class="line">    elseif &amp;filetype == <span class="string">&#x27;go&#x27;</span></span><br><span class="line">        exec <span class="string">&quot;!go run %&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        exec <span class="string">&quot;!start %&lt;&quot;</span></span><br><span class="line">    endif</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>! <span class="title class_">Open</span>()</span><br><span class="line">    exec <span class="string">&quot;vsp %&lt;.out&quot;</span></span><br><span class="line">    exec <span class="string">&quot;sp %&lt;.in&quot;</span></span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:call libcallnr(&quot;</span>vimtweak64.<span class="property">dll</span><span class="string">&quot;, &quot;</span><span class="title class_">SetAlpha</span><span class="string">&quot;, 200)</span></span><br><span class="line"><span class="string">au GUIEnter * call libcallnr(&quot;</span>vimtweak64.<span class="property">dll</span><span class="string">&quot;, &quot;</span><span class="title class_">SetAlpha</span><span class="string">&quot;, 185)   &quot;</span>自动透明</span><br><span class="line"></span><br><span class="line">syntax enable  </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">map&lt;<span class="variable constant_">F4</span>&gt; &lt;<span class="title class_">Esc</span>&gt;:call <span class="title class_">Open</span>() &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">imap&lt;<span class="variable constant_">F4</span>&gt; &lt;<span class="title class_">Esc</span>&gt;:call <span class="title class_">Open</span>() &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">map&lt;<span class="variable constant_">F9</span>&gt; &lt;<span class="title class_">Esc</span>&gt;:call <span class="title class_">Compile</span>() &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">imap&lt;<span class="variable constant_">F9</span>&gt; &lt;<span class="title class_">Esc</span>&gt;:call <span class="title class_">Compile</span>() &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">map&lt;<span class="variable constant_">F10</span>&gt; &lt;<span class="title class_">Esc</span>&gt;:call <span class="title class_">Run</span>() &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">imap&lt;<span class="variable constant_">F10</span>&gt; &lt;<span class="title class_">Esc</span>&gt;:call <span class="title class_">Run</span>() &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">map&lt;<span class="variable constant_">F11</span>&gt; &lt;<span class="variable constant_">F9</span>&gt; &lt;<span class="variable constant_">CR</span>&gt; &lt;<span class="variable constant_">F10</span>&gt; &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">imap&lt;<span class="variable constant_">F11</span>&gt; &lt;<span class="variable constant_">F9</span>&gt; &lt;<span class="variable constant_">CR</span>&gt; &lt;<span class="variable constant_">F10</span>&gt; &lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; &lt;CTRL&gt;-w m : mark first window</span></span><br><span class="line"><span class="string">&quot;</span> &lt;<span class="variable constant_">CTRL</span>&gt;-w m : swap <span class="keyword">with</span> that <span class="variable language_">window</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">s</span>:markedWinNum = -<span class="number">1</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">function</span>! <span class="title class_">MarkWindowSwap</span>()</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">s</span>:markedWinNum = <span class="title function_">winnr</span>()</span><br><span class="line">endfunction</span><br><span class="line"> </span><br><span class="line"><span class="keyword">function</span>! <span class="title class_">DoWindowSwap</span>()</span><br><span class="line">    <span class="string">&quot;Mark destination</span></span><br><span class="line"><span class="string">    let curNum = winnr()</span></span><br><span class="line"><span class="string">    let curBuf = bufnr( &quot;</span>%<span class="string">&quot; )</span></span><br><span class="line"><span class="string">    exe s:markedWinNum . &quot;</span>wincmd w<span class="string">&quot;</span></span><br><span class="line"><span class="string">    &quot;</span><span class="title class_">Switch</span> to source and shuffle dest-&gt;source</span><br><span class="line">    <span class="keyword">let</span> markedBuf = <span class="title function_">bufnr</span>( <span class="string">&quot;%&quot;</span> )</span><br><span class="line">    <span class="string">&quot;Hide and open so that we aren&#x27;t prompted and keep history</span></span><br><span class="line"><span class="string">    exe &#x27;hide buf&#x27; curBuf</span></span><br><span class="line"><span class="string">    &quot;</span><span class="title class_">Switch</span> to dest and shuffle source-&gt;dest</span><br><span class="line">    exe curNum . <span class="string">&quot;wincmd w&quot;</span></span><br><span class="line">    <span class="string">&quot;Hide and open so that we aren&#x27;t prompted and keep history</span></span><br><span class="line"><span class="string">    exe &#x27;hide buf&#x27; markedBuf</span></span><br><span class="line"><span class="string">endfunction</span></span><br><span class="line"><span class="string">function! WindowSwapping()</span></span><br><span class="line"><span class="string">    if s:markedWinNum == -1</span></span><br><span class="line"><span class="string">        call MarkWindowSwap()</span></span><br><span class="line"><span class="string">    else</span></span><br><span class="line"><span class="string">        call DoWindowSwap()</span></span><br><span class="line"><span class="string">        let s:markedWinNum = -1</span></span><br><span class="line"><span class="string">    endif</span></span><br><span class="line"><span class="string">endfunction</span></span><br><span class="line"><span class="string">nnoremap &lt;C-w&gt;m :call WindowSwapping()&lt;CR&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> 设置环境保存项</span><br><span class="line">set sessionoptions=<span class="string">&quot;blank,buffers,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize&quot;</span></span><br><span class="line"><span class="string">&quot; 保存快捷键</span></span><br><span class="line"><span class="string">&quot;</span> 定义快捷键的前缀，即&lt;<span class="title class_">Leader</span>&gt;</span><br><span class="line"><span class="keyword">let</span> mapleader=<span class="string">&quot;;&quot;</span></span><br><span class="line"><span class="string">&quot; 敲下;ss即可保存到路径下</span></span><br><span class="line"><span class="string">map &lt;leader&gt;ss :mksession! D:/ProgramData/Vim/.undo_history/my.vim&lt;cr&gt; :wviminfo! D:/ProgramData/Vim/.undo_history/my.viminfo&lt;cr&gt;</span></span><br><span class="line"><span class="string">&quot;</span> 恢复快捷键</span><br><span class="line">map &lt;leader&gt;rs :source <span class="attr">D</span>:<span class="regexp">/ProgramData/</span><span class="title class_">Vim</span>/.<span class="property">undo_history</span>/my.<span class="property">vim</span>&lt;cr&gt; :rviminfo <span class="attr">D</span>:<span class="regexp">/ProgramData/</span><span class="title class_">Vim</span>/.<span class="property">undo_history</span>/my.<span class="property">viminfo</span>&lt;cr&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/gvim/" rel="tag"># gvim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/23/%E9%9D%A2%E7%BB%8F/%5B%E5%85%AB%E8%82%A1%E9%80%9F%E6%88%90%5D5.%E6%89%8B%E6%92%B8%E4%BB%A3%E7%A0%81%E9%A2%98/" rel="prev" title="[八股速成]5.手撸代码题">
+                  <i class="fa fa-angle-left"></i> [八股速成]5.手撸代码题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/15/%E9%9D%A2%E7%BB%8F/%E4%BA%92%E8%81%94%E7%BD%91%E5%85%AC%E5%8F%B8%E9%9D%A2%E7%BB%8F%E8%AE%B0%E5%BD%95/" rel="next" title="互联网公司面经">
+                  互联网公司面经 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

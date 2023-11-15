@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="文法：$G&#x3D;(V,T,G,S)$，非终结符号$V$，终结符号$T$，产生式集$G$，开始符号集$S$. 句型：由文法开始符号可以经过若干步推导得到的文法符号串$\alpha$。$$\forall \alpha \in (V \cup T)^* \and S \xrightarrow{*} \alpha$$句子：由文法开始符号可以经过若干步推导得到的终结符号串$\omega$。 句型和句子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理听课笔记">
+<meta property="og:url" content="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="文法：$G&#x3D;(V,T,G,S)$，非终结符号$V$，终结符号$T$，产生式集$G$，开始符号集$S$. 句型：由文法开始符号可以经过若干步推导得到的文法符号串$\alpha$。$$\forall \alpha \in (V \cup T)^* \and S \xrightarrow{*} \alpha$$句子：由文法开始符号可以经过若干步推导得到的终结符号串$\omega$。 句型和句子">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%5Cimage-20201107205836194.png">
+<meta property="og:image" content="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%5Cimage-20201128200847937.png">
+<meta property="og:image" content="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%5Cimage-20201128200911656.png">
+<meta property="og:image" content="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/Users/dell/AppData/Roaming/Typora/typora-user-images/image-20201211214601938.png">
+<meta property="article:published_time" content="2020-11-17T08:26:54.000Z">
+<meta property="article:modified_time" content="2023-04-03T15:20:33.102Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="Compilers Principles">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%5Cimage-20201107205836194.png">
+
+
+<link rel="canonical" href="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/","path":"2020/11/17/课程相关/编译原理听课笔记/","title":"编译原理听课笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>编译原理听课笔记 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%96%87%E6%B3%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">2.4 文法的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">非上下文无关语言结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-CFG%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">2.5 CFG的语法树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-CFG%E7%9A%84%E4%BA%8C%E4%B9%89%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">2.6 CFG的二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-number"></span> <span class="nav-text">第三章 词法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">3.2.2 正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BADFA"><span class="nav-number">2.</span> <span class="nav-text">3.2.4 有穷自动机DFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-number"></span> <span class="nav-text">第四章 自顶向下语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">4.1 语法分析概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E9%9D%A2%E4%B8%B4%E9%97%AE%E9%A2%98%E4%B8%8E%E6%96%87%E6%B3%95%E6%94%B9%E9%80%A0"><span class="nav-number">2.</span> <span class="nav-text">4.2 自顶向下语法分析面临问题与文法改造</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-number">2.1.</span> <span class="nav-text">自顶向下基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BA%8C%E4%B9%89%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">1. 二义性问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98"><span class="nav-number">2.3.</span> <span class="nav-text">2. 回溯问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%B7%A6%E9%80%92%E5%BD%92%E5%BC%95%E8%B5%B7%E6%97%A0%E7%A9%B7%E5%BE%AA%E7%8E%AF%E9%97%AE%E9%A2%98"><span class="nav-number">2.4.</span> <span class="nav-text">3. 左递归引起无穷循环问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-LL-1-%E6%96%87%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">4.2.3 LL(1)文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-number"></span> <span class="nav-text">第五章 自底向上语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">自底向上语法分析概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E5%99%A8%E5%9B%9B%E7%A7%8D%E5%8A%A8%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">分析器四种动作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E8%BF%9B-%E5%BD%92%E7%BA%A6%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">移进-归约分析中的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E8%BF%9B-%E5%BD%92%E7%BA%A6%E5%86%B2%E7%AA%81"><span class="nav-number">3.1.</span> <span class="nav-text">移进-归约冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BA%A6-%E5%BD%92%E7%BA%A6%E5%86%B2%E7%AA%81"><span class="nav-number">3.2.</span> <span class="nav-text">归约-归约冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-%E4%BC%98%E5%85%88%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">5.1.2 优先法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-%E7%8A%B6%E6%80%81%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">5.1.3 状态法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">5.2 算符优先分析法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-LR%E5%88%86%E6%9E%90%E6%B3%95%EF%BC%8CP16-34"><span class="nav-number">7.</span> <span class="nav-text">5.3 LR分析法，P16-34</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LR%E5%88%86%E6%9E%90%E8%A1%A8"><span class="nav-number">7.1.</span> <span class="nav-text">LR分析表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%B6%E5%AF%BC%E7%BF%BB%E8%AF%91-P20-15%C2%B7"><span class="nav-number"></span> <span class="nav-text">语法制导翻译 P20-15·</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">这个人非常的菜</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/17/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="编译原理听课笔记 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编译原理听课笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-17 16:26:54" itemprop="dateCreated datePublished" datetime="2020-11-17T16:26:54+08:00">2020-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-03 23:20:33" itemprop="dateModified" datetime="2023-04-03T23:20:33+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">编译原理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>文法：$G&#x3D;(V,T,G,S)$，非终结符号$V$，终结符号$T$，产生式集$G$，开始符号集$S$.</p>
+<p>句型：由文法开始符号可以经过若干步推导得到的<strong>文法</strong>符号串$\alpha$。<br>$$<br>\forall \alpha \in (V \cup T)^* \and S \xrightarrow{*} \alpha<br>$$<br>句子：由文法开始符号可以经过若干步推导得到的<strong>终结</strong>符号串$\omega$。</p>
+<p>句型和句子区别：句子不含语法变量，句型可能含有语法变量。</p>
+<p>语言：句子的集合。</p>
+<p>BNF范式：一种书写产生式的格式。</p>
+<span id="more"></span>
+
+<h3 id="2-4-文法的分类"><a href="#2-4-文法的分类" class="headerlink" title="2.4 文法的分类"></a>2.4 文法的分类</h3><p>若文法$G$满足文法定义的要求，则$G$是0型文法，$L(G)$为PSL（短语结构语言）。</p>
+<p>0型文法（无限制文法）：对每个产生式$\alpha \rightarrow \beta$，都满足$\alpha \in (V \cup T)^*$且$a$含有至少一个非终结符号，且$\beta \in (V \cup T)^*$。能力相当于图灵机，计算机能处理的所有东西。</p>
+<p>1型文法（上下文有关文法CSG）：在0型文法的基础上，每一个产生式$\alpha \rightarrow \beta$，都有长度$|\alpha| \le |\beta|$。线性界限自动机。</p>
+<p>2型文法（上下文无关文法CFG）：在1型文法的基础上，每一个产生式$\alpha \rightarrow \beta$，$\alpha$只为一个非终结符。识别系统：不确定的<strong>下推自动机</strong>。</p>
+<p>3型文法（正则文法RG）：必须满足<strong>左线性</strong>和<strong>右线性</strong>其中一个。有穷自动机。</p>
+<h4 id="非上下文无关语言结构"><a href="#非上下文无关语言结构" class="headerlink" title="非上下文无关语言结构"></a>非上下文无关语言结构</h4><p>$$<br>L&#x3D;{a^nb^nc^n|n&gt;0}<br>$$</p>
+<p>不存在CFG，使$L(G)&#x3D;L$。<br>$$<br>L&#x3D;{wcw|w\in {a,b}^+}<br>$$<br>抽象，变量先声明后引用。<br>$$<br>L_2&#x3D;{a^nb^mc^nd^m|n,m\ge 0}<br>$$<br>数量对应，上下文有关。</p>
+<h3 id="2-5-CFG的语法树"><a href="#2-5-CFG的语法树" class="headerlink" title="2.5 CFG的语法树"></a>2.5 CFG的语法树</h3><p><img src="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%5Cimage-20201107205836194.png" alt="语法树"></p>
+<p>短语：一棵语法分析树<strong>子树</strong>的<strong>叶子</strong>自左向右排列形成一个相对于子树根的短语。</p>
+<p>直接短语：只有<strong>父子两代</strong>的一棵子树。</p>
+<p>句柄：一棵语法分析树<strong>最左</strong>那棵只有<strong>父子两代</strong>的<strong>子树</strong>。</p>
+<h3 id="2-6-CFG的二义性"><a href="#2-6-CFG的二义性" class="headerlink" title="2.6 CFG的二义性"></a>2.6 CFG的二义性</h3><p>解决方法：运算符号的优先级</p>
+<h2 id="第三章-词法分析"><a href="#第三章-词法分析" class="headerlink" title="第三章 词法分析"></a>第三章 词法分析</h2><h3 id="3-2-2-正则表达式"><a href="#3-2-2-正则表达式" class="headerlink" title="3.2.2 正则表达式"></a>3.2.2 正则表达式</h3><ul>
+<li>|表示或</li>
+<li>*表示kleene闭包</li>
+<li>+表示正闭包</li>
+<li>?表示0或1个</li>
+</ul>
+<p>正规语言定义递归给出。</p>
+<p><strong>正则表达式</strong>与<strong>正则文法</strong>等价：给定任意正则文法，存在一个定义同一语言的正则表达式。</p>
+<p>P8，23”18’例题：根据正则文法构造等价正则表达式，构造方程，解联立方程组，替换。</p>
+<p>给定正则表达式r转换为正则文法G，使L(G)&#x3D;L(r)：27”19’</p>
+<h3 id="3-2-4-有穷自动机DFA"><a href="#3-2-4-有穷自动机DFA" class="headerlink" title="3.2.4 有穷自动机DFA"></a>3.2.4 有穷自动机DFA</h3><p>定义3.4：确定性有穷自动机$M$是一个五元组$M&#x3D;(Q,\Sigma,\delta,q_0,F)$。</p>
+<ul>
+<li>$Q$是一个有穷状态集合</li>
+<li>$\Sigma$字母表，他的每个元素称为输入符号</li>
+<li>$\delta$是一个从$Q \times \Sigma$到$Q$的单值映射，$\delta(p,a)&#x3D;q$表示状态为$p$读到$a$时转换到$q$状态</li>
+<li>$q_0 \in Q$，称为初始状态</li>
+<li>$F \in Q$，为终止状态集合</li>
+</ul>
+<p>选用转移矩阵，因为易存储。</p>
+<h2 id="第四章-自顶向下语法分析"><a href="#第四章-自顶向下语法分析" class="headerlink" title="第四章 自顶向下语法分析"></a>第四章 自顶向下语法分析</h2><h3 id="4-1-语法分析概述"><a href="#4-1-语法分析概述" class="headerlink" title="4.1 语法分析概述"></a>4.1 语法分析概述</h3><p>检查语法分析器输出的<strong>单词序列</strong>是否是<strong>原语言中的句子</strong>，激是否符合语法规则</p>
+<ul>
+<li>自顶向下，从文法产生语言的角度。从根开始构造语法树<ul>
+<li>递归子程序法</li>
+<li>预测分析法（LL(1)）</li>
+</ul>
+</li>
+<li>自底向上，从自动机识别语言的角度<ul>
+<li>算符优先分析法</li>
+<li>LR(0)、SLR(1)、LR(1)、LALR(1)</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-自顶向下语法分析面临问题与文法改造"><a href="#4-2-自顶向下语法分析面临问题与文法改造" class="headerlink" title="4.2 自顶向下语法分析面临问题与文法改造"></a>4.2 自顶向下语法分析面临问题与文法改造</h3><h4 id="自顶向下基本思想"><a href="#自顶向下基本思想" class="headerlink" title="自顶向下基本思想"></a>自顶向下基本思想</h4><ul>
+<li>从文法开始符号出发，寻求所给输入串的一个最左推导</li>
+<li>从树根S开始，构造所给输入符号的语法树</li>
+</ul>
+<h4 id="1-二义性问题"><a href="#1-二义性问题" class="headerlink" title="1. 二义性问题"></a>1. 二义性问题</h4><p>文法$G$，若$L(G)$存在一颗具有两棵及以上分析树（最左推导）的句子，则称$G$是二义的。无法确定采用哪个最左推导。</p>
+<p>解决办法：改造文法，引入新的文法变量。</p>
+<p><img src="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%5Cimage-20201128200847937.png" alt="消除左递归"></p>
+<p><img src="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%5Cimage-20201128200911656.png" alt="提取左因子"></p>
+<h4 id="2-回溯问题"><a href="#2-回溯问题" class="headerlink" title="2. 回溯问题"></a>2. 回溯问题</h4><p>有多个候选式存在多个公共后缀，只能试探，不成功则回退。</p>
+<h4 id="3-左递归引起无穷循环问题"><a href="#3-左递归引起无穷循环问题" class="headerlink" title="3. 左递归引起无穷循环问题"></a>3. 左递归引起无穷循环问题</h4><p>语法存在推导$A \xrightarrow{*}\alpha A \beta$，则称$G$是递归的，当$\alpha &#x3D; \varepsilon$称为左递归。若至少需要两步，称为间接递归，否则称为直接递归。</p>
+<p>解决办法：直接左递归：写成右递归。</p>
+<h3 id="4-2-3-LL-1-文法"><a href="#4-2-3-LL-1-文法" class="headerlink" title="4.2.3 LL(1)文法"></a>4.2.3 LL(1)文法</h3><ol>
+<li>首终结符号：符号串的第一个符号，并且是终结符号。</li>
+</ol>
+<p>   从$A$推导出的首符号集$FIRST(A)&#x3D; { \alpha|A\xrightarrow{<em>}\alpha\beta,\alpha \in T, \beta \in (V \cup T)^</em> }$. </p>
+<ol start="2">
+<li><p>若$\alpha \xrightarrow{*}\varepsilon$，则$\varepsilon \in FIRST(\alpha)$</p>
+</li>
+<li><p>可以用$FIRST$集判断一个文法是否可以做确定的自顶向下分析。</p>
+</li>
+</ol>
+<h2 id="第五章-自底向上语法分析"><a href="#第五章-自底向上语法分析" class="headerlink" title="第五章 自底向上语法分析"></a>第五章 自底向上语法分析</h2><p>实际：归约</p>
+<p>重点：LR分析器基本思想，LR(0)分析表构造，SLR(1)分析表构造，LR(1)分析表构造</p>
+<p>难点：</p>
+<h3 id="自底向上语法分析概述"><a href="#自底向上语法分析概述" class="headerlink" title="自底向上语法分析概述"></a>自底向上语法分析概述</h3><p>思想：利用产生式对输入串归约，若得到开始符号则合法。</p>
+<p>核心：寻找句型中的归约对象——“句柄” </p>
+<p>流程：从左到右扫描串并依次放入栈，若栈顶是产生式则不断规约，最后得到开始符号。</p>
+<h3 id="分析器四种动作"><a href="#分析器四种动作" class="headerlink" title="分析器四种动作"></a>分析器四种动作</h3><ol>
+<li>移进：将下一输入符号移入栈</li>
+<li>归约：用产生式左侧非终结符替换栈顶句柄</li>
+<li>接受：分析成功</li>
+<li>出错：出错处理</li>
+</ol>
+<h3 id="移进-归约分析中的问题"><a href="#移进-归约分析中的问题" class="headerlink" title="移进-归约分析中的问题"></a>移进-归约分析中的问题</h3><ul>
+<li>问题1，如何确定句柄</li>
+<li>问题2，确定优先级$E+E*E$</li>
+</ul>
+<h4 id="移进-归约冲突"><a href="#移进-归约冲突" class="headerlink" title="移进-归约冲突"></a>移进-归约冲突</h4><p>$E+E<em>E$即可移进$</em>$又可归约</p>
+<h4 id="归约-归约冲突"><a href="#归约-归约冲突" class="headerlink" title="归约-归约冲突"></a>归约-归约冲突</h4><p>存在两个可用的产生式</p>
+<h3 id="5-1-2-优先法"><a href="#5-1-2-优先法" class="headerlink" title="5.1.2 优先法"></a>5.1.2 优先法</h3><p>根绝归约先后次序为句型中相邻的文法符号规定优先关系</p>
+<h3 id="5-1-3-状态法"><a href="#5-1-3-状态法" class="headerlink" title="5.1.3 状态法"></a>5.1.3 状态法</h3><p>规矩当前分析状态确定句柄的头和尾，进行正确归约</p>
+<h3 id="5-2-算符优先分析法"><a href="#5-2-算符优先分析法" class="headerlink" title="5.2 算符优先分析法"></a>5.2 算符优先分析法</h3><p>构造优先级</p>
+<p><img src="Users\dell\AppData\Roaming\Typora\typora-user-images\image-20201211214601938.png" alt="image-20201211214601938"></p>
+<p>之后的跳了，直接看的LR分析法……</p>
+<h3 id="5-3-LR分析法，P16-34"><a href="#5-3-LR分析法，P16-34" class="headerlink" title="5.3 LR分析法，P16-34"></a>5.3 LR分析法，P16-34</h3><p>LR(k)分析法可分析LR(k)文法产生的语言</p>
+<p>L：从左向右扫描输入</p>
+<p>R：最右推导对应最左规约</p>
+<p>k：超前读入k个符号，以确定规约产生式</p>
+<h4 id="LR分析表"><a href="#LR分析表" class="headerlink" title="LR分析表"></a>LR分析表</h4><p>$s_n$：移进，并将状态$n$压入栈</p>
+<p>$r_n$：用第$n$个产生式进行归约</p>
+<p>构造LR分析表，P18</p>
+<p>SLR(0)分析表的构造，P18-40</p>
+<p>后面的跳了，看语法制导</p>
+<h2 id="语法制导翻译-P20-15·"><a href="#语法制导翻译-P20-15·" class="headerlink" title="语法制导翻译 P20-15·"></a>语法制导翻译 P20-15·</h2><p>语法分析器主要任务：检查语法结构的静态语义，称为静态语义分析或静态检查。</p>
+<p>语法制导翻译：将静态检查和中间代码生成结合到语法分析中。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Compilers-Principles/" rel="tag"># Compilers Principles</a>
+              <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag"># 编译原理</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/15/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-682-Div-2-%E8%A1%A5%E9%A2%98/" rel="prev" title="Codeforces Round #682 (Div. 2)补题">
+                  <i class="fa fa-angle-left"></i> Codeforces Round #682 (Div. 2)补题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/25/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E8%A1%A5%E9%A2%98/Codeforces-Round-686-Div-3-%E8%A1%A5%E9%A2%98/" rel="next" title="Codeforces Round #686 (Div. 3)补题">
+                  Codeforces Round #686 (Div. 3)补题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
