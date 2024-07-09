@@ -124,18 +124,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -166,6 +166,217 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/24/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8ALinux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B%E3%80%8B%E6%89%8B%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/24/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8ALinux%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B%E3%80%8B%E6%89%8B%E8%AE%B0/" class="post-title-link" itemprop="url">《Linux高性能服务器编程》手记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-24 18:12:16" itemprop="dateCreated datePublished" datetime="2022-06-24T18:12:16+08:00">2022-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%98%85%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">阅读</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%98%85%E8%AF%BB/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这本书由资深Linux软件开发工程师游双（不知道为啥不太能找到他的资料）撰写，大概是在去年秋招时，临时抱佛脚，拿来看TCP协议状态自动机、拥塞控制和http的状态码。现在已经签了两方协议，打算重新踏踏实实实践下网络编程。于是便租了腾讯云服务器（花了400，两年），开了个乌班图20，在上面进行操作。</p>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>我手里这本是2013年6月第一版第一次印刷，现在已经不再印刷，不确定最新的版本是哪年。</p>
+<p>本书的重点即落在“高性能”上，探讨提高服务器性能的一般原则，介绍一些高性能编程模式和应用，通过调参来从服务器外部提高整体性能。</p>
+<p>作者编写的负载均衡服务器：<a target="_blank" rel="noopener" href="https://gitee.com/liangrui_jane/springsnail">springsnail</a>。</p>
+<p>该书的17个章节可以分为三篇：</p>
+<ol>
+<li>第一篇（1~4章）对Linux器编程的心基础TCP&#x2F;IP协议行了深入的解读和阐述。</li>
+<li>第二篇（5~15章）对服务器编程的各个方面进行细致剖析。</li>
+<li>第三篇（16~17章）从侧重实战的角度讲解了从系统角度优化与监测服务器性能。</li>
+</ol>
+<h3 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h3><h2 id="勘误与支持"><a href="#勘误与支持" class="headerlink" title="勘误与支持"></a>勘误与支持</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/39169728/answer/1124447213">C++后台开发有哪些练基础的开源项目？ - 果若冰的回答 - 知乎</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/06/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%8E%E5%81%9A%E5%A5%BD%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="这个人非常的菜">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/06/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%8E%E5%81%9A%E5%A5%BD%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">如何阅读与做好读书笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-06 18:37:11" itemprop="dateCreated datePublished" datetime="2022-06-06T18:37:11+08:00">2022-06-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%98%85%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">阅读</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%98%85%E8%AF%BB/%E9%98%85%E8%AF%BB%E6%96%B9%E6%B3%95%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">阅读方法研究</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天（2022年6月6日）在翻阅下载的电子书时，看到了一本文平的《Linux高性能服务器编程》，这本书我大概在去年8月份阅读了前 $\dfrac14$，而我现在几乎并没有任何印象，只依稀记得安装了ubuntu虚拟机并且用C++撸过几个client和server程序，内容和用途也一概忘记了。自从我大一认认真真读完《C Primer Plus》之后，就再也没仔细阅读过任何一本专业类书籍了。</p>
+<h2 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0d4d8270977d">阅读的四个层次</a></h2><ul>
+<li><p>基础阅读：基本的读书认字</p>
+</li>
+<li><p>检视阅读：短时间内抓住一本书的重点。大多数人在只需略读时，却选择精读，从而加重阅读困难。</p>
+</li>
+<li><p>分析阅读：全盘的阅读、完整的阅读。如果目标只是获得资讯，没必要分析阅读，分析阅读就是特别在追寻理解的。</p>
+</li>
+<li><p>主题阅读：阅读并归纳多本书的共有主题。进一步架构出全新的主题分析。</p>
+</li>
+</ul>
+<h3 id="检视阅读"><a href="#检视阅读" class="headerlink" title="检视阅读"></a>检视阅读</h3><p>分为两类：</p>
+<ol>
+<li>系统略读：</li>
+</ol>
+<h2 id="阅读之前"><a href="#阅读之前" class="headerlink" title="阅读之前"></a>阅读之前</h2><h3 id="给这本书分类"><a href="#给这本书分类" class="headerlink" title="给这本书分类"></a>给这本书分类</h3><p>按重要程度递减分类如下</p>
+<ul>
+<li>虚构的小说类——小说、戏剧、史诗、抒情诗</li>
+<li>传达知识，说明性论说类——科学与数学、哲学、历史</li>
+<li>适用于所有论说性作品的分类——实用性作品、理论性作品。理论性的作品是在教你这是什么，实用性的作品在教你如何去做你想要做的事。</li>
+</ul>
+<h3 id="弄清楚读这本书的目的"><a href="#弄清楚读这本书的目的" class="headerlink" title="弄清楚读这本书的目的"></a>弄清楚读这本书的目的</h3><p>是打发时间？还是学习技能？达到什么效果？</p>
+<h2 id="如何阅读计算机书籍"><a href="#如何阅读计算机书籍" class="headerlink" title="如何阅读计算机书籍"></a>如何阅读计算机书籍</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -906,200 +1117,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E5%9B%BE%E8%AE%BA%E7%9A%84%E7%AE%80%E5%8D%95%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/31/tiany7%E5%B8%A6%E6%88%91%E6%90%9Erpc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Overstars">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="零岛">
-      <meta itemprop="description" content="这个人非常的菜">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 零岛">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/31/tiany7%E5%B8%A6%E6%88%91%E6%90%9Erpc/" class="post-title-link" itemprop="url">tiany7带我搞RPC</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-31 11:29:34" itemprop="dateCreated datePublished" datetime="2021-08-31T11:29:34+08:00">2021-08-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>目前需要学习的东西有四个：git、bazel、mobaxterm、protocol-buffer。</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84250836">详解varint编码原理</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136891972">protobuf+RPC技术</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/31/tiany7%E5%B8%A6%E6%88%91%E6%90%9Erpc/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/15/%E9%9D%A2%E7%BB%8F/%E4%BA%92%E8%81%94%E7%BD%91%E5%85%AC%E5%8F%B8%E9%9D%A2%E7%BB%8F%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Overstars">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="零岛">
-      <meta itemprop="description" content="这个人非常的菜">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 零岛">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/15/%E9%9D%A2%E7%BB%8F/%E4%BA%92%E8%81%94%E7%BD%91%E5%85%AC%E5%8F%B8%E9%9D%A2%E7%BB%8F%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">互联网公司面经</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-15 12:51:24" itemprop="dateCreated datePublished" datetime="2021-08-15T12:51:24+08:00">2021-08-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E4%BD%9C/%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">面经</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/714301">hx073269面经</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44559752/article/details/119774914">wy大佬面经（鹅厂offer）</a></p>
-<p>好像只能去应聘保洁了……</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/15/%E9%9D%A2%E7%BB%8F/%E4%BA%92%E8%81%94%E7%BD%91%E5%85%AC%E5%8F%B8%E9%9D%A2%E7%BB%8F%E8%AE%B0%E5%BD%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
