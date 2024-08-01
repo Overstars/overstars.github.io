@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2023/09/19/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%AE%9E%E8%B7%B5/screen%E5%91%BD%E4%BB%A4help.JPG">
 <meta property="article:published_time" content="2023-09-19T11:23:12.000Z">
-<meta property="article:modified_time" content="2023-11-13T16:00:18.746Z">
+<meta property="article:modified_time" content="2024-07-28T07:03:31.605Z">
 <meta property="article:author" content="Overstars">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SCREEN%EF%BC%88%E5%90%8E%E5%8F%B0%E6%8C%82%E8%B5%B7%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">SCREEN（后台挂起）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SCREEN%E7%BB%91%E5%AE%9A%E9%94%AE"><span class="nav-number">1.1.</span> <span class="nav-text">SCREEN绑定键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab%EF%BC%88%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">crontab（定时任务）</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SCREEN%EF%BC%88%E5%90%8E%E5%8F%B0%E6%8C%82%E8%B5%B7%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">SCREEN（后台挂起）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SCREEN%E7%BB%91%E5%AE%9A%E9%94%AE"><span class="nav-number">1.1.</span> <span class="nav-text">SCREEN绑定键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab%EF%BC%88%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">crontab（定时任务）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SHELL"><span class="nav-number"></span> <span class="nav-text">SHELL</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -130,18 +130,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,7 +219,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-14 00:00:18" itemprop="dateModified" datetime="2023-11-14T00:00:18+08:00">2023-11-14</time>
+      <time title="修改时间：2024-07-28 15:03:31" itemprop="dateModified" datetime="2024-07-28T15:03:31+08:00">2024-07-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,12 +253,8 @@
     
     <div class="post-body" itemprop="articleBody"><p>有些Linux命令或者参数还是蛮有用但是不常用的，需要记录一下，这样就不用到处找了。</p>
 <span id="more"></span>
-
-
-
 <h3 id="SCREEN（后台挂起）"><a href="#SCREEN（后台挂起）" class="headerlink" title="SCREEN（后台挂起）"></a>SCREEN（后台挂起）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查询screen提示</span></span><br><span class="line">screen -help</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用screen -R命令，如果不存在则创建一个screen，如果存在则会直接进入</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用-S创建和直接输入screen创建的虚拟终端，不会检录之前创建的screen</span></span><br><span class="line">screen -R Name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-r不会创建，只会进入</span></span><br><span class="line">screen -r [pid/name]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看在后台运行的终端</span></span><br><span class="line">screen -ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">退出终端并释放资源，在screen内使用</span></span><br><span class="line">exit</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用-R/-r/-S均可，释放资源，在terminal使用</span></span><br><span class="line">screen -R [pid/Name] -X quit</span><br></pre></td></tr></table></figure>
-
-<p><img src="screen%E5%91%BD%E4%BB%A4help.JPG"></p>
+<p><img src="screen命令help.JPG" alt></p>
 <h4 id="SCREEN绑定键"><a href="#SCREEN绑定键" class="headerlink" title="SCREEN绑定键"></a>SCREEN绑定键</h4><p>在虚拟终端内，输入<code>Ctril + a</code>将等待接受预先设置的<strong>绑定键</strong>，这个时候可以输入对应的一些命令，来操作虚拟终端，如：</p>
 <ul>
 <li>d：保存会话，后台运行改虚拟终端，返回terminal</li>
@@ -267,13 +263,12 @@
 <li>?：显示所有绑定键盘</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改文件</span></span><br><span class="line">vim ~/.screenrc</span><br></pre></td></tr></table></figure>
-
 <h3 id="crontab（定时任务）"><a href="#crontab（定时任务）" class="headerlink" title="crontab（定时任务）"></a><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-crontab.html">crontab</a>（定时任务）</h3><p><strong>crond</strong> 命令每分钟会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">crontab [ -u <span class="keyword">user</span> <span class="title">] file</span></span><br><span class="line">crontab [ -u <span class="keyword">user</span> <span class="title">] &#123; -l</span> | -r | -e &#125;</span><br><span class="line">-u user：用来设定某个用户的crontab服务</span><br><span class="line">-e : 执行文字编辑器来设定时程表，内定的文字编辑器是 VI，如果你想用别的文字编辑器，则请先设定 VISUAL 环境变数来指定使用那个文字编辑器(比如说 setenv VISUAL joe)</span><br><span class="line">-r : 删除目前的时程表</span><br><span class="line">-l : 列出目前的时程表</span><br><span class="line"><span class="comment"># 查看系统调度任务</span></span><br><span class="line">cat /etc/crontab</span><br></pre></td></tr></table></figure>
-
 <p>直接使用 <code>crontab -e</code> 进入编辑模式即可新建任务，每个任务格式如下：</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m    h    dom  mon  dow   command</span><br><span class="line">|<span class="string">    </span>|<span class="string">    </span>|<span class="string">    </span>|<span class="string">    </span>|</span><br><span class="line">|<span class="string">    </span>|<span class="string">    </span>|<span class="string">    </span>|<span class="string">    +----- 星期中星期几 (0 - 6) (星期天 为0)</span></span><br><span class="line"><span class="string"></span>|<span class="string">    </span>|<span class="string">    </span>|<span class="string">    +---------- 月份 (1 - 12) </span></span><br><span class="line"><span class="string"></span>|<span class="string">    </span>|<span class="string">    +--------------- 一个月中的第几天 (1 - 31)</span></span><br><span class="line"><span class="string"></span>|<span class="string">    +-------------------- 小时 (0 - 23)</span></span><br><span class="line"><span class="string">+------------------------- 分钟 (0 - 59)</span></span><br></pre></td></tr></table></figure>
-
+<h1 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uat: 182.119.78.15</span><br><span class="line">uat2: 182.214.14.217</span><br><span class="line">uatc: 182.214.93.115</span><br><span class="line">查<span class="attribute">tranCode</span>=MUIP0643 &amp; <span class="attribute">key</span>=cache_dispatcher_</span><br><span class="line">增/改<span class="attribute">tranCode</span>=MUIP0642 &amp; <span class="attribute">key</span>=cache_dispatcher_ &amp;value</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while read line</span><br><span class="line">do</span><br><span class="line">    echo $line</span><br><span class="line">    array=($&#123;line// / &#125;)</span><br><span class="line">done &lt; test.txt</span><br></pre></td></tr></table></figure>
 
     </div>
 
