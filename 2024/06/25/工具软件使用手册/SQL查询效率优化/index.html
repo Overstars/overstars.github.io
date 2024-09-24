@@ -27,7 +27,7 @@
 <meta property="og:description" content="？？？  不在索引上的筛选条件要不要加 where条件的顺序是否有影响">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-25T01:42:32.000Z">
-<meta property="article:modified_time" content="2024-07-03T16:25:38.023Z">
+<meta property="article:modified_time" content="2024-09-21T03:34:18.623Z">
 <meta property="article:author" content="Overstars">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -113,7 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Explain"><span class="nav-number">1.</span> <span class="nav-text">Explain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OceanBase%E5%88%86%E5%8C%BA"><span class="nav-number">2.</span> <span class="nav-text">OceanBase分区</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Explain"><span class="nav-number">1.</span> <span class="nav-text">Explain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OceanBase%E5%88%86%E5%8C%BA"><span class="nav-number">2.</span> <span class="nav-text">OceanBase分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ERROR-%E5%85%A8%E8%A1%A8%E6%89%AB%E6%8F%8F"><span class="nav-number"></span> <span class="nav-text">[ERROR]全表扫描</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-04 00:25:38" itemprop="dateModified" datetime="2024-07-04T00:25:38+08:00">2024-07-04</time>
+      <time title="修改时间：2024-09-21 11:34:18" itemprop="dateModified" datetime="2024-09-21T11:34:18+08:00">2024-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,6 +265,13 @@
 
 
 <h3 id="OceanBase分区"><a href="#OceanBase分区" class="headerlink" title="OceanBase分区"></a>OceanBase分区</h3><p><a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/OceanBase-3.1.1-zh/68e88721bfa7d4e6.md">分区表使用建议</a></p>
+<h2 id="ERROR-全表扫描"><a href="#ERROR-全表扫描" class="headerlink" title="[ERROR]全表扫描"></a>[ERROR]全表扫描</h2><ol>
+<li>模糊查询 <code>like</code> 导致索引失效</li>
+<li>使用了不等于操作符（&lt;&gt;、!&#x3D;）</li>
+<li>select count(*) from table；</li>
+<li><code>in</code> 和 &#96;not in 导致全表扫描</li>
+<li>在where 子句中对<strong>字段</strong>进行表达式操作</li>
+</ol>
 
     </div>
 
