@@ -25,6 +25,7 @@ jobs:
   # Cleanup job 清理 Pages 部署记录
   # https://github.com/marketplace/actions/delete-deployment-environment
   cleanup:
+    if: false  # 直接跳过该步骤
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
