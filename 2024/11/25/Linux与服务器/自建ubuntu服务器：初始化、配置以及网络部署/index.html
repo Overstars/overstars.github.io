@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
+<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/scallions-128%C3%97128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/scallions-32%C3%9732.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/scallions-32%C3%9732.png">
+  <link rel="mask-icon" href="/images/scallions-128%C3%97128.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"overstars.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="22年上半年趁着学生折扣还能用买了两年腾讯云，结果也没充分使用，今年过期了也没有再管。一直以来都有组一台当作个人服务器的想法，于是做了简单调研后便着手采购并搭建。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自建ubuntu服务器：初始化、配置以及网络部署">
+<meta property="og:url" content="https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="22年上半年趁着学生折扣还能用买了两年腾讯云，结果也没充分使用，今年过期了也没有再管。一直以来都有组一台当作个人服务器的想法，于是做了简单调研后便着手采购并搭建。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/image-20240906202005910.png">
+<meta property="og:image" content="https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/image-20241124213548653.png">
+<meta property="og:image" content="https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/image-20240907113314724.png">
+<meta property="article:published_time" content="2024-11-25T15:39:56.000Z">
+<meta property="article:modified_time" content="2025-02-22T07:19:04.182Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/image-20240906202005910.png">
+
+
+<link rel="canonical" href="https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/","path":"2024/11/25/Linux与服务器/自建ubuntu服务器：初始化、配置以及网络部署/","title":"自建ubuntu服务器：初始化、配置以及网络部署"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>自建ubuntu服务器：初始化、配置以及网络部署 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">自建服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">1.1.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">组装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%87%86%E5%A4%87"><span class="nav-number">1.3.</span> <span class="nav-text">系统准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5"><span class="nav-number">1.4.</span> <span class="nav-text">设置时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%89%E5%AD%97%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81"><span class="nav-number">1.5.</span> <span class="nav-text">汉字语言支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history%E6%98%BE%E7%A4%BA%E6%93%8D%E4%BD%9C%E6%97%B6%E9%97%B4"><span class="nav-number">1.6.</span> <span class="nav-text">history显示操作时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD"><span class="nav-number">1.7.</span> <span class="nav-text">基础设施</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">初始化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%91IP%E5%9B%BA%E5%AE%9A"><span class="nav-number">2.1.</span> <span class="nav-text">内网IP固定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFssh"><span class="nav-number">2.2.</span> <span class="nav-text">开启ssh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFftp"><span class="nav-number">2.3.</span> <span class="nav-text">开启ftp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFsmb%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.4.</span> <span class="nav-text">开启smb服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">2.5.</span> <span class="nav-text">开启防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E6%AD%A2%E8%87%AA%E5%8A%A8%E4%BC%91%E7%9C%A0"><span class="nav-number">2.6.</span> <span class="nav-text">禁止自动休眠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-number">2.7.</span> <span class="nav-text">磁盘分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA"><span class="nav-number">2.7.1.</span> <span class="nav-text">增加交换分区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E5%88%86%E9%85%8D%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="nav-number">2.8.</span> <span class="nav-text">额外分配盘空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E7%AC%AC%E4%BA%8C%E5%9D%97%E7%A1%AC%E7%9B%98%E5%88%86%E4%B8%80%E9%83%A8%E5%88%86%E7%A9%BA%E9%97%B4%E7%BB%99data"><span class="nav-number">2.9.</span> <span class="nav-text">将第二块硬盘分一部分空间给data</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">编译环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">JAVA配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-JAVA-HOME-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">设置 JAVA_HOME 环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E7%BD%91%E9%80%9A%E8%BF%87%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE"><span class="nav-number">4.</span> <span class="nav-text">公网通过域名访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E4%B8%8EDDNS"><span class="nav-number">4.1.</span> <span class="nav-text">域名与DDNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSL%E8%AF%81%E4%B9%A6"><span class="nav-number">4.2.</span> <span class="nav-text">SSL证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9F%B3%E9%A2%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">音频服务器</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">I despised my soul when I saw her being meek that she might attain height.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/Overstars233" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;Overstars233" rel="noopener me" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/359920679" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;359920679" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="I despised my soul when I saw her being meek that she might attain height.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="自建ubuntu服务器：初始化、配置以及网络部署 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自建ubuntu服务器：初始化、配置以及网络部署
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-25 23:39:56" itemprop="dateCreated datePublished" datetime="2024-11-25T23:39:56+08:00">2024-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-02-22 15:19:04" itemprop="dateModified" datetime="2025-02-22T15:19:04+08:00">2025-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%84%E8%A3%85%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">ubuntu服务器组装配置</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>22年上半年趁着学生折扣还能用买了两年腾讯云，结果也没充分使用，今年过期了也没有再管。一直以来都有组一台当作个人服务器的想法，于是做了简单调研后便着手采购并搭建。</p>
+<span id="more"></span>
+
+<h2 id="自建服务器"><a href="#自建服务器" class="headerlink" title="自建服务器"></a>自建服务器</h2><h3 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h3><table>
+<thead>
+<tr>
+<th>服务</th>
+<th>光猫</th>
+<th>路由器</th>
+<th>宿主机</th>
+<th>docker</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>navidrome</td>
+<td>9001</td>
+<td>9001</td>
+<td>9001</td>
+<td>无</td>
+</tr>
+<tr>
+<td>overstars’ server（ssh访问）</td>
+<td>9002</td>
+<td>9002</td>
+<td>22</td>
+<td>无</td>
+</tr>
+<tr>
+<td>image service（图床服务）</td>
+<td>9003</td>
+<td>9003</td>
+<td>9003</td>
+<td>无</td>
+</tr>
+<tr>
+<td>nginx服务</td>
+<td>9004</td>
+<td>9004</td>
+<td>9004</td>
+<td>443</td>
+</tr>
+</tbody></table>
+<h3 id="组装"><a href="#组装" class="headerlink" title="组装"></a>组装</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>零件</th>
+<th></th>
+<th>功耗</th>
+<th>价格</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机箱+主板</td>
+<td><a target="_blank" rel="noopener" href="https://www.asrock.com/Nettop/AMD/DeskMini%20X600%20Series/index.cn.asp#Specification">ASRock DeskMini X600 Series</a></td>
+<td></td>
+<td></td>
+<td>京东1299</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Ryzen 5 8500G(100-000000931)</td>
+<td></td>
+<td>45W</td>
+<td>京东1109</td>
+</tr>
+<tr>
+<td>显卡</td>
+<td>无</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SO-DIMM DDR5内存</td>
+<td>DDR5 笔记本内存条 5600MHZ 16G</td>
+<td></td>
+<td></td>
+<td>淘宝252</td>
+</tr>
+<tr>
+<td>SSD</td>
+<td>SK hynix SC311 SATA 128G</td>
+<td></td>
+<td></td>
+<td><del>现成的，M2接口应该兼容SATA协议</del><br>该主板不支持，换成铠侠RC20 NVME 512G了</td>
+</tr>
+<tr>
+<td>HDD</td>
+<td>希捷 ST2000LM003 2.5寸 32M PMR 2TB</td>
+<td></td>
+<td></td>
+<td>淘宝389</td>
+</tr>
+<tr>
+<td>M.2 插座 (Key E), 支持 2230 型 Wi-Fi &#x2F; 蓝牙模块</td>
+<td></td>
+<td></td>
+<td></td>
+<td>淘宝35，应该送一块</td>
+</tr>
+<tr>
+<td>散热器</td>
+<td>利民 AXP90-X36 36mm双平台背板风扇</td>
+<td></td>
+<td></td>
+<td>京东129</td>
+</tr>
+</tbody></table>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/frank-lam/lanproxy-nat">https://github.com/frank-lam/lanproxy-nat</a></li>
+<li>web访问Linux：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2222444">rtty</a>，<a target="_blank" rel="noopener" href="https://github.com/zhaojh329/rtty/blob/master/README_ZH.md">文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.kuretru.com/posts/37b2d944/">优雅的远程连接 Ubuntu 图形桌面</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1829957">一款开源免费且快速，高效和安全的跨平台备份程序：Restic使用教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/1Panel-dev/1Panel">1Panel - 开源新一代的 Linux 服务器运维管理面板</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/frozensky-alpha/p/15013572.html">Unraid系统</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/599247419">低成本搭建一台家庭存储服务器：前篇</a></li>
+</ul>
+<h3 id="系统准备"><a href="#系统准备" class="headerlink" title="系统准备"></a>系统准备</h3><p>获取ubuntu服务器版本：<a target="_blank" rel="noopener" href="https://cn.ubuntu.com/download/server/step1%EF%BC%8CUbuntu">https://cn.ubuntu.com/download/server/step1，Ubuntu</a> Server 可以免费下载和使用。</p>
+<p><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=9909">适合初学者的 Ubuntu 服务器教程</a></p>
+<h3 id="设置时间同步"><a href="#设置时间同步" class="headerlink" title="设置时间同步"></a>设置时间同步</h3><p>东八区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+
+<h3 id="汉字语言支持"><a href="#汉字语言支持" class="headerlink" title="汉字语言支持"></a>汉字语言支持</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo apt install language-pack-zh-hans</span><br><span class="line">sudo apt install language-pack-ja</span><br><span class="line">sudo apt install fonts-noto-cjk</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<h3 id="history显示操作时间"><a href="#history显示操作时间" class="headerlink" title="history显示操作时间"></a>history显示操作时间</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export HISTTIMEFORMAT=&quot;%F %T &quot;</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="基础设施"><a href="#基础设施" class="headerlink" title="基础设施"></a>基础设施</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huizhipeng/p/18089881">Ubuntu server 20.04详细安装教程 </a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/763896">如何在 Ubuntu 20.04 启用 SSH</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44248258/article/details/126317631">ubuntu使用ssh进行局域网和非局域网远程连接</a></li>
+<li><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=30751">如何在 Ubuntu 22.04 LTS 上安装 Icinga 2 监控软件</a></li>
+</ul>
+<h2 id="初始化设置"><a href="#初始化设置" class="headerlink" title="初始化设置"></a>初始化设置</h2><p>安装ubuntu sever时直接按照默认项配置即可，可以直接选择导入github的public key，方便后续直接ssh连接。</p>
+<p>若需要通过外网访问，需要做如下设置：</p>
+<ul>
+<li>光猫高级NAT设置 - 虚拟主机设置，添加你新开的端口转发至路由器。</li>
+<li>路由器开启内网IP固定。</li>
+<li>路由器虚拟服务器开启端口转发。</li>
+<li>服务器防火墙开放对应端口。</li>
+<li>服务器监听对应端口。</li>
+</ul>
+<h3 id="内网IP固定"><a href="#内网IP固定" class="headerlink" title="内网IP固定"></a>内网IP固定</h3><p><img src="image-20240906202005910.png" alt="image-20240906202005910"></p>
+<h3 id="开启ssh"><a href="#开启ssh" class="headerlink" title="开启ssh"></a>开启ssh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看是否安装了SSH服务</span></span><br><span class="line">ps -ef |grep ssh </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">没有安装的话，执行下面语句</span></span><br><span class="line">sudo apt-get update                   #先更新下资源列表</span><br><span class="line">sudo apt-get install openssh-server   #安装openssh-server</span><br><span class="line">sudo ps -ef | grep ssh                #查看是否安装成功</span><br><span class="line">sudo systemctl restart sshd           #重新启动SSH服务 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入ssh配置文件</span></span><br><span class="line">sudo vim  /etc/ssh/sshd_config</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置ssh服务开机启动</span></span><br><span class="line">sudo systemctl enable ssh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看ssh服务的状态</span></span><br><span class="line">sudo systemctl status sshd</span><br></pre></td></tr></table></figure>
+
+<p>修改以下三项</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Port 22</span><br><span class="line">ListenAddress 0.0.0.0</span><br><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启ftp"><a href="#开启ftp" class="headerlink" title="开启ftp"></a>开启ftp</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置开机启动并启动ftp服务</span></span><br><span class="line">systemctl enable vsftpd</span><br><span class="line">systemctl start vsftpd</span><br><span class="line"></span><br><span class="line">sudo vim /etc/vsftpd.conf</span><br><span class="line">找到如下两行</span><br><span class="line">local_enable=YES # 允许本地用户登录</span><br><span class="line">chroot_local_user=YES # 使用用户的本地账户目录作为ftp目录</span><br><span class="line">allow_writeable_chroot=YES # 若上面设为YES，将用户的可写访问权限授予其主目录，或者另外指定写目录</span><br><span class="line">write_enable=YES # 启用可以修改文件的 FTP 命令</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重启服务</span></span><br><span class="line">systemctl start vsftpd</span><br><span class="line">service vsftpd restart</span><br><span class="line"></span><br><span class="line">sudo /etc/init.d/vsftpd restart</span><br></pre></td></tr></table></figure>
+
+<p>需要自己创建用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userlist_deny=NO</span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_file=/etc/vsftpd.allowed_users</span><br></pre></td></tr></table></figure>
+
+<p>查看登录日志</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -R /var/log/vsftpd.log</span><br></pre></td></tr></table></figure>
+
+<p>防火墙配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启用被动模式</span></span><br><span class="line">pasv_enable=YES</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置被动模式使用的端口范围</span></span><br><span class="line">pasv_min_port=40000</span><br><span class="line">pasv_max_port=50000</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以选择设置被动模式的外部 IP 地址（如果使用 NAT）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pasv_address=your.external.ip.address</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ftp</span></span><br><span class="line">sudo ufw allow 20:21/tcp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">允许被动模式端口范围</span></span><br><span class="line">sudo ufw allow 40000:50000/tcp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">允许客户端主动模式数据端口（例如，假设使用 1024-65535）</span></span><br><span class="line">sudo ufw allow 1024:65535/tcp</span><br></pre></td></tr></table></figure>
+
+<p>重启服务及防火墙，使用被动模式，终于可以正常连接了</p>
+<p><img src="image-20241124213548653.png" alt="image-20241124213548653"></p>
+<h3 id="开启smb服务"><a href="#开启smb服务" class="headerlink" title="开启smb服务"></a>开启smb服务</h3><p>安装smb</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba samba-common</span><br></pre></td></tr></table></figure>
+
+<p>配置共享目录，路径可以自己改</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /data/smb -R</span><br></pre></td></tr></table></figure>
+
+<p>配置smb，注意不要有奇怪的字符</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/samba/smb.conf</span><br><span class="line">在最下面添加即可</span><br><span class="line">[Overstars] </span><br><span class="line">    #共享的描述</span><br><span class="line">    comment = 一般是用来存点ipad资源的</span><br><span class="line">    path=/data/smb</span><br><span class="line">    create mask=0755</span><br><span class="line">    directory mask=0755</span><br><span class="line">    #用来指定该共享路径是否可写</span><br><span class="line">    writable = yes</span><br><span class="line">    #指定哪些用户可以访问共享路径，如果你想添加多个用户，用逗号分隔</span><br><span class="line">    valid users=yankf</span><br><span class="line">    #可浏览</span><br><span class="line">    browseable=yes</span><br></pre></td></tr></table></figure>
+
+<p>设置防火墙白名单</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow Samba</span><br></pre></td></tr></table></figure>
+
+<p>重启smb</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/smbd restart</span><br><span class="line">sudo service smbd restart</span><br></pre></td></tr></table></figure>
+
+<p>问题检测</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl status smbd.service # 检查服务状态</span><br><span class="line">journalctl -xeu smbd.service # 查看 Samba 的日志文件</span><br><span class="line">sudo tail -f /var/log/samba/log.smbd # 查看日志</span><br></pre></td></tr></table></figure>
+
+<p>提示拒绝访问，重设smb密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -a yankf</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启防火墙"><a href="#开启防火墙" class="headerlink" title="开启防火墙"></a>开启防火墙</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认UFW状态</span></span><br><span class="line">sudo ufw status</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启防火墙</span></span><br><span class="line">sudo ufw enable</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启用防火墙日志</span></span><br><span class="line">sudo ufw logging on</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自用端口</span></span><br><span class="line">sudo ufw allow 9001</span><br><span class="line">sudo ufw allow 9003</span><br><span class="line">sudo ufw allow 9004</span><br><span class="line">sudo ufw allow 9005</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">允许ssh服务通过防火墙</span></span><br><span class="line">sudo ufw allow http</span><br><span class="line">sudo ufw allow 80</span><br><span class="line">sudo ufw allow https</span><br><span class="line">sudo ufw allow 443</span><br><span class="line">sudo ufw allow ssh</span><br><span class="line">sudo ufw allow 22/tcp</span><br><span class="line">sudo ufw allow smtp</span><br><span class="line">sudo ufw allow Samba</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使ssh配置文件生效</span></span><br><span class="line">sudo systemctl restart ssh</span><br><span class="line">sudo ufw reload</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志</span></span><br><span class="line">sudo tail -f /var/log/ufw.log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除一条防火墙规则</span></span><br><span class="line">sudo ufw status numbered</span><br><span class="line">sudo ufw delete [自选数字]</span><br></pre></td></tr></table></figure>
+
+<h3 id="禁止自动休眠"><a href="#禁止自动休眠" class="headerlink" title="禁止自动休眠"></a>禁止自动休眠</h3><p>执行如下命令查看休眠模式的情况</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status sleep.target</span><br></pre></td></tr></table></figure>
+
+<p>如果sleep状态是loaded，说明自动休眠开启</p>
+<p>若masked，则已关闭自动休眠</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">○ <span class="keyword">sleep</span>.target - <span class="keyword">Sleep</span></span><br><span class="line">     Loaded: loaded (/usr/lib/<span class="params">system</span>d/<span class="params">system</span>/<span class="keyword">sleep</span>.target<span class="comment">; static)</span></span><br><span class="line">     Active: inactive (dead)</span><br><span class="line">       Docs: man:<span class="params">system</span>d.special(<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+
+<p>关闭系统自动休眠</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这些命令做了以下几点：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过mask命令，你禁用了所有休眠相关的systemd目标。</span></span><br><span class="line">sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果你想要恢复自动休眠功能，可以使用以下命令：</span></span><br><span class="line">sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">###################################################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过set-default命令，你设置默认的运行级别为多用户文本模式（即命令行界面）</span></span><br><span class="line">sudo systemctl set-default multi-user.target</span><br><span class="line">sudo systemctl set-default graphical.target</span><br></pre></td></tr></table></figure>
+
+<p>重新加载 <code>systemd</code> 配置</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="params">system</span>ctl restart <span class="params">system</span>d-logind.service</span><br></pre></td></tr></table></figure>
+
+<p><code>/etc/systemd/logind.conf</code> 文件中的 <code>IdleAction</code> 和 <code>IdleActionSec</code> 参数用于配置系统在用户空闲时的行为，<code>IdleActionSec</code> 指定在用户空闲多长时间后执行 <code>IdleAction</code> 的操作。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim <span class="regexp">/etc/</span>systemd/logind.conf</span><br></pre></td></tr></table></figure>
+
+<p>设置如下</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">IdleAction</span><span class="operator">=</span>ignore</span><br><span class="line"><span class="attribute">IdleActionSec</span><span class="operator">=</span><span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h3><h4 id="增加交换分区"><a href="#增加交换分区" class="headerlink" title="增加交换分区"></a><a target="_blank" rel="noopener" href="https://www.sysgeek.cn/ubuntu-swap-size/">增加交换分区</a></h4><p>参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1835500%E6%9D%A5%E6%89%A7%E8%A1%8C%E3%80%82">https://cloud.tencent.com/developer/article/1835500来执行。</a></p>
+<p>交换分区的大小通常为物理内存的 1 到 2 倍。</p>
+<ol>
+<li><p>查看交换分区目前的大小</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapon <span class="comment">--show</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看可用的分配空间</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">free -h</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭交换空间</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff -<span class="selector-tag">a</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除交换空间</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">？？待定</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建交换文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo fallocate -l 1G /swap.img</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -lh /swap.img</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用交换文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">chmod</span> 600 /swap.img</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -lh /swap.img</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo mkswap /swap.img</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo swapon /swap.img</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="额外分配盘空间"><a href="#额外分配盘空间" class="headerlink" title="额外分配盘空间"></a>额外分配盘空间</h3><p>查看ubuntu发现了几块硬盘：<a target="_blank" rel="noopener" href="https://www.linuxcool.com/lsblk">lsblk命令 – 查看系统的磁盘使用情况</a>。</p>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lsblk <span class="comment">#观察磁盘分区状态</span></span><br><span class="line"><span class="literal">-</span>d ∶仅列出磁盘本身，并不会列出该磁盘的分区数据</span><br><span class="line"><span class="literal">-</span>f ∶同时列出该磁盘内的文件系统名称</span><br><span class="line"><span class="literal">-</span>i∶使用 ASCII的线段输出，不要使用复杂的编码（再某些环境下很有用）</span><br><span class="line"><span class="literal">-</span>m ∶同时输出该装置在 /dev 底下的权限数据（rwx 的数据）</span><br><span class="line"><span class="literal">-</span>p ∶列出该装置的完整文件名!而不是仅列出最后的名字而已。</span><br><span class="line"><span class="literal">-</span>t ∶列出该磁盘装置的详细数据，包括磁盘队列机制、预读写的数据量大小等</span><br><span class="line"></span><br><span class="line">sudo fdisk -l  <span class="comment">#查看系统有几块硬盘和每个硬盘的分区情况</span></span><br><span class="line">sudo df -h <span class="comment">#查看硬盘挂载情况和使用情况，只显示挂载的分区</span></span><br></pre></td></tr></table></figure>
+
+<p>装机默认只分配给了 <code>/</code> 100G磁盘，感觉不太够用。</p>
+<p><img src="image-20240907113314724.png" alt="image-20240907113314724"></p>
+<p>可以看出来第三块分区p3是有ssd的剩下所有内存的，只是没有分配，<code>/home</code>  可以单独分区，懒狗就不搞了，直接给 <code>/</code> 目录分配内存了。</p>
+<p>按照<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42672685/article/details/122936002">Ubuntu 20.04.3-live-server 磁盘如何扩容</a>操作即可。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">su</span></span><br><span class="line"><span class="attribute">1</span>.例如增大至<span class="number">300</span>G</span><br><span class="line"><span class="attribute">lvextend</span> -L <span class="number">300</span>G /dev/mapper/ubuntu--vg-ubuntu--lv</span><br></pre></td></tr></table></figure>
+
+<p>提示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yankf@overstars:/$ su</span><br><span class="line">Password:</span><br><span class="line">root@overstars:/# lvextend -L 300G /dev/mapper/ubuntu--vg-ubuntu--lv</span><br><span class="line">  Size of logical volume ubuntu-vg/ubuntu-lv changed from 100.00 GiB (25600 extents) to 300.00 GiB (76800 extents).</span><br><span class="line">  Logical volume ubuntu-vg/ubuntu-lv successfully resized.</span><br></pre></td></tr></table></figure>
+
+<p>再 <code>lsblk</code> 看一下</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root@overstars:/<span class="comment"># lsblk</span></span><br><span class="line">NAME                      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span><br><span class="line">loop0                       7:0   <span class="number"> 0 </span>104.2M <span class="number"> 1 </span>loop /snap/core/17200</span><br><span class="line">loop1                       7:1   <span class="number"> 0 </span> 74.3M <span class="number"> 1 </span>loop /snap/core22/1586</span><br><span class="line">loop2                       7:2   <span class="number"> 0 </span>  132M <span class="number"> 1 </span>loop /snap/docker/2932</span><br><span class="line">loop3                       7:3   <span class="number"> 0 </span> 38.7M <span class="number"> 1 </span>loop /snap/postgresql10/47</span><br><span class="line">loop4                       7:4   <span class="number"> 0 </span> 38.8M <span class="number"> 1 </span>loop /snap/snapd/21759</span><br><span class="line">loop5                       7:5   <span class="number"> 0 </span> 74.3M <span class="number"> 1 </span>loop /snap/core22/1612</span><br><span class="line">sda                         8:0   <span class="number"> 0 </span>  1.8T <span class="number"> 0 </span>disk</span><br><span class="line">nvme0n1                   259:0   <span class="number"> 0 </span>465.8G <span class="number"> 0 </span>disk</span><br><span class="line">├─nvme0n1p1               259:1   <span class="number"> 0 </span>    1G <span class="number"> 0 </span>part /boot/efi</span><br><span class="line">├─nvme0n1p2               259:2   <span class="number"> 0 </span>    2G <span class="number"> 0 </span>part /boot</span><br><span class="line">└─nvme0n1p3               259:3   <span class="number"> 0 </span>462.7G <span class="number"> 0 </span>part</span><br><span class="line">  └─ubuntu--vg-ubuntu--lv 252:0   <span class="number"> 0 </span>  300G <span class="number"> 0 </span>lvm  /</span><br></pre></td></tr></table></figure>
+
+<p>扩容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@overstars:/home/yankf# resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br><span class="line">resize2fs 1.47.0 (5-Feb-2023)</span><br><span class="line">Filesystem at /dev/mapper/ubuntu--vg-ubuntu--lv is mounted on /; on-line resizing required</span><br><span class="line">old_desc_blocks = 13, new_desc_blocks = 38</span><br><span class="line">The filesystem on /dev/mapper/ubuntu--vg-ubuntu--lv is now 78643200 (4k) blocks long.</span><br></pre></td></tr></table></figure>
+
+<p>查看一下，扩容完毕</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@overstars:/home/yankf# df -h</span><br><span class="line">Filesystem                         Size  Used Avail Use% Mounted on</span><br><span class="line">tmpfs                              1.5G  4.9M  1.5G   1% /run</span><br><span class="line">efivarfs                           128K   15K  109K  12% /sys/firmware/efi/efivars</span><br><span class="line">/dev/mapper/ubuntu--vg-ubuntu--lv  295G   22G  260G   8% /</span><br><span class="line">tmpfs                              7.4G     0  7.4G   0% /dev/shm</span><br><span class="line">tmpfs                              5.0M     0  5.0M   0% /run/lock</span><br><span class="line">/dev/nvme0n1p2                     2.0G  183M  1.7G  10% /boot</span><br><span class="line">/dev/sda1                          492G  149G  318G  32% /data</span><br><span class="line">/dev/nvme0n1p1                     1.1G  6.2M  1.1G   1% /boot/efi</span><br><span class="line">overlay                            295G   22G  260G   8% /var/lib/docker/overlay2/a144410d503ae5389ec7100f48e6ebdadb3215e1d6d0b304029fb51d2d43ab93/merged</span><br><span class="line">tmpfs                              1.5G   12K  1.5G   1% /run/user/1000</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="将第二块硬盘分一部分空间给data"><a href="#将第二块硬盘分一部分空间给data" class="headerlink" title="将第二块硬盘分一部分空间给data"></a>将第二块硬盘分一部分空间给data</h3><p><code>lsblk</code> 可以看到 <code>sda</code> 还有1.8T的空间没有分区，打算分一部分给 <code>/data</code>。</p>
+<p>查看已有磁盘</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>进入 <code>sda</code> 进行分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk /dev/sda</span><br></pre></td></tr></table></figure>
+
+<p>输入 <code>n</code> </p>
+<p>Partition type，输入 <code>p</code> </p>
+<p>输入分区号 <code>1</code> </p>
+<p>First sector (2048-3907029167, default 2048)，默认即可</p>
+<p>新建500G的分区，输入 <code>500G</code> ，即 <code>1048578047</code> </p>
+<p>提示</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Last sector, +<span class="regexp">/-sectors or +/</span>-<span class="keyword">size</span>&#123;K,M,G,T,P&#125; (<span class="number">2048</span>-<span class="number">3907029167</span>, <span class="keyword">default</span> <span class="number">3907029167</span>): <span class="number">1048578047</span></span><br><span class="line">Created a <span class="keyword">new</span> partition <span class="number">1</span> of type <span class="string">&#x27;Linux&#x27;</span> and of <span class="keyword">size</span> <span class="number">500</span> GiB.</span><br></pre></td></tr></table></figure>
+
+<p>移除签名，输入 <code>y</code> </p>
+<p>写入，输入 <code>w</code> </p>
+<p>再次执行<code>sudo fdisk -l</code> 查看是否创建</p>
+<p>将新分区格式化为 ext4 ，性能相对于 ext3 有很大提升，且支持单个16G、系统1EB的文件量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df -T</span><br><span class="line">lsblk -f</span><br><span class="line">sudo mkfs -t ext4 /dev/sda1</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /data #新建</span><br><span class="line">sudo mount /dev/sda1 /data #挂载</span><br></pre></td></tr></table></figure>
+
+<p>查看uuid，找到新分区id</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure>
+
+<p>提示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yankf@overstars:/$ sudo blkid</span><br><span class="line">/dev/nvme0n1p3: UUID=&quot;mERgFh-lRJc-Firn-URSm-mg3p-2Mji-RrayJj&quot; TYPE=&quot;LVM2_member&quot; PARTUUID=&quot;6c5ca1e2-465f-4daa-8e8c-8b79d109d3a9&quot;</span><br><span class="line">/dev/nvme0n1p1: UUID=&quot;CA72-30F7&quot; BLOCK_SIZE=&quot;512&quot; TYPE=&quot;vfat&quot; PARTUUID=&quot;55cd3410-aee6-41ea-afe2-9d93e4da041b&quot;</span><br><span class="line">/dev/nvme0n1p2: UUID=&quot;10ded670-c854-45c7-bbb5-bd1d4fac82f1&quot; BLOCK_SIZE=&quot;4096&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;268b6989-4bd3-47dd-9acc-65d8bb004998&quot;</span><br><span class="line">/dev/mapper/ubuntu--vg-ubuntu--lv: UUID=&quot;1c6a9158-f60c-4d12-8a82-aba82f3e6afd&quot; BLOCK_SIZE=&quot;4096&quot; TYPE=&quot;ext4&quot;</span><br><span class="line">/dev/loop1: BLOCK_SIZE=&quot;131072&quot; TYPE=&quot;squashfs&quot;</span><br><span class="line">/dev/loop4: BLOCK_SIZE=&quot;131072&quot; TYPE=&quot;squashfs&quot;</span><br><span class="line">/dev/loop2: BLOCK_SIZE=&quot;131072&quot; TYPE=&quot;squashfs&quot;</span><br><span class="line">/dev/loop0: BLOCK_SIZE=&quot;131072&quot; TYPE=&quot;squashfs&quot;</span><br><span class="line">/dev/sda1: UUID=&quot;4a1a3251-c5d5-4eff-b085-67851647362d&quot; BLOCK_SIZE=&quot;4096&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;002bacfb-01&quot;</span><br><span class="line">/dev/loop5: BLOCK_SIZE=&quot;131072&quot; TYPE=&quot;squashfs&quot;</span><br><span class="line">/dev/loop3: BLOCK_SIZE=&quot;131072&quot; TYPE=&quot;squashfs&quot;</span><br></pre></td></tr></table></figure>
+
+<p>将新分区的 <code>uuid</code> 写入 <code>/etc/fstab</code> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>加入一行</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">UUID</span>格式的文件系统                         挂载点 文件系统类型 挂载选项 转储选项 检查顺序</span><br><span class="line"><span class="attribute">UUID</span>=<span class="number">4</span>a1a3251-c5d5-<span class="number">4</span>eff-b085-<span class="number">67851647362</span>d /data ext4 defaults <span class="number">0</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>更改 <code>/data</code> 的权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown yankf:yankf /data</span><br><span class="line">sudo chmod +777 -R /data</span><br></pre></td></tr></table></figure>
+
+<p>将&#x2F;data挂载给yankf，这样可以直接通过&#x2F;home&#x2F;yankf&#x2F;data目录访问&#x2F;data，可以不用给ftp额外配置目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建目标目录</span></span><br><span class="line">sudo mkdir -p /home/yankf/data</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 mount 命令将源目录挂载到目标目录。使用 --<span class="built_in">bind</span> 选项来实现。可以使用 -o 选项来设置目标目录的访问权限与源目录访问权限相同</span></span><br><span class="line">sudo mount --bind -o rbind /data /home/yankf/data</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保在系统重启后仍然保留挂载</span></span><br><span class="line">sudo vim /etc/fstab</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加以下行</span></span><br><span class="line">/data /home/yankf/data none bind 0 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试挂载是否成功</span></span><br><span class="line">df -h | grep /home/yankf/data</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载挂载目录</span></span><br><span class="line">sudo umount /home/yankf/data</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译环境配置"><a href="#编译环境配置" class="headerlink" title="编译环境配置"></a>编译环境配置</h2><h3 id="JAVA配置"><a href="#JAVA配置" class="headerlink" title="JAVA配置"></a>JAVA配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install openjdk-17-jdk</span><br><span class="line"></span><br><span class="line">java --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置-JAVA-HOME-环境变量"><a href="#设置-JAVA-HOME-环境变量" class="headerlink" title="设置 JAVA_HOME 环境变量"></a>设置 JAVA_HOME 环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/environment</span><br><span class="line"><span class="comment">#编辑</span></span><br><span class="line">JAVA_HOME=<span class="string">&quot;/usr/lib/jvm/java-17-openjdk-amd64&quot;</span></span><br><span class="line"><span class="comment">#生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/environment</span><br><span class="line"><span class="comment">#验证</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="公网通过域名访问"><a href="#公网通过域名访问" class="headerlink" title="公网通过域名访问"></a>公网通过域名访问</h2><h3 id="域名与DDNS"><a href="#域名与DDNS" class="headerlink" title="域名与DDNS"></a>域名与DDNS</h3><p>可以在<a target="_blank" rel="noopener" href="https://dnspod.cloud.tencent.com/">腾讯云域名</a>购买一个域名，之后去 <a href="https://link.zhihu.com/?target=https://console.dnspod.cn/dns/list">DNSPod 管理控制台</a> 验证、添加。</p>
+<p>购买域名时会问你要不要买专业版DNS解析，可以仔细看看这个<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/302/106264">云解析 DNS 版本套餐差异</a>，决定买不买，个人使用没必要买。</p>
+<p>提交订单前需要已实名审核的信息模板，审核很耗时间，记得提前搞。</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1921363">【DNS解析】如何设置DDNS(动态域名解析)</a></p>
+<p>DDNS其实就是不断把自己的域名和目前的公网IP更新给dns运营商</p>
+<ul>
+<li>动态域名解析：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000044453109">DDNS4J</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2071744">利用DNSPod实现动态域名解析DDNS (解析内网、外网或IPV6地址)</a></li>
+<li>内网穿透：<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/blob/dev/README_zh.md">https://github.com/fatedier/frp/blob/dev/README_zh.md</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jeessy2/ddns-go">ddns-go</a></li>
+</ul>
+<p>在dnspod这里<a target="_blank" rel="noopener" href="https://console.dnspod.cn/account/token/token">创建<strong>API 密钥</strong></a>，注意保存。</p>
+<p>按照<a target="_blank" rel="noopener" href="https://github.com/rehiy/dnspod-shell">ArDNSPod</a>项目进行DDNS设置，添加如下定时任务，每30分钟执行一次。参考<a target="_blank" rel="noopener" href="https://docs.dnspod.cn/api/record-list/">DNSPod 传统 API：记录列表</a>去调试。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*<span class="regexp">/30 * * * * yankf /</span>home<span class="regexp">/yankf/</span>shells<span class="regexp">/dnspod-shell/</span>ddnspod.sh</span><br></pre></td></tr></table></figure>
+
+<p>可以通过<code>grep CRON /var/log/syslog</code>命令查看执行记录。</p>
+<h3 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h3><a href="/2025/02/15/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2nginx/" title="ubuntu server部署nginx">使用nginx启用ssl证书和https服务实际部署参考这里</a>
+
+<ul>
+<li>SSL协议：<a target="_blank" rel="noopener" href="https://letsencrypt.org/zh-cn/docs/">Let’s Encrypt</a></li>
+<li>Certbot：自动获取和安装 Let’s Encrypt 的免费 SSL&#x2F;TLS 证书。</li>
+</ul>
+<h3 id="音频服务器"><a href="#音频服务器" class="headerlink" title="音频服务器"></a>音频服务器</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://rangotec.com/blog/76.html">千千静听更换歌词服务器的方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/653913549">【实用的开源项目】使用服务器部署Navidrome音乐服务器，又一款开源的音乐服务器程序！</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.himiku.com/archives/navidrome.html">Navidrome：自建音乐库的又一选择</a></li>
+<li><a target="_blank" rel="noopener" href="https://bytejog.com/posts/linux/navidrome/">个人音乐服务Navidrome搭建和使用</a></li>
+<li>[【经验分享】音频文件内嵌歌词的方法 附如何查找LRC歌词文件](</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 服务器</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/19/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E7%9B%98%E7%82%B9%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8%E5%92%8C%E7%BD%91%E7%AB%99/" rel="prev" title="盘点一些有用的工具应用和网站">
+                  <i class="fa fa-angle-left"></i> 盘点一些有用的工具应用和网站
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/01/08/%E7%94%9F%E6%B4%BB/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5%E9%80%9A%E8%AE%AF%E8%B5%84%E6%A0%BC%EF%BC%9A%E6%93%8D%E4%BD%9C%E8%AF%81%E4%B8%8E%E6%89%A7%E7%85%A7/" rel="next" title="业余无线电通讯资格：操作证与执照">
+                  业余无线电通讯资格：操作证与执照 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.0/mermaid.min.js","integrity":"sha256-9y71g5Lz/KLsHjB8uXwnkuWDtAMDSzD/HdIbqhJfTAI="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

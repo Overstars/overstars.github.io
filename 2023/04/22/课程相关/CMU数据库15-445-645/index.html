@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
+<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/scallions-128%C3%97128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/scallions-32%C3%9732.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/scallions-32%C3%9732.png">
+  <link rel="mask-icon" href="/images/scallions-128%C3%97128.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"overstars.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="学弟突然对你发出了击剑邀请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMU数据库15-445&#x2F;645">
+<meta property="og:url" content="https://overstars.github.io/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="学弟突然对你发出了击剑邀请">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://15445.courses.cs.cmu.edu/fall2024/project0/img/hll-example.png">
+<meta property="og:image" content="https://overstars.github.io/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/6d5e57a4-6787-4563-80e6-f420c4aafe46.png">
+<meta property="og:image" content="https://overstars.github.io/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/QQ_1720536147174.png">
+<meta property="og:image" content="https://overstars.github.io/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/QQ_1720537416363.png">
+<meta property="article:published_time" content="2023-04-22T08:58:29.000Z">
+<meta property="article:modified_time" content="2024-12-22T17:21:12.461Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="CMU 15-445&#x2F;645(FALL 2020)">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://15445.courses.cs.cmu.edu/fall2024/project0/img/hll-example.png">
+
+
+<link rel="canonical" href="https://overstars.github.io/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://overstars.github.io/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/","path":"2023/04/22/课程相关/CMU数据库15-445-645/","title":"CMU数据库15-445/645"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CMU数据库15-445/645 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Schedule"><span class="nav-number">1.</span> <span class="nav-text">Schedule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PROJECT"><span class="nav-number">2.</span> <span class="nav-text">PROJECT</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-Primer"><span class="nav-number"></span> <span class="nav-text">C++ Primer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HyperLogLog"><span class="nav-number">1.</span> <span class="nav-text">HyperLogLog</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Task-1-MSB"><span class="nav-number">1.1.</span> <span class="nav-text">Task #1 MSB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Task-2-LSB"><span class="nav-number">1.2.</span> <span class="nav-text">Task #2 LSB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradescope%E6%B3%A8%E5%86%8C%EF%BC%9AHow-can-people-not-enrolled-in-the-class-test-their-projects"><span class="nav-number">2.</span> <span class="nav-text">Gradescope注册：How can people not enrolled in the class test their projects?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4"><span class="nav-number">4.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">5.</span> <span class="nav-text">TODO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E6%80%BB%E4%BD%93%E6%A6%82%E8%BF%B0"><span class="nav-number">5.1.</span> <span class="nav-text">课程总体概述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HOW-TO-CHECK"><span class="nav-number">6.</span> <span class="nav-text">HOW TO CHECK</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CLion-WSL%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text">CLion+WSL环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B0%86CLion%E5%AE%98%E6%96%B9%E6%8F%90%E4%BE%9Bshell%E8%84%9A%E6%9C%AC%E6%94%BE%E5%9C%A8WSL%E7%9A%84ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%8B%E6%89%A7%E8%A1%8C"><span class="nav-number">0.1.</span> <span class="nav-text">1. 将CLion官方提供shell脚本放在WSL的ubuntu系统下执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AECLion-toolchain"><span class="nav-number">0.2.</span> <span class="nav-text">配置CLion toolchain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AECLion-Deployment"><span class="nav-number">0.3.</span> <span class="nav-text">配置CLion Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">0.4.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLion%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">CLion编译运行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E8%BF%87%E6%97%B6%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number"></span> <span class="nav-text">已过时的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%9D%90%E6%96%99"><span class="nav-number">0.1.</span> <span class="nav-text">参考材料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B"><span class="nav-number">0.2.</span> <span class="nav-text">1. 关系模型</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">I despised my soul when I saw her being meek that she might attain height.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/Overstars233" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;Overstars233" rel="noopener me" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/359920679" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;359920679" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://overstars.github.io/2023/04/22/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CMU%E6%95%B0%E6%8D%AE%E5%BA%9315-445-645/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="I despised my soul when I saw her being meek that she might attain height.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CMU数据库15-445/645 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CMU数据库15-445/645
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-04-22 16:58:29" itemprop="dateCreated datePublished" datetime="2023-04-22T16:58:29+08:00">2023-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-23 01:21:12" itemprop="dateModified" datetime="2024-12-23T01:21:12+08:00">2024-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>学弟突然对你发出了击剑邀请</p>
+<span id="more"></span>
+
+<p>建议先大概看一遍<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/637960746">CMU 15-445&#x2F;645 (Spring 2023) Database Systems 通关指北</a>。</p>
+<p>搭建好WSL2的ubuntu环境，配置好github的ssh，<strong>在WSL中clone该项目</strong>，而不是Windows下clone。不要用windows下面的账户去管控、提交WSL的git，会有文件权限变化问题。</p>
+<h2 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/schedule.html">Schedule</a></h2><table>
+<thead>
+<tr>
+<th></th>
+<th>目标</th>
+<th>周一</th>
+<th>周二</th>
+<th>周三</th>
+<th>周四</th>
+<th>周五</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Project:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project0/">C++ Primer</a><br>Homework:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/homework1/">SQL</a></td>
+<td></td>
+<td>1. 课程概述<br>2. C++ Primer</td>
+<td>1. 关系模型和代数</td>
+<td>1. 现代SQL<br>2. 作业</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Project:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project1/">Buffer Pool Manager</a><Br>Homework:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/files/hw2-clean.pdf">Storage</a></Br></td>
+<td>1. 数据库存储</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Homework:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/files/hw3-clean.pdf">Indexes &amp; Filters</a><Br>Project:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project2/">Database Index</a></Br></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Project:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project3/">Query Execution</a><Br>Homework:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/files/hw4-clean.pdf">Query Execution</a></Br></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Homework:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/files/hw5-clean.pdf">Concurrency Control</a><br>Project:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project4/">Concurrency Control</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Homework:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/files/hw6-clean.pdf">Distributed Databases</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="PROJECT"><a href="#PROJECT" class="headerlink" title="PROJECT"></a>PROJECT</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project0/">C++ Primer</a>：完成hyperloglog.h、hyperloglog_presto.h</li>
+<li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project1/">Buffer Pool Manager</a>：</li>
+<li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project2/">Database Index</a>：</li>
+<li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project3/">Query Execution</a>：</li>
+<li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project4/">Concurrency Control</a>：</li>
+</ol>
+<h1 id="C-Primer"><a href="#C-Primer" class="headerlink" title="C++ Primer"></a><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project0/">C++ Primer</a></h1><h2 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h2><p>HyperLogLog是一种概率数据结构，用于统计一个大数据集合的基数，仅使用传统方法所需内存的一小部分。</p>
+<p>使用哈希函数将每一个字符串key均匀地映射到二进制上。</p>
+<p><img src="https://15445.courses.cs.cmu.edu/fall2024/project0/img/hll-example.png" alt="HLL"></p>
+<p>定义几个值：</p>
+<ul>
+<li>$b$ ： 哈希值的前 $b$ 位作为索引，用于将哈希值的剩余位映射到某个固定的桶，一共 $2^b$ 个桶。</li>
+<li>$m$ ：桶的个数，记为 $register[m]$， $m &#x3D; 2^b$。</li>
+<li>$p$ ：最左侧第一个 $1$ 的位置。</li>
+</ul>
+<p>$$<br>CARDINALITY_{HLL}&#x3D;constant\times m \times \frac{m}{\sum^{N}_{j&#x3D;1}2^{-R_j}}<br>$$</p>
+<p>其中 $constant&#x3D;0.79402,N&#x3D;m$。</p>
+<h3 id="Task-1-MSB"><a href="#Task-1-MSB" class="headerlink" title="Task #1 MSB"></a>Task #1 MSB</h3><p><code>hyperloglog.h</code>中有几个函数需要实现：</p>
+<ul>
+<li><code>HyperLogLog(inital_bits)</code>: 桶内的前 bits (b) 会被用来计数。</li>
+<li><code>GetCardinality()</code>: 返回给定集合的基数值。</li>
+<li><code>AddElem(val)</code>: 计算并将 $val$ 放入 $register$中。</li>
+<li><code>ComputeCardinality()</code>: 根据上述公式计算基数。</li>
+</ul>
+<p>还可以再添加几个辅助函数：</p>
+<ul>
+<li><code>ComputeBinary(hash_t hash)</code>: 计算给定哈希值的二进制值。哈希值应转换为 64 位二进制（否则测试可能失败）。</li>
+<li><code>PositionOfLeftmostOne(....)</code>: 计算最左侧的1的位置。</li>
+</ul>
+<p>要计算哈希值，可以使用给定的函数：</p>
+<ul>
+<li><code>CalculateHash(...)</code> ： to calculate hash</li>
+</ul>
+<p>请参考 std::bitset 库中的二进制存储方式。当获得十进制数值时，将其转换为小于或等于十进制的最大整数。详情请参考 std::floor。</p>
+<h3 id="Task-2-LSB"><a href="#Task-2-LSB" class="headerlink" title="Task #2 LSB"></a>Task #2 LSB</h3><p>可以先看下<a target="_blank" rel="noopener" href="https://engineering.fb.com/2018/12/13/data-infrastructure/hyperloglog/">HyperLogLog in Presto</a>这篇文章，当元素较多的时候，由 $sparse$ 转为 $dense$ 模式。 </p>
+<p>In <code>hyperloglog_presto.h</code> following functions will be used for grading:</p>
+<ul>
+<li><code>GetDenseBucket()</code> - 返回密集桶数组</li>
+<li><code>GetOverflowBucketOfIdx(..)</code> -  返回给定索引的溢出位集（如果存在）。</li>
+<li><code>GetCardinality()</code> - 返回基数值</li>
+</ul>
+<p>实现以下功能：</p>
+<ul>
+<li><code>HyperLogLogPresto(initial_bits)</code>- HyperLogLogPresto 的构造函数</li>
+<li><code>AddElem()</code>- 计算并将值放入寄存器中。</li>
+<li><code>ComputeCardinality()</code>- 根据上述公式计算基数。</li>
+</ul>
+<p>为了计算哈希值，您可以使用给定的函数：</p>
+<ul>
+<li><code>CalculateHash(...)</code>- 计算哈希值</li>
+</ul>
+<h2 id="Gradescope注册：How-can-people-not-enrolled-in-the-class-test-their-projects"><a href="#Gradescope注册：How-can-people-not-enrolled-in-the-class-test-their-projects" class="headerlink" title="Gradescope注册：How can people not enrolled in the class test their projects?"></a><a target="_blank" rel="noopener" href="https://www.gradescope.com/">Gradescope</a>注册：How can people not enrolled in the class test their projects?</h2><p>项目的所有源代码均可在<a target="_blank" rel="noopener" href="https://github.com/cmu-db/bustub">Github</a>上找到。非 CMU 学生可以使用<a target="_blank" rel="noopener" href="https://www.gradescope.com/">Gradescope提交网站（入口代码： </a><code>WWWJZ5</code>）。⚠<strong>请确保将您的学校设置为“<code>Carnegie Mellon University</code>”。我们将在 CMU 学生的截止日期****之后</strong>在 Gradescope 上为非 CMU 学生提供每项作业的自动评分器。作为向公众开放此功能的交换条件，我们要求您不要在Github 或其他源代码存储库上公开您的项目实现。</p>
+<p><img src="6d5e57a4-6787-4563-80e6-f420c4aafe46.png" alt="6d5e57a4-6787-4563-80e6-f420c4aafe46"></p>
+<p>注意每年的邀请码不一样。</p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>项目中有用GTest写好的测试程序，将第二个参数的**DISABLE_**前缀去掉即可运行。 </p>
+<p>通过本地测试用例后，提交到Gradescope上进行最终的评分。</p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>将src目录下需要打包的文件用zip命令打包。</p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>看了前3P</p>
+<h3 id="课程总体概述"><a href="#课程总体概述" class="headerlink" title="课程总体概述"></a>课程总体概述</h3><p>数据库管理系统的设计与实现，并不注重与实践和应用，注重如何去构建和设计。CMU 95-703和CMU 15-415更注重实践。</p>
+<p>在这门课中需要自己构建数据库存储管理器，注意这里并不是完整的数据库系统。</p>
+<p>面向disk的数据库管理系统，支持Volcano风格查询处理，支持插拔式API，这样可以替换系统中算法，使用不同索引数据结构或者日志格式和控制方案。</p>
+<p>有五个作业：</p>
+<ol>
+<li>SQLlite数据库查询</li>
+</ol>
+<h2 id="HOW-TO-CHECK"><a href="#HOW-TO-CHECK" class="headerlink" title="HOW TO CHECK"></a>HOW TO CHECK</h2><h1 id="CLion-WSL环境配置"><a href="#CLion-WSL环境配置" class="headerlink" title="CLion+WSL环境配置"></a>CLion+WSL环境配置</h1><p><a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/clion/how-to-use-wsl-development-environment-in-product.html#wsl-tooclhain">https://www.jetbrains.com/help/clion/how-to-use-wsl-development-environment-in-product.html#wsl-tooclhain</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiexijihe945/article/details/131894202">https://blog.csdn.net/jiexijihe945/article/details/131894202</a></p>
+<h3 id="1-将CLion官方提供shell脚本放在WSL的ubuntu系统下执行"><a href="#1-将CLion官方提供shell脚本放在WSL的ubuntu系统下执行" class="headerlink" title="1. 将CLion官方提供shell脚本放在WSL的ubuntu系统下执行"></a>1. 将<a target="_blank" rel="noopener" href="https://github.com/JetBrains/clion-wsl/blob/master/ubuntu_setup_env.sh">CLion官方提供shell脚本</a>放在<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lepeCoder/p/wsl_dir.html">WSL的ubuntu系统</a>下执行</h3><p>直接执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/JetBrains/clion-wsl/master/ubuntu_setup_env.sh &amp;&amp; bash ubuntu_setup_env.sh</span><br></pre></td></tr></table></figure>
+
+<p>或者将shell拷贝到WSL中执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">SSHD_LISTEN_ADDRESS=127.0.0.1</span><br><span class="line"></span><br><span class="line">SSHD_PORT=2222</span><br><span class="line">SSHD_FILE=/etc/ssh/sshd_config</span><br><span class="line">SUDOERS_FILE=/etc/sudoers</span><br><span class="line"><span class="meta prompt_">  </span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">0. update package lists</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">0.1. reinstall sshd (workaround <span class="keyword">for</span> initial version of WSL)</span></span><br><span class="line">sudo apt remove -y --purge openssh-server</span><br><span class="line">sudo apt install -y openssh-server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">0.2. install basic dependencies</span></span><br><span class="line">sudo apt install -y cmake ninja-build gcc clang gdb valgrind build-essential</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.1. configure sshd</span></span><br><span class="line">sudo cp $SSHD_FILE $&#123;SSHD_FILE&#125;.`date &#x27;+%Y-%m-%d_%H-%M-%S&#x27;`.back</span><br><span class="line">sudo sed -i &#x27;/^Port/ d&#x27; $SSHD_FILE</span><br><span class="line">sudo sed -i &#x27;/^ListenAddress/ d&#x27; $SSHD_FILE</span><br><span class="line">sudo sed -i &#x27;/^UsePrivilegeSeparation/ d&#x27; $SSHD_FILE</span><br><span class="line">sudo sed -i &#x27;/^PasswordAuthentication/ d&#x27; $SSHD_FILE</span><br><span class="line">echo &quot;# configured by CLion&quot;      | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;ListenAddress $&#123;SSHD_LISTEN_ADDRESS&#125;&quot;    | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;Port $&#123;SSHD_PORT&#125;&quot;          | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;UsePrivilegeSeparation no&quot;  | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;PasswordAuthentication yes&quot; | sudo tee -a $SSHD_FILE</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.2. apply new settings</span></span><br><span class="line">sudo service ssh --full-restart</span><br><span class="line"><span class="meta prompt_">  </span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. autostart: run sshd</span> </span><br><span class="line">sed -i &#x27;/^sudo service ssh --full-restart/ d&#x27; ~/.bashrc</span><br><span class="line">echo &quot;%sudo ALL=(ALL) NOPASSWD: /usr/sbin/service ssh --full-restart&quot; | sudo tee -a $SUDOERS_FILE</span><br><span class="line">cat &lt;&lt; &#x27;EOF&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">sshd_status=$(service ssh status)</span><br><span class="line">if [[ $sshd_status = *&quot;is not running&quot;* ]]; then</span><br><span class="line">  sudo service ssh --full-restart</span><br><span class="line">fi</span><br><span class="line">EOF</span><br><span class="line">  </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">summary: SSHD config info</span></span><br><span class="line">echo </span><br><span class="line">echo &quot;SSH server parameters ($SSHD_FILE):&quot;</span><br><span class="line">echo &quot;ListenAddress $&#123;SSHD_LISTEN_ADDRESS&#125;&quot;</span><br><span class="line">echo &quot;Port $&#123;SSHD_PORT&#125;&quot;</span><br><span class="line">echo &quot;UsePrivilegeSeparation no&quot;</span><br><span class="line">echo &quot;PasswordAuthentication yes&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置CLion-toolchain"><a href="#配置CLion-toolchain" class="headerlink" title="配置CLion toolchain"></a>配置CLion toolchain</h3><p>在工具链中新增一个WSL。</p>
+<p>CMake中新建一个Debug-WSL.</p>
+<h3 id="配置CLion-Deployment"><a href="#配置CLion-Deployment" class="headerlink" title="配置CLion Deployment"></a>配置CLion Deployment</h3><p>设置根目录为</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/home/y</span>ankf/prj</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="QQ_1720536147174.png" alt="img"></p>
+<p>如果勾选rsync，需要另外配置，后续再说。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><img src="QQ_1720537416363.png" alt="img"></p>
+<h2 id="CLion编译运行"><a href="#CLion编译运行" class="headerlink" title="CLion编译运行"></a>CLion编译运行</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clang-format</span><br><span class="line">sudo apt-get install clang-tidy</span><br></pre></td></tr></table></figure>
+
+<p>安装后再执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf build</span><br><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">cmake ..</span><br><span class="line">make format</span><br><span class="line">make check-clang-tidy-p0</span><br></pre></td></tr></table></figure>
+
+<p>没看到报error大概就是OK的。</p>
+<h1 id="已过时的内容"><a href="#已过时的内容" class="headerlink" title="已过时的内容"></a>已过时的内容</h1><h3 id="参考材料"><a href="#参考材料" class="headerlink" title="参考材料"></a><del>参考材料</del></h3><p>教材是数据库系统概念第七版。</p>
+<p><a target="_blank" rel="noopener" href="https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/15445/">CMU 15-445: Database Systems中文简介</a></p>
+<p><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2022/schedule.html">日程表</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cmu-db/bustub">BusTub</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bQ4y1Y7iT">[中文讲解] CMU-15445 数据库内核-<strong>Moody-老师</strong></a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qf4y1J7mX">【双语字幕机翻+资料下载】CMU 14-455 | 数据库系统导论(2019·完整版)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kG4y1e7Gy">【卡内基梅隆大学】CMU-15-445&#x2F;645 Database Systems | 感觉是机翻 (Fall 2021)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rN411f7Ef">https://www.bilibili.com/video/BV1rN411f7Ef</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhenghe.gitbook.io/open-courses/cmu-15-445-645-database-systems/relational-data-model">很全的公开课笔记Fall 2019</a></p>
+<h3 id="1-关系模型"><a href="#1-关系模型" class="headerlink" title="1. 关系模型"></a><del>1. 关系模型</del></h3><ol>
+<li>关系结构：可以理解为数据表table</li>
+<li>数据完整性：</li>
+<li>操纵和访问：</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CMU-15-445-645-FALL-2020/" rel="tag"># CMU 15-445/645(FALL 2020)</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/React-Hook%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/" rel="prev" title="React Hook踩坑指南">
+                  <i class="fa fa-angle-left"></i> React Hook踩坑指南
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/04/29/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E8%B5%9B%E5%B0%94%E5%8F%B7%E5%85%B3%E5%8D%A1%E9%80%9A%E5%85%B3%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/" rel="next" title="赛尔号关卡通关方法记录">
+                  赛尔号关卡通关方法记录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.0/mermaid.min.js","integrity":"sha256-9y71g5Lz/KLsHjB8uXwnkuWDtAMDSzD/HdIbqhJfTAI="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
