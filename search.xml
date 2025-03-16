@@ -6,10 +6,8 @@
     <content><![CDATA[<p>只要许愿就可以了。</p>
 <p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=3c365e76fefaaf5184e381b7bc5594ed/0c70ceed2e738bd441314461a28b87d6267ff990.jpg" alt="img"></p>
 <span id="more"></span>
-
 <p>这里不要写工作职责内的计划。</p>
 <h2 id="HISTORY"><a href="#HISTORY" class="headerlink" title="HISTORY"></a>HISTORY</h2><a href="/2022/03/13/%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E4%B8%8E%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E4%B8%8E%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/" title="情报收集与日程安排">2022年3月~10月的情报收集与日程安排</a>
-
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
 <li>配新眼镜</li>
 <li>研究levelDB、electron</li>
@@ -42,23 +40,23 @@ section Godot Engine实践
 </li>
 </ul>
 <h2 id="职业"><a href="#职业" class="headerlink" title="职业"></a>职业</h2><ul>
-<li>定期关注相近岗位招聘描述与要求，大城市&#x2F;家附近。</li>
+<li>定期关注相近岗位招聘描述与要求，大城市/家附近。</li>
 <li>每半年至少更新一次简历（不同方面）。</li>
 <li>摸清单位各部门组成和职责范围，统计所在部门相关业务。</li>
 <li><a href="https://zhuanlan.zhihu.com/p/686288683">Java程序员练级路线</a></li>
 </ul>
 <h3 id="JOBS"><a href="#JOBS" class="headerlink" title="JOBS"></a>JOBS</h3><ul>
-<li><a href="https://jobs.bytedance.com/experienced/position?keywords=&category=6704215862557018372&location=CT_11&project=&type=&job_hot_flag=&current=1&limit=10&functionCategory=&tag=&city_tracking=location">字节跳动招聘 (bytedance.com)</a></li>
+<li><a href="https://jobs.bytedance.com/experienced/position?keywords=&amp;category=6704215862557018372&amp;location=CT_11&amp;project=&amp;type=&amp;job_hot_flag=&amp;current=1&amp;limit=10&amp;functionCategory=&amp;tag=&amp;city_tracking=location">字节跳动招聘 (bytedance.com)</a></li>
 <li><a href="https://doocs.github.io/leetcode/lcof/3/">https://doocs.github.io/leetcode/lcof/3/</a></li>
 <li><a href="https://www.104.com.tw/company/1a2x6bjizw?jobsource=company_job">SIGONO_信革數位有限公司『遊戲工程師』</a></li>
-<li><a href="https://mthreads.zhiye.com/social/detail?jobAdId=c9173988-5934-40cd-82d7-ecc7ae50c29d">GPU计算-GPU通用计算与AI软件工程师&#x2F;架构师（社招&#x2F;实习）</a></li>
+<li><a href="https://mthreads.zhiye.com/social/detail?jobAdId=c9173988-5934-40cd-82d7-ecc7ae50c29d">GPU计算-GPU通用计算与AI软件工程师/架构师（社招/实习）</a></li>
 </ul>
 <h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
 <li>记住一些简单的fps英文交流短句，<a href="https://www.bilibili.com/read/cv19850264">【Apex Legends】最新手动整合 全方面英文名词&amp;常用短语</a>。</li>
 <li>赛尔号月中准备上分，随便打打，感觉很难掉分。</li>
 </ul>
 <h2 id="LEARNING"><a href="#LEARNING" class="headerlink" title="LEARNING"></a>LEARNING</h2><ul>
-<li><a href="https://github.com/gonglei007/GameDevMind#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1">游戏开发-技术图谱</a></li>
+<li><a href="https://github.com/gonglei007/GameDevMind#游戏开发-技术图谱">游戏开发-技术图谱</a></li>
 <li><a href="https://design.jskyzero.com/">想做游戏的初衷是『制造欢乐，传播感动』</a></li>
 <li><a href="https://github.com/csseky/cskaoyan">cskaoyan-提供计算机考研和软件工程考研专业的各个学校 考研真题</a></li>
 </ul>
@@ -69,10 +67,10 @@ section Godot Engine实践
 <li><a href="https://github.com/bethrobson/Head-First-Design-Patterns">Head-First-Design-Patterns</a></li>
 </ul>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
-<li><a href="https://spec.openapis.org/oas/v3.1.0">开放 API 规范使用 OpenAPI Specification v3.1.0</a></li>
-</ul>
-<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
-<li><a href="https://www.sqlite.org/testing.html">https://www.sqlite.org/testing.html</a></li>
+<li><p><a href="https://spec.openapis.org/oas/v3.1.0">开放 API 规范使用 OpenAPI Specification v3.1.0</a></p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3></li>
+<li><p><a href="https://www.sqlite.org/testing.html">https://www.sqlite.org/testing.html</a></p>
+</li>
 </ul>
 <h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><ul>
 <li><a href="https://yeasy.gitbook.io/docker_practice">Docker — 从入门到实践</a></li>
@@ -80,120 +78,22 @@ section Godot Engine实践
 <h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><ul>
 <li><a href="https://github.com/seisman/how-to-write-makefile">how-to-write-makefile-跟我一起写Makefile重制版</a></li>
 <li><a href="https://www.learncpp.com/">https://www.learncpp.com/</a></li>
-<li><a href="https://github.com/aitjcize/cppman">cppman</a>，C++ 98&#x2F;11&#x2F;14 手册查询 for Linux&#x2F;MacOS</li>
+<li><a href="https://github.com/aitjcize/cppman">cppman</a>，C++ 98/11/14 手册查询 for Linux/MacOS</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1204r0.html">C++项目文件组织方式</a></li>
 </ul>
 <h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><ul>
-<li><a href="https://github.com/BingKui/javascript-zh#airbnb-javascript-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83-">Airbnb JavaScript 代码规范</a></li>
+<li><a href="https://github.com/BingKui/javascript-zh#airbnb-javascript-代码规范-">Airbnb JavaScript 代码规范</a></li>
 <li><a href="https://javabetter.cn/home.html">https://javabetter.cn/home.html</a></li>
 <li><a href="https://github.com/Rodert/JavaPub">javapub.net.cn</a></li>
+<li><a href="https://spring.io/why-spring">Why Spring?</a></li>
+<li><a href="https://spring4all.com/spring-guides">Spring官方教程中文版本</a></li>
 </ul>
 <h2 id="PROJECT"><a href="#PROJECT" class="headerlink" title="PROJECT"></a>PROJECT</h2><h3 id="兴趣协作"><a href="#兴趣协作" class="headerlink" title="兴趣协作"></a>兴趣协作</h3><ul>
 <li><a href="https://github.com/MewX/cross-channel_chinese-localization_project">CROSS†CHANNEL 中文化（汉化）项目</a></li>
 <li><a href="https://github.com/odabugs/kof13-hitboxes">kof13-hitboxes</a>。以及使用描述<a href="https://dreamcancel.com/2014/06/kof-xiii-se-hitbox-viewer/">KOF XIII SE HITBOX VIEWER</a></li>
-<li><a href="https://github.com/QQxiaoming/TTFviewer">TTFviewer-一款用于开发人员查看预览各种ttf字体&#x2F;图标图像格式的小工具</a></li>
+<li><a href="https://github.com/QQxiaoming/TTFviewer">TTFviewer-一款用于开发人员查看预览各种ttf字体/图标图像格式的小工具</a></li>
 <li><a href="https://github.com/mermaid-js/mermaid">Mermaid-Generate diagrams from markdown-like text.</a></li>
 <li><a href="http://defiplot.com/blog/crypto-arbitrage-bot-dev-guide/">Crypto套利机器人开发指南</a></li>
-</ul>
-<h2 id="MUSIC"><a href="#MUSIC" class="headerlink" title="MUSIC"></a>MUSIC</h2><ul>
-<li><a href="https://github.com/LMMS/lmms/wiki/Accessing-git-repository">LMMS</a></li>
-</ul>
-<h3 id="电吉他基础装备"><a href="#电吉他基础装备" class="headerlink" title="电吉他基础装备"></a>电吉他基础装备</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>用途</th>
-<th>购买标准</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>电吉他</td>
-<td></td>
-<td>要自己喜欢的<BR>- 音准<BR>- 外观<Br>- 手感</Br></BR></BR></td>
-<td></td>
-</tr>
-<tr>
-<td>吉他音箱</td>
-<td></td>
-<td>根据练习环境去选</td>
-<td></td>
-</tr>
-<tr>
-<td>导线</td>
-<td>连接吉他与音箱</td>
-<td>品质、长度、线材牢固<br>6.5mm双头2根，3.5mm双头1根</td>
-<td></td>
-</tr>
-<tr>
-<td>琴弦</td>
-<td>琴弦可是消耗品</td>
-<td>每天只弹一小时，每个月换一次</td>
-<td></td>
-</tr>
-<tr>
-<td>拨片</td>
-<td>拨动琴弦，发出声响</td>
-<td>0.85mm~1.2mm厚</td>
-<td></td>
-</tr>
-<tr>
-<td>调音器</td>
-<td>每次使用前都必须调音，不能干弹琴</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>节拍器</td>
-<td></td>
-<td>用软件的就行，机械节拍器需要绝对水平而且不能调音量，还需要频繁地上发条<Br>买个typeC转aux的转接头，手机直连音箱</Br></td>
-<td></td>
-</tr>
-<tr>
-<td>监听耳机</td>
-<td>室内练习用，还原最真实音色。也不能一直用耳机练，很伤耳朵。</td>
-<td>飞利浦9500、<a href="http://www.erji.net/forum.php?mod=viewthread&tid=2327448">森海hd400</a></td>
-<td></td>
-</tr>
-<tr>
-<td>指板油</td>
-<td></td>
-<td>一个月擦一次指板油</td>
-<td></td>
-</tr>
-</tbody></table>
-<p><img src="https://img.alicdn.com/imgextra/i4/3005763624/O1CN0142FGw01cdqKqsNKSP_!!3005763624.jpg" alt="img"></p>
-<p><img src="https://img.alicdn.com/imgextra/i2/639029193/O1CN01CAF7jH2HmS3F6kmQd_!!639029193.jpg" alt="SPARK Mini"></p>
-<p>可能还得弄个监听耳机，以还原最真实音色。目前用的旋风黑鲨V2极速版只支持USB Type C 接收器。</p>
-<h3 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h3><ul>
-<li>节拍：练琴记得开节拍器，节拍是最重要的，跟节拍器打拍子。</li>
-<li>护弦：左手和右手制住不该发出声音的弦，不要出现杂音。可以开失真，杂音会被失真会放大，但增益不能高到听不清拨弦力度变化。</li>
-<li><strong>手型</strong>、右手拨片找弦：注意拿拨片的姿势，大量的爬格子音阶练习打好基础。</li>
-<li>手指机能、左右手协调：左右手协调不好，节奏会出问题。</li>
-<li>五线谱：谱面表达，交流都离不开五线谱。</li>
-<li>音符演奏思维：不要急于求成，六线谱对应的是坐标，和音乐没有直接关系，贪多嚼不烂。</li>
-<li>音准训练：绝对音感，参考<a href="https://perfectpitch.training/zh/pitch-matching-exercises">针对练耳训练的音准练习</a>。15分钟&#x2F;天。</li>
-<li><a href="https://zhuanlan.zhihu.com/p/634113076">视唱练耳</a>：看着乐谱来唱，唱出音符的正确音高和时值。获知音乐材料的音符构成，节奏特征，和声特性等。</li>
-<li>乐理：学习乐理前要有对应的音乐欣赏基础。</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>一种乐器请至少一年再碰别的，各种乐器姿势指法、音阶指型几乎完全不一样。</li>
-<li><strong>不练即兴</strong>，现成的曲子练流畅再说。</li>
-<li>搞清自己的定位，不死磕超出能力范围的曲子，不要骗自己。</li>
-<li>弹奏大量的能力范围内的简单曲子，不要每天练同样的曲目。只有大量的不同的曲目、音阶、调式组合，才能真正的熟悉指板。</li>
-<li>教材：《创意吉他》、伯克利现代吉他第一册、童忠良“音乐自学丛书·作曲卷”《基本乐理教程》。</li>
-<li>琴要放琴箱，做好经常换弦的准备。保养要准备一些琴颈矫正工具、指板油、抹布等等。</li>
-<li>买个舒适的背带，<strong>站着弹琴</strong>，腰杆子和脖子挺直。</li>
-<li>耳机音量一定要小。</li>
-<li>要大力拨弦。</li>
-<li>所有设备均<strong>不允许热插拔</strong>，接电&#x2F;断电前，务必使设备处于关闭状态。</li>
-</ul>
-<h3 id="电吉他保养"><a href="#电吉他保养" class="headerlink" title="电吉他保养"></a>电吉他保养</h3><ul>
-<li>湿度40%-60%之间，温度在20-25℃。</li>
-<li>不用的时候放琴箱里，再放两包干燥剂。</li>
-<li>弹完擦琴。</li>
-<li>琴弦尽量别超过2个月换一次，elixir的最长也别超过半年。</li>
-<li>如果存放时间超过一个月，可适当松一点琴弦。</li>
 </ul>
 <h3 id="经验、博客"><a href="#经验、博客" class="headerlink" title="经验、博客"></a>经验、博客</h3><ul>
 <li><p><a href="https://www.ohmusictheory.com/music101">乐理101－乐理原来可以这么学</a>。</p>
@@ -227,19 +127,19 @@ section Godot Engine实践
 <li><a href="https://github.com/EZLippi/Tinyhttpd">Tinyhttpd-Tinyhttpd 是J. David Blackstone在1999年写的一个不到 500 行的超轻量型 Http Server</a></li>
 <li><a href="https://www.zhihu.com/question/20792016/answer/2969973681">有哪些值得推荐的小型 C 语言开源项目？ - 程序喵大人的回答 - 知乎</a></li>
 <li><a href="https://github.com/microsoft/calculator">microsoft calculator，C++编写</a></li>
-<li><a href="https://github.com/netcan/asyncio">asyncio-C++20 库，用于使用 async&#x2F;await 语法编写并发代码。</a></li>
+<li><a href="https://github.com/netcan/asyncio">asyncio-C++20 库，用于使用 async/await 语法编写并发代码。</a></li>
 <li>althttpd</li>
 <li><a href="https://github.com/gozfree/gear-lib/blob/master/README.cn.md">Gear-Lib 一组通用的Ｃ基础库</a></li>
 <li><a href="https://abseil.io/docs/cpp/">Google内部的C++轮子库</a></li>
 <li>zlog<a href="https://hardysimpson.github.io/zlog/UsersGuide-CN.html#note1">1</a>使用手册</li>
 <li><a href="https://github.com/vit-vit/ctpl">CTPL - Modern and efficient C++ Thread Pool Library简易C++线程池</a></li>
 <li><a href="https://github.com/microsoft/proxy">Proxy: Next Generation Polymorphism in C++</a>，很牛逼，但是看不懂，还是别看了</li>
-<li><a href="https://github.com/Genymobile/scrcpy">scrcpy (v3.0)- 电脑操作手机</a></li>
-</ul>
-<h3 id="Java类"><a href="#Java类" class="headerlink" title="Java类"></a>Java类</h3><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/669530945">platform-sms</a></li>
-<li><a href="https://gitee.com/dromara">dromara-简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件Java</a> &#x2F; <a href="https://gitee.com/dromara/Jpom">Jpom</a></li>
-<li><a href="https://gitee.com/RenZhenGongZuo">认真工作-存放基础组件的Java仓库</a> &#x2F; <a href="https://gitee.com/RenZhenGongZuo/base-components">base-components</a></li>
+<li><p><a href="https://github.com/Genymobile/scrcpy">scrcpy (v3.0)- 电脑操作手机</a></p>
+<h3 id="Java类"><a href="#Java类" class="headerlink" title="Java类"></a>Java类</h3></li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/669530945">platform-sms</a></p>
+</li>
+<li><a href="https://gitee.com/dromara">dromara-简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件Java</a> / <a href="https://gitee.com/dromara/Jpom">Jpom</a></li>
+<li><a href="https://gitee.com/RenZhenGongZuo">认真工作-存放基础组件的Java仓库</a> / <a href="https://gitee.com/RenZhenGongZuo/base-components">base-components</a></li>
 <li><a href="https://github.com/lucinhu/bili_you">Bili You - 一个用flutter制作的第三方B站客户端</a></li>
 <li><a href="https://xuzongbao.gitbooks.io/quartz/content/">作业调度系统—Quarzt</a></li>
 </ul>
@@ -261,7 +161,7 @@ section Godot Engine实践
 <li><a href="https://google.com/logos/2013/drwho/drwho.html">https://google.com/logos/2013/drwho/drwho.html</a></li>
 </ul>
 <h3 id="工具网站"><a href="#工具网站" class="headerlink" title="工具网站"></a>工具网站</h3><ul>
-<li><a href="https://postimages.org/">Postimages — 免费图片托管 &#x2F; 图片上传</a></li>
+<li><a href="https://postimages.org/">Postimages — 免费图片托管 / 图片上传</a></li>
 <li><a href="https://www.bilibili.com/read/cv10511652/">https://www.bilibili.com/read/cv10511652/</a>)</li>
 <li><a href="https://www.exophase.com/login/">个人跨平台游玩信息追踪网站</a></li>
 <li><a href="https://xlog.app/about">书写在 区块链 上的 开源 创作社区。</a></li>
@@ -269,7 +169,7 @@ section Godot Engine实践
 </ul>
 <h2 id="旅游计划以及参考案例"><a href="#旅游计划以及参考案例" class="headerlink" title="旅游计划以及参考案例"></a>旅游计划以及参考案例</h2><ul>
 <li><a href="https://blog.gadore.top/archives/1696731193879/">记2023年9月日本旅行策划过程</a></li>
-<li><a href="https://www.asecarc.top/p/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%B5%B7%E4%BB%80%E4%B9%88%E5%90%8D%E6%80%BB%E4%B9%8B%E6%98%AF%E6%97%A5%E6%9C%AC%E6%B8%B8%E8%AE%B0/">不知道起什么名，总之是日本游记</a></li>
+<li><a href="https://www.asecarc.top/p/不知道起什么名总之是日本游记/">不知道起什么名，总之是日本游记</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -278,6 +178,154 @@ section Godot Engine实践
       <tags>
         <tag>整活</tag>
         <tag>TODO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电吉他临时专题</title>
+    <url>/2025/03/16/%E9%9F%B3%E4%B9%90/%E7%94%B5%E5%90%89%E4%BB%96%E4%B8%B4%E6%97%B6%E4%B8%93%E9%A2%98/</url>
+    <content><![CDATA[<p>我想起来了😭，我全都想起来了😭，我一直是SNK新世界乐曲杂技团的粉丝啊😭😭😭。</p>
+<span id="more"></span>
+<h3 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h3><ul>
+<li>节拍：练琴记得开节拍器，节拍是最重要的，跟节拍器打拍子。</li>
+<li>护弦：左手和右手制住不该发出声音的弦，不要出现杂音。可以开失真，杂音会被失真会放大，但增益不能高到听不清拨弦力度变化。</li>
+<li><strong>手型</strong>、右手拨片找弦：注意拿拨片的姿势，大量的爬格子音阶练习打好基础。</li>
+<li>手指机能、左右手协调：左右手协调不好，节奏会出问题。</li>
+<li>五线谱：谱面表达，交流都离不开五线谱。</li>
+<li>音符演奏思维：不要急于求成，六线谱对应的是坐标，和音乐没有直接关系，贪多嚼不烂。</li>
+<li>音准训练：绝对音感，参考<a href="https://perfectpitch.training/zh/pitch-matching-exercises">针对练耳训练的音准练习</a>。15分钟/天。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/634113076">视唱练耳</a>：看着乐谱来唱，唱出音符的正确音高和时值。获知音乐材料的音符构成，节奏特征，和声特性等。</li>
+<li>乐理：学习乐理前要有对应的音乐欣赏基础。</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>一种乐器请至少一年再碰别的，各种乐器姿势指法、音阶指型几乎完全不一样。</li>
+<li><strong>不练即兴</strong>，现成的曲子练流畅再说。</li>
+<li>搞清自己的定位，不死磕超出能力范围的曲子，不要骗自己。</li>
+<li>弹奏大量的能力范围内的简单曲子，不要每天练同样的曲目。只有大量的不同的曲目、音阶、调式组合，才能真正的熟悉指板。</li>
+<li>琴要放琴箱，做好经常换弦的准备。保养要准备一些琴颈矫正工具、指板油、抹布等等。</li>
+<li>买个舒适的背带，<strong>站着弹琴</strong>，腰杆子和脖子挺直。</li>
+<li>耳机音量一定要小。</li>
+<li>要大力拨弦。</li>
+<li>所有设备均<strong>不允许热插拔</strong>，接电/断电前，务必使设备处于关闭状态。</li>
+</ul>
+<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p>乐理并不是特别必要，也可以不先学乐理直接看这些视频。</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1Jb41147Mn">第一季 史上最良心的电吉他教程【入坑理论篇】</a>：弹吉他前先快速过一遍。</li>
+<li><a href="https://www.bilibili.com/video/BV1FT411Z7iu/">【完整版】全网最简单的《电吉他系统教程1》适合零基础自学入门</a>：大概100学时，每天至少2小时，手指机能、音阶和弦、节奏视唱类、歌曲演奏每类至少练习半小时。全部流程走完大概就知道自己该练什么了。</li>
+</ul>
+<h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><p>教材：童忠良“音乐自学丛书·作曲卷”《基本乐理教程》、《英皇乐理简明教程》。</p>
+<p>《小林克己摇滚吉他教室》、《伯克利现代吉他第一册》、《创意吉他》。</p>
+<h2 id="学习顺序"><a href="#学习顺序" class="headerlink" title="学习顺序"></a><a href="https://www.zhihu.com/question/493579933/answer/2183208264">学习顺序</a></h2><ol>
+<li>持琴姿势，左手按弦姿势，右手拨弦方法，拨片拨弦方法，<a href="https://zhida.zhihu.com/search?content_id=427027952&amp;content_type=Answer&amp;match_order=1&amp;q=半音阶&amp;zhida_source=entity">半音阶</a>练习方法。</li>
+<li>各种音阶和指型</li>
+<li>和弦</li>
+<li>节奏</li>
+<li>电吉他技巧（推弦）</li>
+<li>电吉他技巧（勾击弦，滑音，点弦）</li>
+<li>布鲁斯入门（比如12小节伴奏，和简单的布鲁斯乐句）</li>
+<li>即兴演奏</li>
+</ol>
+<p>一共8节课，每周一节课，1-2小时，这些东西，够练1-3年。</p>
+<p>参考教材，小林克己~</p>
+<h2 id="装备使用"><a href="#装备使用" class="headerlink" title="装备使用"></a>装备使用</h2><p>买了一把<a href="https://www.fastgz.com/products/view.asp?id=7294">FSR Sonic系列 Strat，月桂木指板，黑色护板，极地白</a>。</p>
+<p><img src="https://www.fastgz.com/files/products/small/month_2310/fc5i_0373151580_sqr_ins_frt_1_rr_860.png" alt="FSR Sonic系列 Strat，月桂木指板，黑色护板，极地白"></p>
+<h3 id="电吉他保养"><a href="#电吉他保养" class="headerlink" title="电吉他保养"></a>电吉他保养</h3><ul>
+<li>湿度40%-60%之间，温度在20-25℃。</li>
+<li>不用的时候放琴箱里，再放两包干燥剂。</li>
+<li>弹完擦琴。</li>
+<li>琴弦尽量别超过2个月换一次，elixir的最长也别超过半年。</li>
+<li>如果存放时间超过一个月，可适当松一点琴弦。</li>
+</ul>
+<h3 id="背带怎么安装"><a href="#背带怎么安装" class="headerlink" title="背带怎么安装"></a>背带怎么安装</h3><p>背带两端直接扣在尾钉上就行。</p>
+<h3 id="持琴姿势"><a href="#持琴姿势" class="headerlink" title="持琴姿势"></a>持琴姿势</h3><h3 id="调音"><a href="#调音" class="headerlink" title="调音"></a><a href="https://www.bilibili.com/video/BV1sZ4y1m7GB/">调音</a></h3><p>APP调音：下载Guitar Tuna这个app，或者Fender Tune，手机放在右侧大腿上。右手拨弦，拨弦位置随意，左手调旋钮，注意不要扭错。六弦识别不到的话可以试试紧下弦，有可能是因为太低了落在范围外不识别了。</p>
+<p>调音器调音：夹式调音器会比APP调音更准确。调音器会显示音名，六根弦从低到高的音名分别为E2 A2 D3 G3 B3 E4。</p>
+<h3 id="换弦"><a href="#换弦" class="headerlink" title="换弦"></a>换弦</h3><p>Squier Sonic，买09-42的弦，可以换<a href="https://item.taobao.com/item.htm?id=15707588774&amp;from=cart&amp;skuId=4930282623634">Elixir</a>的防锈弦，质量比较好。</p>
+<h3 id="指板油"><a href="#指板油" class="headerlink" title="指板油"></a>指板油</h3><h2 id="MUSIC"><a href="#MUSIC" class="headerlink" title="MUSIC"></a>MUSIC</h2><ul>
+<li><a href="https://github.com/LMMS/lmms/wiki/Accessing-git-repository">LMMS</a></li>
+</ul>
+<h3 id="电吉他基础装备"><a href="#电吉他基础装备" class="headerlink" title="电吉他基础装备"></a>电吉他基础装备</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>用途</th>
+<th>购买标准</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电吉他</td>
+<td></td>
+<td>要自己喜欢的<BR>- 音准<BR>- 外观<Br>- 手感</Br></BR></BR></td>
+<td></td>
+</tr>
+<tr>
+<td>吉他音箱</td>
+<td></td>
+<td>根据练习环境去选</td>
+<td></td>
+</tr>
+<tr>
+<td>导线</td>
+<td>连接吉他与音箱</td>
+<td>品质、长度、线材牢固<br>6.5mm双头2根，3.5mm双头1根</td>
+<td></td>
+</tr>
+<tr>
+<td>琴弦</td>
+<td>琴弦可是消耗品</td>
+<td>每天只弹一小时，每个月换一次</td>
+<td></td>
+</tr>
+<tr>
+<td>拨片</td>
+<td>拨动琴弦，发出声响</td>
+<td>0.85mm~1.2mm厚，听说1.5mm也不错</td>
+<td></td>
+</tr>
+<tr>
+<td>调音器</td>
+<td>每次使用前都必须调音，不能干弹琴</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>节拍器</td>
+<td></td>
+<td>用软件的就行，机械节拍器需要绝对水平而且不能调音量，还需要频繁地上发条<Br>买个typeC转aux的转接头，手机直连音箱</Br></td>
+<td></td>
+</tr>
+<tr>
+<td>监听耳机</td>
+<td>室内练习用，还原最真实音色。也不能一直用耳机练，很伤耳朵。</td>
+<td>飞利浦9500、<a href="http://www.erji.net/forum.php?mod=viewthread&amp;tid=2327448">森海hd400</a></td>
+<td></td>
+</tr>
+<tr>
+<td>指板油</td>
+<td></td>
+<td>一个月擦一次指板油</td>
+<td></td>
+</tr>
+<tr>
+<td>琴架</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="https://img.alicdn.com/imgextra/i4/3005763624/O1CN0142FGw01cdqKqsNKSP_!!3005763624.jpg" alt="img"></p>
+<p><img src="https://img.alicdn.com/imgextra/i2/639029193/O1CN01CAF7jH2HmS3F6kmQd_!!639029193.jpg" alt="SPARK Mini"></p>
+<p>可能还得弄个监听耳机，以还原最真实音色。目前用的旋风黑鲨V2极速版只支持USB Type C 接收器。</p>
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
+      <categories>
+        <category>音乐</category>
+        <category>电吉他</category>
+      </categories>
+      <tags>
+        <tag>音乐</tag>
+        <tag>电吉他</tag>
       </tags>
   </entry>
   <entry>
@@ -894,7 +942,8 @@ section Godot Engine实践
 <li><a href="http://www.crac.org.cn/Home/Index">中国无线电协会业余无线电分会</a></li>
 <li><a href="http://xt.bjwxdxh.org.cn/memberindex/">业余无线电台操作技术能力验证平台</a>，也可以看这个<a href="http://xt.bjwxdxh.org.cn/static/member/#/static/member/home">北京无线电协会业余无线电服务平台</a></li>
 </ul>
-<h2 id="备考"><a href="#备考" class="headerlink" title="备考"></a>备考</h2><p>可以在CRAC平台的资料下载里下载v20211022的题库包。</p>
+<h2 id="备考"><a href="#备考" class="headerlink" title="备考"></a>备考</h2><p>把该知乎文章通读一遍，然后去微信小程序：HAM模拟考试，刷一遍真题，然后多做几遍模拟测试就差不多了。</p>
+<p>可以在CRAC平台的资料下载里下载v20211022的题库包。</p>
 <ul>
 <li><a href="https://www.zhihu.com/tardis/bd/art/344389487">业余无线电（HAM）A类操作证考试教程</a>。</li>
 <li><a href="https://www.cqid.cn/">业余无线电模拟考试平台</a>。</li>
@@ -920,23 +969,25 @@ section Godot Engine实践
 <li>本地通信FM，远距离SSB。</li>
 <li>业余无线电普遍使用的同轴电缆特性阻抗：50欧姆。</li>
 <li>ITU分区：五个。</li>
-<li>先到原核发执照的无线电管理机构办理申请注销原业余无线电台，再到迁入地的地方无线电管理机构办理申请设置业余无线电台的手续</li>
+<li>先到原核发执照的无线电管理机构办理申请注销原业余无线电台，再到迁入地的地方无线电管理机构办理申请设置业余无线电台的手续。</li>
+<li>CQ的意思是<strong>广泛播报</strong>，希望<strong>任何电台</strong>接收你的信号并与你联络。</li>
+<li>直立天线电磁波电场垂直于地面。</li>
 </ul>
 <h2 id="常用短语"><a href="#常用短语" class="headerlink" title="常用短语"></a>常用短语</h2><h3 id="Q短语"><a href="#Q短语" class="headerlink" title="Q短语"></a>Q短语</h3><ul>
 <li><strong>QRM 你受到他台（人为）干扰吗？ 我正受到他台干扰 1.无 2.稍有 3.中等 4.严重 5.极端</strong></li>
 <li><strong>QRN 你受到天电（自然）干扰吗？ 我正受到天电干扰 1.无 2.稍有 3.中等 4.严重 5.极端</strong></li>
-<li><strong>QRZ? 谁在呼叫我？ …KHz&#x2F;MHz正在呼叫你</strong></li>
+<li><strong>QRZ? 谁在呼叫我？ …KHz/MHz正在呼叫你</strong></li>
 <li><strong>QSL 你确认收妥／QSL卡片吗？ 我确认收妥／QSL卡片</strong></li>
 <li><strong>QTH 你的地理位置是？ 我的地理位置是…</strong></li>
 </ul>
 <h3 id="缩略语"><a href="#缩略语" class="headerlink" title="缩略语"></a>缩略语</h3><ul>
 <li><strong>OM OLD MAN 老“火腿”、老朋友</strong></li>
 <li><strong>ANT ANTENNA 天线</strong></li>
-<li>*<strong>R ROGER、RECEIVED 收到了</strong></li>
+<li><strong>*R ROGER、RECEIVED 收到了</strong></li>
 <li><strong>RX、RCVR RECEIVER 接收机</strong></li>
 <li><strong>RF RADIO FREQUENCY （各种类型的）无线电波</strong></li>
 <li><strong>RIG STATION EQUPMENT 电台设备</strong></li>
-<li>*<strong>DF DIRECTION FINDING 测向</strong></li>
+<li><strong>*DF DIRECTION FINDING 测向</strong></li>
 <li><strong>ARDF Amateur radio direction finding 业余无线电测向</strong></li>
 <li><strong>FREQ、FQ FREQUENCY 频率</strong></li>
 <li><strong>TX、XMTR TRANSMITTER 发射机</strong></li>
@@ -1311,10 +1362,11 @@ section Godot Engine实践
   <entry>
     <title>盘点一些有用的工具应用和网站</title>
     <url>/2024/10/19/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E7%9B%98%E7%82%B9%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8%E5%92%8C%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<span id="more"></span>
-
+    <content><![CDATA[<p>如题</p>
+<span id="more"></span>
 <h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p><a href="https://www.freecodecamp.org/chinese/news/how-to-google-like-a-pro-10-tips-for-effective-googling/">如何像专家一样高效使用 Google 搜索</a></p>
-<h2 id="梯子"><a href="#梯子" class="headerlink" title="梯子"></a>梯子</h2><table>
+<h2 id="梯子"><a href="#梯子" class="headerlink" title="梯子"></a>梯子</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1322,7 +1374,8 @@ section Godot Engine实践
 <th></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a href="https://zhaotizi.site/">找梯子啊</a></td>
 <td></td>
 <td></td>
@@ -1335,10 +1388,12 @@ section Godot Engine实践
 <tr>
 <td></td>
 <td></td>
-<td></td>
 </tr>
-</tbody></table>
-<h3 id="在线编辑器"><a href="#在线编辑器" class="headerlink" title="在线编辑器"></a>在线编辑器</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="在线编辑器"><a href="#在线编辑器" class="headerlink" title="在线编辑器"></a>在线编辑器</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1347,8 +1402,9 @@ section Godot Engine实践
 <th></th>
 </tr>
 </thead>
-<tbody><tr>
-<td><a href="https://markdown.lovejade.cn/">Arya - 在线 Markdown 编辑器</a></td>
+<tbody>
+<tr>
+<td><a href="https://markdown.lovejade.cn">Arya - 在线 Markdown 编辑器</a></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1375,9 +1431,10 @@ section Godot Engine实践
 <td><a href="https://github.com/lihongyao/Blogs/blob/master/057.%20ABC%E8%AE%B0%E8%B0%B1%E6%B3%95.md">ABC记谱法</a></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="Typora定制"><a href="#Typora定制" class="headerlink" title="Typora定制"></a>Typora定制</h2><p><a href="https://github.com/typora-community-plugin/typora-community-plugin?tab=readme-ov-file">Typora社区插件市场</a></p>
 <h3 id="abc-js支持"><a href="#abc-js支持" class="headerlink" title="abc.js支持"></a>abc.js支持</h3><p>参考<a href="https://github.com/typora/typora-issues/issues/2356">[feature] Adding musical ABC notation</a>这个issue，有版本要求，0.9.7下面没有appsrc这个文件夹。</p>
 <p>Env: Typora:0.11.8，windows10, abcjs-v6.0.0-beta.33</p>
