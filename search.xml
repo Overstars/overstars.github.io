@@ -6,10 +6,8 @@
     <content><![CDATA[<p>只要许愿就可以了。</p>
 <p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=3c365e76fefaaf5184e381b7bc5594ed/0c70ceed2e738bd441314461a28b87d6267ff990.jpg" alt="img"></p>
 <span id="more"></span>
-
 <p>这里不要写工作职责内的计划。</p>
 <h2 id="HISTORY"><a href="#HISTORY" class="headerlink" title="HISTORY"></a>HISTORY</h2><a href="/2022/03/13/%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E4%B8%8E%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E4%B8%8E%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/" title="情报收集与日程安排">2022年3月~10月的情报收集与日程安排</a>
-
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
 <li>配新眼镜</li>
 <li>研究levelDB、electron</li>
@@ -17,6 +15,7 @@
 <li>搞点MyGO周边</li>
 <li>学转单位的呼啦圈</li>
 <li>让BING收录该博客</li>
+<li>重新配一套电脑，27寸屏+N卡+非丐板+小一点的机箱</li>
 </ul>
 <pre class="mermaid">gantt
 title 工作计划
@@ -33,7 +32,7 @@ section Godot Engine实践
     观看教程 : 10d
     上手实践（下载demo并运行） : 7d</pre>
 
-<h2 id="守则"><a href="#守则" class="headerlink" title="守则"></a>守则</h2><ul>
+<h2 id="Android-Compose"><a href="#Android-Compose" class="headerlink" title="Android Compose"></a>Android Compose</h2><h2 id="守则"><a href="#守则" class="headerlink" title="守则"></a>守则</h2><ul>
 <li><p>拒绝临时的游戏邀约，开黑需要在当日20点之前提出预定。</p>
 </li>
 <li><p>不要等待赛尔号开服拖到后半夜才睡，在白天使用脱机工具扫荡，尽可能自动化。</p>
@@ -42,23 +41,23 @@ section Godot Engine实践
 </li>
 </ul>
 <h2 id="职业"><a href="#职业" class="headerlink" title="职业"></a>职业</h2><ul>
-<li>定期关注相近岗位招聘描述与要求，大城市&#x2F;家附近。</li>
+<li>定期关注相近岗位招聘描述与要求，大城市/家附近。</li>
 <li>每半年至少更新一次简历（不同方面）。</li>
 <li>摸清单位各部门组成和职责范围，统计所在部门相关业务。</li>
 <li><a href="https://zhuanlan.zhihu.com/p/686288683">Java程序员练级路线</a></li>
 </ul>
 <h3 id="JOBS"><a href="#JOBS" class="headerlink" title="JOBS"></a>JOBS</h3><ul>
-<li><a href="https://jobs.bytedance.com/experienced/position?keywords=&category=6704215862557018372&location=CT_11&project=&type=&job_hot_flag=&current=1&limit=10&functionCategory=&tag=&city_tracking=location">字节跳动招聘 (bytedance.com)</a></li>
+<li><a href="https://jobs.bytedance.com/experienced/position?keywords=&amp;category=6704215862557018372&amp;location=CT_11&amp;project=&amp;type=&amp;job_hot_flag=&amp;current=1&amp;limit=10&amp;functionCategory=&amp;tag=&amp;city_tracking=location">字节跳动招聘 (bytedance.com)</a></li>
 <li><a href="https://doocs.github.io/leetcode/lcof/3/">https://doocs.github.io/leetcode/lcof/3/</a></li>
 <li><a href="https://www.104.com.tw/company/1a2x6bjizw?jobsource=company_job">SIGONO_信革數位有限公司『遊戲工程師』</a></li>
-<li><a href="https://mthreads.zhiye.com/social/detail?jobAdId=c9173988-5934-40cd-82d7-ecc7ae50c29d">GPU计算-GPU通用计算与AI软件工程师&#x2F;架构师（社招&#x2F;实习）</a></li>
+<li><a href="https://mthreads.zhiye.com/social/detail?jobAdId=c9173988-5934-40cd-82d7-ecc7ae50c29d">GPU计算-GPU通用计算与AI软件工程师/架构师（社招/实习）</a></li>
 </ul>
 <h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
 <li>记住一些简单的fps英文交流短句，<a href="https://www.bilibili.com/read/cv19850264">【Apex Legends】最新手动整合 全方面英文名词&amp;常用短语</a>。</li>
 <li>赛尔号月中准备上分，随便打打，感觉很难掉分。</li>
 </ul>
 <h2 id="LEARNING"><a href="#LEARNING" class="headerlink" title="LEARNING"></a>LEARNING</h2><ul>
-<li><a href="https://github.com/gonglei007/GameDevMind#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1">游戏开发-技术图谱</a></li>
+<li><a href="https://github.com/gonglei007/GameDevMind#游戏开发-技术图谱">游戏开发-技术图谱</a></li>
 <li><a href="https://design.jskyzero.com/">想做游戏的初衷是『制造欢乐，传播感动』</a></li>
 <li><a href="https://github.com/csseky/cskaoyan">cskaoyan-提供计算机考研和软件工程考研专业的各个学校 考研真题</a></li>
 </ul>
@@ -70,10 +69,10 @@ section Godot Engine实践
 <li><a href="https://qiangmzsx.github.io/Software-Engineering-at-Google/#/">《Software Engineering at Google》中英文对译版本</a></li>
 </ul>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
-<li><a href="https://spec.openapis.org/oas/v3.1.0">开放 API 规范使用 OpenAPI Specification v3.1.0</a></li>
-</ul>
-<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
-<li><a href="https://www.sqlite.org/testing.html">https://www.sqlite.org/testing.html</a></li>
+<li><p><a href="https://spec.openapis.org/oas/v3.1.0">开放 API 规范使用 OpenAPI Specification v3.1.0</a></p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3></li>
+<li><p><a href="https://www.sqlite.org/testing.html">https://www.sqlite.org/testing.html</a></p>
+</li>
 </ul>
 <h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><ul>
 <li><a href="https://yeasy.gitbook.io/docker_practice">Docker — 从入门到实践</a></li>
@@ -81,11 +80,11 @@ section Godot Engine实践
 <h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><ul>
 <li><a href="https://github.com/seisman/how-to-write-makefile">how-to-write-makefile-跟我一起写Makefile重制版</a></li>
 <li><a href="https://www.learncpp.com/">https://www.learncpp.com/</a></li>
-<li><a href="https://github.com/aitjcize/cppman">cppman</a>，C++ 98&#x2F;11&#x2F;14 手册查询 for Linux&#x2F;MacOS</li>
+<li><a href="https://github.com/aitjcize/cppman">cppman</a>，C++ 98/11/14 手册查询 for Linux/MacOS</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1204r0.html">C++项目文件组织方式</a></li>
 </ul>
 <h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><ul>
-<li><a href="https://github.com/BingKui/javascript-zh#airbnb-javascript-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83-">Airbnb JavaScript 代码规范</a></li>
+<li><a href="https://github.com/BingKui/javascript-zh#airbnb-javascript-代码规范-">Airbnb JavaScript 代码规范</a></li>
 <li><a href="https://javabetter.cn/home.html">https://javabetter.cn/home.html</a></li>
 <li><a href="https://github.com/Rodert/JavaPub">javapub.net.cn</a></li>
 <li><a href="https://spring.io/why-spring">Why Spring?</a></li>
@@ -96,11 +95,15 @@ section Godot Engine实践
 </li>
 <li><p><a href="https://juejin.cn/post/7319541678272725042">Koltin - 第一篇 - 基础语法和特性说明</a></p>
 </li>
+<li><p><a href="https://github.com/apachecn/beginnersbook-zh/blob/master/docs/kotlin/SUMMARY.md">Kotlin 基础 summary</a></p>
+</li>
+<li><p><a href="https://docs.bughub.icu/compose/">Jetpack Compose Docs_韦爵爷</a></p>
+</li>
 </ul>
 <h2 id="PROJECT"><a href="#PROJECT" class="headerlink" title="PROJECT"></a>PROJECT</h2><h3 id="兴趣协作"><a href="#兴趣协作" class="headerlink" title="兴趣协作"></a>兴趣协作</h3><ul>
 <li><a href="https://github.com/MewX/cross-channel_chinese-localization_project">CROSS†CHANNEL 中文化（汉化）项目</a></li>
 <li><a href="https://github.com/odabugs/kof13-hitboxes">kof13-hitboxes</a>。以及使用描述<a href="https://dreamcancel.com/2014/06/kof-xiii-se-hitbox-viewer/">KOF XIII SE HITBOX VIEWER</a></li>
-<li><a href="https://github.com/QQxiaoming/TTFviewer">TTFviewer-一款用于开发人员查看预览各种ttf字体&#x2F;图标图像格式的小工具</a></li>
+<li><a href="https://github.com/QQxiaoming/TTFviewer">TTFviewer-一款用于开发人员查看预览各种ttf字体/图标图像格式的小工具</a></li>
 <li><a href="https://github.com/mermaid-js/mermaid">Mermaid-Generate diagrams from markdown-like text.</a></li>
 <li><a href="http://defiplot.com/blog/crypto-arbitrage-bot-dev-guide/">Crypto套利机器人开发指南</a></li>
 </ul>
@@ -121,19 +124,19 @@ section Godot Engine实践
 <li><a href="https://github.com/EZLippi/Tinyhttpd">Tinyhttpd-Tinyhttpd 是J. David Blackstone在1999年写的一个不到 500 行的超轻量型 Http Server</a></li>
 <li><a href="https://www.zhihu.com/question/20792016/answer/2969973681">有哪些值得推荐的小型 C 语言开源项目？ - 程序喵大人的回答 - 知乎</a></li>
 <li><a href="https://github.com/microsoft/calculator">microsoft calculator，C++编写</a></li>
-<li><a href="https://github.com/netcan/asyncio">asyncio-C++20 库，用于使用 async&#x2F;await 语法编写并发代码。</a></li>
+<li><a href="https://github.com/netcan/asyncio">asyncio-C++20 库，用于使用 async/await 语法编写并发代码。</a></li>
 <li>althttpd</li>
 <li><a href="https://github.com/gozfree/gear-lib/blob/master/README.cn.md">Gear-Lib 一组通用的Ｃ基础库</a></li>
 <li><a href="https://abseil.io/docs/cpp/">Google内部的C++轮子库</a></li>
 <li>zlog<a href="https://hardysimpson.github.io/zlog/UsersGuide-CN.html#note1">1</a>使用手册</li>
 <li><a href="https://github.com/vit-vit/ctpl">CTPL - Modern and efficient C++ Thread Pool Library简易C++线程池</a></li>
 <li><a href="https://github.com/microsoft/proxy">Proxy: Next Generation Polymorphism in C++</a>，很牛逼，但是看不懂，还是别看了</li>
-<li><a href="https://github.com/Genymobile/scrcpy">scrcpy (v3.0)- 电脑操作手机</a></li>
-</ul>
-<h3 id="Java类"><a href="#Java类" class="headerlink" title="Java类"></a>Java类</h3><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/669530945">platform-sms</a></li>
-<li><a href="https://gitee.com/dromara">dromara-简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件Java</a> &#x2F; <a href="https://gitee.com/dromara/Jpom">Jpom</a></li>
-<li><a href="https://gitee.com/RenZhenGongZuo">认真工作-存放基础组件的Java仓库</a> &#x2F; <a href="https://gitee.com/RenZhenGongZuo/base-components">base-components</a></li>
+<li><p><a href="https://github.com/Genymobile/scrcpy">scrcpy (v3.0)- 电脑操作手机</a></p>
+<h3 id="Java类"><a href="#Java类" class="headerlink" title="Java类"></a>Java类</h3></li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/669530945">platform-sms</a></p>
+</li>
+<li><a href="https://gitee.com/dromara">dromara-简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件Java</a> / <a href="https://gitee.com/dromara/Jpom">Jpom</a></li>
+<li><a href="https://gitee.com/RenZhenGongZuo">认真工作-存放基础组件的Java仓库</a> / <a href="https://gitee.com/RenZhenGongZuo/base-components">base-components</a></li>
 <li><a href="https://github.com/lucinhu/bili_you">Bili You - 一个用flutter制作的第三方B站客户端</a></li>
 <li><a href="https://xuzongbao.gitbooks.io/quartz/content/">作业调度系统—Quarzt</a></li>
 </ul>
@@ -153,9 +156,10 @@ section Godot Engine实践
 <li><a href="https://passer-by.com/api/#docs/stock">https://passer-by.com/api/#docs/stock</a></li>
 <li><a href="https://api.cubercsl.site/docs">Cubercsl’s Useless API</a></li>
 <li><a href="https://google.com/logos/2013/drwho/drwho.html">https://google.com/logos/2013/drwho/drwho.html</a></li>
+<li><a href="https://api.apachecn.org/kfc?tag=other">KFC 疯狂星期四 随机漫步</a></li>
 </ul>
 <h3 id="工具网站"><a href="#工具网站" class="headerlink" title="工具网站"></a>工具网站</h3><ul>
-<li><a href="https://postimages.org/">Postimages — 免费图片托管 &#x2F; 图片上传</a></li>
+<li><a href="https://postimages.org/">Postimages — 免费图片托管 / 图片上传</a></li>
 <li><a href="https://www.bilibili.com/read/cv10511652/">https://www.bilibili.com/read/cv10511652/</a>)</li>
 <li><a href="https://www.exophase.com/login/">个人跨平台游玩信息追踪网站</a></li>
 <li><a href="https://xlog.app/about">书写在 区块链 上的 开源 创作社区。</a></li>
@@ -163,7 +167,7 @@ section Godot Engine实践
 </ul>
 <h2 id="旅游计划以及参考案例"><a href="#旅游计划以及参考案例" class="headerlink" title="旅游计划以及参考案例"></a>旅游计划以及参考案例</h2><ul>
 <li><a href="https://blog.gadore.top/archives/1696731193879/">记2023年9月日本旅行策划过程</a></li>
-<li><a href="https://www.asecarc.top/p/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%B5%B7%E4%BB%80%E4%B9%88%E5%90%8D%E6%80%BB%E4%B9%8B%E6%98%AF%E6%97%A5%E6%9C%AC%E6%B8%B8%E8%AE%B0/">不知道起什么名，总之是日本游记</a></li>
+<li><a href="https://www.asecarc.top/p/不知道起什么名总之是日本游记/">不知道起什么名，总之是日本游记</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -179,7 +183,6 @@ section Godot Engine实践
     <url>/2025/03/16/%E9%9F%B3%E4%B9%90/%E7%94%B5%E5%90%89%E4%BB%96%E4%B8%B4%E6%97%B6%E4%B8%93%E9%A2%98/</url>
     <content><![CDATA[<p>我想起来了😭，我全都想起来了😭，我一直是SNK新世界乐曲杂技团的粉丝啊😭😭😭。</p>
 <span id="more"></span>
-
 <h3 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h3><ul>
 <li>节拍：练琴记得开节拍器，节拍是最重要的，跟节拍器打拍子。</li>
 <li>护弦：左手和右手制住不该发出声音的弦，不要出现杂音。可以开失真，杂音会被失真会放大，但增益不能高到听不清拨弦力度变化。</li>
@@ -187,7 +190,7 @@ section Godot Engine实践
 <li>手指机能、左右手协调：左右手协调不好，节奏会出问题。</li>
 <li>五线谱：谱面表达，交流都离不开五线谱。</li>
 <li>音符演奏思维：不要急于求成，六线谱对应的是坐标，和音乐没有直接关系，贪多嚼不烂。</li>
-<li>音准训练：绝对音感，参考<a href="https://perfectpitch.training/zh/pitch-matching-exercises">针对练耳训练的音准练习</a>。15分钟&#x2F;天。</li>
+<li>音准训练：绝对音感，参考<a href="https://perfectpitch.training/zh/pitch-matching-exercises">针对练耳训练的音准练习</a>。15分钟/天。</li>
 <li><a href="https://zhuanlan.zhihu.com/p/634113076">视唱练耳</a>：看着乐谱来唱，唱出音符的正确音高和时值。获知音乐材料的音符构成，节奏特征，和声特性等。</li>
 <li>乐理：学习乐理前要有对应的音乐欣赏基础。</li>
 </ul>
@@ -200,17 +203,17 @@ section Godot Engine实践
 <li>买个舒适的背带，<strong>站着弹琴</strong>，腰杆子和脖子挺直。</li>
 <li>耳机音量一定要小。</li>
 <li>要大力拨弦。</li>
-<li>所有设备均<strong>不允许热插拔</strong>，接电&#x2F;断电前，务必使设备处于关闭状态。</li>
+<li>所有设备均<strong>不允许热插拔</strong>，接电/断电前，务必使设备处于关闭状态。</li>
 </ul>
 <h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p>乐理并不是特别必要，也可以不先学乐理直接看这些视频。</p>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1Jb41147Mn">第一季 史上最良心的电吉他教程【入坑理论篇】</a>：弹吉他前先快速过一遍。</li>
 <li><a href="https://www.bilibili.com/video/BV1FT411Z7iu/">【完整版】全网最简单的《电吉他系统教程1》适合零基础自学入门</a>：大概100学时，每天至少2小时，手指机能、音阶和弦、节奏视唱类、歌曲演奏每类至少练习半小时。全部流程走完大概就知道自己该练什么了。</li>
 </ul>
-<h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><p>教材：童忠良“音乐自学丛书·作曲卷”《基本乐理教程》、《英皇乐理简明教程》。</p>
-<p>《小林克己摇滚吉他教室》、《伯克利现代吉他第一册》、《创意吉他》。</p>
+<h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><p>乐理：童忠良“音乐自学丛书·作曲卷”《基本乐理教程》、《英皇乐理简明教程》。</p>
+<p>吉他：《小林克己摇滚吉他教室》、《伯克利现代吉他第一册》、《创意吉他》。</p>
 <h2 id="学习顺序"><a href="#学习顺序" class="headerlink" title="学习顺序"></a><a href="https://www.zhihu.com/question/493579933/answer/2183208264">学习顺序</a></h2><ol>
-<li>持琴姿势，左手按弦姿势，右手拨弦方法，拨片拨弦方法，<a href="https://zhida.zhihu.com/search?content_id=427027952&content_type=Answer&match_order=1&q=%E5%8D%8A%E9%9F%B3%E9%98%B6&zhida_source=entity">半音阶</a>练习方法。</li>
+<li>持琴姿势，左手按弦姿势，右手拨弦方法，拨片拨弦方法，<a href="https://zhida.zhihu.com/search?content_id=427027952&amp;content_type=Answer&amp;match_order=1&amp;q=半音阶&amp;zhida_source=entity">半音阶</a>练习方法。</li>
 <li>各种音阶和指型</li>
 <li>和弦</li>
 <li>节奏</li>
@@ -231,13 +234,15 @@ section Godot Engine实践
 <li>如果存放时间超过一个月，可适当松一点琴弦。</li>
 </ul>
 <h3 id="背带怎么安装"><a href="#背带怎么安装" class="headerlink" title="背带怎么安装"></a>背带怎么安装</h3><p>背带两端直接扣在尾钉上就行。</p>
-<h3 id="持琴姿势"><a href="#持琴姿势" class="headerlink" title="持琴姿势"></a>持琴姿势</h3><h3 id="调音"><a href="#调音" class="headerlink" title="调音"></a><a href="https://www.bilibili.com/video/BV1sZ4y1m7GB/">调音</a></h3><p>APP调音：下载Guitar Tuna这个app，或者Fender Tune，手机放在右侧大腿上。右手拨弦，拨弦位置随意，左手调旋钮，注意不要扭错。六弦识别不到的话可以试试紧下弦，有可能是因为太低了落在范围外不识别了。</p>
+<h3 id="持琴姿势"><a href="#持琴姿势" class="headerlink" title="持琴姿势"></a>持琴姿势</h3><p>个人体感，琴身靠在肚腩上，琴头稍微翘起，保持一个右肘不端起来（端起来就是琴太高），右手腕贴在琴桥上能摆动、左手按琴头的弦不难受的姿势就行。</p>
+<h3 id="调音"><a href="#调音" class="headerlink" title="调音"></a><a href="https://www.bilibili.com/video/BV1sZ4y1m7GB/">调音</a></h3><p>APP调音：下载Guitar Tuna这个app，或者Fender Tune，手机放在右侧大腿上。右手拨弦，拨弦位置随意，左手调旋钮，注意不要扭错。六弦识别不到的话可以试试紧下弦，有可能是因为太低了落在范围外不识别了。</p>
 <p>调音器调音：夹式调音器会比APP调音更准确。调音器会显示音名，六根弦从低到高的音名分别为E2 A2 D3 G3 B3 E4。</p>
-<h3 id="换弦"><a href="#换弦" class="headerlink" title="换弦"></a>换弦</h3><p>Squier Sonic要买09-42的弦，可以换<a href="https://item.taobao.com/item.htm?id=15707588774&from=cart&skuId=4930282623634">Elixir</a>的防锈弦，质量比较好。</p>
+<h3 id="换弦"><a href="#换弦" class="headerlink" title="换弦"></a>换弦</h3><p>Squier Sonic要买09-42的弦，可以换<a href="https://item.taobao.com/item.htm?id=15707588774&amp;from=cart&amp;skuId=4930282623634">Elixir</a>的防锈弦，质量比较好。</p>
 <h3 id="指板油"><a href="#指板油" class="headerlink" title="指板油"></a>指板油</h3><h2 id="MUSIC"><a href="#MUSIC" class="headerlink" title="MUSIC"></a>MUSIC</h2><ul>
 <li><a href="https://github.com/LMMS/lmms/wiki/Accessing-git-repository">LMMS</a></li>
 </ul>
-<h3 id="电吉他基础装备"><a href="#电吉他基础装备" class="headerlink" title="电吉他基础装备"></a>电吉他基础装备</h3><table>
+<h3 id="电吉他基础装备"><a href="#电吉他基础装备" class="headerlink" title="电吉他基础装备"></a>电吉他基础装备</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -246,7 +251,8 @@ section Godot Engine实践
 <th>花费</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>电吉他</td>
 <td><img src="https://www.fastgz.com/files/products/small/month_2310/fc5i_0373151580_sqr_ins_frt_1_rr_860.png" alt="FSR Sonic系列 Strat，月桂木指板，黑色护板，极地白"></td>
 <td>要自己喜欢的<BR>- 音准<BR>- 外观<Br>- 手感</Br></BR></BR></td>
@@ -291,7 +297,7 @@ section Godot Engine实践
 <tr>
 <td>监听耳机</td>
 <td>室内练习用，还原最真实音色。也不能一直用耳机练，很伤耳朵。</td>
-<td>飞利浦9500、<a href="http://www.erji.net/forum.php?mod=viewthread&tid=2327448">森海hd400</a><Br><a href="https://item.jd.com/100013974561.html">铁三角 M50x MO</a>，不知为何比原款便宜100块，还有15%国补。</Br></td>
+<td>飞利浦9500、<a href="http://www.erji.net/forum.php?mod=viewthread&amp;tid=2327448">森海hd400</a><Br><a href="https://item.jd.com/100013974561.html">铁三角 M50x MO</a>，不知为何比原款便宜100块，还有15%国补。</Br></td>
 <td>闲鱼525.31</td>
 </tr>
 <tr>
@@ -306,10 +312,12 @@ section Godot Engine实践
 <td>全折叠吉他架【花梨色】</td>
 <td>淘宝38</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><img src="https://img.alicdn.com/imgextra/i4/3005763624/O1CN0142FGw01cdqKqsNKSP_!!3005763624.jpg" alt="img"></p>
 <p>可能还得弄个监听耳机，以还原最真实音色。目前用的旋风黑鲨V2极速版只支持USB Type C 接收器。</p>
-<h3 id><a href="#" class="headerlink" title></a></h3><h3 id="经验、博客"><a href="#经验、博客" class="headerlink" title="经验、博客"></a>经验、博客</h3><ul>
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3><h3 id="经验、博客"><a href="#经验、博客" class="headerlink" title="经验、博客"></a>经验、博客</h3><ul>
 <li><p><a href="https://www.ohmusictheory.com/music101">乐理101－乐理原来可以这么学</a>。</p>
 </li>
 <li><p><a href="https://zhuanlan.zhihu.com/p/414630829">「浓缩干货」一篇文章总结Guthrie Govan的【音阶与和弦】理论！</a>。</p>
