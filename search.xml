@@ -6,8 +6,10 @@
     <content><![CDATA[<p>只要许愿就可以了。</p>
 <p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=3c365e76fefaaf5184e381b7bc5594ed/0c70ceed2e738bd441314461a28b87d6267ff990.jpg" alt="img"></p>
 <span id="more"></span>
+
 <p>这里不要写工作职责内的计划。</p>
 <h2 id="HISTORY"><a href="#HISTORY" class="headerlink" title="HISTORY"></a>HISTORY</h2><a href="/2022/03/13/%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E4%B8%8E%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E4%B8%8E%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/" title="情报收集与日程安排">2022年3月~10月的情报收集与日程安排</a>
+
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
 <li>配新眼镜</li>
 <li>研究levelDB、electron</li>
@@ -41,23 +43,33 @@ section Godot Engine实践
 </li>
 </ul>
 <h2 id="职业"><a href="#职业" class="headerlink" title="职业"></a>职业</h2><ul>
-<li>定期关注相近岗位招聘描述与要求，大城市/家附近。</li>
+<li>定期关注相近岗位招聘描述与要求，大城市&#x2F;家附近。</li>
 <li>每半年至少更新一次简历（不同方面）。</li>
 <li>摸清单位各部门组成和职责范围，统计所在部门相关业务。</li>
 <li><a href="https://zhuanlan.zhihu.com/p/686288683">Java程序员练级路线</a></li>
 </ul>
 <h3 id="JOBS"><a href="#JOBS" class="headerlink" title="JOBS"></a>JOBS</h3><ul>
-<li><a href="https://jobs.bytedance.com/experienced/position?keywords=&amp;category=6704215862557018372&amp;location=CT_11&amp;project=&amp;type=&amp;job_hot_flag=&amp;current=1&amp;limit=10&amp;functionCategory=&amp;tag=&amp;city_tracking=location">字节跳动招聘 (bytedance.com)</a></li>
+<li><a href="https://jobs.bytedance.com/experienced/position?keywords=&category=6704215862557018372&location=CT_11&project=&type=&job_hot_flag=&current=1&limit=10&functionCategory=&tag=&city_tracking=location">字节跳动招聘 (bytedance.com)</a></li>
 <li><a href="https://doocs.github.io/leetcode/lcof/3/">https://doocs.github.io/leetcode/lcof/3/</a></li>
 <li><a href="https://www.104.com.tw/company/1a2x6bjizw?jobsource=company_job">SIGONO_信革數位有限公司『遊戲工程師』</a></li>
-<li><a href="https://mthreads.zhiye.com/social/detail?jobAdId=c9173988-5934-40cd-82d7-ecc7ae50c29d">GPU计算-GPU通用计算与AI软件工程师/架构师（社招/实习）</a></li>
+<li><a href="https://mthreads.zhiye.com/social/detail?jobAdId=c9173988-5934-40cd-82d7-ecc7ae50c29d">GPU计算-GPU通用计算与AI软件工程师&#x2F;架构师（社招&#x2F;实习）</a></li>
+</ul>
+<h3 id="高级系统架构师"><a href="#高级系统架构师" class="headerlink" title="高级系统架构师"></a>高级系统架构师</h3><ul>
+<li><p><a href="https://developer.aliyun.com/article/1491349">临时抱佛脚必看｜一个月速通高级系统架构设计师！（低分飘过版）</a>。</p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/705663812">软考-系统架构设计师（高级）备考经验分享</a>。</p>
+</li>
+<li><p><a href="https://testercc.github.io/ruankao/system_architect/">高级系统架构设计师复习笔记</a>。</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/bclshuai/p/15890902.html">软考之系统架构师考试经验分享—一篇懂所有 </a>。</p>
+</li>
 </ul>
 <h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
 <li>记住一些简单的fps英文交流短句，<a href="https://www.bilibili.com/read/cv19850264">【Apex Legends】最新手动整合 全方面英文名词&amp;常用短语</a>。</li>
 <li>赛尔号月中准备上分，随便打打，感觉很难掉分。</li>
 </ul>
 <h2 id="LEARNING"><a href="#LEARNING" class="headerlink" title="LEARNING"></a>LEARNING</h2><ul>
-<li><a href="https://github.com/gonglei007/GameDevMind#游戏开发-技术图谱">游戏开发-技术图谱</a></li>
+<li><a href="https://github.com/gonglei007/GameDevMind#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1">游戏开发-技术图谱</a></li>
 <li><a href="https://blog.zengrong.net/post/how-to-video-games-make-money-1/">想做游戏的初衷是『制造欢乐，传播感动』</a></li>
 <li><a href="https://blog.zengrong.net/">电子游戏是怎么挣钱的？史前时代</a></li>
 <li><a href="https://github.com/csseky/cskaoyan">cskaoyan-提供计算机考研和软件工程考研专业的各个学校 考研真题</a></li>
@@ -70,10 +82,10 @@ section Godot Engine实践
 <li><a href="https://qiangmzsx.github.io/Software-Engineering-at-Google/#/">《Software Engineering at Google》中英文对译版本</a></li>
 </ul>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
-<li><p><a href="https://spec.openapis.org/oas/v3.1.0">开放 API 规范使用 OpenAPI Specification v3.1.0</a></p>
-<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3></li>
-<li><p><a href="https://www.sqlite.org/testing.html">https://www.sqlite.org/testing.html</a></p>
-</li>
+<li><a href="https://spec.openapis.org/oas/v3.1.0">开放 API 规范使用 OpenAPI Specification v3.1.0</a></li>
+</ul>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
+<li><a href="https://www.sqlite.org/testing.html">https://www.sqlite.org/testing.html</a></li>
 </ul>
 <h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><ul>
 <li><a href="https://yeasy.gitbook.io/docker_practice">Docker — 从入门到实践</a></li>
@@ -81,11 +93,11 @@ section Godot Engine实践
 <h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><ul>
 <li><a href="https://github.com/seisman/how-to-write-makefile">how-to-write-makefile-跟我一起写Makefile重制版</a></li>
 <li><a href="https://www.learncpp.com/">https://www.learncpp.com/</a></li>
-<li><a href="https://github.com/aitjcize/cppman">cppman</a>，C++ 98/11/14 手册查询 for Linux/MacOS</li>
+<li><a href="https://github.com/aitjcize/cppman">cppman</a>，C++ 98&#x2F;11&#x2F;14 手册查询 for Linux&#x2F;MacOS</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1204r0.html">C++项目文件组织方式</a></li>
 </ul>
 <h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><ul>
-<li><a href="https://github.com/BingKui/javascript-zh#airbnb-javascript-代码规范-">Airbnb JavaScript 代码规范</a></li>
+<li><a href="https://github.com/BingKui/javascript-zh#airbnb-javascript-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83-">Airbnb JavaScript 代码规范</a></li>
 <li><a href="https://javabetter.cn/home.html">https://javabetter.cn/home.html</a></li>
 <li><a href="https://github.com/Rodert/JavaPub">javapub.net.cn</a></li>
 <li><a href="https://spring.io/why-spring">Why Spring?</a></li>
@@ -106,7 +118,7 @@ section Godot Engine实践
 <h2 id="PROJECT"><a href="#PROJECT" class="headerlink" title="PROJECT"></a>PROJECT</h2><h3 id="兴趣协作"><a href="#兴趣协作" class="headerlink" title="兴趣协作"></a>兴趣协作</h3><ul>
 <li><a href="https://github.com/MewX/cross-channel_chinese-localization_project">CROSS†CHANNEL 中文化（汉化）项目</a></li>
 <li><a href="https://github.com/odabugs/kof13-hitboxes">kof13-hitboxes</a>。以及使用描述<a href="https://dreamcancel.com/2014/06/kof-xiii-se-hitbox-viewer/">KOF XIII SE HITBOX VIEWER</a></li>
-<li><a href="https://github.com/QQxiaoming/TTFviewer">TTFviewer-一款用于开发人员查看预览各种ttf字体/图标图像格式的小工具</a></li>
+<li><a href="https://github.com/QQxiaoming/TTFviewer">TTFviewer-一款用于开发人员查看预览各种ttf字体&#x2F;图标图像格式的小工具</a></li>
 <li><a href="https://github.com/mermaid-js/mermaid">Mermaid-Generate diagrams from markdown-like text.</a></li>
 <li><a href="http://defiplot.com/blog/crypto-arbitrage-bot-dev-guide/">Crypto套利机器人开发指南</a></li>
 </ul>
@@ -127,19 +139,19 @@ section Godot Engine实践
 <li><a href="https://github.com/EZLippi/Tinyhttpd">Tinyhttpd-Tinyhttpd 是J. David Blackstone在1999年写的一个不到 500 行的超轻量型 Http Server</a></li>
 <li><a href="https://www.zhihu.com/question/20792016/answer/2969973681">有哪些值得推荐的小型 C 语言开源项目？ - 程序喵大人的回答 - 知乎</a></li>
 <li><a href="https://github.com/microsoft/calculator">microsoft calculator，C++编写</a></li>
-<li><a href="https://github.com/netcan/asyncio">asyncio-C++20 库，用于使用 async/await 语法编写并发代码。</a></li>
+<li><a href="https://github.com/netcan/asyncio">asyncio-C++20 库，用于使用 async&#x2F;await 语法编写并发代码。</a></li>
 <li>althttpd</li>
 <li><a href="https://github.com/gozfree/gear-lib/blob/master/README.cn.md">Gear-Lib 一组通用的Ｃ基础库</a></li>
 <li><a href="https://abseil.io/docs/cpp/">Google内部的C++轮子库</a></li>
 <li>zlog<a href="https://hardysimpson.github.io/zlog/UsersGuide-CN.html#note1">1</a>使用手册</li>
 <li><a href="https://github.com/vit-vit/ctpl">CTPL - Modern and efficient C++ Thread Pool Library简易C++线程池</a></li>
 <li><a href="https://github.com/microsoft/proxy">Proxy: Next Generation Polymorphism in C++</a>，很牛逼，但是看不懂，还是别看了</li>
-<li><p><a href="https://github.com/Genymobile/scrcpy">scrcpy (v3.0)- 电脑操作手机</a></p>
-<h3 id="Java类"><a href="#Java类" class="headerlink" title="Java类"></a>Java类</h3></li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/669530945">platform-sms</a></p>
-</li>
-<li><a href="https://gitee.com/dromara">dromara-简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件Java</a> / <a href="https://gitee.com/dromara/Jpom">Jpom</a></li>
-<li><a href="https://gitee.com/RenZhenGongZuo">认真工作-存放基础组件的Java仓库</a> / <a href="https://gitee.com/RenZhenGongZuo/base-components">base-components</a></li>
+<li><a href="https://github.com/Genymobile/scrcpy">scrcpy (v3.0)- 电脑操作手机</a></li>
+</ul>
+<h3 id="Java类"><a href="#Java类" class="headerlink" title="Java类"></a>Java类</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/669530945">platform-sms</a></li>
+<li><a href="https://gitee.com/dromara">dromara-简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件Java</a> &#x2F; <a href="https://gitee.com/dromara/Jpom">Jpom</a></li>
+<li><a href="https://gitee.com/RenZhenGongZuo">认真工作-存放基础组件的Java仓库</a> &#x2F; <a href="https://gitee.com/RenZhenGongZuo/base-components">base-components</a></li>
 <li><a href="https://github.com/lucinhu/bili_you">Bili You - 一个用flutter制作的第三方B站客户端</a></li>
 <li><a href="https://xuzongbao.gitbooks.io/quartz/content/">作业调度系统—Quarzt</a></li>
 </ul>
@@ -162,7 +174,7 @@ section Godot Engine实践
 <li><a href="https://api.apachecn.org/kfc?tag=other">KFC 疯狂星期四 随机漫步</a></li>
 </ul>
 <h3 id="工具网站"><a href="#工具网站" class="headerlink" title="工具网站"></a>工具网站</h3><ul>
-<li><a href="https://postimages.org/">Postimages — 免费图片托管 / 图片上传</a></li>
+<li><a href="https://postimages.org/">Postimages — 免费图片托管 &#x2F; 图片上传</a></li>
 <li><a href="https://www.bilibili.com/read/cv10511652/">https://www.bilibili.com/read/cv10511652/</a>)</li>
 <li><a href="https://www.exophase.com/login/">个人跨平台游玩信息追踪网站</a></li>
 <li><a href="https://xlog.app/about">书写在 区块链 上的 开源 创作社区。</a></li>
@@ -170,7 +182,7 @@ section Godot Engine实践
 </ul>
 <h2 id="旅游计划以及参考案例"><a href="#旅游计划以及参考案例" class="headerlink" title="旅游计划以及参考案例"></a>旅游计划以及参考案例</h2><ul>
 <li><a href="https://blog.gadore.top/archives/1696731193879/">记2023年9月日本旅行策划过程</a></li>
-<li><a href="https://www.asecarc.top/p/不知道起什么名总之是日本游记/">不知道起什么名，总之是日本游记</a></li>
+<li><a href="https://www.asecarc.top/p/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%B5%B7%E4%BB%80%E4%B9%88%E5%90%8D%E6%80%BB%E4%B9%8B%E6%98%AF%E6%97%A5%E6%9C%AC%E6%B8%B8%E8%AE%B0/">不知道起什么名，总之是日本游记</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -965,6 +977,9 @@ section Godot Engine实践
     <title>业余无线电通讯资格：操作证与执照</title>
     <url>/2025/01/08/%E7%94%9F%E6%B4%BB/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5%E9%80%9A%E8%AE%AF%E8%B5%84%E6%A0%BC%EF%BC%9A%E6%93%8D%E4%BD%9C%E8%AF%81%E4%B8%8E%E6%89%A7%E7%85%A7/</url>
     <content><![CDATA[<p>中国 A 类业余无线电台操作证知识点速记以及报名须知。要先考操作证才能考操作执照。</p>
+<p>2025年3月20日，发证。2025年3月31日，到手。</p>
+<span id="more"></span>
+
 <h2 id="报名"><a href="#报名" class="headerlink" title="报名"></a>报名</h2><p>有两个网站</p>
 <ul>
 <li><a href="http://www.crac.org.cn/Home/Index">中国无线电协会业余无线电分会</a></li>
@@ -1004,18 +1019,18 @@ section Godot Engine实践
 <h2 id="常用短语"><a href="#常用短语" class="headerlink" title="常用短语"></a>常用短语</h2><h3 id="Q短语"><a href="#Q短语" class="headerlink" title="Q短语"></a>Q短语</h3><ul>
 <li><strong>QRM 你受到他台（人为）干扰吗？ 我正受到他台干扰 1.无 2.稍有 3.中等 4.严重 5.极端</strong></li>
 <li><strong>QRN 你受到天电（自然）干扰吗？ 我正受到天电干扰 1.无 2.稍有 3.中等 4.严重 5.极端</strong></li>
-<li><strong>QRZ? 谁在呼叫我？ …KHz/MHz正在呼叫你</strong></li>
+<li><strong>QRZ? 谁在呼叫我？ …KHz&#x2F;MHz正在呼叫你</strong></li>
 <li><strong>QSL 你确认收妥／QSL卡片吗？ 我确认收妥／QSL卡片</strong></li>
 <li><strong>QTH 你的地理位置是？ 我的地理位置是…</strong></li>
 </ul>
 <h3 id="缩略语"><a href="#缩略语" class="headerlink" title="缩略语"></a>缩略语</h3><ul>
 <li><strong>OM OLD MAN 老“火腿”、老朋友</strong></li>
 <li><strong>ANT ANTENNA 天线</strong></li>
-<li><strong>*R ROGER、RECEIVED 收到了</strong></li>
+<li>*<strong>R ROGER、RECEIVED 收到了</strong></li>
 <li><strong>RX、RCVR RECEIVER 接收机</strong></li>
 <li><strong>RF RADIO FREQUENCY （各种类型的）无线电波</strong></li>
 <li><strong>RIG STATION EQUPMENT 电台设备</strong></li>
-<li><strong>*DF DIRECTION FINDING 测向</strong></li>
+<li>*<strong>DF DIRECTION FINDING 测向</strong></li>
 <li><strong>ARDF Amateur radio direction finding 业余无线电测向</strong></li>
 <li><strong>FREQ、FQ FREQUENCY 频率</strong></li>
 <li><strong>TX、XMTR TRANSMITTER 发射机</strong></li>
