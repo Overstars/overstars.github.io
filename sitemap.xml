@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://overstars.github.io/2025/02/15/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2nginx/</loc>
+    
+    <lastmod>2025-04-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://overstars.github.io/timeline/index.html</loc>
     
     <lastmod>2025-04-05</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://overstars.github.io/2022/10/24/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/hexo%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4%E3%80%81%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/</loc>
-    
-    <lastmod>2025-03-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://overstars.github.io/2025/02/15/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2nginx/</loc>
     
     <lastmod>2025-03-31</lastmod>
     
