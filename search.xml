@@ -231,7 +231,7 @@ section Godot Engine实践
 <li>延迟DELAY：制造回声效果，增加音色层次感。</li>
 <li>混响REVERB：模拟不同空间（如房间、大厅、教堂）的声学反射，增加音色立体感。</li>
 </ul>
-<h3 id="噪门GATE"><a href="#噪门GATE" class="headerlink" title="噪门GATE"></a>噪门GATE</h3><p><img src="spark音色链条.webp" alt></p>
+<h3 id="噪门GATE"><a href="#噪门GATE" class="headerlink" title="噪门GATE"></a>噪门GATE</h3><p>官方公众号没有，估计是传错了。</p>
 <h3 id="压缩COMP"><a href="#压缩COMP" class="headerlink" title="压缩COMP"></a>压缩COMP</h3><p><img src="spark压缩COMP.webp" alt></p>
 <h3 id="过载DRIVE"><a href="#过载DRIVE" class="headerlink" title="过载DRIVE"></a>过载DRIVE</h3><p><img src="spark过载DRIVE.webp" alt></p>
 <h3 id="箱头AMP"><a href="#箱头AMP" class="headerlink" title="箱头AMP"></a>箱头AMP</h3><p><img src="spark箱头AMP.webp" alt></p>
@@ -5340,6 +5340,7 @@ CARDINALITY_{HLL}=constant\times m \times \frac{m}{\sum^{N}_{j=1}2^{-R_j}}</scri
 <span id="more"></span>
 <h3 id="一些情节桥段"><a href="#一些情节桥段" class="headerlink" title="一些情节桥段"></a>一些情节桥段</h3><ul>
 <li>如果故事跨越几代主角，可以以第一代主角埋时间胶囊作为第一部的结尾，最后一任主角打开时间胶囊作为结尾。</li>
+<li>某个很坏的人有个癖好：每当有人从他身旁超过去，必定会向着这个人的背影吐痰。</li>
 </ul>
 ]]></content>
       <categories>
