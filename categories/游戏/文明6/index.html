@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // 使用Beacon API发送数据
-  navigator.sendBeacon('https://www.overstars.site/logs/visit', 
+  navigator.sendBeacon('https://www.overstars.site:9003/logs/visit', 
     new URLSearchParams(logData).toString()
   );
 });
