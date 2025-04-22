@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
 <meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
 <meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
+<!-- 记录访问数据 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const logData = {
+    url: window.location.href,
+    referrer: document.referrer,
+    screen: `${screen.width}x${screen.height}`,
+    lang: navigator.language,
+    ua: navigator.userAgent
+  };
+
+  // 使用Beacon API发送数据
+  navigator.sendBeacon('https://www.overstars.site/logs/visit', 
+    new URLSearchParams(logData).toString()
+  );
+});
+</script>
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
