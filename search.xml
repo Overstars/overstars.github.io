@@ -35,6 +35,8 @@ section Godot Engine实践
 <h3 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a>Schedule</h3><ul>
 <li>力扣每日一题。</li>
 <li>弹吉他。</li>
+<li>量体重。</li>
+<li>仰卧起坐，俯卧撑。</li>
 </ul>
 <h3 id="新电脑"><a href="#新电脑" class="headerlink" title="新电脑"></a>新电脑</h3><h4 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h4><ul>
 <li>N卡：能流畅玩3A，能炼丹。</li>
@@ -918,9 +920,9 @@ style L fill:#66f,stroke:#333&lt;/pre&gt;
 </table>
 </div>
 <h3 id="将服务部署到ubuntu"><a href="#将服务部署到ubuntu" class="headerlink" title="将服务部署到ubuntu"></a>将服务部署到ubuntu</h3><p>windows本地测试可以使用如下语句</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -jar .\muwpob-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -jar .\spring-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails</span><br></pre></td></tr></table></figure>
 <p>Gradle打包出jar包，<a href="https://blog.csdn.net/weixin_43811294/article/details/128810233">传输到ubuntu环境</a>。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nohup java -jar muwpob-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails &gt; springboot.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nohup java -jar spring-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails &gt; springboot.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 <p>使用该语句验证，注意图片是否已经存在</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">curl -X POST -F <span class="string">&quot;file=@./fault.jpg&quot;</span> http:<span class="regexp">//</span>localhost:<span class="number">9003</span>/upload</span><br></pre></td></tr></table></figure>
 ]]></content>

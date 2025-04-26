@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://leveldb-handbook.readthedocs.io/zh/latest/_images/leveldb_arch.jpeg">
 <meta property="article:published_time" content="2025-01-20T03:16:31.000Z">
-<meta property="article:modified_time" content="2025-02-27T10:57:47.842Z">
+<meta property="article:modified_time" content="2025-04-25T10:25:54.141Z">
 <meta property="article:author" content="Overstars">
 <meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-02-27 18:57:47" itemprop="dateModified" datetime="2025-02-27T18:57:47+08:00">2025-02-27</time>
+      <time title="修改时间：2025-04-25 18:25:54" itemprop="dateModified" datetime="2025-04-25T18:25:54+08:00">2025-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -488,9 +488,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </table>
 </div>
 <h3 id="将服务部署到ubuntu"><a href="#将服务部署到ubuntu" class="headerlink" title="将服务部署到ubuntu"></a>将服务部署到ubuntu</h3><p>windows本地测试可以使用如下语句</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar .\muwpob-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar .\spring-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails</span><br></pre></td></tr></table></figure>
 <p>Gradle打包出jar包，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43811294/article/details/128810233">传输到ubuntu环境</a>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar muwpob-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails &gt; springboot.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar spring-research-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=main -Dserver.port=9003 -Dfile.encoding=UTF-8 -verbose:gc -XX:+PrintGCDetails &gt; springboot.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 <p>使用该语句验证，注意图片是否已经存在</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST -F <span class="string">&quot;file=@./fault.jpg&quot;</span> http:<span class="regexp">//</span>localhost:<span class="number">9003</span>/upload</span><br></pre></td></tr></table></figure>
 
