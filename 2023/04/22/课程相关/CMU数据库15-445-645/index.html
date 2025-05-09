@@ -180,13 +180,13 @@ document.addEventListener('DOMContentLoaded', function() {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -309,10 +309,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <div class="post-body" itemprop="articleBody"><p>学弟突然对你发出了击剑邀请</p>
 <span id="more"></span>
-<p>建议先大概看一遍<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/637960746">CMU 15-445/645 (Spring 2023) Database Systems 通关指北</a>。</p>
+
+<p>建议先大概看一遍<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/637960746">CMU 15-445&#x2F;645 (Spring 2023) Database Systems 通关指北</a>。</p>
 <p>搭建好WSL2的ubuntu环境，配置好github的ssh，<strong>在WSL中clone该项目</strong>，而不是Windows下clone。不要用windows下面的账户去管控、提交WSL的git，会有文件权限变化问题。</p>
-<h2 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/schedule.html">Schedule</a></h2><div class="table-container">
-<table>
+<h2 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/schedule.html">Schedule</a></h2><table>
 <thead>
 <tr>
 <th></th>
@@ -325,8 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td></td>
 <td>Project:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project0/">C++ Primer</a><br>Homework:<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/homework1/">SQL</a></td>
 <td></td>
@@ -404,10 +403,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="PROJECT"><a href="#PROJECT" class="headerlink" title="PROJECT"></a>PROJECT</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project0/">C++ Primer</a>：完成hyperloglog.h、hyperloglog_presto.h</li>
 <li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2024/project1/">Buffer Pool Manager</a>：</li>
@@ -421,11 +419,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>定义几个值：</p>
 <ul>
 <li>$b$ ： 哈希值的前 $b$ 位作为索引，用于将哈希值的剩余位映射到某个固定的桶，一共 $2^b$ 个桶。</li>
-<li>$m$ ：桶的个数，记为 $register[m]$， $m = 2^b$。</li>
+<li>$m$ ：桶的个数，记为 $register[m]$， $m &#x3D; 2^b$。</li>
 <li>$p$ ：最左侧第一个 $1$ 的位置。</li>
 </ul>
-<script type="math/tex; mode=display">
-CARDINALITY_{HLL}=constant\times m \times \frac{m}{\sum^{N}_{j=1}2^{-R_j}}</script><p>其中 $constant=0.79402,N=m$。</p>
+<p>$$<br>CARDINALITY_{HLL}&#x3D;constant\times m \times \frac{m}{\sum^{N}_{j&#x3D;1}2^{-R_j}}<br>$$</p>
+<p>其中 $constant&#x3D;0.79402,N&#x3D;m$。</p>
 <h3 id="Task-1-MSB"><a href="#Task-1-MSB" class="headerlink" title="Task #1 MSB"></a>Task #1 MSB</h3><p><code>hyperloglog.h</code>中有几个函数需要实现：</p>
 <ul>
 <li><code>HyperLogLog(inital_bits)</code>: 桶内的前 bits (b) 会被用来计数。</li>
@@ -460,10 +458,10 @@ CARDINALITY_{HLL}=constant\times m \times \frac{m}{\sum^{N}_{j=1}2^{-R_j}}</scri
 <ul>
 <li><code>CalculateHash(...)</code>- 计算哈希值</li>
 </ul>
-<h2 id="Gradescope注册：How-can-people-not-enrolled-in-the-class-test-their-projects"><a href="#Gradescope注册：How-can-people-not-enrolled-in-the-class-test-their-projects" class="headerlink" title="Gradescope注册：How can people not enrolled in the class test their projects?"></a><a target="_blank" rel="noopener" href="https://www.gradescope.com/">Gradescope</a>注册：How can people not enrolled in the class test their projects?</h2><p>项目的所有源代码均可在<a target="_blank" rel="noopener" href="https://github.com/cmu-db/bustub">Github</a>上找到。非 CMU 学生可以使用<a target="_blank" rel="noopener" href="https://www.gradescope.com/">Gradescope提交网站（入口代码： </a><code>WWWJZ5</code>）。⚠<strong>请确保将您的学校设置为“<code>Carnegie Mellon University</code>”。我们将在 CMU 学生的截止日期**</strong>之后**在 Gradescope 上为非 CMU 学生提供每项作业的自动评分器。作为向公众开放此功能的交换条件，我们要求您不要在Github 或其他源代码存储库上公开您的项目实现。</p>
+<h2 id="Gradescope注册：How-can-people-not-enrolled-in-the-class-test-their-projects"><a href="#Gradescope注册：How-can-people-not-enrolled-in-the-class-test-their-projects" class="headerlink" title="Gradescope注册：How can people not enrolled in the class test their projects?"></a><a target="_blank" rel="noopener" href="https://www.gradescope.com/">Gradescope</a>注册：How can people not enrolled in the class test their projects?</h2><p>项目的所有源代码均可在<a target="_blank" rel="noopener" href="https://github.com/cmu-db/bustub">Github</a>上找到。非 CMU 学生可以使用<a target="_blank" rel="noopener" href="https://www.gradescope.com/">Gradescope提交网站（入口代码： </a><code>WWWJZ5</code>）。⚠<strong>请确保将您的学校设置为“<code>Carnegie Mellon University</code>”。我们将在 CMU 学生的截止日期****之后</strong>在 Gradescope 上为非 CMU 学生提供每项作业的自动评分器。作为向公众开放此功能的交换条件，我们要求您不要在Github 或其他源代码存储库上公开您的项目实现。</p>
 <p><img src="6d5e57a4-6787-4563-80e6-f420c4aafe46.png" alt="6d5e57a4-6787-4563-80e6-f420c4aafe46"></p>
 <p>注意每年的邀请码不一样。</p>
-<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>项目中有用GTest写好的测试程序，将第二个参数的<strong>DISABLE_</strong>前缀去掉即可运行。 </p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>项目中有用GTest写好的测试程序，将第二个参数的**DISABLE_**前缀去掉即可运行。 </p>
 <p>通过本地测试用例后，提交到Gradescope上进行最终的评分。</p>
 <h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>将src目录下需要打包的文件用zip命令打包。</p>
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>看了前3P</p>
@@ -478,18 +476,25 @@ CARDINALITY_{HLL}=constant\times m \times \frac{m}{\sum^{N}_{j=1}2^{-R_j}}</scri
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiexijihe945/article/details/131894202">https://blog.csdn.net/jiexijihe945/article/details/131894202</a></p>
 <h3 id="1-将CLion官方提供shell脚本放在WSL的ubuntu系统下执行"><a href="#1-将CLion官方提供shell脚本放在WSL的ubuntu系统下执行" class="headerlink" title="1. 将CLion官方提供shell脚本放在WSL的ubuntu系统下执行"></a>1. 将<a target="_blank" rel="noopener" href="https://github.com/JetBrains/clion-wsl/blob/master/ubuntu_setup_env.sh">CLion官方提供shell脚本</a>放在<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lepeCoder/p/wsl_dir.html">WSL的ubuntu系统</a>下执行</h3><p>直接执行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/JetBrains/clion-wsl/master/ubuntu_setup_env.sh &amp;&amp; bash ubuntu_setup_env.sh</span><br></pre></td></tr></table></figure>
+
 <p>或者将shell拷贝到WSL中执行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">SSHD_LISTEN_ADDRESS=127.0.0.1</span><br><span class="line"></span><br><span class="line">SSHD_PORT=2222</span><br><span class="line">SSHD_FILE=/etc/ssh/sshd_config</span><br><span class="line">SUDOERS_FILE=/etc/sudoers</span><br><span class="line"><span class="meta prompt_">  </span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">0. update package lists</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">0.1. reinstall sshd (workaround <span class="keyword">for</span> initial version of WSL)</span></span><br><span class="line">sudo apt remove -y --purge openssh-server</span><br><span class="line">sudo apt install -y openssh-server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">0.2. install basic dependencies</span></span><br><span class="line">sudo apt install -y cmake ninja-build gcc clang gdb valgrind build-essential</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.1. configure sshd</span></span><br><span class="line">sudo cp $SSHD_FILE $&#123;SSHD_FILE&#125;.`date &#x27;+%Y-%m-%d_%H-%M-%S&#x27;`.back</span><br><span class="line">sudo sed -i &#x27;/^Port/ d&#x27; $SSHD_FILE</span><br><span class="line">sudo sed -i &#x27;/^ListenAddress/ d&#x27; $SSHD_FILE</span><br><span class="line">sudo sed -i &#x27;/^UsePrivilegeSeparation/ d&#x27; $SSHD_FILE</span><br><span class="line">sudo sed -i &#x27;/^PasswordAuthentication/ d&#x27; $SSHD_FILE</span><br><span class="line">echo &quot;# configured by CLion&quot;      | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;ListenAddress $&#123;SSHD_LISTEN_ADDRESS&#125;&quot;    | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;Port $&#123;SSHD_PORT&#125;&quot;          | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;UsePrivilegeSeparation no&quot;  | sudo tee -a $SSHD_FILE</span><br><span class="line">echo &quot;PasswordAuthentication yes&quot; | sudo tee -a $SSHD_FILE</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.2. apply new settings</span></span><br><span class="line">sudo service ssh --full-restart</span><br><span class="line"><span class="meta prompt_">  </span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. autostart: run sshd</span> </span><br><span class="line">sed -i &#x27;/^sudo service ssh --full-restart/ d&#x27; ~/.bashrc</span><br><span class="line">echo &quot;%sudo ALL=(ALL) NOPASSWD: /usr/sbin/service ssh --full-restart&quot; | sudo tee -a $SUDOERS_FILE</span><br><span class="line">cat &lt;&lt; &#x27;EOF&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">sshd_status=$(service ssh status)</span><br><span class="line">if [[ $sshd_status = *&quot;is not running&quot;* ]]; then</span><br><span class="line">  sudo service ssh --full-restart</span><br><span class="line">fi</span><br><span class="line">EOF</span><br><span class="line">  </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">summary: SSHD config info</span></span><br><span class="line">echo </span><br><span class="line">echo &quot;SSH server parameters ($SSHD_FILE):&quot;</span><br><span class="line">echo &quot;ListenAddress $&#123;SSHD_LISTEN_ADDRESS&#125;&quot;</span><br><span class="line">echo &quot;Port $&#123;SSHD_PORT&#125;&quot;</span><br><span class="line">echo &quot;UsePrivilegeSeparation no&quot;</span><br><span class="line">echo &quot;PasswordAuthentication yes&quot;</span><br></pre></td></tr></table></figure>
+
 <h3 id="配置CLion-toolchain"><a href="#配置CLion-toolchain" class="headerlink" title="配置CLion toolchain"></a>配置CLion toolchain</h3><p>在工具链中新增一个WSL。</p>
 <p>CMake中新建一个Debug-WSL.</p>
 <h3 id="配置CLion-Deployment"><a href="#配置CLion-Deployment" class="headerlink" title="配置CLion Deployment"></a>配置CLion Deployment</h3><p>设置根目录为</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/home/y</span>ankf/prj</span><br></pre></td></tr></table></figure>
+
+
+
 <p><img src="QQ_1720536147174.png" alt="img"></p>
 <p>如果勾选rsync，需要另外配置，后续再说。</p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><img src="QQ_1720537416363.png" alt="img"></p>
 <h2 id="CLion编译运行"><a href="#CLion编译运行" class="headerlink" title="CLion编译运行"></a>CLion编译运行</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clang-format</span><br><span class="line">sudo apt-get install clang-tidy</span><br></pre></td></tr></table></figure>
+
 <p>安装后再执行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf build</span><br><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">cmake ..</span><br><span class="line">make format</span><br><span class="line">make check-clang-tidy-p0</span><br></pre></td></tr></table></figure>
+
 <p>没看到报error大概就是OK的。</p>
 <h1 id="已过时的内容"><a href="#已过时的内容" class="headerlink" title="已过时的内容"></a>已过时的内容</h1><h3 id="参考材料"><a href="#参考材料" class="headerlink" title="参考材料"></a><del>参考材料</del></h3><p>教材是数据库系统概念第七版。</p>
 <p><a target="_blank" rel="noopener" href="https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/15445/">CMU 15-445: Database Systems中文简介</a></p>
@@ -497,7 +502,7 @@ CARDINALITY_{HLL}=constant\times m \times \frac{m}{\sum^{N}_{j=1}2^{-R_j}}</scri
 <p><a target="_blank" rel="noopener" href="https://github.com/cmu-db/bustub">BusTub</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bQ4y1Y7iT">[中文讲解] CMU-15445 数据库内核-<strong>Moody-老师</strong></a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qf4y1J7mX">【双语字幕机翻+资料下载】CMU 14-455 | 数据库系统导论(2019·完整版)</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kG4y1e7Gy">【卡内基梅隆大学】CMU-15-445/645 Database Systems | 感觉是机翻 (Fall 2021)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kG4y1e7Gy">【卡内基梅隆大学】CMU-15-445&#x2F;645 Database Systems | 感觉是机翻 (Fall 2021)</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rN411f7Ef">https://www.bilibili.com/video/BV1rN411f7Ef</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhenghe.gitbook.io/open-courses/cmu-15-445-645-database-systems/relational-data-model">很全的公开课笔记Fall 2019</a></p>
 <h3 id="1-关系模型"><a href="#1-关系模型" class="headerlink" title="1. 关系模型"></a><del>1. 关系模型</del></h3><ol>
