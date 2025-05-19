@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
+<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
+<!-- 记录访问数据 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const logData = {
+    url: window.location.href,
+    referrer: document.referrer,
+    screen: `${screen.width}x${screen.height}`,
+    lang: navigator.language,
+    ua: navigator.userAgent
+  };
+
+  // 使用Beacon API发送数据
+  navigator.sendBeacon('https://www.overstars.site:9004/logs/visit', 
+    new URLSearchParams(logData).toString()
+  );
+});
+</script>
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/scallions-128%C3%97128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/scallions-32%C3%9732.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/scallions-32%C3%9732.png">
+  <link rel="mask-icon" href="/images/scallions-128%C3%97128.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"overstars.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="安装PostgreSQL1sudo apt-get install postgresql postgresql-client 安装完毕后，系统会创建一个数据库超级用户 postgres，密码为空。 访问PostgreSQL，并且可以进行交互，输入\q以退出。 12345yankf@overstars:~&#x2F;db$ sudo -u postgres psqlpsql (16.8 (Ubuntu 16.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不知道为什么突然想用PostgreSQL了，那就用一下吧">
+<meta property="og:url" content="https://overstars.github.io/2025/05/20/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/PostgreSQL/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="安装PostgreSQL1sudo apt-get install postgresql postgresql-client 安装完毕后，系统会创建一个数据库超级用户 postgres，密码为空。 访问PostgreSQL，并且可以进行交互，输入\q以退出。 12345yankf@overstars:~&#x2F;db$ sudo -u postgres psqlpsql (16.8 (Ubuntu 16.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-20T05:44:04.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:22:40.072Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="工作">
+<meta property="article:tag" content="PostgreSQL">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://overstars.github.io/2025/05/20/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/PostgreSQL/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://overstars.github.io/2025/05/20/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/PostgreSQL/","path":"2025/05/20/工具软件使用手册/PostgreSQL/","title":"不知道为什么突然想用PostgreSQL了，那就用一下吧"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>不知道为什么突然想用PostgreSQL了，那就用一下吧 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>timeline</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PostgreSQL"><span class="nav-number">1.</span> <span class="nav-text">安装PostgreSQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">创建用户和数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BAschema"><span class="nav-number">2.1.</span> <span class="nav-text">新建schema</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE"><span class="nav-number">3.</span> <span class="nav-text">配置远程访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-postgresql-conf-%E7%9B%91%E5%90%AC%E5%9C%B0%E5%9D%80"><span class="nav-number">3.0.1.</span> <span class="nav-text">修改 postgresql.conf 监听地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%EF%BC%88pg-hba-conf%EF%BC%89"><span class="nav-number">3.0.2.</span> <span class="nav-text">配置客户端访问权限（pg_hba.conf）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AE"><span class="nav-number">4.</span> <span class="nav-text">本地访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%90%8E%E6%B5%8B%E8%AF%95%E8%BF%9E%E6%8E%A5TCP-IP-connections%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">安装后测试连接TCP&#x2F;IP connections失败解决方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">I despised my soul when I saw her being meek that she might attain height.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/Overstars233" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;Overstars233" rel="noopener me" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/359920679" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;359920679" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://overstars.github.io/2025/05/20/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/PostgreSQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="I despised my soul when I saw her being meek that she might attain height.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="不知道为什么突然想用PostgreSQL了，那就用一下吧 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          不知道为什么突然想用PostgreSQL了，那就用一下吧
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-05-20 13:44:04 / 修改时间：01:22:40" itemprop="dateCreated datePublished" datetime="2025-05-20T13:44:04+08:00">2025-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/PostgreSQL/" itemprop="url" rel="index"><span itemprop="name">PostgreSQL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="安装PostgreSQL"><a href="#安装PostgreSQL" class="headerlink" title="安装PostgreSQL"></a>安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install postgresql postgresql-client</span><br></pre></td></tr></table></figure>
+<p>安装完毕后，系统会创建一个数据库超级用户 <code>postgres</code>，密码为空。</p>
+<p>访问PostgreSQL，并且可以进行交互，输入<code>\q</code>以退出。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yankf@overstars:~/db$ sudo -u postgres psql</span><br><span class="line">psql (16.8 (Ubuntu 16.8-0ubuntu0.24.04.1))</span><br><span class="line">Type <span class="string">&quot;help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span>.</span><br><span class="line"></span><br><span class="line">postgres=<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建用户和数据库"><a href="#创建用户和数据库" class="headerlink" title="创建用户和数据库"></a>创建用户和数据库</h2><p>新建一个用户<code>kiriya</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c <span class="string">&quot;createuser kiriya&quot;</span></span><br></pre></td></tr></table></figure>
+<p>新建数据库<code>straycat</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c <span class="string">&quot;createdb straycat&quot;</span></span><br></pre></td></tr></table></figure>
+<p>修改用户密码（<code>postgres</code>交互访问）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter role kiriya with password <span class="string">&#x27;**********&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>将数据库<code>straycat</code>授权给<code>kiriya</code>：</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 授予数据库的所有权</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> <span class="keyword">database</span> straycat <span class="keyword">to</span> kiriya;</span><br><span class="line"><span class="comment">-- 授予kiriya关于public的新建和访问权限</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">CREATE</span>, <span class="keyword">USAGE</span> <span class="keyword">ON</span> <span class="keyword">SCHEMA</span> <span class="built_in">public</span> <span class="keyword">TO</span> kiriya;</span><br></pre></td></tr></table></figure>
+<p>自动授权未来新建表的权限</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DEFAULT</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">IN</span> <span class="keyword">SCHEMA</span> <span class="built_in">public</span> </span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> <span class="keyword">TABLES</span> <span class="keyword">TO</span> kiriya; <span class="comment">-- 或指定 SELECT/INSERT 等细粒度权限</span></span><br></pre></td></tr></table></figure>
+<p>刷新权限</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REASSIGN</span> <span class="keyword">OWNED</span> <span class="keyword">BY</span> kiriya <span class="keyword">TO</span> postgres;</span><br></pre></td></tr></table></figure>
+<h3 id="新建schema"><a href="#新建schema" class="headerlink" title="新建schema"></a>新建schema</h3><p>先<code>\c</code>确认下自己连的哪个数据库。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\c straycat  <span class="comment">-- 切换到目标库</span></span><br><span class="line">\dn          <span class="comment">-- 检查straycat库中是否有kiriya_schema</span></span><br></pre></td></tr></table></figure>
+<p>连接到数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -U kiriya -d straycat -h localhost -W <span class="string">&#x27;*********&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><code>AUTHORIZATION kiriya</code> 指定 <code>kiriya</code> 用户为 Schema 的所有者</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SCHEMA</span> kiriya_schema <span class="keyword">AUTHORIZATION</span> kiriya;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> <span class="keyword">schema</span> kiriya_schema <span class="keyword">to</span> kiriya;</span><br></pre></td></tr></table></figure>
+<p>授权</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">USAGE</span>, <span class="keyword">CREATE</span> <span class="keyword">ON</span> <span class="keyword">SCHEMA</span> kiriya_schema <span class="keyword">TO</span> kiriya;</span><br></pre></td></tr></table></figure>
+<p>设置未来对象的默认权限</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DEFAULT</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">IN</span> <span class="keyword">SCHEMA</span> kiriya_schema </span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> <span class="keyword">TABLES</span> <span class="keyword">TO</span> kiriya;</span><br></pre></td></tr></table></figure>
+<p>配置用户默认搜索路径</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">ROLE</span> kiriya <span class="keyword">SET</span> search_path <span class="keyword">TO</span> kiriya_schema, <span class="built_in">public</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="配置远程访问"><a href="#配置远程访问" class="headerlink" title="配置远程访问"></a>配置远程访问</h2><p>需要修改两个配置文件：<code>postgresql.conf</code>和<code>pg_hba.conf</code>。</p>
+<h4 id="修改-postgresql-conf-监听地址"><a href="#修改-postgresql-conf-监听地址" class="headerlink" title="修改 postgresql.conf 监听地址"></a>修改 <code>postgresql.conf</code> 监听地址</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/&#123;版本&#125;/main/postgresql.conf</span><br></pre></td></tr></table></figure>
+<p>修改 <code>listen_addresses</code> 参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listen_addresses = <span class="string">&#x27;*&#x27;</span>  <span class="comment"># 监听所有网络接口</span></span><br><span class="line">port = 5432             <span class="comment"># 默认端口无需修改</span></span><br></pre></td></tr></table></figure>
+<h4 id="配置客户端访问权限（pg-hba-conf）"><a href="#配置客户端访问权限（pg-hba-conf）" class="headerlink" title="配置客户端访问权限（pg_hba.conf）"></a>配置客户端访问权限（<code>pg_hba.conf</code>）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/&#123;版本&#125;/main/pg_hba.conf</span><br></pre></td></tr></table></figure>
+<p>添加一行</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">TYPE</span>  DATABASE        USER            ADDRESS                 <span class="keyword">METHOD</span></span><br><span class="line"><span class="title function_">host</span>    <span class="title function_">all</span>             <span class="title function_">kiriya</span>          0.0.0.0/0               <span class="title function_">md5</span></span><br></pre></td></tr></table></figure>
+<p>重启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart postgresql</span><br></pre></td></tr></table></figure>
+<h2 id="本地访问"><a href="#本地访问" class="headerlink" title="本地访问"></a>本地访问</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -h localhost -p 5432 -d straycat -U kiriya</span><br></pre></td></tr></table></figure>
+<h2 id="安装后测试连接TCP-IP-connections失败解决方法"><a href="#安装后测试连接TCP-IP-connections失败解决方法" class="headerlink" title="安装后测试连接TCP/IP connections失败解决方法"></a>安装后测试连接TCP/IP connections失败解决方法</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">已失败</span><br><span class="line">DBMS: PostgreSQL (版本 <span class="number">12.16</span> (Ubuntu <span class="number">12.16</span><span class="number">-0</span>ubuntu0<span class="number">.20</span><span class="number">.04</span><span class="number">.1</span>))  区分大小写: 普通形式=lower，分隔形式=exact 驱动程序: PostgreSQL JDBC Driver (版本 <span class="number">42.6</span><span class="number">.0</span>，JDBC4<span class="number">.2</span>)</span><br><span class="line"> Connection <span class="keyword">to</span> xxx.xxx.xxx.xxx:<span class="number">5432</span> refused. Check <span class="keyword">that</span> <span class="keyword">the</span> hostname <span class="keyword">and</span> port are correct <span class="keyword">and</span> <span class="keyword">that</span> <span class="keyword">the</span> postmaster <span class="keyword">is</span> accepting TCP/IP connections.</span><br></pre></td></tr></table></figure>
+<p>TCP/IP连接建立失败，宿主机并没有监听其他的主机接口。</p>
+<p>按如下操作进行设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/12/main/postgresql.conf</span><br></pre></td></tr></table></figure>
+<p>对配置文件进行编辑</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">58 </span># - Connection Settings -</span><br><span class="line"><span class="number">59</span></span><br><span class="line"><span class="symbol">60 </span>listen_addresses = <span class="comment">&#x27;*&#x27;      # what IP address(es) to listen on;</span></span><br><span class="line"><span class="symbol">61 </span>                    # comma-separated <span class="keyword">list</span> of addresses;</span><br><span class="line"><span class="symbol">62 </span>                    # defaults <span class="keyword">to</span> <span class="comment">&#x27;localhost&#x27;; use &#x27;*&#x27; for all</span></span><br><span class="line"><span class="symbol">63 </span>                    # (change requires restart)</span><br><span class="line"><span class="symbol">64 </span>port = <span class="number">5432</span>             # (change requires restart)</span><br><span class="line"><span class="symbol">65 </span>max_connections = <span class="number">100</span>           # (change requires restart)</span><br><span class="line"><span class="symbol">66 </span>#superuser_reserved_connections = <span class="number">3</span> # (change requires restart)</span><br></pre></td></tr></table></figure>
+<p>修改 允许访问配置pg_hba.conf</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/12/main/pg_hba.conf</span><br><span class="line">添加</span><br><span class="line">host    all             postgres        0.0.0.0/0               md5</span><br></pre></td></tr></table></figure>
+<p>可能是PostgreSQL认为“postgres”不是“all”用户，所以USER里不应该填all……重启</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl restart postgresql</span></span><br></pre></td></tr></table></figure>
+<p>检查</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -lantp <span class="comment">#查看端口是否启动</span></span><br><span class="line">ps aux | <span class="keyword">grep</span> postgres <span class="comment">#查看数据库服务是否启动</span></span><br></pre></td></tr></table></figure>
+<p>测试链接</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">已成功</span><br><span class="line">  复制</span><br><span class="line"><span class="built_in">DB</span><span class="symbol">MS:</span> PostgreSQL (版本 <span class="number">12.16</span> (Ubuntu <span class="number">12.16</span>-<span class="number">0</span>ubuntu0.<span class="number">20.04</span>.<span class="number">1</span>))  区分大小写<span class="symbol">:</span> 普通形式=<span class="built_in">lower</span>，分隔形式=<span class="built_in">exact</span> 驱动程序<span class="symbol">:</span> PostgreSQL JDBC Driver (版本 <span class="number">42.6</span>.<span class="number">0</span>，JDBC4.<span class="number">2</span>)  <span class="built_in">Pi</span><span class="symbol">ng:</span> <span class="number">14</span>毫秒 S<span class="symbol">SL:</span> yes</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag"># 工作</a>
+              <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" rel="prev" title="游戏服务器搭建记录">
+                  <i class="fa fa-angle-left"></i> 游戏服务器搭建记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.0/mermaid.min.js","integrity":"sha256-9y71g5Lz/KLsHjB8uXwnkuWDtAMDSzD/HdIbqhJfTAI="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
