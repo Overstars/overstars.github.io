@@ -969,7 +969,7 @@ section Godot Engine实践
 <h4 id="使用Certbot生成Let’s-Encrypt-证书"><a href="#使用Certbot生成Let’s-Encrypt-证书" class="headerlink" title="使用Certbot生成Let’s Encrypt 证书"></a>使用Certbot生成Let’s Encrypt 证书</h4><p>有http方式验证、DNS手动验证两种方式方式。而http验证需要开放公网的80端口，所以只能选择DNS手动验证方式：</p>
 <ul>
 <li>certonly: 用于生成 SSL&#x2F;TLS 证书的工具插件。</li>
-<li>–email <a href="mailto:&#111;&#x76;&#x65;&#114;&#115;&#x74;&#97;&#x72;&#115;&#64;&#x66;&#111;&#120;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#111;&#x76;&#x65;&#114;&#115;&#x74;&#97;&#x72;&#115;&#64;&#x66;&#111;&#120;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>: Let’s Encrypt 要求提供有效的电子邮件地址</li>
+<li>–email <a href="mailto:&#111;&#118;&#x65;&#114;&#x73;&#116;&#97;&#x72;&#x73;&#64;&#x66;&#111;&#x78;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#111;&#118;&#x65;&#114;&#x73;&#116;&#97;&#x72;&#x73;&#64;&#x66;&#111;&#x78;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a>: Let’s Encrypt 要求提供有效的电子邮件地址</li>
 <li>–agree-tos：同意 Let’s Encrypt 的服务条款。</li>
 <li>-d ‘test.com’：指定您想要为其生成 SSL 证书的域名。你可以通过添加多个 -d 选项来同时为多个域名生成证书。</li>
 <li>–manual：在命令提示符下手动操作来验证您拥有该域名。</li>
@@ -2172,8 +2172,8 @@ section Godot Engine实践
         <category>WSL</category>
       </categories>
       <tags>
-        <tag>WSL</tag>
         <tag>linux</tag>
+        <tag>WSL</tag>
       </tags>
   </entry>
   <entry>
