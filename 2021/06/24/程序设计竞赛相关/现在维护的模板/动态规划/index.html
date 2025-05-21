@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>timeline</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-arts"><a href="/arts/" rel="section"><i class="fa fa-guitar fa-fw"></i>arts</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>timeline</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -487,5 +487,248 @@ document.addEventListener('page:loaded', () => {
 });
 </script>
 
+
+
+<script type="text/javascript">
+// 带PJAX属性的脚本标签， 会被Hexo替换为 data-pjax
+// 保证在PJAX页面跳转时脚本仍会执行
+
+/* 核心功能开始 */
+var artList = document.querySelectorAll(".art-list");
+// 获取所有class为"art-list"的DOM元素集合
+
+
+// 新增时间信息构建函数
+function buildTimeInfo(info) {
+  const hasPremiere = info['premiere_time'];
+  const hasWatched = info['watched_time'];
+
+  if (!hasPremiere && !hasWatched) return '';
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    return isNaN(date) ? '' :
+      `${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日`;
+  };
+
+  return `
+    <div class="work-meta-item time-info">
+      ${hasPremiere ? `
+        <div class="premiere-time">
+          <i class="icon-calendar"></i>
+          发布时间：${formatDate(info['premiere_time'])}
+        </div>` : ''}
+      ${hasWatched ? `
+        <div class="watched-time">
+          <i class="icon-clock"></i>
+          观看时间：${formatDate(info['watched_time'])}
+        </div>` : ''}
+    </div>
+  `;
+}
+
+if (artList.length !== 0) {  // 检查是否存在文艺列表容器
+  var j = -1;  // 计数器初始化，用于追踪异步请求索引
+
+  for (var i = 0; i < artList.length; i++) {  // 遍历所有列表容器
+    const listPath = artList[i].getAttribute('json-src');
+    // 从data属性获取JSON数据路径，如"/data/books.json"
+
+    const coverPath = artList[i].getAttribute('cover-src');
+    // 获取封面基础路径，如"/images/covers/"
+
+    var xhr = new XMLHttpRequest();  // 创建XHR对象
+    xhr.open('GET', listPath, true);  // 配置异步GET请求
+
+    xhr.onreadystatechange = function () {  // 定义状态变更监听器
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // 请求完成且成功（状态码200）
+
+        j++;  // 递增计数器（存在闭包问题，建议用let改进）
+        var data = JSON.parse(xhr.responseText);  // 解析JSON数据
+        var li = "";  // 初始化HTML内容缓存
+
+        artList[j].innerHTML = '';  // 清空容器原有内容
+
+        /* 数据遍历开始 */
+        for (var infoIndex = 0; infoIndex < data.length; infoIndex++) {
+          var info = data[infoIndex];  // 获取单条作品数据
+
+          /* 标题处理 */
+          var title = info['title'];  // 基础标题
+          if (info['pid']) {  // 如果有关联文章ID
+            title = `<a href="/posts/${info['pid']}/">${info['title']}</a>`;
+            // 生成带链接的标题，如<a href="/posts/123/">书名</a>
+          }
+
+          /* 作者信息 */
+          var author = info['author']
+            ? `<span class="author">${info['author']}</span>`
+            : '';  // 可选作者信息
+
+          /* 作品简介 */
+          var intro = info['intro'] ? info['intro'] : '';  // 可选简介
+
+          /* 星级评分系统 */
+          var star = '';
+          if (info['score'] != null) {  // 有评分时处理
+            const score = info['score'];
+            const maxStars = 10; // 总星数
+            const totalLines = 2; // 总行数
+            const starsPerLine = parseInt(maxStars / totalLines); // 要整除
+            const filledStars = Math.floor(score);  // 整数部分
+            const hasHalf = (score % 1 !== 0);  // 是否有半星
+            // 组合星级显示，如★★★★☆
+            // 由 实彩星 + 空彩星 + 空灰星 组成
+            for (var k = 0; k < totalLines; k++) {
+              // 该行实心的数目
+              const lineFullStars = Math.max(0, Math.min(starsPerLine, filledStars - k * starsPerLine));
+              let colorStar = '★'.repeat(lineFullStars); // 彩星
+              let greyStar = '';  // 灰星
+
+              var greyCount = starsPerLine - lineFullStars;
+              // 该行是否有半星，如果有，那么第filledStars + 1个星就是半星
+              if (hasHalf && lineFullStars < starsPerLine && k * starsPerLine + lineFullStars === filledStars) {
+                colorStar += '☆';  // 半星
+                greyCount --
+              }
+              // 该行灰星的数目
+              greyStar = '☆'.repeat(greyCount);
+              
+              star += `
+                <div class="star-lines">
+                  <span class="star-score">${colorStar}<span class="grey-star">${greyStar}</span></span>
+                </div>
+              `;
+              console.log("k = %d, colorStar = %s, greyStar = %s", k, colorStar, greyStar)
+            }
+            console.log(star)
+          }
+          
+          /* 组装作品块 */
+          // 封面图片，路径拼接如"/images/covers/cover.jpg"
+          li += `<div class="work">
+            <div class="work-cover"
+                 style="background-image:url(${coverPath}${info['cover']})">
+            </div>
+            <div class="work-meta">
+              <div class="work-meta-item title">${title}</div>
+              <div class="work-meta-item">${author}${star}</div>
+              ${buildTimeInfo(info)}
+              <div class="work-meta-item intro">${intro}</div>
+            </div>
+          </div>`;
+        }
+
+        artList[j].innerHTML = li;  // 注入生成的HTML
+
+
+        // 事件绑定（使用事件委托）
+        artList[j].addEventListener('mouseover', function(e) {
+          const starElem = e.target.closest('.star-score');
+          if (starElem) {
+            const score = starElem.dataset.score;
+            tooltip.textContent = `详细评分: ${score}/10`;
+            tooltip.style.opacity = '1';
+            tooltip.style.left = `${e.pageX + 10}px`;
+            tooltip.style.top = `${e.pageY + 15}px`;
+          }
+        });
+
+        artList[j].addEventListener('mouseout', function(e) {
+          if (e.target.closest('.star-score')) {
+            tooltip.style.opacity = '0';
+          }
+        });
+
+        // PJAX兼容处理
+        if (window.pjax) {
+          pjax.refresh(artList[j]);
+        }
+      }
+    };
+    xhr.send();  // 发送请求
+  }
+}
+</script>
+
+
+
+
+<script src="/resources/minigrid.min.js"></script>
+<script type="text/javascript">
+var album = document.querySelector(".album");
+if (album) {
+  // 相册列表 JSON 数据
+  var imgDataPath = album.getAttribute('json-src');
+  // 照片存储路径
+  var imgPath = album.getAttribute('photo-src');
+  // 最多显示数量
+  var imgMaxNum = 50;
+  // 获取窗口大小以决定图片宽度
+  var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  var imageWidth;
+
+  if (windowWidth < 768) {
+    imageWidth = 145; // 移动端图片宽度
+  } else {
+    imageWidth = 235;
+  }
+
+  // 生成相册
+  var linkDataPath = imgDataPath;
+  var photo = {
+    page: 1,
+    offset: imgMaxNum,
+    init: function () {
+      var that = this;
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", linkDataPath, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var data = JSON.parse(xhr.responseText);
+          that.render(that.page, data);
+        }
+      };
+      xhr.send();
+    },
+    render: function (page, data) {
+      var begin = (page - 1) * this.offset;
+      var end = page * this.offset;
+      if (begin >= data.length) return;
+      var imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
+      for (var i = begin; i < end && i < data.length; i++) {
+        imgNameWithPattern = data[i].split(' ')[1];
+        imgName = imgNameWithPattern.split('.')[0];
+        imageSize = data[i].split(' ')[0];
+        imageX = imageSize.split('.')[0];
+        imageY = imageSize.split('.')[1];
+        li += '<div class="card" style="width:' + imageWidth + 'px" >';
+        li += '<div class="album-photo" style="height:'+ imageWidth * imageY / imageX + 'px">';
+        li += '<a class="fancybox fancybox.image" href="' + imgPath + imgNameWithPattern + '" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="group" rel="group" data-caption="' + imgName + '" title="' +  imgName + '">';
+        li += '<img data-src="' + imgPath + imgNameWithPattern + '" src="' + imgPath + imgNameWithPattern + '" alt="' +  imgName + '" data-loaded="true">';
+        li += '</a>';
+        li += '</div>';
+        li += '</div>';
+      }
+      album.insertAdjacentHTML('beforeend', li);
+      this.minigrid();
+    },
+    minigrid: function () {
+      var grid = new Minigrid({
+        container: '.album',
+        item: '.card',
+        gutter: 12
+      });
+      grid.mount();
+      window.addEventListener('resize', function () {
+        grid.mount();
+      });
+    }
+  };
+  photo.init();
+}
+</script>
 </body>
 </html>
