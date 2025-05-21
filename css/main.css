@@ -2725,7 +2725,7 @@ header.header {
 }
 .work {
   width: 50%;
-  height: 200px;
+  height: 240px;
   float: left;
   margin-bottom: 1em;
   box-sizing: border-box;
@@ -2752,15 +2752,15 @@ header.header {
 }
 */
 .work-cover {
-  width: 120px;
-  height: 180px;
-  background-position: center;
+  width: 180px;
+  height: 240px;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   float: left;
 }
 .work-meta {
-  width: calc(100% - 120px);
+  width: calc(100% - 180px);
   height: 100%;
   float: left;
   position: relative;
@@ -2783,7 +2783,7 @@ header.header {
   white-space: normal !important;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
 .work-meta-item .author {
