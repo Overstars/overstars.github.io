@@ -635,29 +635,3 @@ if (album) {
 </script>
 </body>
 </html>
-aption="' + imgName + '" title="' +  imgName + '">';
-        li += '<img data-src="' + imgPath + imgNameWithPattern + '" src="' + imgPath + imgNameWithPattern + '" alt="' +  imgName + '" data-loaded="true">';
-        li += '</a>';
-        li += '</div>';
-        li += '</div>';
-      }
-      album.insertAdjacentHTML('beforeend', li);
-      this.minigrid();
-    },
-    minigrid: function () {
-      var grid = new Minigrid({
-        container: '.album',
-        item: '.card',
-        gutter: 12
-      });
-      grid.mount();
-      window.addEventListener('resize', function () {
-        grid.mount();
-      });
-    }
-  };
-  photo.init();
-}
-</script>
-</body>
-</html>
