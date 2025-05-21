@@ -1,3 +1,5 @@
+https://overstars.github.io/arts/games/games.json
+https://overstars.github.io/arts/games/index.html
 https://overstars.github.io/arts/animes/animes.json
 https://overstars.github.io/arts/index.html
 https://overstars.github.io/timeline/index.html
