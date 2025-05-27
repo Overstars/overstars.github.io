@@ -2704,15 +2704,17 @@ header.header {
 /**********************************************************/
 /************************ 文艺列表 *************************/
 /**********************************************************/
+/* 当屏幕宽度 ≤1000px 时，.work 的宽度被固定为 100% */
 @media screen and (max-width: 1000px) {
   .work {
-    width: 100% !important;
+    width: auto !important;
     padding: 0 !important;
   }
 }
 /*
 .art-list {
   width: 100%;
+  min-width: 1000px;
   position: relative;
   box-sizing: border-box;
 }
@@ -2725,6 +2727,7 @@ header.header {
 }
 .work {
   width: 50%;
+  min-width: 500px;
   height: 240px;
   float: left;
   margin-bottom: 1em;
@@ -2779,7 +2782,7 @@ header.header {
 .work-meta-item.intro {
   text-align: justify;
   display: -webkit-box;
-  overflow: hidden;
+  overflow: auto;
   white-space: normal !important;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
