@@ -304,6 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="post-body" itemprop="articleBody"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>P2P模式中资源稀缺性加剧了移动对等网络（MP2P）节点的自私，使节点表达非完全合作（NCC）态度。因此，在本文中提出了<strong>非完全合作节点的识别</strong>并针对 MP2P 提出了相应的<strong>信任路由方案</strong>。</p>
 <p>从<strong>直接信任</strong>、<strong>内部状态</strong>、<strong>推荐信任</strong>三个维度组成的卦限来评估。</p>
 <span id="more"></span>
+
 <h3 id="识别NCC节点的难点"><a href="#识别NCC节点的难点" class="headerlink" title="识别NCC节点的难点"></a>识别NCC节点的难点</h3><ul>
 <li>难点1：节点只能直接得知相邻节点状态，全局信息只能通过推荐。</li>
 <li>难点2：如何区分善意节点因为资源不足而拒绝服务。</li>
@@ -326,57 +327,34 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>Collusive Attack：共谋攻击，同时协作攻击相同对象。</li>
 </ol>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><h4 id="直接信任"><a href="#直接信任" class="headerlink" title="直接信任"></a>直接信任</h4><p>一种直接监控，根据被监控节点正确转发的数据包和收到的数据包进行评估。</p>
-<p>节点 $v<em>i$ 在时间 $t$ 对节点 $v_j$ 的直接信任值为 $T^d</em>{i,j}(t)$  。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_j$ 的直接信任值为 $T^d_{i,j}(t)$  。</p>
 <h4 id="推荐信任"><a href="#推荐信任" class="headerlink" title="推荐信任"></a>推荐信任</h4><p>一些节点超出了传输范围因而不能获取直接信任，需要通过共同相邻节点进行对被监控节点的信息获取。</p>
-<p>节点 $v<em>i$ 在时间 $t$ 对节点 $v_j$ 提供关于 $v_k$ 的推荐为 $T^r</em>{i,j,k}(t)$ 。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_j$ 提供关于 $v_k$ 的推荐为 $T^r_{i,j,k}(t)$ 。</p>
 <p>好节点直接发送综合信任，坏节点会有波动。</p>
 <h4 id="信任度reliability"><a href="#信任度reliability" class="headerlink" title="信任度reliability"></a>信任度reliability</h4><p>是间接信任的可靠性的评估</p>
 <p>表示一个节点对另一个节点的综合信任度。</p>
-<p>节点 $v_i$ 对 $v_j$ 在时间 $t$ 的信任度为：</p>
-<script type="math/tex; mode=display">
-\begin{array}{r}
-T_{i, j}^{c}(t)=w_{s} \times\left(1-\left|T_{j, i, i}^{r}(t)-T_{i, i}^{d}(t)\right|\right)
-+
-w_{b} 
-\times 
-\frac
-{\sum\limits_{v_{k} \in\left(N\left(v_{i}\right) \cap N\left(v_{j}\right)\right)} {\left(1-\left|T_{j, i, k}^{r}(t)-T_{i, k}^{d}\right|\right) }}
-{\left|N\left(v_{i}\right) \cap N\left(v_{j}\right)\right|} 
-+ \\
-w_{r} \times 
-\frac
-{\sum\limits_{\left(v_{j}, v_{k} \in N\left(v_{i}\right) \cap v_{j} \neq v_{k}\right), v_{l} \notin N\left(v_{i}\right), v_{l} \neq v i}{\left(1-\left|T_{j, i, l}^{r}(t)-T_{k, i, l}^{r}\right|\right) }}
-{N-\left|N\left(v_{i}\right)\right|-1}
-
-\end{array}</script><p>$w_s, w_b, w_r$ 是三个加权系数，分别代表节点对自己的评价差异，节点对相邻结点的评价差异，节点对不相邻结点的评价差异。</p>
+<p>节点 $v_i$ 对 $v_j$ 在时间 $t$ 的信任度为：<br>$$<br>\begin{array}{r}<br>T_{i, j}^{c}(t)&#x3D;w_{s} \times\left(1-\left|T_{j, i, i}^{r}(t)-T_{i, i}^{d}(t)\right|\right)<br>+<br>w_{b}<br>\times<br>\frac<br>{\sum\limits_{v_{k} \in\left(N\left(v_{i}\right) \cap N\left(v_{j}\right)\right)} {\left(1-\left|T_{j, i, k}^{r}(t)-T_{i, k}^{d}\right|\right) }}<br>{\left|N\left(v_{i}\right) \cap N\left(v_{j}\right)\right|} </p>
+<ul>
+<li>\<br>w_{r} \times<br>\frac<br>{\sum\limits_{\left(v_{j}, v_{k} \in N\left(v_{i}\right) \cap v_{j} \neq v_{k}\right), v_{l} \notin N\left(v_{i}\right), v_{l} \neq v i}{\left(1-\left|T_{j, i, l}^{r}(t)-T_{k, i, l}^{r}\right|\right) }}<br>{N-\left|N\left(v_{i}\right)\right|-1}</li>
+</ul>
+<p>\end{array}<br>$$</p>
+<p>$w_s, w_b, w_r$ 是三个加权系数，分别代表节点对自己的评价差异，节点对相邻结点的评价差异，节点对不相邻结点的评价差异。</p>
 <h4 id="间接信任"><a href="#间接信任" class="headerlink" title="间接信任"></a>间接信任</h4><p>间接信任：根据可信邻节点所提供的推荐信任建立的信任关系。</p>
-<p>节点 $v<em>i$ 在时间 $t$ 对节点 $v_k$ 的间接信任值 $T^i</em>{i, k}(t) = T^r<em>{i, j, k}(t) \times T^c</em>{i,j}(t)$。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_k$ 的间接信任值 $T^i_{i, k}(t) &#x3D; T^r_{i, j, k}(t) \times T^c_{i,j}(t)$。</p>
 <h4 id="综合信任"><a href="#综合信任" class="headerlink" title="综合信任"></a>综合信任</h4><p>基于直接信任和间接信任的最终信任。</p>
-<p>节点 $v<em>i$ 在时间 $t$ 对节点 $v_j$ 的综合信任 $T</em>{i, j}(t) = w<em>d \times T^d</em>{i, j}(t) + (1 - w<em>d) \times T^i</em>{i, j}(t)$ ，其中 $w_d$ 是权重因子，用于   调整重视程度。</p>
+<p>节点 $v_i$ 在时间 $t$ 对节点 $v_j$ 的综合信任 $T_{i, j}(t) &#x3D; w_d \times T^d_{i, j}(t) + (1 - w_d) \times T^i_{i, j}(t)$ ，其中 $w_d$ 是权重因子，用于   调整重视程度。</p>
 <h4 id="内部状态"><a href="#内部状态" class="headerlink" title="内部状态"></a>内部状态</h4><p>表示一个节点的内部资源，即使主观合作节点仍会因为内部状态而表现不佳。</p>
-<h4 id="路径信任"><a href="#路径信任" class="headerlink" title="路径信任"></a>路径信任</h4><p>从 $v<em>i$ 到 $v_j$ 的路径信任记为 $T^p</em>{i, j}$ 。</p>
-<p>MP2P是动态变化的，我们可以监听的只有<strong>直接信任</strong>和<strong>推荐信任</strong>，并根据这两个来更新信任度、间接信任、综合信任、路径信任。并将时间划分为时间间隔 $\Delta t$ ，更新方案为 $T^d<em>{i,j}(t+\Delta t)=\beta \times T^d</em>{i,j}(t)+(1-\beta)\times \Delta T^d<em>{i,j}(t+\Delta t)$ ， $\Delta T^d</em>{i,j}(t+\Delta t)$是节点 $v_i$ 对 $v_j$ 在时间 $t+\Delta t$ 的直接信任。</p>
+<h4 id="路径信任"><a href="#路径信任" class="headerlink" title="路径信任"></a>路径信任</h4><p>从 $v_i$ 到 $v_j$ 的路径信任记为 $T^p_{i, j}$ 。</p>
+<p>MP2P是动态变化的，我们可以监听的只有<strong>直接信任</strong>和<strong>推荐信任</strong>，并根据这两个来更新信任度、间接信任、综合信任、路径信任。并将时间划分为时间间隔 $\Delta t$ ，更新方案为 $T^d_{i,j}(t+\Delta t)&#x3D;\beta \times T^d_{i,j}(t)+(1-\beta)\times \Delta T^d_{i,j}(t+\Delta t)$ ， $\Delta T^d_{i,j}(t+\Delta t)$是节点 $v_i$ 对 $v_j$ 在时间 $t+\Delta t$ 的直接信任。</p>
 <h3 id="公式方面总体来说"><a href="#公式方面总体来说" class="headerlink" title="公式方面总体来说"></a>公式方面总体来说</h3><p>直接信任（direct trust），推荐信任（reliability），内部状态（internal state）三个维度。</p>
-<p>通过计算<strong>直接信任</strong>（direct trust） $T^d_{i,j}(t)=\dfrac{正确转发的数据包}{收到的包}$。</p>
-<p><strong>信任度</strong>（reliability）即为：</p>
-<script type="math/tex; mode=display">
-\begin{array}{r}
-T_{i, j}^{c}(t)=w_{s} \times\left(1-\left|T_{j, i, i}^{r}(t)-T_{i, i}^{d}(t)\right|\right)
-+
-w_{b} 
-\times 
-\frac
-{\sum\limits_{v_{k} \in\left(N\left(v_{i}\right) \cap N\left(v_{j}\right)\right)} {\left(1-\left|T_{j, i, k}^{r}(t)-T_{i, k}^{d}\right|\right) }}
-{\left|N\left(v_{i}\right) \cap N\left(v_{j}\right)\right|} 
-+ \\
-w_{r} \times 
-\frac
-{\sum\limits_{\left(v_{j}, v_{k} \in N\left(v_{i}\right) \cap v_{j} \neq v_{k}\right), v_{l} \notin N\left(v_{i}\right), v_{l} \neq v i}{\left(1-\left|T_{j, i, l}^{r}(t)-T_{k, i, l}^{r}\right|\right) }}
-{N-\left|N\left(v_{i}\right)\right|-1}
-
-\end{array}</script><p><strong>间接信任</strong>由推荐信任和信任度得到：$T^i<em>{i, k}(t) = T^r</em>{i, j, k}(t) \times T^c_{i,j}(t)$。</p>
-<p><strong>综合信任</strong>由直接信任和间接信任得到：$T<em>{i, j}(t) = w_d \times T^d</em>{i, j}(t) + (1 - w<em>d) \times T^i</em>{i, j}(t)$。</p>
-<h3 id="INCC的检测"><a href="#INCC的检测" class="headerlink" title="INCC的检测"></a>INCC的检测</h3><p>根据<strong>直接信任</strong>、<strong>内部状态</strong>、<strong>推荐信任</strong>三个维度组成的卦限来评估。<br>状态（Good/Bad）、直接信任（High/Low）和可靠性（True/False），由于内部状态差的时候不可能有较好的转发率，BHX是不存在的，GHF可能会发动诽谤攻击，GLT可能发动灰洞攻击，BLT和BLF需要再进一步确定。</p>
+<p>通过计算<strong>直接信任</strong>（direct trust） $T^d_{i,j}(t)&#x3D;\dfrac{正确转发的数据包}{收到的包}$。</p>
+<p><strong>信任度</strong>（reliability）即为：<br>$$<br>\begin{array}{r}<br>T_{i, j}^{c}(t)&#x3D;w_{s} \times\left(1-\left|T_{j, i, i}^{r}(t)-T_{i, i}^{d}(t)\right|\right)<br>+<br>w_{b}<br>\times<br>\frac<br>{\sum\limits_{v_{k} \in\left(N\left(v_{i}\right) \cap N\left(v_{j}\right)\right)} {\left(1-\left|T_{j, i, k}^{r}(t)-T_{i, k}^{d}\right|\right) }}<br>{\left|N\left(v_{i}\right) \cap N\left(v_{j}\right)\right|} </p>
+<ul>
+<li>\<br>w_{r} \times<br>\frac<br>{\sum\limits_{\left(v_{j}, v_{k} \in N\left(v_{i}\right) \cap v_{j} \neq v_{k}\right), v_{l} \notin N\left(v_{i}\right), v_{l} \neq v i}{\left(1-\left|T_{j, i, l}^{r}(t)-T_{k, i, l}^{r}\right|\right) }}<br>{N-\left|N\left(v_{i}\right)\right|-1}</li>
+</ul>
+<p>\end{array}<br>$$<br><strong>间接信任</strong>由推荐信任和信任度得到：$T^i_{i, k}(t) &#x3D; T^r_{i, j, k}(t) \times T^c_{i,j}(t)$。</p>
+<p><strong>综合信任</strong>由直接信任和间接信任得到：$T_{i, j}(t) &#x3D; w_d \times T^d_{i, j}(t) + (1 - w_d) \times T^i_{i, j}(t)$。</p>
+<h3 id="INCC的检测"><a href="#INCC的检测" class="headerlink" title="INCC的检测"></a>INCC的检测</h3><p>根据<strong>直接信任</strong>、<strong>内部状态</strong>、<strong>推荐信任</strong>三个维度组成的卦限来评估。<br>状态（Good&#x2F;Bad）、直接信任（High&#x2F;Low）和可靠性（True&#x2F;False），由于内部状态差的时候不可能有较好的转发率，BHX是不存在的，GHF可能会发动诽谤攻击，GLT可能发动灰洞攻击，BLT和BLF需要再进一步确定。</p>
 <h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ol>
 <li><p>对于每个时间片都进行如下操作</p>
 <ol>
@@ -436,11 +414,11 @@ w_{r} \times
 </li>
 </ol>
 <h3 id="模拟实验环境"><a href="#模拟实验环境" class="headerlink" title="模拟实验环境"></a>模拟实验环境</h3><p>1000m*1000m的矩形场，50 个移动节点，节点覆盖半径250m，每个节点移动<br>以随机速度从一个随机的起点到一个随机的目的地，一旦到达目标节点，暂停一段时间后随机选择另一个目的地。</p>
-<p>使用UDP作为协议，Constant Bit Rate作为编码的码率控制的10个数据包？数据包生成频率1个/s，大小为512字节，起点终点随机。</p>
+<p>使用UDP作为协议，Constant Bit Rate作为编码的码率控制的10个数据包？数据包生成频率1个&#x2F;s，大小为512字节，起点终点随机。</p>
 <ul>
 <li>服务器初始没有数据，位置固定</li>
 <li>暂时不考虑恶意服务器</li>
-<li>内部状态由发出数据报/转发数据报评估，只有好/坏两个状态</li>
+<li>内部状态由发出数据报&#x2F;转发数据报评估，只有好&#x2F;坏两个状态</li>
 <li>服务器定期广播请求所有数据</li>
 <li>物层节点初始数据，每个都有，正态分布。假数据落在范围外</li>
 </ul>
@@ -455,7 +433,7 @@ w_{r} \times
 </li>
 </ul>
 <h3 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h3><ul>
-<li>物层召回率True Positive Ratio (TPR)：positives节点识别的正确率，识别出的恶意节点/恶意节点总数。</li>
+<li>物层召回率True Positive Ratio (TPR)：positives节点识别的正确率，识别出的恶意节点&#x2F;恶意节点总数。</li>
 <li>物层误检率False Positive Ratio (FPR)： negative events误识为positive数目与实际上 negative events数目的比率。</li>
 <li>物层精度Precision Ratio (PR)：true positive correct results数目与positive events数目的比率。</li>
 <li>Packet Delivery Ratio (PDR)：数据包成功接收比率。</li>

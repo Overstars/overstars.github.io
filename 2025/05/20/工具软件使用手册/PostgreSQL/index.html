@@ -298,58 +298,96 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <div class="post-body" itemprop="articleBody"><p>目前也没啥正经用途，感觉以后整活可能会用得上，先在机器上跑起来吧。</p>
 <span id="more"></span>
+
 <h2 id="安装PostgreSQL"><a href="#安装PostgreSQL" class="headerlink" title="安装PostgreSQL"></a>安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install postgresql postgresql-client</span><br></pre></td></tr></table></figure>
+
 <p>安装完毕后，系统会创建一个数据库超级用户 <code>postgres</code>，密码为空。</p>
 <p>访问PostgreSQL，并且可以进行交互，输入<code>\q</code>以退出。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yankf@overstars:~/db$ sudo -u postgres psql</span><br><span class="line">psql (16.8 (Ubuntu 16.8-0ubuntu0.24.04.1))</span><br><span class="line">Type <span class="string">&quot;help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span>.</span><br><span class="line"></span><br><span class="line">postgres=<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="创建用户和数据库"><a href="#创建用户和数据库" class="headerlink" title="创建用户和数据库"></a>创建用户和数据库</h2><p>新建一个用户<code>kiriya</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c <span class="string">&quot;createuser kiriya&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>新建数据库<code>straycat</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c <span class="string">&quot;createdb straycat&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>修改用户密码（<code>postgres</code>交互访问）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter role kiriya with password <span class="string">&#x27;**********&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>将数据库<code>straycat</code>授权给<code>kiriya</code>：</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 授予数据库的所有权</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> <span class="keyword">database</span> straycat <span class="keyword">to</span> kiriya;</span><br><span class="line"><span class="comment">-- 授予kiriya关于public的新建和访问权限</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">CREATE</span>, <span class="keyword">USAGE</span> <span class="keyword">ON</span> <span class="keyword">SCHEMA</span> <span class="built_in">public</span> <span class="keyword">TO</span> kiriya;</span><br></pre></td></tr></table></figure>
+
 <p>自动授权未来新建表的权限</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DEFAULT</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">IN</span> <span class="keyword">SCHEMA</span> <span class="built_in">public</span> </span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> <span class="keyword">TABLES</span> <span class="keyword">TO</span> kiriya; <span class="comment">-- 或指定 SELECT/INSERT 等细粒度权限</span></span><br></pre></td></tr></table></figure>
+
 <p>刷新权限</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REASSIGN</span> <span class="keyword">OWNED</span> <span class="keyword">BY</span> kiriya <span class="keyword">TO</span> postgres;</span><br></pre></td></tr></table></figure>
+
 <h3 id="新建schema"><a href="#新建schema" class="headerlink" title="新建schema"></a>新建schema</h3><p>先<code>\c</code>确认下自己连的哪个数据库。</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\c straycat  <span class="comment">-- 切换到目标库</span></span><br><span class="line">\dn          <span class="comment">-- 检查straycat库中是否有kiriya_schema</span></span><br></pre></td></tr></table></figure>
+
 <p>连接到数据库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -U kiriya -d straycat -h localhost -W <span class="string">&#x27;*********&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
 <p><code>AUTHORIZATION kiriya</code> 指定 <code>kiriya</code> 用户为 Schema 的所有者</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SCHEMA</span> kiriya_schema <span class="keyword">AUTHORIZATION</span> kiriya;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> <span class="keyword">schema</span> kiriya_schema <span class="keyword">to</span> kiriya;</span><br></pre></td></tr></table></figure>
+
 <p>授权</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">USAGE</span>, <span class="keyword">CREATE</span> <span class="keyword">ON</span> <span class="keyword">SCHEMA</span> kiriya_schema <span class="keyword">TO</span> kiriya;</span><br></pre></td></tr></table></figure>
+
 <p>设置未来对象的默认权限</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DEFAULT</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">IN</span> <span class="keyword">SCHEMA</span> kiriya_schema </span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> <span class="keyword">TABLES</span> <span class="keyword">TO</span> kiriya;</span><br></pre></td></tr></table></figure>
+
 <p>配置用户默认搜索路径</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">ROLE</span> kiriya <span class="keyword">SET</span> search_path <span class="keyword">TO</span> kiriya_schema, <span class="built_in">public</span>;</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="配置远程访问"><a href="#配置远程访问" class="headerlink" title="配置远程访问"></a>配置远程访问</h2><p>需要修改两个配置文件：<code>postgresql.conf</code>和<code>pg_hba.conf</code>。</p>
 <h4 id="修改-postgresql-conf-监听地址"><a href="#修改-postgresql-conf-监听地址" class="headerlink" title="修改 postgresql.conf 监听地址"></a>修改 <code>postgresql.conf</code> 监听地址</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/&#123;版本&#125;/main/postgresql.conf</span><br></pre></td></tr></table></figure>
+
 <p>修改 <code>listen_addresses</code> 参数</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listen_addresses = <span class="string">&#x27;*&#x27;</span>  <span class="comment"># 监听所有网络接口</span></span><br><span class="line">port = 5432             <span class="comment"># 默认端口无需修改</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="配置客户端访问权限（pg-hba-conf）"><a href="#配置客户端访问权限（pg-hba-conf）" class="headerlink" title="配置客户端访问权限（pg_hba.conf）"></a>配置客户端访问权限（<code>pg_hba.conf</code>）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/&#123;版本&#125;/main/pg_hba.conf</span><br></pre></td></tr></table></figure>
+
 <p>添加一行</p>
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">TYPE</span>  DATABASE        USER            ADDRESS                 <span class="keyword">METHOD</span></span><br><span class="line"><span class="title function_">host</span>    <span class="title function_">all</span>             <span class="title function_">kiriya</span>          0.0.0.0/0               <span class="title function_">md5</span></span><br></pre></td></tr></table></figure>
+
 <p>重启</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart postgresql</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="本地访问"><a href="#本地访问" class="headerlink" title="本地访问"></a>本地访问</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -h localhost -p 5432 -d straycat -U kiriya</span><br></pre></td></tr></table></figure>
-<h2 id="安装后测试连接TCP-IP-connections失败解决方法"><a href="#安装后测试连接TCP-IP-connections失败解决方法" class="headerlink" title="安装后测试连接TCP/IP connections失败解决方法"></a>安装后测试连接TCP/IP connections失败解决方法</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">已失败</span><br><span class="line">DBMS: PostgreSQL (版本 <span class="number">12.16</span> (Ubuntu <span class="number">12.16</span><span class="number">-0</span>ubuntu0<span class="number">.20</span><span class="number">.04</span><span class="number">.1</span>))  区分大小写: 普通形式=lower，分隔形式=exact 驱动程序: PostgreSQL JDBC Driver (版本 <span class="number">42.6</span><span class="number">.0</span>，JDBC4<span class="number">.2</span>)</span><br><span class="line"> Connection <span class="keyword">to</span> xxx.xxx.xxx.xxx:<span class="number">5432</span> refused. Check <span class="keyword">that</span> <span class="keyword">the</span> hostname <span class="keyword">and</span> port are correct <span class="keyword">and</span> <span class="keyword">that</span> <span class="keyword">the</span> postmaster <span class="keyword">is</span> accepting TCP/IP connections.</span><br></pre></td></tr></table></figure>
-<p>TCP/IP连接建立失败，宿主机并没有监听其他的主机接口。</p>
+
+
+
+
+
+<h2 id="安装后测试连接TCP-IP-connections失败解决方法"><a href="#安装后测试连接TCP-IP-connections失败解决方法" class="headerlink" title="安装后测试连接TCP&#x2F;IP connections失败解决方法"></a>安装后测试连接TCP&#x2F;IP connections失败解决方法</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">已失败</span><br><span class="line">DBMS: PostgreSQL (版本 <span class="number">12.16</span> (Ubuntu <span class="number">12.16</span><span class="number">-0</span>ubuntu0<span class="number">.20</span><span class="number">.04</span><span class="number">.1</span>))  区分大小写: 普通形式=lower，分隔形式=exact 驱动程序: PostgreSQL JDBC Driver (版本 <span class="number">42.6</span><span class="number">.0</span>，JDBC4<span class="number">.2</span>)</span><br><span class="line"> Connection <span class="keyword">to</span> xxx.xxx.xxx.xxx:<span class="number">5432</span> refused. Check <span class="keyword">that</span> <span class="keyword">the</span> hostname <span class="keyword">and</span> port are correct <span class="keyword">and</span> <span class="keyword">that</span> <span class="keyword">the</span> postmaster <span class="keyword">is</span> accepting TCP/IP connections.</span><br></pre></td></tr></table></figure>
+
+<p>TCP&#x2F;IP连接建立失败，宿主机并没有监听其他的主机接口。</p>
 <p>按如下操作进行设置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/12/main/postgresql.conf</span><br></pre></td></tr></table></figure>
+
 <p>对配置文件进行编辑</p>
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">58 </span># - Connection Settings -</span><br><span class="line"><span class="number">59</span></span><br><span class="line"><span class="symbol">60 </span>listen_addresses = <span class="comment">&#x27;*&#x27;      # what IP address(es) to listen on;</span></span><br><span class="line"><span class="symbol">61 </span>                    # comma-separated <span class="keyword">list</span> of addresses;</span><br><span class="line"><span class="symbol">62 </span>                    # defaults <span class="keyword">to</span> <span class="comment">&#x27;localhost&#x27;; use &#x27;*&#x27; for all</span></span><br><span class="line"><span class="symbol">63 </span>                    # (change requires restart)</span><br><span class="line"><span class="symbol">64 </span>port = <span class="number">5432</span>             # (change requires restart)</span><br><span class="line"><span class="symbol">65 </span>max_connections = <span class="number">100</span>           # (change requires restart)</span><br><span class="line"><span class="symbol">66 </span>#superuser_reserved_connections = <span class="number">3</span> # (change requires restart)</span><br></pre></td></tr></table></figure>
+
 <p>修改 允许访问配置pg_hba.conf</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/postgresql/12/main/pg_hba.conf</span><br><span class="line">添加</span><br><span class="line">host    all             postgres        0.0.0.0/0               md5</span><br></pre></td></tr></table></figure>
+
 <p>可能是PostgreSQL认为“postgres”不是“all”用户，所以USER里不应该填all……重启</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl restart postgresql</span></span><br></pre></td></tr></table></figure>
+
 <p>检查</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -lantp <span class="comment">#查看端口是否启动</span></span><br><span class="line">ps aux | <span class="keyword">grep</span> postgres <span class="comment">#查看数据库服务是否启动</span></span><br></pre></td></tr></table></figure>
+
 <p>测试链接</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">已成功</span><br><span class="line">  复制</span><br><span class="line"><span class="built_in">DB</span><span class="symbol">MS:</span> PostgreSQL (版本 <span class="number">12.16</span> (Ubuntu <span class="number">12.16</span>-<span class="number">0</span>ubuntu0.<span class="number">20.04</span>.<span class="number">1</span>))  区分大小写<span class="symbol">:</span> 普通形式=<span class="built_in">lower</span>，分隔形式=<span class="built_in">exact</span> 驱动程序<span class="symbol">:</span> PostgreSQL JDBC Driver (版本 <span class="number">42.6</span>.<span class="number">0</span>，JDBC4.<span class="number">2</span>)  <span class="built_in">Pi</span><span class="symbol">ng:</span> <span class="number">14</span>毫秒 S<span class="symbol">SL:</span> yes</span><br></pre></td></tr></table></figure>
+
 
     </div>
 

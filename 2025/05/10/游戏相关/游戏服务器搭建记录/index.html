@@ -45,15 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <meta property="og:site_name" content="零岛">
 <meta property="og:description" content="记录一下要玩的游戏的服务器怎么搭。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/3b345e6f7e50aa4b1287e7023d9302eb.png">
-<meta property="og:image" content="https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/image-20250510223624584.png">
+<meta property="og:image" content="https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95%5C3b345e6f7e50aa4b1287e7023d9302eb.png">
+<meta property="og:image" content="https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95%5Cimage-20250510223624584.png">
 <meta property="article:published_time" content="2025-05-09T16:06:39.000Z">
 <meta property="article:modified_time" content="2025-05-24T04:02:52.564Z">
 <meta property="article:author" content="Overstars">
 <meta property="article:tag" content="服务器">
 <meta property="article:tag" content="游戏">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/3b345e6f7e50aa4b1287e7023d9302eb.png">
+<meta name="twitter:image" content="https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95%5C3b345e6f7e50aa4b1287e7023d9302eb.png">
 
 
 <link rel="canonical" href="https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">
@@ -307,41 +307,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <div class="post-body" itemprop="articleBody"><p>记录一下要玩的游戏的服务器怎么搭。</p>
 <span id="more"></span>
+
 <h2 id="雾锁王国"><a href="#雾锁王国" class="headerlink" title="雾锁王国"></a>雾锁王国</h2><p>使用<a target="_blank" rel="noopener" href="https://github.com/jsknnr/enshrouded-server">enshrouded-server</a>在ubuntu server搭建服务器。</p>
 <h3 id="拉取镜像到本地"><a href="#拉取镜像到本地" class="headerlink" title="拉取镜像到本地"></a>拉取镜像到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull sknnr/enshrouded-dedicated-server:latest</span><br></pre></td></tr></table></figure>
+
 <p>查看是否下载成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images | grep enshrouded-dedicated-server</span><br></pre></td></tr></table></figure>
-<h3 id="创建持久化存储卷，保存游戏存档和配置"><a href="#创建持久化存储卷，保存游戏存档和配置" class="headerlink" title="创建持久化存储卷，保存游戏存档和配置"></a>创建持久化存储卷，保存游戏存档和配置</h3><div class="table-container">
-<table>
+
+<h3 id="创建持久化存储卷，保存游戏存档和配置"><a href="#创建持久化存储卷，保存游戏存档和配置" class="headerlink" title="创建持久化存储卷，保存游戏存档和配置"></a>创建持久化存储卷，保存游戏存档和配置</h3><table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">位置</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">位置</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>source</code></td>
-<td style="text-align:left"><strong>宿主机</strong></td>
-<td style="text-align:left">Docker 管理的卷名称（不是直接路径）</td>
+<tbody><tr>
+<td align="left"><code>source</code></td>
+<td align="left"><strong>宿主机</strong></td>
+<td align="left">Docker 管理的卷名称（不是直接路径）</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>target</code></td>
-<td style="text-align:left"><strong>容器内</strong></td>
-<td style="text-align:left">容器内挂载点的绝对路径</td>
+<td align="left"><code>target</code></td>
+<td align="left"><strong>容器内</strong></td>
+<td align="left">容器内挂载点的绝对路径</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create enshrouded-persistent-data</span><br></pre></td></tr></table></figure>
+
 <p>物理存储位置默认为</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/var/</span>lib<span class="regexp">/docker/</span>volumes<span class="regexp">/enshrouded-persistent-data/</span>_data</span><br></pre></td></tr></table></figure>
+
 <p>查看具体路径：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume inspect enshrouded-persistent-data</span><br></pre></td></tr></table></figure>
+
 <p>若要删除，可使用<code>docker volume rm</code>。</p>
 <h3 id="数据管理备份"><a href="#数据管理备份" class="headerlink" title="数据管理备份"></a>数据管理备份</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看数据卷</span></span><br><span class="line">docker volume inspect enshrouded-persistent-data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份数据卷</span></span><br><span class="line">docker run --<span class="built_in">rm</span> -v enshrouded-persistent-data:/data -v $(<span class="built_in">pwd</span>):/backup alpine tar czf /backup/backup.tar.gz /data</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">  --detach \</span><br><span class="line">  --name enshrouded-server \</span><br><span class="line">  --mount <span class="built_in">type</span>=volume,<span class="built_in">source</span>=enshrouded-persistent-data,target=/home/steam/enshrouded/savegame \</span><br><span class="line">  --publish 9006:15637/udp \</span><br><span class="line">  --<span class="built_in">env</span>=SERVER_NAME=<span class="string">&#x27;Overstars Enshrouded Containerized Server&#x27;</span> \</span><br><span class="line">  --<span class="built_in">env</span>=SERVER_SLOTS=16 \</span><br><span class="line">  --<span class="built_in">env</span>=SERVER_PASSWORD=<span class="string">&#x27;qwerty123&#x27;</span> \</span><br><span class="line">  --<span class="built_in">env</span>=PORT=15637 \</span><br><span class="line">  sknnr/enshrouded-dedicated-server:latest</span><br></pre></td></tr></table></figure>
+
 <p>感觉还是采用<strong>绑定宿主机目录</strong>而不是<strong>Docker Volume</strong>吧，这样更方便修改…</p>
 <p>路径为<code>/home/yankf/Game/enshrouded-savedata</code></p>
 <p>授权给10000:10000用户，否则docker无权限</p>
@@ -349,19 +355,27 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>再新建一份<code>enshrouded_server.json</code>，用于配置服务器参数，不新建也行。</p>
 <p>之后便可运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">  --detach \</span><br><span class="line">  --name enshrouded-server \</span><br><span class="line">  --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=/home/yankf/Game/enshrouded-savedata,target=/home/steam/enshrouded/savegame \</span><br><span class="line">  --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=/home/yankf/Game/enshrouded-savedata/enshrouded_server.json,target=/home/steam/enshrouded/enshrouded_server.json \</span><br><span class="line">  --publish 15637:15637/udp \</span><br><span class="line">  --<span class="built_in">env</span>=SERVER_NAME=<span class="string">&#x27;Overstars Enshrouded Containerized Server&#x27;</span> \</span><br><span class="line">  --<span class="built_in">env</span>=SERVER_SLOTS=2 \</span><br><span class="line">  --<span class="built_in">env</span>=SERVER_PASSWORD=<span class="string">&#x27;qwerty123&#x27;</span> \</span><br><span class="line">  --<span class="built_in">env</span>=PORT=15637 \</span><br><span class="line">  sknnr/enshrouded-dedicated-server:latest</span><br></pre></td></tr></table></figure>
+
 <h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f enshrouded-server</span><br></pre></td></tr></table></figure>
+
 <h3 id="更新服务器"><a href="#更新服务器" class="headerlink" title="更新服务器"></a>更新服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker stop enshrouded-server</span><br><span class="line">docker <span class="built_in">rm</span> enshrouded-server</span><br><span class="line">docker pull sknnr/enshrouded-dedicated-server:latest</span><br><span class="line"><span class="comment"># 重新运行原docker run命令即可</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="进入服务器"><a href="#进入服务器" class="headerlink" title="进入服务器"></a>进入服务器</h3><p>注意不要从游戏内搜索，搜不到的。</p>
-<p><img src="3b345e6f7e50aa4b1287e7023d9302eb.png" alt="3b345e6f7e50aa4b1287e7023d9302eb"></p>
+<p><img src="%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95%5C3b345e6f7e50aa4b1287e7023d9302eb.png" alt="3b345e6f7e50aa4b1287e7023d9302eb"></p>
 <p>要从<code>steam-查看-游戏服务器-收藏-添加</code>进行搜索</p>
-<p><img src="image-20250510223624584.png" alt="image-20250510223624584"></p>
+<p><img src="%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95%5Cimage-20250510223624584.png" alt="image-20250510223624584"></p>
 <h2 id="雾锁王国（mornedhels-enshrouded-server）"><a href="#雾锁王国（mornedhels-enshrouded-server）" class="headerlink" title="雾锁王国（mornedhels-enshrouded-server）"></a>雾锁王国（mornedhels-enshrouded-server）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name mornedhels-enshrouded \</span><br><span class="line">  --hostname enshrouded \</span><br><span class="line">  --restart=unless-stopped \</span><br><span class="line">  -p 15637:15637/udp \</span><br><span class="line">  -v /home/yankf/Game/mornedhels-enshrouded-server:/opt/enshrouded \</span><br><span class="line">  -e SERVER_NAME=<span class="string">&quot;Overstars Enshrouded Server&quot;</span> \</span><br><span class="line">  -e SERVER_PASSWORD=<span class="string">&quot;qwerty123&quot;</span> \</span><br><span class="line">  -e UPDATE_CRON=<span class="string">&quot;* */30 * * *&quot;</span> \</span><br><span class="line">  -e BACKUP_CRON=<span class="string">&quot;* */20 * * *&quot;</span> \</span><br><span class="line">  -e BACKUP_MAX_COUNT=8 \</span><br><span class="line">  -e PUID=4711 \</span><br><span class="line">  -e PGID=4711 \</span><br><span class="line">  mornedhels/enshrouded-server:latest</span><br></pre></td></tr></table></figure>
+
 <p>更新</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop mornedhels-enshrouded</span><br><span class="line">docker <span class="built_in">rm</span> mornedhels-enshrouded</span><br></pre></td></tr></table></figure>
+
 <p>查看日志</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f mornedhels-enshrouded</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="英灵神殿"><a href="#英灵神殿" class="headerlink" title="英灵神殿"></a>英灵神殿</h2><h3 id="英灵神殿参数"><a href="#英灵神殿参数" class="headerlink" title="英灵神殿参数"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361263874">英灵神殿参数</a></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $HOME/valheim-server/config/worlds $HOME/valheim-server/data</span><br></pre></td></tr></table></figure>
-<p>把要迁移的StrayCatOverrun.db和fwl放在HOME/valheim-server/config/worlds_local/，运行如下命令<br>名称：Overstars233<br>两个选项选择：社区<br>ip地址：43.138.55.7，连接时不要加端口号<br>运行如下命令时不要sudo，否则$HOME地址不一样，如果无法使用docker命令<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47758362/article/details/108050348">点击这里</a></p>
+<p>把要迁移的StrayCatOverrun.db和fwl放在HOME&#x2F;valheim-server&#x2F;config&#x2F;worlds_local&#x2F;，运行如下命令<br>名称：Overstars233<br>两个选项选择：社区<br>ip地址：43.138.55.7，连接时不要加端口号<br>运行如下命令时不要sudo，否则$HOME地址不一样，如果无法使用docker命令<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47758362/article/details/108050348">点击这里</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a [你的用户名] docker</span><br><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
 <h4 id="MOD"><a href="#MOD" class="headerlink" title="MOD"></a>MOD</h4><p>寻找设置drop more loot的方法</p>
 <p><strong><a target="_blank" rel="noopener" href="https://github.com/valheimPlus/ValheimPlus">ValheimPlus</a></strong></p>
@@ -369,10 +383,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><a target="_blank" rel="noopener" href="https://valheim.thunderstore.io/package/TastyChickenLegs/DropMoreLoot/">https://valheim.thunderstore.io/package/TastyChickenLegs/DropMoreLoot/</a></p>
 <p><a target="_blank" rel="noopener" href="https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/">BepInExPack Valheim</a></p>
 <h4 id="docker基础指令"><a href="#docker基础指令" class="headerlink" title="docker基础指令"></a>docker基础指令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 镜像命令</span></span></span><br><span class="line">docker images 查看docker镜像</span><br><span class="line">docker images -a #列出本地所有的镜像</span><br><span class="line">docker images -q #只显示镜像ID</span><br><span class="line">docker images --digests #显示镜像的摘要信息</span><br><span class="line">docker images --no-trunc #显示完整的镜像信息</span><br><span class="line">docker rmi hello-world #从Docker中删除hello-world镜像</span><br><span class="line">docker rmi -f hello-world #从Docker中强制删除hello-world镜像</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 容器命令</span></span></span><br><span class="line">docker ps #列出当前所有正在运行的容器</span><br><span class="line">docker ps -a #列出所有的容器</span><br><span class="line">docker ps -l #列出最近创建的容器</span><br><span class="line">docker ps -n 3 #列出最近创建的3个容器</span><br><span class="line">docker ps -q #只显示容器ID</span><br><span class="line">docker ps --no-trunc #显示当前所有正在运行的容器完整信息</span><br><span class="line">exit #退出并停止容器</span><br><span class="line">Ctrl+p+q #只退出容器，不停止容器</span><br><span class="line">docker start 容器ID或容器名称 #启动容器</span><br><span class="line">docker restart 容器ID或容器名称 #重新启动容器</span><br><span class="line">docker stop容器ID或容器名称 #停止容器</span><br><span class="line">docker kill 容器ID或容器名称 #强制停止容器</span><br><span class="line">docker rm 容器ID或容器名称 #删除容器</span><br><span class="line">docker rm -f 容器ID或容器名称 #强制删除容器</span><br><span class="line">docker rm -f $(docker ps -a -q) #删除多个容器</span><br><span class="line">docker logs [容器id] -f -t --since=&quot;2024-09-07&quot; --tail=20 容器ID或容器名称 #查看容器日志</span><br><span class="line">如：docker logs [容器id] -f -t --since=&quot;2018-09-10&quot; --tail=10 f9e29e8455a5</span><br><span class="line"> -f : 查看实时日志</span><br><span class="line"> -t : 查看日志产生的日期</span><br><span class="line"> --since : 此参数指定了输出日志开始日期，即只输出指定日期之后的日志</span><br><span class="line"> --tail=10 : 查看最后的10条日志</span><br><span class="line">docker top 容器ID或容器名称 #查看容器内运行的进程</span><br><span class="line">docker inspect 容器ID或容器名称 #查看容器内部细节</span><br><span class="line">docker attach 容器ID #进到容器内</span><br><span class="line">docker exec 容器ID #进到容器内</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「苍穹尘」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/lizhiqiang1217/article/details/89070075</span><br></pre></td></tr></table></figure>
+
 <h4 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name valheim-server \</span><br><span class="line">    --cap-add=sys_nice \</span><br><span class="line">    --stop-timeout 120 \</span><br><span class="line">    -p 2456-2457:2456-2457/udp \</span><br><span class="line">    -v $HOME/Game/valheim-server/config:/config \</span><br><span class="line">    -v $HOME/Game/valheim-server/data:/opt/valheim \</span><br><span class="line">    -e SERVER_NAME=&quot;HatsuneMiku233&quot; \</span><br><span class="line">    -e WORLD_NAME=&quot;HatsuneMiku&quot; \</span><br><span class="line">    -e SERVER_PASS=&quot;qwerty123&quot; \</span><br><span class="line">    -e BACKUPS_MAX_COUNT=&quot;5&quot; \</span><br><span class="line">    -e BACKUPS_IDLE_GRACE_PERIOD=&quot;21600&quot; \</span><br><span class="line">    -e BEPINEX=true\</span><br><span class="line">    ghcr.io/lloesche/valheim-server</span><br></pre></td></tr></table></figure>
+
 <p>看到如下消息时说明成功，如果服务器配置不够（内存）的话会直接卡死</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [ 99%] Downloading update (57,385 of 57,385 KB)...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [100%] Download complete.</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Extracting package...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Extracting package...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Extracting package...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Extracting package...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Installing update...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Cleaning up...</span><br><span class="line">Dec 12 16:14:31 /supervisord: valheim-updater [----] Update complete, launching Steamcmd...</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater Redirecting stderr to &#x27;/home/valheim/Steam/logs/stderr.txt&#x27;</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater [  0%] Checking for available updates...</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater [----] Verifying installation...</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater Steam Console Client (c) Valve Corporation - version 1669935972</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater -- type &#x27;quit&#x27; to exit --</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater Loading Steam API...OK</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater</span><br><span class="line">Dec 12 16:14:32 /supervisord: valheim-updater Connecting anonymously to Steam Public...</span><br><span class="line">Dec 12 16:15:01 CRON[352]: pam_unix(cron:session): session opened for user root by (uid=0)</span><br><span class="line">Dec 12 16:15:01 CRON[353]: (root) CMD ([ -f &quot;/var/run/valheim/valheim-updater.pid&quot; ] &amp;&amp; kill -HUP $(cat /var/run/valheim/valheim-updater.pid))</span><br><span class="line">Dec 12 16:15:01 CRON[352]: pam_unix(cron:session): session closed for user root</span><br><span class="line">Dec 12 16:15:20 /supervisord: valheim-updater OK</span><br><span class="line">Dec 12 16:15:20 /supervisord: valheim-updater Waiting for client config...OK</span><br><span class="line">Dec 12 16:15:20 /supervisord: valheim-updater Waiting for user info...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="食物"><a href="#食物" class="headerlink" title="食物"></a>食物</h4><p>蛟龙肉汤（2honey + 1mushroom + 1serpentMeatCooked）/牦牛派（2Cloudberry+2LoxMeat+4BarleyFlour） + 血旺（2Thistle+2Bloodbag+4BarleyFlour） + 面包（10BarleyFlour）/蛟龙肉汤</p>
+
+<h4 id="食物"><a href="#食物" class="headerlink" title="食物"></a>食物</h4><p>蛟龙肉汤（2honey + 1mushroom + 1serpentMeatCooked）&#x2F;牦牛派（2Cloudberry+2LoxMeat+4BarleyFlour） + 血旺（2Thistle+2Bloodbag+4BarleyFlour） + 面包（10BarleyFlour）&#x2F;蛟龙肉汤</p>
 <h3 id="药水"><a href="#药水" class="headerlink" title="药水"></a>药水</h3><p>中份耐力：10蜂蜜+10云莓+10MushroomYellow<br>中份治疗：10蜂蜜+4血袋+10Raspberry+1dandelion</p>
 <h3 id="武器"><a href="#武器" class="headerlink" title="武器"></a>武器</h3><p>黑曜石箭：8Wood+4Obsidian+2Feathers</p>
 <h2 id="服务器网路优化"><a href="#服务器网路优化" class="headerlink" title="服务器网路优化"></a>服务器网路优化</h2><ol>
@@ -386,16 +403,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 </li>
 <li><p><strong>调整UDP缓冲区与QoS优先级</strong></p>
-</li>
-</ol>
 <ul>
-<li>查看当前缓冲区大小<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@overstars:/proc/sys<span class="comment"># cat /proc/sys/net/core/rmem_max</span></span><br><span class="line">212992</span><br><span class="line">root@overstars:/proc/sys<span class="comment"># cat /proc/sys/net/core/wmem_max</span></span><br><span class="line">212992</span><br></pre></td></tr></table></figure></li>
-<li><p>增大UDP接收/发送缓冲区，避免丢包：</p>
+<li><p>查看当前缓冲区大小</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@overstars:/proc/sys<span class="comment"># cat /proc/sys/net/core/rmem_max</span></span><br><span class="line">212992</span><br><span class="line">root@overstars:/proc/sys<span class="comment"># cat /proc/sys/net/core/wmem_max</span></span><br><span class="line">212992</span><br></pre></td></tr></table></figure></li>
+<li><p>增大UDP接收&#x2F;发送缓冲区，避免丢包：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w net.core.rmem_max=26214400</span><br><span class="line">sysctl -w net.core.wmem_max=26214400</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在路由器或服务器设置QoS规则，优先处理Enshrouded的UDP端口流量。</p>
 </li>
 </ul>
+</li>
+</ol>
 
     </div>
 

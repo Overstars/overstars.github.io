@@ -306,9 +306,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <div class="post-body" itemprop="articleBody"><p>之前装机拆下来一块金百达KP230 512G NVME M.2接口 NVMe协议，想装到上大学前买的G3上当作系统盘。</p>
 <span id="more"></span>
+
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="名词解释和基本概念"><a href="#名词解释和基本概念" class="headerlink" title="名词解释和基本概念"></a>名词解释和基本概念</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/91643438">https://zhuanlan.zhihu.com/p/91643438</a></p>
-<h3 id="可行性调研"><a href="#可行性调研" class="headerlink" title="可行性调研"></a>可行性调研</h3><div class="table-container">
-<table>
+<h3 id="可行性调研"><a href="#可行性调研" class="headerlink" title="可行性调研"></a>可行性调研</h3><table>
 <thead>
 <tr>
 <th></th>
@@ -316,8 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <th>依据</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>G3是否支持NVME硬盘</td>
 <td>✔</td>
 <td>B站有人换过，不过要改BIOS</td>
@@ -342,9 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td>💭</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GY411M7cY">直接把机械盘拆掉</a>。</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h3 id="iso镜像校验"><a href="#iso镜像校验" class="headerlink" title="iso镜像校验"></a>iso镜像校验</h3><p>可以使用Windows下使用自带<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6384e7f42175">certutil工具校验</a>文件MD5、SHA1、SHA256。</p>
 <h3 id="准备SSD和安装介质"><a href="#准备SSD和安装介质" class="headerlink" title="准备SSD和安装介质"></a>准备SSD和安装介质</h3><h5 id="SSD清空"><a href="#SSD清空" class="headerlink" title="SSD清空"></a>SSD清空</h5><p>这块固态是要完全清空的，原有的操作系统以及数据担心会引起不必要的麻烦。分区删不掉的EFI分区和备份分区，可以通过diskgenius直接删除并保存。使用Diskpart直接删删不掉，我也懒得找用Diskpart删的方法了。</p>
 <h4 id="MediaCreationTool？DELL-OS-Recovery-Tool？"><a href="#MediaCreationTool？DELL-OS-Recovery-Tool？" class="headerlink" title="MediaCreationTool？DELL OS Recovery Tool？"></a>MediaCreationTool？DELL OS Recovery Tool？</h4><p><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows10">下载 Windows 10</a>。</p>
