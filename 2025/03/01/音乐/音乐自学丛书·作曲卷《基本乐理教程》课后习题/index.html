@@ -307,36 +307,32 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="post-body" itemprop="articleBody"><p><img src="https://www.overstars.site:9004/images/15f6a921-0a12-4275-9878-528d8a70519a.jpg" alt="基本乐理教程"></p>
 <p>这本书看起来很薄，概念描述也比较简单清晰，没那么大的心理压力。</p>
 <span id="more"></span>
+<p><pre class="mermaid">graph TD<br>    A[音程类型] —&gt; B[自然音程<br>（调式内固有）]<br>    A —&gt; C[变化音程<br>（升降号扩展）]</pre></p>
+<pre><code>B --&gt; D[纯音程&lt;br&gt;（1,4,5,8度）]
+B --&gt; E[大/小音程&lt;br&gt;（2,3,6,7度）]
 
-<pre class="mermaid">graph TD
-    A[音程类型] --> B[自然音程<br>（调式内固有）]
-    A --> C[变化音程<br>（升降号扩展）]
-    
-    B --> D[纯音程<br>（1,4,5,8度）]
-    B --> E[大/小音程<br>（2,3,6,7度）]
-    
-    C --> F[增音程<br>（纯/大+1半音）]
-    C --> G[减音程<br>（纯/小-1半音）]
-    C --> H[倍增/倍减音程<br>（增减再±1半音）]
-    
-    D -->|纯音程+1半音| F
-    D -->|纯音程-1半音| G
-    
-    E -->|大音程-1半音| I[小音程]
-    E -->|小音程+1半音| J[大音程]
-    I -->|小音程-1半音| G
-    J -->|大音程+1半音| F
-    
-    F -->|增音程+1半音| K[倍增音程]
-    G -->|减音程-1半音| L[倍减音程]
-    
-    style D fill:#f9f,stroke:#333
-    style E fill:#9f9,stroke:#333
-    style F fill:#f96,stroke:#333
-    style G fill:#69f,stroke:#333
-    style K fill:#f66,stroke:#333
-    style L fill:#66f,stroke:#333</pre>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="音程"><a href="#音程" class="headerlink" title="音程"></a>音程</h3><ul>
+C --&gt; F[增音程&lt;br&gt;（纯/大+1半音）]
+C --&gt; G[减音程&lt;br&gt;（纯/小-1半音）]
+C --&gt; H[倍增/倍减音程&lt;br&gt;（增减再±1半音）]
+
+D --&gt;|纯音程+1半音| F
+D --&gt;|纯音程-1半音| G
+
+E --&gt;|大音程-1半音| I[小音程]
+E --&gt;|小音程+1半音| J[大音程]
+I --&gt;|小音程-1半音| G
+J --&gt;|大音程+1半音| F
+
+F --&gt;|增音程+1半音| K[倍增音程]
+G --&gt;|减音程-1半音| L[倍减音程]
+
+style D fill:#f9f,stroke:#333
+style E fill:#9f9,stroke:#333
+style F fill:#f96,stroke:#333
+style G fill:#69f,stroke:#333
+style K fill:#f66,stroke:#333
+style L fill:#66f,stroke:#333&lt;/pre&gt;
+</code></pre><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="音程"><a href="#音程" class="headerlink" title="音程"></a>音程</h3><ul>
 <li>音程：分为大、小、纯、增、减、倍增、倍减七类。</li>
 <li>纯音程：度数确定时，音数也确定。</li>
 <li>大音程：自然音阶中较大的二度、三度、六度、七度（如C-D大二度，C-E大三度）。</li>
@@ -352,7 +348,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <h2 id="第一章-音的长短"><a href="#第一章-音的长短" class="headerlink" title="第一章 音的长短"></a>第一章 音的长短</h2><h3 id="练习一"><a href="#练习一" class="headerlink" title="练习一"></a>练习一</h3><p>（一）写出下列音符与休止符的名称。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">X:1</span><br><span class="line">T:TEST 1</span><br><span class="line">M:4/4</span><br><span class="line">L:1/4</span><br><span class="line">K:C treble</span><br><span class="line">|A/2 z A2 A/4 A4 z/4 z2 A3 z4|</span><br><span class="line">|A6 z/2 |</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>一头一干一尾：八分音符。</p>
 </li>
