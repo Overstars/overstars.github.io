@@ -1,9 +1,9 @@
+https://overstars.github.io/arts/animes/animes.json
 https://overstars.github.io/2023/09/11/%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E4%B8%8E%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/Overstars-%E5%86%86%E7%9B%A4/
 https://overstars.github.io/2024/11/25/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%87%AA%E5%BB%BAubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/
 https://overstars.github.io/arts/games/games.json
 https://overstars.github.io/timeline/index.html
 https://overstars.github.io/2025/05/10/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/
-https://overstars.github.io/arts/animes/animes.json
 https://overstars.github.io/arts/games/index.html
 https://overstars.github.io/arts/index.html
 https://overstars.github.io/arts/books/books.json
