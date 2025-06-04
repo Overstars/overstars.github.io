@@ -170,18 +170,18 @@ document.addEventListener('DOMContentLoaded', function() {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">71</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -610,6 +610,32 @@ if (album) {
         li += '<div class="card" style="width:' + imageWidth + 'px" >';
         li += '<div class="album-photo" style="height:'+ imageWidth * imageY / imageX + 'px">';
         li += '<a class="fancybox fancybox.image" href="' + imgPath + imgNameWithPattern + '" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="group" rel="group" data-caption="' + imgName + '" title="' +  imgName + '">';
+        li += '<img data-src="' + imgPath + imgNameWithPattern + '" src="' + imgPath + imgNameWithPattern + '" alt="' +  imgName + '" data-loaded="true">';
+        li += '</a>';
+        li += '</div>';
+        li += '</div>';
+      }
+      album.insertAdjacentHTML('beforeend', li);
+      this.minigrid();
+    },
+    minigrid: function () {
+      var grid = new Minigrid({
+        container: '.album',
+        item: '.card',
+        gutter: 12
+      });
+      grid.mount();
+      window.addEventListener('resize', function () {
+        grid.mount();
+      });
+    }
+  };
+  photo.init();
+}
+</script>
+</body>
+</html>
+aption="' + imgName + '" title="' +  imgName + '">';
         li += '<img data-src="' + imgPath + imgNameWithPattern + '" src="' + imgPath + imgNameWithPattern + '" alt="' +  imgName + '" data-loaded="true">';
         li += '</a>';
         li += '</div>';
