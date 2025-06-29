@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
+<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
+<!-- 记录访问数据 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const logData = {
+    url: window.location.href,
+    referrer: document.referrer,
+    screen: `${screen.width}x${screen.height}`,
+    lang: navigator.language,
+    ua: navigator.userAgent
+  };
+
+  // 使用Beacon API发送数据
+  navigator.sendBeacon('https://www.overstars.site:9004/logs/visit', 
+    new URLSearchParams(logData).toString()
+  );
+});
+</script>
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/scallions-128%C3%97128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/scallions-32%C3%9732.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/scallions-32%C3%9732.png">
+  <link rel="mask-icon" href="/images/scallions-128%C3%97128.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"overstars.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="组件 推荐工具 作用    媒体服务器 Jellyfin（开源）或Plex（易用） 核心媒体管理与播放   自动化下载 qBittorrent + Mikan RSS 订阅并下载新番   动漫重命名 Anime-Repository 匹配TMDB ID，生成标准命名   元数据刮削 Shoko Server（动漫）或TVDB 补全海报、简介、演员信息   字幕管理 Bazarr + Whis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu-server部署Jellyfin家庭影音库">
+<meta property="og:url" content="https://overstars.github.io/2025/06/29/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2Jellyfin%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E5%BA%93/index.html">
+<meta property="og:site_name" content="零岛">
+<meta property="og:description" content="组件 推荐工具 作用    媒体服务器 Jellyfin（开源）或Plex（易用） 核心媒体管理与播放   自动化下载 qBittorrent + Mikan RSS 订阅并下载新番   动漫重命名 Anime-Repository 匹配TMDB ID，生成标准命名   元数据刮削 Shoko Server（动漫）或TVDB 补全海报、简介、演员信息   字幕管理 Bazarr + Whis">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://overstars.github.io/2025/06/29/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2Jellyfin%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E5%BA%93/image-20250629202641020.png">
+<meta property="article:published_time" content="2025-06-29T08:31:34.000Z">
+<meta property="article:modified_time" content="2025-06-29T17:50:34.241Z">
+<meta property="article:author" content="Overstars">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="Jellyfin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://overstars.github.io/2025/06/29/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2Jellyfin%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E5%BA%93/image-20250629202641020.png">
+
+
+<link rel="canonical" href="https://overstars.github.io/2025/06/29/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2Jellyfin%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E5%BA%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://overstars.github.io/2025/06/29/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2Jellyfin%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E5%BA%93/","path":"2025/06/29/Linux与服务器/ubuntu-server部署Jellyfin家庭影音库/","title":"ubuntu-server部署Jellyfin家庭影音库"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ubuntu-server部署Jellyfin家庭影音库 | 零岛</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">零岛</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">回朕车以复路兮，及行迷之未远</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-arts"><a href="/arts/" rel="section"><i class="fa fa-guitar fa-fw"></i>arts</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>timeline</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2Jellyfin"><span class="nav-number">1.</span> <span class="nav-text">部署Jellyfin</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-compose-yml"><span class="nav-number">1.0.1.</span> <span class="nav-text">docker-compose.yml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB%E5%88%AE%E5%89%8A%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">动画刮削方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E8%A7%84%E8%8C%83"><span class="nav-number">3.</span> <span class="nav-text">文件存储规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E5%BD%B1%E4%B8%8E%E5%8A%A8%E7%94%BB%E5%AD%98%E6%94%BE%E8%A7%84%E8%8C%83"><span class="nav-number">3.1.</span> <span class="nav-text">电影与动画存放规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%B9%95%E5%AD%98%E6%94%BE%E8%A7%84%E8%8C%83"><span class="nav-number">3.2.</span> <span class="nav-text">字幕存放规范</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Overstars"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Overstars</p>
+  <div class="site-description" itemprop="description">I despised my soul when I saw her being meek that she might attain height.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Oversatrs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Overstars@foxmail.com" title="E-Mail → mailto:Overstars@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/Oversatrs" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;Oversatrs" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Miaplacidus" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miaplacidus" rel="noopener me" target="_blank"><i class="fab fa-solid fa-c fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/Overstars233" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;Overstars233" rel="noopener me" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/359920679" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;359920679" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://overstars.github.io/2025/06/29/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2Jellyfin%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="I despised my soul when I saw her being meek that she might attain height.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ubuntu-server部署Jellyfin家庭影音库 | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ubuntu-server部署Jellyfin家庭影音库
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-29 16:31:34" itemprop="dateCreated datePublished" datetime="2025-06-29T16:31:34+08:00">2025-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-06-30 01:50:34" itemprop="dateModified" datetime="2025-06-30T01:50:34+08:00">2025-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%84%E8%A3%85%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">ubuntu服务器组装配置</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><table>
+<thead>
+<tr>
+<th align="center"><strong>组件</strong></th>
+<th align="center"><strong>推荐工具</strong></th>
+<th align="center"><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">媒体服务器</td>
+<td align="center">Jellyfin（开源）或Plex（易用）</td>
+<td align="center">核心媒体管理与播放</td>
+</tr>
+<tr>
+<td align="center">自动化下载</td>
+<td align="center">qBittorrent + Mikan RSS</td>
+<td align="center">订阅并下载新番</td>
+</tr>
+<tr>
+<td align="center">动漫重命名</td>
+<td align="center">Anime-Repository</td>
+<td align="center">匹配TMDB ID，生成标准命名</td>
+</tr>
+<tr>
+<td align="center">元数据刮削</td>
+<td align="center">Shoko Server（动漫）或TVDB</td>
+<td align="center">补全海报、简介、演员信息</td>
+</tr>
+<tr>
+<td align="center">字幕管理</td>
+<td align="center">Bazarr + Whisper</td>
+<td align="center">自动下载&#x2F;生成字幕</td>
+</tr>
+<tr>
+<td align="center">硬件方案</td>
+<td align="center">旧电脑&#x2F;NAS + Docker</td>
+<td align="center">低功耗24小时运行</td>
+</tr>
+<tr>
+<td align="center">客户端</td>
+<td align="center">浏览器访问+ 官方 Android&#x2F;iOS 应用</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+
+<h2 id="部署Jellyfin"><a href="#部署Jellyfin" class="headerlink" title="部署Jellyfin"></a>部署Jellyfin</h2><ul>
+<li>依赖docker和docker compose，需预先安装。</li>
+<li>先自行解决一下外部访问，可能得改下ddns和nginx配置，可参考<a href="/2025/02/15/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2nginx/" title="ubuntu server部署nginx">ubuntu-server部署nginx</a>这篇文章。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/docker/jellyfin/&#123;config,cache,media&#125;  <span class="comment"># 按需调整路径</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a><strong><code>docker-compose.yml</code></strong></h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">jellyfin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">jellyfin/jellyfin:latest</span>  <span class="comment"># 使用最新镜像</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">jellyfin</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">network_mode:</span> <span class="string">host</span>  <span class="comment"># 推荐模式，和宿主机共享网络，避免端口映射问题</span></span><br><span class="line">    <span class="comment">#ports:</span></span><br><span class="line">    <span class="comment">#  - &quot;8096:8096&quot;     # HTTP访问</span></span><br><span class="line">    <span class="comment">#  - &quot;8920:8920&quot;     # HTTPS访问（可选）</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config:/config</span>  <span class="comment"># 配置持久化</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./cache:/cache</span>     <span class="comment"># 缓存目录</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/yankf/data/Jellyfin:/media</span>     <span class="comment"># 媒体目录（可添加多个，如/media2）</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span>   <span class="comment"># 设置时区</span></span><br><span class="line">    <span class="comment"># 可选：启用硬件加速（需NVIDIA显卡）</span></span><br><span class="line">    <span class="comment"># devices:</span></span><br><span class="line">    <span class="comment">#   - /dev/dri:/dev/dri  # Intel核显</span></span><br><span class="line">    <span class="comment">#   - /dev/nvidia0:/dev/nvidia0  # NVIDIA独显</span></span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>内网使用时开放下<code>8096</code>端口，公网用域名访问吧。</p>
+<p><img src="image-20250629202641020.png" alt="image-20250629202641020"></p>
+<p>初始化管理员用户，完毕！</p>
+<h2 id="动画刮削方案"><a href="#动画刮削方案" class="headerlink" title="动画刮削方案"></a>动画刮削方案</h2><p><strong>联动原理</strong>：<br>BGmi订阅番剧 → 调用Transmission下载 → 文件保存到<code>/downloads</code> → Jellyfin自动扫描媒体库</p>
+<p>使用BGmi、Transmission、Jellyfin构建一套自动订阅、下载片源、同步字幕的方案，下载后自动硬连接到媒体库，如下是启动配置，请补充其他操作步骤：</p>
+<h2 id="文件存储规范"><a href="#文件存储规范" class="headerlink" title="文件存储规范"></a><strong>文件存储规范</strong></h2><h3 id="电影与动画存放规范"><a href="#电影与动画存放规范" class="headerlink" title="电影与动画存放规范"></a>电影与动画存放规范</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/媒体根目录/</span><br><span class="line">  ├── Movies/                  <span class="comment"># 电影库</span></span><br><span class="line">  │   ├── 电影名 (年份)/        <span class="comment"># 单部电影独立文件夹</span></span><br><span class="line">  │   │   ├── 电影名 (年份).mp4  <span class="comment"># 主视频文件</span></span><br><span class="line">  │   │   ├── 海报.jpg          <span class="comment"># 封面（可选）</span></span><br><span class="line">  │   │   └── 字幕文件.srt      <span class="comment"># 字幕（与视频同名）</span></span><br><span class="line">  │   └── 合集名/              <span class="comment"># 系列电影合集（如漫威宇宙）</span></span><br><span class="line">  │       ├── 电影1 (年份).mkv</span><br><span class="line">  │       └── 电影2 (年份).mkv</span><br><span class="line">  │</span><br><span class="line">  └── TV Shows/               <span class="comment"># 剧集/动画库</span></span><br><span class="line">      ├── 动画名 (年份)/        <span class="comment"># 单部动画独立文件夹</span></span><br><span class="line">      │   ├── Season 01/       <span class="comment"># 第一季</span></span><br><span class="line">      │   │   ├── 动画名 S01E01.mkv</span><br><span class="line">      │   │   └── 动画名 S01E01.zh.srt</span><br><span class="line">      │   └── Specials/        <span class="comment"># 特典篇（OVA、番外）</span></span><br><span class="line">      │       └── 动画名 S00E01.mkv</span><br><span class="line">      └── 纪录片/</span><br></pre></td></tr></table></figure>
+
+<h3 id="字幕存放规范"><a href="#字幕存放规范" class="headerlink" title="字幕存放规范"></a>字幕存放规范</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 服务器</a>
+              <a href="/tags/Jellyfin/" rel="tag"># Jellyfin</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/06/04/%E5%8C%BB%E7%96%97%E4%BF%9D%E5%81%A5/%E5%9F%BA%E6%9C%AC%E5%87%8F%E8%84%82%E6%96%B9%E6%A1%88%EF%BC%9A%E7%A7%91%E5%AD%A6%E9%A5%AE%E9%A3%9F-%E8%BF%90%E5%8A%A8-%E8%A7%84%E5%BE%8B%E4%BD%9C%E6%81%AF/" rel="prev" title="基本减脂方案：科学饮食+运动+规律作息">
+                  <i class="fa fa-angle-left"></i> 基本减脂方案：科学饮食+运动+规律作息
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Overstars</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.0/mermaid.min.js","integrity":"sha256-9y71g5Lz/KLsHjB8uXwnkuWDtAMDSzD/HdIbqhJfTAI="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Overstars/Hexo-Site-Comments-Section","repo_id":"R_kgDOKgH-yg","category":"Announcements","category_id":"DIC_kwDOKgH-ys4CaHxz","mapping":"title","reactions_enabled":1,"emit_metadata":0,"theme":"light_high_contrast","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+
+
+<script type="text/javascript">
+// 带PJAX属性的脚本标签， 会被Hexo替换为 data-pjax
+// 保证在PJAX页面跳转时脚本仍会执行
+
+/* 核心功能开始 */
+var artList = document.querySelectorAll(".art-list");
+// 获取所有class为"art-list"的DOM元素集合
+
+
+// 新增时间信息构建函数
+function buildTimeInfo(info) {
+  const hasPremiere = info['premiere_time'];
+  const hasWatched = info['watched_time'];
+
+  if (!hasPremiere && !hasWatched) return '';
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    return isNaN(date) ? '' :
+      `${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日`;
+  };
+
+  return `
+    <div class="work-meta-item time-info">
+      ${hasPremiere ? `
+        <div class="premiere-time">
+          <i class="icon-calendar"></i>
+          发布时间：${formatDate(info['premiere_time'])}
+        </div>` : ''}
+      ${hasWatched ? `
+        <div class="watched-time">
+          <i class="icon-clock"></i>
+          观看时间：${formatDate(info['watched_time'])}
+        </div>` : ''}
+    </div>
+  `;
+}
+
+if (artList.length !== 0) {  // 检查是否存在文艺列表容器
+  var j = -1;  // 计数器初始化，用于追踪异步请求索引
+
+  for (var i = 0; i < artList.length; i++) {  // 遍历所有列表容器
+    const listPath = artList[i].getAttribute('json-src');
+    // 从data属性获取JSON数据路径，如"/data/books.json"
+
+    const coverPath = artList[i].getAttribute('cover-src');
+    // 获取封面基础路径，如"/images/covers/"
+
+    var xhr = new XMLHttpRequest();  // 创建XHR对象
+    xhr.open('GET', listPath, true);  // 配置异步GET请求
+
+    xhr.onreadystatechange = function () {  // 定义状态变更监听器
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // 请求完成且成功（状态码200）
+
+        j++;  // 递增计数器（存在闭包问题，建议用let改进）
+        var data = JSON.parse(xhr.responseText);  // 解析JSON数据
+        var li = "";  // 初始化HTML内容缓存
+
+        artList[j].innerHTML = '';  // 清空容器原有内容
+
+        /* 数据遍历开始 */
+        for (var infoIndex = 0; infoIndex < data.length; infoIndex++) {
+          var info = data[infoIndex];  // 获取单条作品数据
+
+          /* 标题处理 */
+          var title = info['title'];  // 基础标题
+          if (info['pid']) {  // 如果有关联文章ID
+            title = `<a href="/posts/${info['pid']}/">${info['title']}</a>`;
+            // 生成带链接的标题，如<a href="/posts/123/">书名</a>
+          }
+
+          /* 作者信息 */
+          var author = info['author']
+            ? `<span class="author">${info['author']}</span>`
+            : '';  // 可选作者信息
+
+          /* 作品简介 */
+          var intro = info['intro'] ? info['intro'] : '';  // 可选简介
+
+          /* 星级评分系统 */
+          var star = '';
+          if (info['score'] != null) {  // 有评分时处理
+            const score = info['score'];
+            const maxStars = 10; // 总星数
+            const totalLines = 2; // 总行数
+            const starsPerLine = parseInt(maxStars / totalLines); // 要整除
+            const filledStars = Math.floor(score);  // 整数部分
+            const hasHalf = (score % 1 !== 0);  // 是否有半星
+            // 组合星级显示，如★★★★☆
+            // 由 实彩星 + 空彩星 + 空灰星 组成
+            for (var k = 0; k < totalLines; k++) {
+              // 该行实心的数目
+              const lineFullStars = Math.max(0, Math.min(starsPerLine, filledStars - k * starsPerLine));
+              let colorStar = '★'.repeat(lineFullStars); // 彩星
+              let greyStar = '';  // 灰星
+
+              var greyCount = starsPerLine - lineFullStars;
+              // 该行是否有半星，如果有，那么第filledStars + 1个星就是半星
+              if (hasHalf && lineFullStars < starsPerLine && k * starsPerLine + lineFullStars === filledStars) {
+                colorStar += '☆';  // 半星
+                greyCount --
+              }
+              // 该行灰星的数目
+              greyStar = '☆'.repeat(greyCount);
+              
+              star += `
+                <div class="star-lines">
+                  <span class="star-score">${colorStar}<span class="grey-star">${greyStar}</span></span>
+                </div>
+              `;
+              console.log("k = %d, colorStar = %s, greyStar = %s", k, colorStar, greyStar)
+            }
+            console.log(star)
+          }
+          
+          /* 组装作品块 */
+          // 封面图片，路径拼接如"/images/covers/cover.jpg"
+          li += `<div class="work">
+            <div class="work-cover"
+                 style="background-image:url(${coverPath}${info['cover']})">
+            </div>
+            <div class="work-meta">
+              <div class="work-meta-item title">${title}</div>
+              <div class="work-meta-item">${author}${star}</div>
+              ${buildTimeInfo(info)}
+              <div class="work-meta-item intro">${intro}</div>
+            </div>
+          </div>`;
+        }
+
+        artList[j].innerHTML = li;  // 注入生成的HTML
+
+
+        // 事件绑定（使用事件委托）
+        artList[j].addEventListener('mouseover', function(e) {
+          const starElem = e.target.closest('.star-score');
+          if (starElem) {
+            const score = starElem.dataset.score;
+            tooltip.textContent = `详细评分: ${score}/10`;
+            tooltip.style.opacity = '1';
+            tooltip.style.left = `${e.pageX + 10}px`;
+            tooltip.style.top = `${e.pageY + 15}px`;
+          }
+        });
+
+        artList[j].addEventListener('mouseout', function(e) {
+          if (e.target.closest('.star-score')) {
+            tooltip.style.opacity = '0';
+          }
+        });
+
+        // PJAX兼容处理
+        if (window.pjax) {
+          pjax.refresh(artList[j]);
+        }
+      }
+    };
+    xhr.send();  // 发送请求
+  }
+}
+</script>
+
+
+
+
+<script src="/resources/minigrid.min.js"></script>
+<script type="text/javascript">
+var album = document.querySelector(".album");
+if (album) {
+  // 相册列表 JSON 数据
+  var imgDataPath = album.getAttribute('json-src');
+  // 照片存储路径
+  var imgPath = album.getAttribute('photo-src');
+  // 最多显示数量
+  var imgMaxNum = 50;
+  // 获取窗口大小以决定图片宽度
+  var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  var imageWidth;
+
+  if (windowWidth < 768) {
+    imageWidth = 145; // 移动端图片宽度
+  } else {
+    imageWidth = 235;
+  }
+
+  // 生成相册
+  var linkDataPath = imgDataPath;
+  var photo = {
+    page: 1,
+    offset: imgMaxNum,
+    init: function () {
+      var that = this;
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", linkDataPath, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var data = JSON.parse(xhr.responseText);
+          that.render(that.page, data);
+        }
+      };
+      xhr.send();
+    },
+    render: function (page, data) {
+      var begin = (page - 1) * this.offset;
+      var end = page * this.offset;
+      if (begin >= data.length) return;
+      var imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
+      for (var i = begin; i < end && i < data.length; i++) {
+        imgNameWithPattern = data[i].split(' ')[1];
+        imgName = imgNameWithPattern.split('.')[0];
+        imageSize = data[i].split(' ')[0];
+        imageX = imageSize.split('.')[0];
+        imageY = imageSize.split('.')[1];
+        li += '<div class="card" style="width:' + imageWidth + 'px" >';
+        li += '<div class="album-photo" style="height:'+ imageWidth * imageY / imageX + 'px">';
+        li += '<a class="fancybox fancybox.image" href="' + imgPath + imgNameWithPattern + '" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="group" rel="group" data-caption="' + imgName + '" title="' +  imgName + '">';
+        li += '<img data-src="' + imgPath + imgNameWithPattern + '" src="' + imgPath + imgNameWithPattern + '" alt="' +  imgName + '" data-loaded="true">';
+        li += '</a>';
+        li += '</div>';
+        li += '</div>';
+      }
+      album.insertAdjacentHTML('beforeend', li);
+      this.minigrid();
+    },
+    minigrid: function () {
+      var grid = new Minigrid({
+        container: '.album',
+        item: '.card',
+        gutter: 12
+      });
+      grid.mount();
+      window.addEventListener('resize', function () {
+        grid.mount();
+      });
+    }
+  };
+  photo.init();
+}
+</script>
+</body>
+</html>
