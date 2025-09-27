@@ -288,6 +288,33 @@ section Godot Engine实践
       </tags>
   </entry>
   <entry>
+    <title>CS61B临时专题</title>
+    <url>/2025/09/26/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/CS61B%E4%B8%B4%E6%97%B6%E4%B8%93%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="CS-61B-Fall-2024"><a href="#CS-61B-Fall-2024" class="headerlink" title="CS 61B Fall 2024"></a><a href="https://fa24.datastructur.es/">CS 61B Fall 2024</a></h1><p>先介绍一下官网的各个栏目是干什么的</p>
+<ul>
+<li>Home：日程表</li>
+<li>Calendar：没什么用。</li>
+<li>Course Info：课程背景信息、以及校内的考核标准之类的。</li>
+<li>Staff：讲师和助教。</li>
+<li>Labs：10个实验。</li>
+<li>Homeworks：3个家庭作业。</li>
+<li>Projects：6个项目。</li>
+<li>Resources：所用工具的说明，一般为课外文档。</li>
+<li>Troubleshooting</li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>computer science</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>数据结构</tag>
+        <tag>CS61B</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu-server部署Jellyfin家庭影音库</title>
     <url>/2025/06/29/Linux%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/ubuntu-server%E9%83%A8%E7%BD%B2Jellyfin%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E5%BA%93/</url>
     <content><![CDATA[<table>
@@ -5054,7 +5081,7 @@ BMR = 66 + (13.7×73) + (5×174) - (6.8×26) ≈ 1730kcal</script><p>总消耗�
 
 
 <h3 id="Local-Search启用"><a href="#Local-Search启用" class="headerlink" title="Local Search启用"></a>Local Search启用</h3><p>安装插件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
 
 <p>编辑根配置文件<code>_config.yml</code></p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
