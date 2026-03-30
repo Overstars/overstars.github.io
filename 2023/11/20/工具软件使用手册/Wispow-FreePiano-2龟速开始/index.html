@@ -315,72 +315,114 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-      <div id="abcjs-audio-1" class="abcjs-audio-container"></div>
-      <div id="abcjs-paper-0" class="abcjs-paper-container"></div>
-      <script>
-        (function () {
-          var config = {"js":"/js/abcjs-basic-min.js","css":"/css/abcjs-audio.css","scriptId":"hexo-tag-abcjs","midi":true,"animation":true,"animationColors":["#000000","#3d9afc"],"options":{"startingTune":0,"print":false,"visualTranspose":0,"scale":1,"responsive":"resize","inlineControls":{"loopToggle":true,"standard":true,"tooltipLoop":"Click to toggle play once/repeat.","tooltipReset":"Click to go to beginning.","tooltipPlay":"Click to play/pause.","tooltipProgress":"Click to change the playback position.","startPlaying":false}},"enable":true,"per_page":true,"paperId":"abcjs-paper-0","audioId":"abcjs-audio-1"};
-          var abcString = "X: 22\nT:Money Lost\nM:3/4\nL:1/8\nQ:1/4=100\nC:Paul Rosen\nS:Copyright 2007, Paul Rosen\nR:Klezmer\nK:Dm\nAde|:\"Dm\"(f2d)e gf|\"A7\"e2^c4|\"Gm\"B>>^c BA BG|\"A\"A3Ade|\"Dm\"(f2d)e gf|\"A7\"e2^c4|\n\"Gm\"A>>B \"A7\"AG FE|1\"Dm\"D3Ade:|2\"Dm\"D3DEF||:\"Gm\"(G2D)E FG|\"Dm\"A2F4|\"Gm\"B>>c \"A7\"BA BG|\n\"Dm\"A3 DEF|\"Gm\"(G2D)EFG|\"Dm\"A2F4|\"E°\"E>>Fy \"(A7)\"ED^C2|1\"Dm\"D3DEF:|2\"Dm\"D6||";
+            <div id="abcjs-audio-1" class="abcjs-audio-container"></div>
+            <div id="abcjs-paper-0" class="abcjs-paper-container"></div>
+            <script data-pjax>
+                (function () {
+                    var config = {"js":"/js/abcjs-basic-min.js","css":"/css/abcjs-audio.css","scriptId":"hexo-tag-abcjs","midi":true,"animation":true,"animationColors":["#000000","#3d9afc"],"options":{"startingTune":0,"print":false,"visualTranspose":0,"scale":1,"responsive":"resize","inlineControls":{"loopToggle":true,"standard":true,"tooltipLoop":"Click to toggle play once/repeat.","tooltipReset":"Click to go to beginning.","tooltipPlay":"Click to play/pause.","tooltipProgress":"Click to change the playback position.","startPlaying":false}},"enable":true,"per_page":true,"paperId":"abcjs-paper-0","audioId":"abcjs-audio-1"};
+                    var abcString = "X: 22\nT:Money Lost\nM:3/4\nL:1/8\nQ:1/4=100\nC:Paul Rosen\nS:Copyright 2007, Paul Rosen\nR:Klezmer\nK:Dm\nAde|:\"Dm\"(f2d)e gf|\"A7\"e2^c4|\"Gm\"B>>^c BA BG|\"A\"A3Ade|\"Dm\"(f2d)e gf|\"A7\"e2^c4|\n\"Gm\"A>>B \"A7\"AG FE|1\"Dm\"D3Ade:|2\"Dm\"D3DEF||:\"Gm\"(G2D)E FG|\"Dm\"A2F4|\"Gm\"B>>c \"A7\"BA BG|\n\"Dm\"A3 DEF|\"Gm\"(G2D)EFG|\"Dm\"A2F4|\"E°\"E>>Fy \"(A7)\"ED^C2|1\"Dm\"D3DEF:|2\"Dm\"D6||";
 
-          function loadjs(id, url, cb) {
-            var js = document.createElement('script');
+                    function loadjs(id, url, cb) {
+                        var js = document.createElement('script');
 
-            js.src = url;
-            if (id) {
-              js.id = id;
-            }
-            js.addEventListener('load', cb);
-            document.body.appendChild(js);
-            return js;
-          }
-          function loadcss(url) {
-            var css = document.createElement('link');
+                        js.src = url;
+                        if (id) {
+                            js.id = id;
+                        }
+                        js.addEventListener('load', cb, { once: true });
+                        document.body.appendChild(js);
+                        return js;
+                    }
 
-            css.href = url;
-            css.rel = 'stylesheet';
-            css.type = 'text/css';
-            document.head.appendChild(css);
-          }
-          function colorRange(range, color) {
-            if (range && range.elements) {
-              range.elements.forEach(function (set) {
-                set.forEach(function (item) {
-                  item.setAttribute('fill', color);
-                });
-              });
-            }
-          }
+                    function loadcss(url) {
+                        if (document.querySelector('link[href="' + url + '"]')) return;
+                        var css = document.createElement('link');
 
-          function setup() {
-            var tunes = ABCJS.renderAbc(config.paperId, abcString, config.options || {});
-            var options = config.options || {};
-            var animationColors = config.animationColors;
+                        css.href = url;
+                        css.rel = 'stylesheet';
+                        css.type = 'text/css';
+                        document.head.appendChild(css);
+                    }
 
-            if (config.animation) {
-              options.animate = Object.assign({
-                target: tunes[0],
-                qpm: 120,
-                listener: function (lastRange, currentRange, context) {
-                  colorRange(lastRange, animationColors[0]);
-                  colorRange(currentRange, animationColors[1]);
-                }
-              }, options.animate || {});
-            }
-            console.log(options);
-            if (config.midi) {
-              ABCJS.renderMidi(config.audioId, abcString, options);
-            }
-          }
+                    function colorRange(range, color) {
+                        if (range && range.elements) {
+                            range.elements.forEach(function (set) {
+                                set.forEach(function (item) {
+                                    item.setAttribute('fill', color);
+                                });
+                            });
+                        }
+                    }
 
-          if (typeof window.abcjs === 'undefined' && !document.getElementById(config.scriptId)) {
-            loadcss(config.css);
-            loadjs(config.scriptId, config.js, setup);
-          } else {
-            window.addEventListener('load', setup);
-          }
-        })();
-      </script>
-    
+                    function createAudioControl(audio, visualObj) {
+                        if (typeof ABCJS.renderMidi === 'function') {
+                            ABCJS.renderMidi(config.audioId, abcString, config.options || {});
+                            return Promise.resolve();
+                        }
+
+                        if (!ABCJS.synth || !ABCJS.synth.SynthController || !ABCJS.synth.CreateSynth) {
+                            return Promise.resolve();
+                        }
+
+                        audio.innerHTML = '';
+
+                        var inlineControls = (config.options && config.options.inlineControls) || {};
+                        var synthControlOptions = {
+                            displayLoop: inlineControls.loopToggle !== false,
+                            displayRestart: true,
+                            displayPlay: inlineControls.standard !== false,
+                            displayProgress: inlineControls.standard !== false,
+                            displayWarp: true
+                        };
+
+                        audio.synthController = new ABCJS.synth.SynthController();
+                        audio.synthController.load(audio, null, synthControlOptions);
+                        audio.synth = new ABCJS.synth.CreateSynth();
+
+                        return audio.synth.init({ visualObj: visualObj })
+                            .then(function () {
+                                return audio.synthController.setTune(visualObj, false);
+                            });
+                    }
+
+                    function setup() {
+                        var paper = document.getElementById(config.paperId);
+                        var audio = document.getElementById(config.audioId);
+                        if (!paper || !audio || paper.dataset.abcjsRendered === 'true') return;
+
+                        paper.dataset.abcjsRendered = 'true';
+                        var tunes = ABCJS.renderAbc(config.paperId, abcString, config.options || {});
+                        var options = config.options || {};
+                        var animationColors = config.animationColors;
+
+                        if (config.animation && tunes && tunes[0]) {
+                            options.animate = Object.assign({
+                                target: tunes[0],
+                                qpm: 120,
+                                listener: function (lastRange, currentRange) {
+                                    colorRange(lastRange, animationColors[0]);
+                                    colorRange(currentRange, animationColors[1]);
+                                }
+                            }, options.animate || {});
+                        }
+
+                        if (config.midi && tunes && tunes[0]) {
+                            createAudioControl(audio, tunes[0]).catch(function (error) {
+                                paper.dataset.abcjsRendered = 'false';
+                                console.error('abcjs audio init failed:', error);
+                            });
+                        }
+                    }
+
+                    loadcss(config.css);
+                    if (typeof window.ABCJS === 'undefined' && !document.getElementById(config.scriptId)) {
+                        loadjs(config.scriptId, config.js, setup);
+                    } else {
+                        setup();
+                    }
+                })();
+            </script>
+        
 
 
 
