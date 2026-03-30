@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://freepiano.tiwb.com/cn/docs/img/main_screen.png">
 <meta property="article:published_time" content="2023-11-20T15:30:43.000Z">
-<meta property="article:modified_time" content="2025-02-28T09:47:12.682Z">
+<meta property="article:modified_time" content="2026-03-30T10:40:52.872Z">
 <meta property="article:author" content="Overstars">
 <meta property="article:tag" content="freepiano">
 <meta property="article:tag" content="音乐">
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-02-28 17:47:12" itemprop="dateModified" datetime="2025-02-28T17:47:12+08:00">2025-02-28</time>
+      <time title="修改时间：2026-03-30 18:40:52" itemprop="dateModified" datetime="2026-03-30T18:40:52+08:00">2026-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -317,72 +317,308 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div id="abcjs-audio-1" class="abcjs-audio-container"></div>
             <div id="abcjs-paper-0" class="abcjs-paper-container"></div>
+            
             <script data-pjax>
                 (function () {
-                    var config = {"js":"/js/abcjs-basic-min.js","css":"/css/abcjs-audio.css","scriptId":"hexo-tag-abcjs","midi":true,"animation":true,"animationColors":["#000000","#3d9afc"],"options":{"startingTune":0,"print":false,"visualTranspose":0,"scale":1,"responsive":"resize","inlineControls":{"loopToggle":true,"standard":true,"tooltipLoop":"Click to toggle play once/repeat.","tooltipReset":"Click to go to beginning.","tooltipPlay":"Click to play/pause.","tooltipProgress":"Click to change the playback position.","startPlaying":false}},"enable":true,"per_page":true,"paperId":"abcjs-paper-0","audioId":"abcjs-audio-1"};
+                    var config = {"js":"/js/abcjs-basic-min.js","css":"/css/abcjs-audio.css","scriptId":"hexo-tag-abcjs","midi":true,"animation":true,"animationColors":["#000000","#3d9afc"],"options":{"startingTune":0,"print":false,"visualTranspose":0,"scale":1,"responsive":"resize","inlineControls":{"loopToggle":true,"standard":true,"tooltipLoop":"Click to toggle play once/repeat.","tooltipReset":"Click to go to beginning.","tooltipPlay":"Click to play/pause.","tooltipProgress":"Click to change the playback position."}},"paperId":"abcjs-paper-0","audioId":"abcjs-audio-1","autoplay":true};
                     var abcString = "X: 22\nT:Money Lost\nM:3/4\nL:1/8\nQ:1/4=100\nC:Paul Rosen\nS:Copyright 2007, Paul Rosen\nR:Klezmer\nK:Dm\nAde|:\"Dm\"(f2d)e gf|\"A7\"e2^c4|\"Gm\"B>>^c BA BG|\"A\"A3Ade|\"Dm\"(f2d)e gf|\"A7\"e2^c4|\n\"Gm\"A>>B \"A7\"AG FE|1\"Dm\"D3Ade:|2\"Dm\"D3DEF||:\"Gm\"(G2D)E FG|\"Dm\"A2F4|\"Gm\"B>>c \"A7\"BA BG|\n\"Dm\"A3 DEF|\"Gm\"(G2D)EFG|\"Dm\"A2F4|\"E°\"E>>Fy \"(A7)\"ED^C2|1\"Dm\"D3DEF:|2\"Dm\"D6||";
+                    var runtime = window.__abcjsTagRuntime = window.__abcjsTagRuntime || {
+                        scripts: {},
+                        styles: {}
+                    };
 
-                    function loadjs(id, url, cb) {
-                        var js = document.createElement('script');
-
-                        js.src = url;
-                        if (id) {
-                            js.id = id;
+                    function loadStyleOnce(url) {
+                        if (!url || runtime.styles[url]) return;
+                        if (document.querySelector('link[href="' + url + '"]')) {
+                            runtime.styles[url] = true;
+                            return;
                         }
-                        js.addEventListener('load', cb, { once: true });
-                        document.body.appendChild(js);
-                        return js;
-                    }
 
-                    function loadcss(url) {
-                        if (document.querySelector('link[href="' + url + '"]')) return;
                         var css = document.createElement('link');
-
                         css.href = url;
                         css.rel = 'stylesheet';
                         css.type = 'text/css';
                         document.head.appendChild(css);
+                        runtime.styles[url] = true;
                     }
 
-                    function colorRange(range, color) {
-                        if (range && range.elements) {
-                            range.elements.forEach(function (set) {
-                                set.forEach(function (item) {
-                                    item.setAttribute('fill', color);
-                                });
+                    function loadScriptOnce(id, url) {
+                        if (window.ABCJS) return Promise.resolve(window.ABCJS);
+
+                        var key = id || url;
+                        if (runtime.scripts[key]) return runtime.scripts[key];
+
+                        runtime.scripts[key] = new Promise(function (resolve, reject) {
+                            var existing = (id && document.getElementById(id)) || document.querySelector('script[src="' + url + '"]');
+                            var script = existing || document.createElement('script');
+
+                            function handleLoad() {
+                                resolve(window.ABCJS);
+                            }
+
+                            function handleError(error) {
+                                delete runtime.scripts[key];
+                                reject(error || new Error('Failed to load abcjs script.'));
+                            }
+
+                            if (window.ABCJS) {
+                                resolve(window.ABCJS);
+                                return;
+                            }
+
+                            script.addEventListener('load', handleLoad, { once: true });
+                            script.addEventListener('error', handleError, { once: true });
+
+                            if (!existing) {
+                                script.src = url;
+                                if (id) {
+                                    script.id = id;
+                                }
+                                document.body.appendChild(script);
+                            }
+                        });
+
+                        return runtime.scripts[key];
+                    }
+
+                    function clonePlainObject(source) {
+                        return source ? JSON.parse(JSON.stringify(source)) : {};
+                    }
+
+                    function getRenderOptions() {
+                        var options = clonePlainObject(config.options);
+                        delete options.inlineControls;
+                        delete options.animate;
+                        return options;
+                    }
+
+                    function getAudioOptions() {
+                        var options = clonePlainObject(config.options);
+                        if (options.animate && options.animate.qpm != null && options.qpm == null) {
+                            options.qpm = options.animate.qpm;
+                        }
+                        delete options.inlineControls;
+                        delete options.animate;
+                        return options;
+                    }
+
+                    function forEachEventElement(eventLike, iteratee) {
+                        if (!eventLike || !eventLike.elements) return;
+                        eventLike.elements.forEach(function (set) {
+                            (set || []).forEach(function (element) {
+                                if (element) iteratee(element);
                             });
+                        });
+                    }
+
+                    function rememberOriginalFill(element) {
+                        if (element.dataset.abcjsOriginalFill !== undefined) return;
+                        var originalFill = element.getAttribute('fill');
+                        element.dataset.abcjsOriginalFill = originalFill === null ? '__none__' : originalFill;
+                    }
+
+                    function restoreOriginalFill(element) {
+                        if (!element || !element.dataset) return;
+                        var originalFill = element.dataset.abcjsOriginalFill;
+                        if (originalFill === undefined) return;
+                        if (originalFill === '__none__') {
+                            element.removeAttribute('fill');
+                        } else {
+                            element.setAttribute('fill', originalFill);
                         }
                     }
 
-                    function createAudioControl(audio, visualObj) {
-                        if (typeof ABCJS.renderMidi === 'function') {
-                            ABCJS.renderMidi(config.audioId, abcString, config.options || {});
+                    function applyEventColor(eventLike, color, state) {
+                        forEachEventElement(eventLike, function (element) {
+                            rememberOriginalFill(element);
+                            if (state.touchedElements.indexOf(element) === -1) {
+                                state.touchedElements.push(element);
+                            }
+                            if (color == null) {
+                                restoreOriginalFill(element);
+                            } else {
+                                element.setAttribute('fill', color);
+                            }
+                        });
+                    }
+
+                    function resetAnimationState(state) {
+                        state.touchedElements.forEach(restoreOriginalFill);
+                        state.touchedElements = [];
+                        state.currentEvent = null;
+                    }
+
+                    function createCursorControl(state) {
+                        if (!config.animation) return null;
+
+                        var animationColors = config.animationColors || [];
+                        var playedColor = animationColors[0] || null;
+                        var currentColor = animationColors[1] || playedColor;
+
+                        return {
+                            onStart: function () {
+                                resetAnimationState(state);
+                            },
+                            onEvent: function (event) {
+                                if (!event) return;
+                                if (state.currentEvent) {
+                                    applyEventColor(state.currentEvent, playedColor, state);
+                                }
+                                applyEventColor(event, currentColor, state);
+                                state.currentEvent = event;
+                            },
+                            onFinished: function () {
+                                if (state.currentEvent) {
+                                    applyEventColor(state.currentEvent, playedColor, state);
+                                }
+                                state.currentEvent = null;
+                            }
+                        };
+                    }
+
+                    function createLegacyAnimateOptions() {
+                        if (!config.animation) return null;
+
+                        var animationColors = config.animationColors || [];
+                        return Object.assign({
+                            qpm: 120,
+                            listener: function (lastRange, currentRange) {
+                                applyEventColor(lastRange, animationColors[0] || null, {
+                                    touchedElements: [],
+                                    currentEvent: null
+                                });
+                                applyEventColor(currentRange, animationColors[1] || animationColors[0] || null, {
+                                    touchedElements: [],
+                                    currentEvent: null
+                                });
+                            }
+                        }, (config.options && config.options.animate) || {});
+                    }
+
+                    function getInlineControlOptions() {
+                        var inlineControls = (config.options && config.options.inlineControls) || {};
+                        var standardControlsEnabled = inlineControls.standard !== false;
+
+                        return {
+                            displayLoop: inlineControls.loopToggle !== false,
+                            displayRestart: standardControlsEnabled,
+                            displayPlay: standardControlsEnabled,
+                            displayProgress: standardControlsEnabled,
+                            displayWarp: inlineControls.warp !== false
+                        };
+                    }
+
+                    function applyInlineControlText(audio) {
+                        var inlineControls = (config.options && config.options.inlineControls) || {};
+                        var labels = [
+                            {
+                                selector: '.abcjs-midi-loop',
+                                title: inlineControls.tooltipLoop || 'Click to toggle play once/repeat.'
+                            },
+                            {
+                                selector: '.abcjs-midi-reset',
+                                title: inlineControls.tooltipReset || 'Click to go to beginning.'
+                            },
+                            {
+                                selector: '.abcjs-midi-start',
+                                title: inlineControls.tooltipPlay || 'Click to play/pause.'
+                            },
+                            {
+                                selector: '.abcjs-midi-progress-background',
+                                title: inlineControls.tooltipProgress || 'Click to change the playback position.'
+                            },
+                            {
+                                selector: '.abcjs-midi-tempo',
+                                title: inlineControls.tooltipWarp || 'Change the playback speed.'
+                            }
+                        ];
+
+                        labels.forEach(function (item) {
+                            var element = audio.querySelector(item.selector);
+                            if (!element) return;
+                            element.setAttribute('title', item.title);
+                            element.setAttribute('aria-label', item.title);
+                        });
+                    }
+
+                    function bindAutoplayOnFirstGesture(state) {
+                        if (!config.autoplay || !state.control || state.autoplayBound) return;
+
+                        state.autoplayBound = true;
+                        var triggered = false;
+                        var events = ['click', 'keydown', 'touchstart'];
+
+                        function cleanup() {
+                            events.forEach(function (eventName) {
+                                document.removeEventListener(eventName, handleFirstGesture);
+                            });
+                        }
+
+                        function handleFirstGesture() {
+                            if (triggered || !state.control) return;
+                            triggered = true;
+                            cleanup();
+                            Promise.resolve(state.control.play()).catch(function (error) {
+                                console.error('abcjs autoplay failed:', error);
+                            });
+                        }
+
+                        events.forEach(function (eventName) {
+                            document.addEventListener(eventName, handleFirstGesture, { once: true, passive: true });
+                        });
+                    }
+
+                    function createLegacyMidi(audio, visualObj) {
+                        var options = clonePlainObject(config.options);
+                        var animateOptions = createLegacyAnimateOptions();
+                        if (animateOptions) {
+                            options.animate = animateOptions;
+                            options.animate.target = visualObj;
+                        }
+                        options.inlineControls = options.inlineControls || {};
+                        options.inlineControls.startPlaying = !!config.autoplay;
+                        ABCJS.renderMidi(config.audioId, abcString, options);
+                    }
+
+                    function createSynthAudio(audio, visualObj, state) {
+                        state.control = new ABCJS.synth.SynthController();
+                        state.synth = new ABCJS.synth.CreateSynth();
+
+                        audio.innerHTML = '';
+                        state.control.load(audio, createCursorControl(state), getInlineControlOptions());
+                        applyInlineControlText(audio);
+
+                        return state.synth.init({ visualObj: visualObj })
+                            .then(function () {
+                                return state.control.setTune(visualObj, false, getAudioOptions());
+                            })
+                            .then(function () {
+                                bindAutoplayOnFirstGesture(state);
+                            });
+                    }
+
+                    function initAudio(audio, visualObj, state) {
+                        if (!config.midi) {
+                            audio.innerHTML = '';
                             return Promise.resolve();
                         }
 
-                        if (!ABCJS.synth || !ABCJS.synth.SynthController || !ABCJS.synth.CreateSynth) {
+                        if (ABCJS.synth && ABCJS.synth.SynthController && ABCJS.synth.CreateSynth) {
+                            return createSynthAudio(audio, visualObj, state);
+                        }
+
+                        if (typeof ABCJS.renderMidi === 'function') {
+                            createLegacyMidi(audio, visualObj);
                             return Promise.resolve();
                         }
 
                         audio.innerHTML = '';
+                        return Promise.resolve();
+                    }
 
-                        var inlineControls = (config.options && config.options.inlineControls) || {};
-                        var synthControlOptions = {
-                            displayLoop: inlineControls.loopToggle !== false,
-                            displayRestart: true,
-                            displayPlay: inlineControls.standard !== false,
-                            displayProgress: inlineControls.standard !== false,
-                            displayWarp: true
-                        };
-
-                        audio.synthController = new ABCJS.synth.SynthController();
-                        audio.synthController.load(audio, null, synthControlOptions);
-                        audio.synth = new ABCJS.synth.CreateSynth();
-
-                        return audio.synth.init({ visualObj: visualObj })
-                            .then(function () {
-                                return audio.synthController.setTune(visualObj, false);
-                            });
+                    function renderAbc(paper) {
+                        paper.innerHTML = '';
+                        return ABCJS.renderAbc(config.paperId, abcString, getRenderOptions());
                     }
 
                     function setup() {
@@ -391,37 +627,46 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (!paper || !audio || paper.dataset.abcjsRendered === 'true') return;
 
                         paper.dataset.abcjsRendered = 'true';
-                        var tunes = ABCJS.renderAbc(config.paperId, abcString, config.options || {});
-                        var options = config.options || {};
-                        var animationColors = config.animationColors;
 
-                        if (config.animation && tunes && tunes[0]) {
-                            options.animate = Object.assign({
-                                target: tunes[0],
-                                qpm: 120,
-                                listener: function (lastRange, currentRange) {
-                                    colorRange(lastRange, animationColors[0]);
-                                    colorRange(currentRange, animationColors[1]);
-                                }
-                            }, options.animate || {});
-                        }
+                        var state = {
+                            currentEvent: null,
+                            touchedElements: [],
+                            control: null,
+                            synth: null,
+                            autoplayBound: false
+                        };
 
-                        if (config.midi && tunes && tunes[0]) {
-                            createAudioControl(audio, tunes[0]).catch(function (error) {
+                        try {
+                            var tunes = renderAbc(paper);
+                            if (!tunes || !tunes[0]) {
                                 paper.dataset.abcjsRendered = 'false';
+                                return;
+                            }
+
+                            initAudio(audio, tunes[0], state).catch(function (error) {
+                                paper.dataset.abcjsRendered = 'false';
+                                resetAnimationState(state);
                                 console.error('abcjs audio init failed:', error);
                             });
+                        } catch (error) {
+                            paper.dataset.abcjsRendered = 'false';
+                            resetAnimationState(state);
+                            console.error('abcjs render failed:', error);
                         }
                     }
 
-                    loadcss(config.css);
-                    if (typeof window.ABCJS === 'undefined' && !document.getElementById(config.scriptId)) {
-                        loadjs(config.scriptId, config.js, setup);
-                    } else {
-                        setup();
+                    if (config.midi && config.css) {
+                        loadStyleOnce(config.css);
                     }
+
+                    loadScriptOnce(config.scriptId, config.js)
+                        .then(setup)
+                        .catch(function (error) {
+                            console.error('abcjs script load failed:', error);
+                        });
                 })();
             </script>
+    
         
 
 
