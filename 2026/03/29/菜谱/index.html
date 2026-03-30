@@ -2,26 +2,6 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
-<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
-<meta name="blogsclub-verify" content="826ef38b38344031840a3f040b86848e">
-<!-- 记录访问数据 -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const logData = {
-    url: window.location.href,
-    referrer: document.referrer,
-    screen: `${screen.width}x${screen.height}`,
-    lang: navigator.language,
-    ua: navigator.userAgent
-  };
-
-  // 使用Beacon API发送数据
-  navigator.sendBeacon('https://www.overstars.site:9004/logs/visit', 
-    new URLSearchParams(logData).toString()
-  );
-});
-</script>
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
@@ -47,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <meta property="og:description" content="海边风味黄花鱼食材准备：  新鲜黄花鱼 1条（约500-750克）  生姜 1块  大葱 1根  大蒜 3-4瓣  食用油 适量   酱汁：  生抽 2汤匙 料酒 2汤匙 耗油 2汤匙 盐 适量 白胡椒粉 少许（可选）  制作步骤：  处理黄花鱼 （解冻后），将黄花鱼刮去鱼鳞，去除鱼鳃和内脏，特别是鱼腹内的黑膜、血丝要清洗干净，这是去腥的关键。 在鱼身两面斜切花刀，深度约至鱼骨，这样便于入味和均匀">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-03-29T03:38:38.000Z">
-<meta property="article:modified_time" content="2026-03-29T03:49:35.415Z">
+<meta property="article:modified_time" content="2026-03-30T09:54:17.964Z">
 <meta property="article:author" content="Overstars">
 <meta name="twitter:card" content="summary">
 
@@ -68,7 +48,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
+<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
+<meta name="blogsclub-verify" content="826ef38b38344031840a3f040b86848e">
+<!-- 记录访问数据 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const logData = {
+    url: window.location.href,
+    referrer: document.referrer,
+    screen: `${screen.width}x${screen.height}`,
+    lang: navigator.language,
+    ua: navigator.userAgent
+  };
 
+  navigator.sendBeacon('https://www.overstars.site:9004/logs/visit',
+    new URLSearchParams(logData).toString()
+  );
+});
+</script>
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -108,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-arts"><a href="/arts/" rel="section"><i class="fa fa-guitar fa-fw"></i>arts</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>timeline</a></li><li class="menu-item menu-item-开往"><a href="https://www.travellings.cn/go.html" rel="section" target="_blank"><i class="fa fa-train-subway fa-fw"></i>开往</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-arts"><a href="/arts/" rel="section"><i class="fa fa-guitar fa-fw"></i>文艺</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>时间轴</a></li><li class="menu-item menu-item-travelling"><a href="https://www.travellings.cn/go.html" rel="section" target="_blank"><i class="fa fa-train-subway fa-fw"></i>开往</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -255,15 +253,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="post-meta-container">
           <div class="post-meta">
-  
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-03-29 11:38:38 / 修改时间：11:49:35" itemprop="dateCreated datePublished" datetime="2026-03-29T11:38:38+08:00">2026-03-29</time>
+      <time title="创建时间：2026-03-29 11:38:38" itemprop="dateCreated datePublished" datetime="2026-03-29T11:38:38+08:00">2026-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-30 17:54:17" itemprop="dateModified" datetime="2026-03-30T17:54:17+08:00">2026-03-30</time>
     </span>
 
   
@@ -308,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>处理黄花鱼</strong> （解冻后），将黄花鱼刮去鱼鳞，去除鱼鳃和内脏，特别是鱼腹内的黑膜、血丝要清洗干净，这是去腥的关键。 在鱼身两面斜切花刀，深度约至鱼骨，这样便于入味和均匀受热。 用厨房纸巾将鱼身表面的水分擦干，防止煎鱼时溅油。</li>
 <li><strong>准备配料</strong> 生姜切片，部分切丝 大葱切段，部分切丝 大蒜切片。提前爆好备用。</li>
 <li><strong>煎制黄花鱼</strong> 热锅凉油，油温五成热时放入黄花鱼。 中小火慢煎，不要急于翻动，待一面煎至金黄定型后再翻面。</li>
-<li><strong>调味焖煮</strong>  待两面都煎至金黄色时，用锅中的余油爆香姜片、葱段、蒜片（若提前爆好则直接放入）。 淋入提前配好的酱汁（水量约没过鱼身一半）。 盖上锅盖，转小火焖煮8-10分钟。</li>
+<li><strong>调味焖煮</strong>  待两面都煎至金黄色时，用锅中的余油爆香姜片、葱段、蒜片（若提前爆好则直接放入）。 淋入提前配好的酱汁（水量约没过鱼身一半）。 盖上锅盖，转小火焖煮 8-10分钟。</li>
 <li><strong>收汁出锅</strong> 打开锅盖，转大火收汁，待汤汁变得浓稠。 撒上葱丝点缀，即可出锅装盘。</li>
 </ol>
 <p><strong>烹饪小贴士：</strong></p>

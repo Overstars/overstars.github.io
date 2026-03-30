@@ -175,7 +175,7 @@ const abcStyle = `
 \tfont-size: 20px;
 }
 `;
-document.querySelector('head').innerHTML += `<style type='text/css'>${abcStyle}</style>`;
+document.querySelector('head').innerHTML += `<style type="text/css">${abcStyle}</style>`;
 
 const reloadAudioControl = async (audioElement, visualObj) => {
     if (!audioElement.synthController) {

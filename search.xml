@@ -316,7 +316,7 @@ section Godot Engine实践
 <li><strong>处理黄花鱼</strong> （解冻后），将黄花鱼刮去鱼鳞，去除鱼鳃和内脏，特别是鱼腹内的黑膜、血丝要清洗干净，这是去腥的关键。 在鱼身两面斜切花刀，深度约至鱼骨，这样便于入味和均匀受热。 用厨房纸巾将鱼身表面的水分擦干，防止煎鱼时溅油。</li>
 <li><strong>准备配料</strong> 生姜切片，部分切丝 大葱切段，部分切丝 大蒜切片。提前爆好备用。</li>
 <li><strong>煎制黄花鱼</strong> 热锅凉油，油温五成热时放入黄花鱼。 中小火慢煎，不要急于翻动，待一面煎至金黄定型后再翻面。</li>
-<li><strong>调味焖煮</strong>  待两面都煎至金黄色时，用锅中的余油爆香姜片、葱段、蒜片（若提前爆好则直接放入）。 淋入提前配好的酱汁（水量约没过鱼身一半）。 盖上锅盖，转小火焖煮8-10分钟。</li>
+<li><strong>调味焖煮</strong>  待两面都煎至金黄色时，用锅中的余油爆香姜片、葱段、蒜片（若提前爆好则直接放入）。 淋入提前配好的酱汁（水量约没过鱼身一半）。 盖上锅盖，转小火焖煮 8-10分钟。</li>
 <li><strong>收汁出锅</strong> 打开锅盖，转大火收汁，待汤汁变得浓稠。 撒上葱丝点缀，即可出锅装盘。</li>
 </ol>
 <p><strong>烹饪小贴士：</strong></p>
@@ -378,6 +378,21 @@ section Godot Engine实践
     <title>HOW TO SLEEP</title>
     <url>/2026/03/09/%E7%94%9F%E6%B4%BB/HOW-TO-SLEEP/</url>
     <content><![CDATA[<p>？</p>
+<span id="more"></span>
+
+
+
+<ul>
+<li>至少7小时，不超过8小时。</li>
+<li>卧床 20 分钟内没有睡着，就起来做一些放松的事情，例如阅读或听舒缓的音乐，累了的时候再回去睡觉。</li>
+</ul>
+<p>建议：</p>
+<ul>
+<li>每3天提前15–20分钟，不要一下子大幅调整。</li>
+<li>下午2点后不喝咖啡因饮品。</li>
+<li>保持运动（但不要睡前2小时剧烈运动）。</li>
+<li>睡前避免打游戏、刷视频、网络对线。</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -5922,7 +5937,9 @@ section Godot Engine实践
 </div></div><div class="timeline-item-content"><p>12月2日 xxxx</p>
 </div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>12-01</p>
 </div></div><div class="timeline-item-content"><p>12月1日 xxxx</p>
-</div></div></div>]]></content>
+</div></div></div>
+
+<h3 id="瀑布流懒加载展示相册"><a href="#瀑布流懒加载展示相册" class="headerlink" title="瀑布流懒加载展示相册"></a>瀑布流懒加载展示相册</h3>]]></content>
       <categories>
         <category>工具</category>
         <category>Hexo</category>

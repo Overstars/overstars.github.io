@@ -2,26 +2,6 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
-<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
-<meta name="blogsclub-verify" content="826ef38b38344031840a3f040b86848e">
-<!-- 记录访问数据 -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const logData = {
-    url: window.location.href,
-    referrer: document.referrer,
-    screen: `${screen.width}x${screen.height}`,
-    lang: navigator.language,
-    ua: navigator.userAgent
-  };
-
-  // 使用Beacon API发送数据
-  navigator.sendBeacon('https://www.overstars.site:9004/logs/visit', 
-    new URLSearchParams(logData).toString()
-  );
-});
-</script>
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
@@ -69,7 +49,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<meta name="msvalidate.01" content="074EBDF1D98366D8B8F4E44E93FE8D10" />
+<meta name="google-site-verification" content="tHvWiN0GmfraqswcoKeF3ZCZSZM2HZbcn9Ib_BFBMBA" />
+<meta name="blogsclub-verify" content="826ef38b38344031840a3f040b86848e">
+<!-- 记录访问数据 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const logData = {
+    url: window.location.href,
+    referrer: document.referrer,
+    screen: `${screen.width}x${screen.height}`,
+    lang: navigator.language,
+    ua: navigator.userAgent
+  };
 
+  navigator.sendBeacon('https://www.overstars.site:9004/logs/visit',
+    new URLSearchParams(logData).toString()
+  );
+});
+</script>
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -109,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-arts"><a href="/arts/" rel="section"><i class="fa fa-guitar fa-fw"></i>arts</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>timeline</a></li><li class="menu-item menu-item-开往"><a href="https://www.travellings.cn/go.html" rel="section" target="_blank"><i class="fa fa-train-subway fa-fw"></i>开往</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-arts"><a href="/arts/" rel="section"><i class="fa fa-guitar fa-fw"></i>文艺</a></li><li class="menu-item menu-item-timeline"><a href="/timeline/" rel="section"><i class="fa-solid fa-timeline fa-fw"></i>时间轴</a></li><li class="menu-item menu-item-travelling"><a href="https://www.travellings.cn/go.html" rel="section" target="_blank"><i class="fa fa-train-subway fa-fw"></i>开往</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -256,7 +254,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="post-meta-container">
           <div class="post-meta">
-  
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
