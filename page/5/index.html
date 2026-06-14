@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -217,6 +217,108 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://overstars.github.io/2022/10/24/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/hexo%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4%E3%80%81%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Overstars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="零岛">
+      <meta itemprop="description" content="I despised my soul when I saw her being meek that she might attain height.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 零岛">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/24/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/hexo%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4%E3%80%81%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">hexo常见指令、配置与插件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-24 15:49:23" itemprop="dateCreated datePublished" datetime="2022-10-24T15:49:23+08:00">2022-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-30 18:01:22" itemprop="dateModified" datetime="2026-03-30T18:01:22+08:00">2026-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>nodeJS安装v16.18.1 LTS版本</p>
+<p>2023年8月31日下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download">Latest LTS Version: <strong>18.17.1</strong> (includes npm 9.6.7)</a></p>
+<h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo -g</span><br><span class="line">npm install -g hexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>记得按教程修改_config.yml</p>
+<h2 id="注意：本站使用git套git维护"><a href="#注意：本站使用git套git维护" class="headerlink" title="注意：本站使用git套git维护"></a>注意：本站使用git套git维护</h2><p>请务必保证 <code>Miaplacidus\.deploy_git\.git</code> 存在且指向 <code>github pages</code> 仓库，否则hexo会直接部署到文本维护仓库。</p>
+<p>维护仓库push &#x2F; pull有问题，检查<code>overstars_hexo_backup\.git\config</code> 文件。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/24/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/hexo%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4%E3%80%81%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1061,103 +1163,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/09/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%E7%9B%B8%E5%85%B3/%E7%8E%B0%E5%9C%A8%E7%BB%B4%E6%8A%A4%E7%9A%84%E6%A8%A1%E6%9D%BF/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://overstars.github.io/2021/12/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/MP2P%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%9F%BA%E4%BA%8E%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Overstars">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="零岛">
-      <meta itemprop="description" content="I despised my soul when I saw her being meek that she might attain height.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 零岛">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/MP2P%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%9F%BA%E4%BA%8E%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/" class="post-title-link" itemprop="url">MP2P网络中基于非完全合作节点识别的路由选择</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-12-12 21:40:53" itemprop="dateCreated datePublished" datetime="2021-12-12T21:40:53+08:00">2021-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-27 21:21:17" itemprop="dateModified" datetime="2023-01-27T21:21:17+08:00">2023-01-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer science</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/computer-science/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>P2P模式中资源稀缺性加剧了移动对等网络（MP2P）节点的自私，使节点表达非完全合作（NCC）态度。因此，在本文中提出了<strong>非完全合作节点的识别</strong>并针对 MP2P 提出了相应的<strong>信任路由方案</strong>。</p>
-<p>从<strong>直接信任</strong>、<strong>内部状态</strong>、<strong>推荐信任</strong>三个维度组成的卦限来评估。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/MP2P%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%9F%BA%E4%BA%8E%E9%9D%9E%E5%AE%8C%E5%85%A8%E5%90%88%E4%BD%9C%E8%8A%82%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
